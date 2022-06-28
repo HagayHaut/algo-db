@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "../App.css";
-import Login from "./Login";
-import Signup from "./Signup";
+import LandingPage from "./LandingPage";
+import NavBar from "./NavBar";
+import UserPage from "./UserPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,14 +27,13 @@ function App() {
     });
   }
 
-  if (!user) return <Login onLogin={setUser} />;
+  if (!user) return <LandingPage onLogin={setUser} />;
 
   return (
     <div className="App">
-      <button onClick={handleLogout}>Logout</button>
+      <NavBar onLogout={handleLogout} user={user} />
       <Routes>
-        {/* <Route path="login" element={<Login onLogin={setUser} />} /> */}
-        <Route path="signup" element={<Signup onLogin={setUser} />} />
+        <Route path="/" element={<UserPage user={user} />} />
       </Routes>
     </div>
   );

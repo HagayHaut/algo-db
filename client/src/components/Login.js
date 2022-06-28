@@ -63,8 +63,6 @@ function Login({ onLogin }) {
           ))}
         </div>
       </form>
-      <label>Not A User? </label>
-      <button onClick={() => navigate("/signup")}>Sign Up</button>
     </>
   );
 }
