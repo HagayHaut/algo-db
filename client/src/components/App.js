@@ -4,6 +4,8 @@ import "../App.css";
 import LandingPage from "./LandingPage";
 import NavBar from "./NavBar";
 import UserPage from "./UserPage";
+import FindChallenge from "./FindChallenge";
+import Submission from "./Submission";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -34,6 +36,8 @@ function App() {
       <NavBar onLogout={handleLogout} user={user} />
       <Routes>
         <Route path="/" element={<UserPage user={user} />} />
+        <Route path="/challenges" element={<FindChallenge user={user} />} />
+        <Route path="/new" element={<Submission />} />
       </Routes>
     </div>
   );

@@ -14,11 +14,19 @@ const H3 = styled.h3`
   margin-right: 1rem;
 `;
 
+const linkStyle = {
+  textDecoration: "none",
+  color: "inherit",
+};
+
 function NavBar({ onLogout, user }) {
   return (
     <NavContainer>
-      <Link to="/">
+      <Link to="/" style={linkStyle}>
         <H3>{user.username}</H3>
+      </Link>
+      <Link to="/challenges" style={linkStyle}>
+        <H3>Find Challenge</H3>
       </Link>
       <H3 onClick={onLogout}>Logout</H3>
     </NavContainer>
