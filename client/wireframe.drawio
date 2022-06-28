@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="APUHOT9g7WTHmiHVqTJb" name="Page-1">
-        <mxGraphModel dx="2294" dy="684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="2478" dy="684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -76,8 +76,14 @@
                 <mxCell id="24" value="Challenge" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="260" y="220" width="120" height="60" as="geometry"/>
                 </mxCell>
+                <mxCell id="31" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="25" target="30">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="25" value="Solution" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="70" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Comment" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="340" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
