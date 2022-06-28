@@ -26,7 +26,10 @@ function NavBar({ onLogout, user }) {
         <H3>{user.username}</H3>
       </Link>
       <Link to="/challenges" style={linkStyle}>
-        <H3>Find Challenge</H3>
+        <H3>Challenges</H3>
+      </Link>
+      <Link to="/new" style={linkStyle}>
+        <H3>New</H3>
       </Link>
       <H3 onClick={onLogout}>Logout</H3>
     </NavContainer>
