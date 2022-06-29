@@ -14,7 +14,7 @@ function FindChallenge() {
   }
 
   const challengeItems = allChallenges.map((challenge) => (
-    <div>
+    <div key={challenge.id}>
       <p>{challenge.title}</p>
     </div>
   ));
