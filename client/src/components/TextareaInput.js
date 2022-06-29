@@ -6,7 +6,7 @@ const TextArea = styled.textarea`
   height: 200px;
 `;
 
-const TextareaInput = ({ spaces = 4, onTextChange }) => {
+const TextareaInput = ({ spaces = 4, onTextChange, parentState }) => {
   const [text, setText] = useState({ value: "", caret: -1, target: null });
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const TextareaInput = ({ spaces = 4, onTextChange }) => {
     <TextArea
       onChange={handleChange}
       onKeyDown={handleTab}
-      value={text.value}
+      value={parentState ? text.value : parentState}
     />
   );
 };

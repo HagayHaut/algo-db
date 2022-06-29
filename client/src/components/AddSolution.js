@@ -91,6 +91,7 @@ function AddSolution({ user }) {
       if (r.ok) {
         r.json().then((data) => {
           setNewSolution(data);
+          setErrors([]);
           setFormState(initialFormState);
         });
       } else {
@@ -120,6 +121,7 @@ function AddSolution({ user }) {
             onTextChange={(e) =>
               setFormState({ ...formState, solution: e.target.value })
             }
+            parentState={formState.solution}
           />
         </InputContainer>
         <InputContainer>
@@ -150,6 +152,7 @@ function AddSolution({ user }) {
             onTextChange={(e) =>
               setFormState({ ...formState, notes: e.target.value })
             }
+            parentState={formState.notes}
           />
         </InputContainer>
         {errors.length > 0 && (

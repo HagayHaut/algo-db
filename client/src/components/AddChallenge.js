@@ -74,6 +74,7 @@ function AddChallenge() {
       if (r.ok) {
         r.json().then((data) => {
           setNewChallenge(data);
+          setErrors([]);
           setFormState(initialFormState);
         });
       } else {
@@ -101,6 +102,7 @@ function AddChallenge() {
             onTextChange={(e) =>
               setFormState({ ...formState, description: e.target.value })
             }
+            parentState={formState.description}
           />
         </InputContainer>
         <InputContainer>
