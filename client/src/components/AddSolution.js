@@ -26,8 +26,18 @@ const SubmitButton = styled.button`
   margin-top: 20px;
 `;
 
-function AddSolution() {
+function AddSolution({ user }) {
+  const initialFormState = {
+    user_id: user.id,
+    challenge_id: "",
+    solution: "",
+    time_complexity: "",
+    space_complexity: "",
+    notes: "",
+  };
+
   const [allChallenges, setAllChallenges] = useState([]);
+  const [formState, setFormState] = useState(initialFormState);
 
   useEffect(() => {
     getAllChallenges();
@@ -60,38 +70,63 @@ function AddSolution() {
     </option>
   ));
 
+  function handleFormChange(e) {
+    const { name, value } = e.target;
+    setFormState({ ...formState, [name]: value });
+  }
+
   return (
     <FormContainer>
       <h2>Add a New Solution</h2>
       <form>
         <InputContainer>
           <label>Pick Challenge</label>
-          <select>
+          <select
+            value={formState.challenge_id}
+            name="challenge_id"
+            onChange={handleFormChange}
+          >
             <option></option>
             {challengeOptions}
           </select>
         </InputContainer>
         <InputContainer>
           <label>Your Solution:</label>
-          <TextareaInput></TextareaInput>
+          <TextareaInput
+            onTextChange={(e) =>
+              setFormState({ ...formState, solution: e.target.value })
+            }
+          />
         </InputContainer>
         <InputContainer>
           <label>Time Complexity</label>
-          <select>
+          <select
+            value={formState.time_complexity}
+            name="time_complexity"
+            onChange={handleFormChange}
+          >
             <option></option>
             {complexityOptions}
           </select>
         </InputContainer>
         <InputContainer>
           <label>Space Complexity</label>
-          <select>
+          <select
+            value={formState.space_complexity}
+            name="space_complexity"
+            onChange={handleFormChange}
+          >
             <option></option>
             {complexityOptions}
           </select>
         </InputContainer>
         <InputContainer>
           <label>Solution Notes:</label>
-          <TextareaInput></TextareaInput>
+          <TextareaInput
+            onTextChange={(e) =>
+              setFormState({ ...formState, notes: e.target.value })
+            }
+          />
         </InputContainer>
 
         <SubmitButton type="submit">Submit Solution</SubmitButton>

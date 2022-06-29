@@ -80,7 +80,7 @@ function AddChallenge() {
             onTextChange={(e) =>
               setFormState({ ...formState, description: e.target.value })
             }
-          ></TextareaInput>
+          />
         </InputContainer>
         <InputContainer>
           <label>External URL (optional)</label>

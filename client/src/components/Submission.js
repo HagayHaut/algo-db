@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import AddChallenge from "./AddChallenge";
 import AddSolution from "./AddSolution";
 
-function Submission() {
+function Submission({ user }) {
   const [showAddSolution, setShowAddSolution] = useState(true);
 
-  const addNew = showAddSolution ? <AddSolution /> : <AddChallenge />;
+  const addNew = showAddSolution ? (
+    <AddSolution user={user} />
+  ) : (
+    <AddChallenge />
+  );
 
   return (
     <div>
