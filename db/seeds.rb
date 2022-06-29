@@ -11,6 +11,7 @@ Category.destroy_all
 complexities = %w(O(n) O(1) O(n^2) O(log-n) O(n-log-n) O(n!))
 categories = %w[array hashmap linked-list binary-tree graph two-pointer sliding-window set stack-queue sort string
                 recursion]
+languages = %w[c csharp cpp go java javascript php python ruby rust typescript]
 
 cinna = User.create(username: 'cinna', password: 'toy')
 arlo = User.create(username: 'arlo', password: 'toy')
@@ -39,7 +40,8 @@ end
     solution: Faker::Lorem.paragraph(sentence_count: 8),
     time_complexity: complexities[rand(0..5)],
     space_complexity: complexities[rand(0..5)],
-    notes: Faker::Lorem.paragraph
+    notes: Faker::Lorem.paragraph,
+    language: languages[rand(0..10)]
   )
 end
 

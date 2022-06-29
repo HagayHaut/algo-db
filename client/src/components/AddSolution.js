@@ -9,13 +9,6 @@ const FormContainer = styled.div`
   text-align: center;
 `;
 
-const Input = styled.input`
-  display: block;
-  height: 50%;
-  width: 100%;
-  text-align: center;
-`;
-
 const InputContainer = styled.div`
   padding-top: 10px;
   display: flex;
@@ -34,6 +27,7 @@ function AddSolution({ user }) {
     time_complexity: "",
     space_complexity: "",
     notes: "",
+    language: "",
   };
 
   const [allChallenges, setAllChallenges] = useState([]);
@@ -113,6 +107,27 @@ function AddSolution({ user }) {
           >
             <option></option>
             {challengeOptions}
+          </select>
+        </InputContainer>
+        <InputContainer>
+          <label>Pick Language</label>
+          <select
+            value={formState.language}
+            name="language"
+            onChange={handleFormChange}
+          >
+            <option value=""></option>
+            <option value="c">C</option>
+            <option value="csharp">C#</option>
+            <option value="cpp">C++</option>
+            <option value="go">Go</option>
+            <option value="java">Java</option>
+            <option value="javascript">JavaScript</option>
+            <option value="php">PHP</option>
+            <option value="python">Python</option>
+            <option value="ruby">Ruby</option>
+            <option value="rust">Rust</option>
+            <option value="typescript">TypeScript</option>
           </select>
         </InputContainer>
         <InputContainer>

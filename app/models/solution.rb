@@ -10,4 +10,5 @@ class Solution < ApplicationRecord
   validates :time_complexity, length: { minimum: 1 }
   validates :space_complexity, length: { minimum: 1 }
   validates :notes, presence: true
+  validates :language, length: { minimum: 1 }
 end

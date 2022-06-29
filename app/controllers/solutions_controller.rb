@@ -23,7 +23,7 @@ class SolutionsController < ApplicationController
   private
 
   def solution_params
-    params.permit(:user_id, :challenge_id, :solution, :time_complexity, :space_complexity, :notes)
+    params.permit(:user_id, :challenge_id, :solution, :time_complexity, :space_complexity, :notes, :language)
   end
 
   def find_solution
