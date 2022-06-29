@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "../App.css";
 import LandingPage from "./LandingPage";
 import NavBar from "./NavBar";
@@ -9,8 +9,6 @@ import Submission from "./Submission";
 
 function App() {
   const [user, setUser] = useState(null);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     // auto-login
