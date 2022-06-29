@@ -57,7 +57,7 @@ function Login({ onLogin }) {
   return (
     <FormContainer>
       <StyledForm onSubmit={handleSubmit}>
-        <h1>Login Form</h1>
+        <h1>Login</h1>
         <div>
           <label htmlFor="username">Username</label>
           <Input

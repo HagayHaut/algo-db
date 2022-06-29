@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :comments
   resources :solutions, only: %i[index show]
   resources :challenges, only: %i[index show]
   resources :users, only: [:create]

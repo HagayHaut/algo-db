@@ -3,6 +3,8 @@ class CreateChallenges < ActiveRecord::Migration[7.0]
     create_table :challenges do |t|
       t.string :title
       t.text :description
+      t.integer :category_id
+      t.string :external_url
 
       t.timestamps
     end

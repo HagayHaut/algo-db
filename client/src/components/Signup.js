@@ -60,7 +60,7 @@ function Signup({ onLogin }) {
   return (
     <FormContainer>
       <StyledForm onSubmit={handleSubmit}>
-        <h1>Signup Form</h1>
+        <h1>Signup</h1>
         <div>
           <label htmlFor="username">Username</label>
           <Input
@@ -82,7 +82,7 @@ function Signup({ onLogin }) {
           />
         </InputContainer>
         <InputContainer>
-          <label htmlFor="password">Password Confirmation</label>
+          <label htmlFor="password">Confirm Password</label>
           <Input
             type="password"
             id="password_confirmation"
