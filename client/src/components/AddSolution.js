@@ -38,6 +38,8 @@ function AddSolution({ user }) {
 
   const [allChallenges, setAllChallenges] = useState([]);
   const [formState, setFormState] = useState(initialFormState);
+  const [newSolution, setNewSolution] = useState({});
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     getAllChallenges();
@@ -75,10 +77,32 @@ function AddSolution({ user }) {
     setFormState({ ...formState, [name]: value });
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    const body = {
+      ...formState,
+      challenge_id: parseInt(formState.challenge_id),
+    };
+    fetch("/solutions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => {
+          setNewSolution(data);
+          setFormState(initialFormState);
+        });
+      } else {
+        r.json().then((e) => setErrors(e.errors));
+      }
+    });
+  }
+
   return (
     <FormContainer>
       <h2>Add a New Solution</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <InputContainer>
           <label>Pick Challenge</label>
           <select
@@ -128,7 +152,13 @@ function AddSolution({ user }) {
             }
           />
         </InputContainer>
-
+        {errors.length > 0 && (
+          <div>
+            {errors.map((e, i) => (
+              <p key={i}>{e}</p>
+            ))}
+          </div>
+        )}
         <SubmitButton type="submit">Submit Solution</SubmitButton>
       </form>
     </FormContainer>

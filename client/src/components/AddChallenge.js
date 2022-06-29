@@ -66,7 +66,6 @@ function AddChallenge() {
   function handleSubmit(e) {
     e.preventDefault();
     const body = { ...formState, category_id: parseInt(formState.category_id) };
-    console.log(body);
     fetch("/challenges", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
