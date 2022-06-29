@@ -7,6 +7,10 @@ const SolutionContainer = styled.div`
   border: 1px solid black;
 `;
 
+const NotesContainer = styled.div`
+  border: 1px solid black;
+`;
+
 function Solution({ selectedSolution }) {
   const {
     solution,
@@ -20,9 +24,24 @@ function Solution({ selectedSolution }) {
   return (
     <SolutionContainer>
       <p>Solution for {challenge.title}</p>
-      <SyntaxHighlighter language={language} style={obsidian}>
+      <SyntaxHighlighter
+        language={language}
+        style={obsidian}
+        wrapLines={true}
+        lineProps={{
+          style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
+        }}
+      >
         {solution}
       </SyntaxHighlighter>
+      <NotesContainer>
+        <h5>Time Complexity</h5>
+        <p>{time_complexity}</p>
+        <h5>Space Complexity</h5>
+        <p>{space_complexity}</p>
+        <h5>Notes</h5>
+        <p>{notes}</p>
+      </NotesContainer>
     </SolutionContainer>
   );
 }
