@@ -2,7 +2,12 @@ class SolutionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_response
 
   def index
-    render json: Solution.all, status: :ok
+    if params[:user_id]
+      user = User.find(params[:user_id])
+      render json: user.solutions, status: :ok
+    else
+      render json: Solution.all, status: :ok
+    end
   end
 
   def show
