@@ -59,7 +59,9 @@ function UserPage({ user }) {
         <h3>My Solutions:</h3>
         {userSolutionItems}
       </UserPageContainer>
-      {selectedSolution.solution && <Solution solution={selectedSolution} />}
+      {selectedSolution.solution && (
+        <Solution selectedSolution={selectedSolution} />
+      )}
     </PageContainer>
   );
 }
