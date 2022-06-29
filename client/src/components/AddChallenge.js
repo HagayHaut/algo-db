@@ -1,4 +1,5 @@
 import React from "react";
+import TextareaInput from "./TextareaInput";
 import styled from "styled-components";
 
 const FormContainer = styled.div`
@@ -21,11 +22,6 @@ const InputContainer = styled.div`
   flex-direction: column;
 `;
 
-const TextArea = styled.textarea`
-  width: 100%;
-  height: 200px;
-`;
-
 const SubmitButton = styled.button`
   margin-top: 20px;
 `;
@@ -41,7 +37,7 @@ function AddChallenge() {
         </InputContainer>
         <InputContainer>
           <label>Challenge Description</label>
-          <TextArea></TextArea>
+          <TextareaInput></TextareaInput>
         </InputContainer>
         <InputContainer>
           <label>External URL (optional)</label>

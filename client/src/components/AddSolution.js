@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import TextareaInput from "./TextareaInput";
 import styled from "styled-components";
 
 const FormContainer = styled.div`
@@ -19,11 +20,6 @@ const InputContainer = styled.div`
   padding-top: 10px;
   display: flex;
   flex-direction: column;
-`;
-
-const TextArea = styled.textarea`
-  width: 100%;
-  height: 200px;
 `;
 
 const SubmitButton = styled.button`
@@ -77,7 +73,7 @@ function AddSolution() {
         </InputContainer>
         <InputContainer>
           <label>Your Solution:</label>
-          <TextArea></TextArea>
+          <TextareaInput></TextareaInput>
         </InputContainer>
         <InputContainer>
           <label>Time Complexity</label>
@@ -95,7 +91,7 @@ function AddSolution() {
         </InputContainer>
         <InputContainer>
           <label>Solution Notes:</label>
-          <TextArea></TextArea>
+          <TextareaInput></TextareaInput>
         </InputContainer>
 
         <SubmitButton type="submit">Submit Solution</SubmitButton>
