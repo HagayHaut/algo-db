@@ -83,11 +83,13 @@ function Login({ onLogin }) {
             {isLoading ? "Loading..." : "Login"}
           </LoginButton>
         </div>
-        <div>
-          {errors.map((err) => (
-            <div key={err}>{err}</div>
-          ))}
-        </div>
+        {errors.length > 0 && (
+          <div>
+            {errors.map((err) => (
+              <div key={err}>{err}</div>
+            ))}
+          </div>
+        )}
       </StyledForm>
     </FormContainer>
   );

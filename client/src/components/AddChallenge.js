@@ -50,6 +50,8 @@ function AddChallenge() {
   };
 
   const [formState, setFormState] = useState(initialFormState);
+  const [newChallenge, setNewChallenge] = useState({});
+  const [errors, setErrors] = useState([]);
 
   function handleFormChange(e) {
     const { name, value } = e.target;
@@ -61,10 +63,30 @@ function AddChallenge() {
     setFormState({ ...formState, category_id });
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    const body = { ...formState, category_id: parseInt(formState.category_id) };
+    console.log(body);
+    fetch("/challenges", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => {
+          setNewChallenge(data);
+          setFormState(initialFormState);
+        });
+      } else {
+        r.json().then((e) => setErrors(e.errors));
+      }
+    });
+  }
+
   return (
     <FormContainer>
       <h2>Add a New Challenge</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <InputContainer>
           <label>Challenge Title</label>
           <Input
@@ -113,7 +135,13 @@ function AddChallenge() {
             <option value="recursion">String</option>
           </select>
         </InputContainer>
-
+        {errors.length > 0 && (
+          <div>
+            {errors.map((e, i) => (
+              <p key={i}>{e}</p>
+            ))}
+          </div>
+        )}
         <SubmitButton type="submit">Submit Challenge</SubmitButton>
       </form>
     </FormContainer>
