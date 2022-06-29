@@ -36,7 +36,7 @@ end
   Solution.create(
     user_id: rand(1..4),
     challenge_id: rand(1..8),
-    solution: Faker::Lorem.paragraph,
+    solution: Faker::Lorem.paragraph(sentence_count: 8),
     time_complexity: complexities[rand(0..5)],
     space_complexity: complexities[rand(0..5)],
     notes: Faker::Lorem.paragraph
