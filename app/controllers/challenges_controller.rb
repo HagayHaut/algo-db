@@ -10,7 +10,16 @@ class ChallengesController < ApplicationController
     render json: challenge, status: :ok
   end
 
+  def create
+    challenge = Challenge.create!(challenge_params)
+    render json: challenge, status: :created
+  end
+
   private
+
+  def challenge_params
+    params.permit(:title, :description, :category_id, :external_url)
+  end
 
   def find_challenge
     Challenge.find(params[:id])

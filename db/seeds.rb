@@ -9,7 +9,8 @@ Comment.destroy_all
 Category.destroy_all
 
 complexities = %w(O(n) O(1) O(n^2) O(log-n) O(n-log-n) O(n!))
-categories = %w[array hashmap linked-list binary-tree graph two-pointer sliding-window set stack-queue sort string recursion]
+categories = %w[array hashmap linked-list binary-tree graph two-pointer sliding-window set stack-queue sort string
+                recursion]
 
 cinna = User.create(username: 'cinna', password: 'toy')
 arlo = User.create(username: 'arlo', password: 'toy')
@@ -25,7 +26,7 @@ end
 8.times do
   Challenge.create(
     title: Faker::Lorem.sentence,
-    description: Faker::Lorem.paragraph,
+    description: Faker::Lorem.paragraph(sentence_count: 8),
     category_id: rand(1..12),
     external_url: Faker::Internet.url
   )
