@@ -97,6 +97,7 @@ function Solution({ selectedSolution, index, user }) {
       <SyntaxHighlighter
         language={language}
         style={obsidian}
+        showLineNumbers={true}
         wrapLines={true}
         lineProps={{
           style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
