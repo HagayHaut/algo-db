@@ -115,7 +115,7 @@ function FindChallenge({ user }) {
         <h1>Find Challenges</h1>
         <label>Filter by category</label>
         <select value={selectedCategory} onChange={handleCategoryChange}>
-          <option value="All"></option>
+          <option value="All">All</option>
           <option value="array">Array</option>
           <option value="binary-tree">Binary Tree</option>
           <option value="bit-manipulation">Bit Manipulation</option>

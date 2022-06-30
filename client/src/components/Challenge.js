@@ -35,9 +35,9 @@ function Challenge({
   let challengeDescLines;
 
   if (description) {
-    challengeDescLines = description
-      .split("\n")
-      .map((line, i) => <p key={i}>{line}</p>);
+    challengeDescLines = description.split("\n").map((line, i) => {
+      return line === "" ? <br></br> : <p key={i}>{line}</p>;
+    });
   }
 
   let displaySolutions;
