@@ -5,7 +5,7 @@ const FormContainer = styled.div`
   border: 1px solid black;
   padding: 20px;
   width: 50%;
-  background-color: #ff5733;
+  /* background-color: #ff5733; */
 `;
 
 const StyledForm = styled.form`

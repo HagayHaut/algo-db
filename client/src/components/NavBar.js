@@ -14,6 +14,10 @@ const H3 = styled.h3`
   font-size: 3.5vh;
   margin-left: 1vh;
   margin-right: 3vh;
+  border: 1px solid black;
+  border-radius: 15%;
+  padding-right: 4px;
+  padding-left: 4px;
 `;
 
 const linkStyle = {
