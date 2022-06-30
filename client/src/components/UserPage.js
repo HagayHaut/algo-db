@@ -57,11 +57,13 @@ function UserPage({ user }) {
     setSelectedChallenge(challenge);
   }
 
-  const userChallengeItems = userChallenges.map((chal) => (
-    <UserChallenge key={chal.id} onClick={() => updateSelected(chal.id)}>
+  const userChallengeItems = userChallenges.map((chal, i) => (
+    <UserChallenge key={i} onClick={() => updateSelected(chal.id)}>
       {chal.title}
     </UserChallenge>
   ));
+
+  const forUser = true;
 
   return (
     <PageContainer>
@@ -72,7 +74,11 @@ function UserPage({ user }) {
         {userChallengeItems}
       </UserPageContainer>
       {selectedChallenge.description && (
-        <Challenge selectedChallenge={selectedChallenge} user={user} />
+        <Challenge
+          selectedChallenge={selectedChallenge}
+          user={user}
+          forUser={forUser}
+        />
       )}
     </PageContainer>
   );

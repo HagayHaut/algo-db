@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Solution from "./Solution";
 import styled from "styled-components";
 
@@ -12,7 +12,7 @@ const ChallengeContainer = styled.div`
   text-align: left;
 `;
 
-function Challenge({ selectedChallenge, user }) {
+function Challenge({ selectedChallenge, user, forUser }) {
   const { title, external_url, description, solutions } = selectedChallenge;
 
   let challengeDescLines;
@@ -23,9 +23,19 @@ function Challenge({ selectedChallenge, user }) {
       .map((line, i) => <p key={i}>{line}</p>);
   }
 
-  const displaySolutions = solutions
-    .filter((sol) => sol.user_id === user.id)
-    .map((sol, i) => <Solution key={i} selectedSolution={sol} index={i} />);
+  let displaySolutions;
+
+  if (forUser) {
+    displaySolutions = solutions
+      .filter((sol) => sol.user_id === user.id)
+      .map((sol, i) => (
+        <Solution key={i} selectedSolution={sol} index={i} user={user} />
+      ));
+  } else {
+    displaySolutions = solutions.map((sol, i) => (
+      <Solution key={i} selectedSolution={sol} index={i} user={user} />
+    ));
+  }
 
   return (
     <ChallengeContainer>

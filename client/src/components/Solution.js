@@ -17,7 +17,7 @@ const ChallengeDesc = styled.div`
   border: 1px solid black;
 `;
 
-function Solution({ selectedSolution, index }) {
+function Solution({ selectedSolution, index, user }) {
   const { solution, time_complexity, space_complexity, notes, language } =
     selectedSolution;
 
@@ -48,6 +48,8 @@ function Solution({ selectedSolution, index }) {
         {solution}
       </SyntaxHighlighter>
       <NotesContainer>
+        <h5>Author</h5>
+        <p>{user.username}</p>
         <h5>Language</h5>
         <p>{getLanguage(language)}</p>
         <h5>Time Complexity</h5>
