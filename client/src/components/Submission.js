@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import AddChallenge from "./AddChallenge";
 import AddSolution from "./AddSolution";
+import styled from "styled-components";
+
+const SubmissionPage = styled.div`
+  text-align: center;
+  background-color: lightgrey;
+  height: 100vh;
+`;
 
 function Submission({ user }) {
   const [showAddSolution, setShowAddSolution] = useState(true);
@@ -12,7 +19,7 @@ function Submission({ user }) {
   );
 
   return (
-    <div>
+    <SubmissionPage>
       <h1>Add {showAddSolution ? "Solution" : "Challenge"}</h1>
       <button onClick={() => setShowAddSolution(!showAddSolution)}>
         {showAddSolution
@@ -20,7 +27,7 @@ function Submission({ user }) {
           : "Switch To Solution Mode"}
       </button>
       {addNew}
-    </div>
+    </SubmissionPage>
   );
 }
 

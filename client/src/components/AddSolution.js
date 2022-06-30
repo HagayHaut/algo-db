@@ -7,12 +7,19 @@ const FormContainer = styled.div`
   padding: 20px;
   width: 50%;
   text-align: center;
+  margin: auto;
+  background-color: white;
 `;
 
 const InputContainer = styled.div`
   padding-top: 10px;
   display: flex;
   flex-direction: column;
+`;
+
+const Select = styled.select`
+  color: white;
+  background-color: rgb(57, 57, 57);
 `;
 
 const SubmitButton = styled.button`
@@ -100,18 +107,18 @@ function AddSolution({ user }) {
       <form onSubmit={handleSubmit}>
         <InputContainer>
           <label>Pick Challenge</label>
-          <select
+          <Select
             value={formState.challenge_id}
             name="challenge_id"
             onChange={handleFormChange}
           >
             <option></option>
             {challengeOptions}
-          </select>
+          </Select>
         </InputContainer>
         <InputContainer>
           <label>Pick Language</label>
-          <select
+          <Select
             value={formState.language}
             name="language"
             onChange={handleFormChange}
@@ -128,7 +135,7 @@ function AddSolution({ user }) {
             <option value="ruby">Ruby</option>
             <option value="rust">Rust</option>
             <option value="typescript">TypeScript</option>
-          </select>
+          </Select>
         </InputContainer>
         <InputContainer>
           <label>Your Solution:</label>
@@ -137,29 +144,31 @@ function AddSolution({ user }) {
               setFormState({ ...formState, solution: e.target.value })
             }
             parentState={formState.solution}
+            isNotes={false}
+            isCode={true}
           />
         </InputContainer>
         <InputContainer>
           <label>Time Complexity</label>
-          <select
+          <Select
             value={formState.time_complexity}
             name="time_complexity"
             onChange={handleFormChange}
           >
             <option></option>
             {complexityOptions}
-          </select>
+          </Select>
         </InputContainer>
         <InputContainer>
           <label>Space Complexity</label>
-          <select
+          <Select
             value={formState.space_complexity}
             name="space_complexity"
             onChange={handleFormChange}
           >
             <option></option>
             {complexityOptions}
-          </select>
+          </Select>
         </InputContainer>
         <InputContainer>
           <label>Solution Notes:</label>
@@ -168,6 +177,8 @@ function AddSolution({ user }) {
               setFormState({ ...formState, notes: e.target.value })
             }
             parentState={formState.notes}
+            isNotes={true}
+            isCode={false}
           />
         </InputContainer>
         {errors.length > 0 && (

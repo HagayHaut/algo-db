@@ -7,6 +7,8 @@ const FormContainer = styled.div`
   padding: 20px;
   width: 50%;
   text-align: center;
+  margin: auto;
+  background-color: white;
 `;
 
 const categories = [
@@ -31,6 +33,13 @@ const Input = styled.input`
   height: 50%;
   width: 100%;
   text-align: center;
+  color: white;
+  background-color: rgb(57, 57, 57);
+`;
+
+const Select = styled.select`
+  color: white;
+  background-color: rgb(57, 57, 57);
 `;
 
 const InputContainer = styled.div`
@@ -105,6 +114,8 @@ function AddChallenge() {
               setFormState({ ...formState, description: e.target.value })
             }
             parentState={formState.description}
+            isNotes={false}
+            isCode={false}
           />
         </InputContainer>
         <InputContainer>
@@ -118,7 +129,7 @@ function AddChallenge() {
         </InputContainer>
         <InputContainer>
           <label>Challenge Category</label>
-          <select
+          <Select
             value={formState.category}
             name="category"
             onChange={handleCategoryChange}
@@ -138,7 +149,7 @@ function AddChallenge() {
             <option value="stack-queue">Stack/Queue</option>
             <option value="string">Recursion</option>
             <option value="two-pinter">Two Pointer</option>
-          </select>
+          </Select>
         </InputContainer>
         {errors.length > 0 && (
           <div>
