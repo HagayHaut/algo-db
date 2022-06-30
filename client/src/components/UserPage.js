@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Solution from "./Solution";
+import Challenge from "./Challenge";
 import styled from "styled-components";
 
 const PageContainer = styled.div`
@@ -27,40 +27,39 @@ const UserChallenge = styled.p`
 `;
 
 function UserPage({ user }) {
-  const initialSelectedSolution = {
+  const initialSelectedChallenge = {
     id: "",
-    user_id: user.id,
-    challenge_id: "",
-    solution: "",
-    time_complexity: "",
-    space_complexity: "",
-    notes: "",
-    challenge: { title: "" },
+    title: "",
+    description: "",
+    category_id: "",
+    external_url: "",
+    solutions: [],
   };
 
-  const [userSolutions, setUserSolutions] = useState([]);
-  const [selectedSolution, setSelectedSolution] = useState(
-    initialSelectedSolution
+  const [userChallenges, setUserChallenges] = useState([]);
+  const [selectedChallenge, setSelectedChallenge] = useState(
+    initialSelectedChallenge
   );
 
   useEffect(() => {
-    getUserSolutions();
+    getUserChallenges();
   }, []);
 
-  async function getUserSolutions() {
-    const response = await fetch(`/users/${user.id}/solutions`);
+  async function getUserChallenges() {
+    const response = await fetch(`/users/${user.id}/challenges`);
     const data = await response.json();
-    setUserSolutions(data);
+    const uniques = [];
+    setUserChallenges(data);
   }
 
   function updateSelected(id) {
-    const solution = userSolutions.find((solution) => solution.id === id);
-    setSelectedSolution(solution);
+    const challenge = userChallenges.find((challenge) => challenge.id === id);
+    setSelectedChallenge(challenge);
   }
 
-  const userSolutionItems = userSolutions.map((sol) => (
-    <UserChallenge key={sol.id} onClick={() => updateSelected(sol.id)}>
-      {sol.challenge.title}
+  const userChallengeItems = userChallenges.map((chal) => (
+    <UserChallenge key={chal.id} onClick={() => updateSelected(chal.id)}>
+      {chal.title}
     </UserChallenge>
   ));
 
@@ -69,11 +68,11 @@ function UserPage({ user }) {
       <UserPageContainer>
         <h1>User Page</h1>
         <h2>Hello, {user.username}!</h2>
-        <h3>My Solutions:</h3>
-        {userSolutionItems}
+        <h3>My Challenges:</h3>
+        {userChallengeItems}
       </UserPageContainer>
-      {selectedSolution.solution && (
-        <Solution selectedSolution={selectedSolution} />
+      {selectedChallenge.description && (
+        <Challenge selectedChallenge={selectedChallenge} user={user} />
       )}
     </PageContainer>
   );

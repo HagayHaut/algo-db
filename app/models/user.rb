@@ -6,4 +6,12 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :username, presence: true, uniqueness: true
+
+  def uniq_challenges
+    uniqs = {}
+    challenges.each do |c|
+      uniqs[c.id] = c
+    end
+    uniqs.values
+  end
 end

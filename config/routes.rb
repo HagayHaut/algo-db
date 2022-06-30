@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :solutions, only: %i[index show create]
   resources :challenges, only: %i[index show create]
   resources :users, only: %i[show create] do
-    resources :solutions, only: [:index]
+    resources :challenges, only: [:index]
   end
 
   post '/signup', to: 'users#create'

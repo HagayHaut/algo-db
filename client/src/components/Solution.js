@@ -5,7 +5,7 @@ import obsidian from "react-syntax-highlighter/dist/esm/styles/hljs/obsidian";
 
 const SolutionContainer = styled.div`
   border: 1px solid black;
-  width: 44%;
+  width: 100%;
   text-align: left;
 `;
 
@@ -17,15 +17,9 @@ const ChallengeDesc = styled.div`
   border: 1px solid black;
 `;
 
-function Solution({ selectedSolution }) {
-  const {
-    solution,
-    time_complexity,
-    space_complexity,
-    challenge,
-    notes,
-    language,
-  } = selectedSolution;
+function Solution({ selectedSolution, index }) {
+  const { solution, time_complexity, space_complexity, notes, language } =
+    selectedSolution;
 
   function getLanguage(str) {
     switch (str) {
@@ -40,23 +34,9 @@ function Solution({ selectedSolution }) {
     }
   }
 
-  const challengeDescLines = challenge.description
-    .split("\n")
-    .map((line, i) => <p key={i}>{line}</p>);
-
   return (
     <SolutionContainer>
-      <ChallengeDesc>
-        <h4>{challenge.title}</h4>
-        <h5>Challenge Description</h5>
-        <p>{challengeDescLines}</p>
-        {challenge.external_url && (
-          <a href={challenge.external_url} target="_blank">
-            Link To Challenge
-          </a>
-        )}
-      </ChallengeDesc>
-      <h4>My Solutions for {challenge.title}</h4>
+      <h4>{index + 1}.</h4>
       <SyntaxHighlighter
         language={language}
         style={obsidian}
