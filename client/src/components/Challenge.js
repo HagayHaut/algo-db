@@ -74,7 +74,9 @@ function Challenge({
             Link To Challenge
           </a>
         )}
-        <h4>My Solutions for {title}</h4>
+        <h4>
+          {forUser ? `${user.username}'s` : "All"} Solutions for {title}
+        </h4>
         {displaySolutions}
       </ChallengeDesc>
     </ChallengeContainer>
