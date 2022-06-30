@@ -127,12 +127,50 @@ end", "var reverseList = function(head) {
   return prev;
 };", "var singleNumber = function(nums) {
   return nums.reduce((a, b) => a ^ b);
-};"
+};", 'import "fmt"
+
+func main() {
+	fmt.Println("Hello, 世界")
+}', "public void traverseInOrder(Node node) {
+  if (node != null) {
+      traverseInOrder(node.left);
+      visit(node.value);
+      traverseInOrder(node.right);
+  }
+}", "pub fn gcd(nums: &[usize]) -> usize {
+  if nums.len() == 1 {
+      return nums[0];
+  }
+  let a = nums[0];
+  let b = gcd(&nums[1..]);
+  gcd_of_two_numbers(a, b)
+}
+
+fn gcd_of_two_numbers(a: usize, b: usize) -> usize {
+  if b == 0 {
+      return a;
+  }
+  gcd_of_two_numbers(b, a % b)
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn it_works() {
+      assert_eq!(gcd(&[1, 2, 3, 4, 5]), 1);
+      assert_eq!(gcd(&[2, 4, 6, 8, 10]), 2);
+      assert_eq!(gcd(&[3, 6, 9, 12, 15]), 3);
+      assert_eq!(gcd(&[10]), 10);
+      assert_eq!(gcd(&[21, 110]), 1);
+  }
+}"
 ]
 
 challengeTitles = ['Two Sum', 'Valid Parentheses', 'Merge Two Sorted Lists', 'Best Time To Buy And Sell Stock',
                    'Valid Palindrome', 'Invert Binary Tree', 'Valid Anagram', 'Binary Search', 'Maximum Subarray',
-                   'Linked List Cycle', 'First Bad Version', 'Climbing Stairs', 'Reverse Linked List', 'Single Number']
+                   'Linked List Cycle', 'First Bad Version', 'Climbing Stairs', 'Reverse Linked List', 'Single Number',
+                   'Say Hello', 'Depth First Search', 'Greatest Common Denominator']
 
 puts 'Seeding users... 🌱'
 cinna = User.create!(username: 'cinna', password: 'toy')
@@ -141,14 +179,14 @@ bacon = User.create!(username: 'bacon', password: 'toy')
 chango = User.create!(username: 'chango', password: 'toy')
 
 puts 'Seeding categories... 🌱'
-(0..13).each do |i|
+17.times do
   Category.create!(
-    name: categories[i]
+    name: categories[rand(0..13)]
   )
 end
 
 puts 'Seeding challenges... 🌱'
-(0..13).each do |i|
+(0..16).each do |i|
   Challenge.create!(
     title: challengeTitles[i],
     description: Faker::Lorem.paragraph(sentence_count: 8),
@@ -296,6 +334,36 @@ Solution.create!(
   space_complexity: complexities[rand(0..5)],
   notes: Faker::Lorem.paragraph,
   language: 'javascript'
+)
+
+Solution.create!(
+  user_id: 1,
+  challenge_id: 15,
+  solution: solutions[14],
+  time_complexity: complexities[rand(0..5)],
+  space_complexity: complexities[rand(0..5)],
+  notes: Faker::Lorem.paragraph,
+  language: 'go'
+)
+
+Solution.create!(
+  user_id: 1,
+  challenge_id: 16,
+  solution: solutions[15],
+  time_complexity: complexities[rand(0..5)],
+  space_complexity: complexities[rand(0..5)],
+  notes: Faker::Lorem.paragraph,
+  language: 'java'
+)
+
+Solution.create!(
+  user_id: 1,
+  challenge_id: 17,
+  solution: solutions[16],
+  time_complexity: complexities[rand(0..5)],
+  space_complexity: complexities[rand(0..5)],
+  notes: Faker::Lorem.paragraph,
+  language: 'rust'
 )
 
 puts 'Seeding comments... 🌱'
