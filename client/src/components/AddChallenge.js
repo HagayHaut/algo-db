@@ -22,6 +22,8 @@ const categories = [
   "sort",
   "string",
   "recursion",
+  "bit-manipulation",
+  "math",
 ];
 
 const Input = styled.input`
@@ -123,17 +125,19 @@ function AddChallenge() {
           >
             <option val=""></option>
             <option value="array">Array</option>
+            <option value="binary-tree">Binary Tree</option>
+            <option value="bit-manipulation">Bit Manipulation</option>
+            <option value="graph">Graph</option>
             <option value="hashmap">Hash Map</option>
             <option value="linked-list">Linked List</option>
-            <option value="binary-tree">Binary Tree</option>
-            <option value="graph">Graph</option>
-            <option value="two-pinter">Two Pointer</option>
-            <option value="sliding-window">Sliding Window</option>
-            <option value="set">Set</option>
-            <option value="stack-queue">Stack/Queue</option>
-            <option value="sort">Sort</option>
-            <option value="string">Recursion</option>
+            <option value="math">Math</option>
             <option value="recursion">String</option>
+            <option value="set">Set</option>
+            <option value="sliding-window">Sliding Window</option>
+            <option value="sort">Sort</option>
+            <option value="stack-queue">Stack/Queue</option>
+            <option value="string">Recursion</option>
+            <option value="two-pinter">Two Pointer</option>
           </select>
         </InputContainer>
         {errors.length > 0 && (

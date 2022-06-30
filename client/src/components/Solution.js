@@ -39,12 +39,16 @@ function Solution({ selectedSolution }) {
     }
   }
 
+  const challengeDescLines = challenge.description
+    .split("\n")
+    .map((line, i) => <p key={i}>{line}</p>);
+
   return (
     <SolutionContainer>
       <ChallengeDesc>
         <h4>{challenge.title}</h4>
         <h5>Challenge Description</h5>
-        <p>{challenge.description}</p>
+        <p>{challengeDescLines}</p>
         {challenge.external_url && (
           <a href={challenge.external_url} target="_blank">
             Link To Challenge

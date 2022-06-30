@@ -13,9 +13,11 @@ function Submission({ user }) {
 
   return (
     <div>
-      <h1>Submissions</h1>
+      <h1>Add {showAddSolution ? "Solution" : "Challenge"}</h1>
       <button onClick={() => setShowAddSolution(!showAddSolution)}>
-        {showAddSolution ? "New Challenge Mode" : "New Solution Mode"}
+        {showAddSolution
+          ? "Switch To Challenge Mode"
+          : "Switch To Solution Mode"}
       </button>
       {addNew}
     </div>

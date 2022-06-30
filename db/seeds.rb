@@ -11,7 +11,7 @@ Category.destroy_all
 complexities = %w(O(n) O(1) O(n^2) O(log-n) O(n-log-n) O(n!))
 
 categories = %w[array hashmap linked-list binary-tree graph two-pointer sliding-window set stack-queue sort string
-                recursion]
+                recursion bit-manipulation math]
 
 languages = %w[c csharp cpp go java javascript php python ruby rust typescript]
 
@@ -139,7 +139,7 @@ arlo = User.create!(username: 'arlo', password: 'toy')
 bacon = User.create!(username: 'bacon', password: 'toy')
 chango = User.create!(username: 'chango', password: 'toy')
 
-(0..11).each do |i|
+(0..13).each do |i|
   Category.create!(
     name: categories[i]
   )

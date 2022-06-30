@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const NavContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  border: 1px solid black;
 `;
 
 const H3 = styled.h3`
@@ -22,16 +23,16 @@ const linkStyle = {
 function NavBar({ onLogout, user }) {
   return (
     <NavContainer>
-      <Link to="/" style={linkStyle}>
-        <H3>{user.username}</H3>
-      </Link>
-      <Link to="/challenges" style={linkStyle}>
-        <H3>Search</H3>
-      </Link>
+      <H3 onClick={onLogout}>Logout</H3>
       <Link to="/new" style={linkStyle}>
         <H3>New</H3>
       </Link>
-      <H3 onClick={onLogout}>Logout</H3>
+      <Link to="/challenges" style={linkStyle}>
+        <H3>Explore</H3>
+      </Link>
+      <Link to="/" style={linkStyle}>
+        <H3>{user.username}</H3>
+      </Link>
     </NavContainer>
   );
 }
