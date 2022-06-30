@@ -14,6 +14,10 @@ const NotesContainer = styled.div`
   border: 1px solid black;
 `;
 
+const CommentContainer = styled.div`
+  border: 1px solid black;
+`;
+
 function Solution({ selectedSolution, index, user }) {
   const {
     solution,
@@ -21,8 +25,13 @@ function Solution({ selectedSolution, index, user }) {
     space_complexity,
     notes,
     language,
+    comments,
     user_name,
   } = selectedSolution;
+
+  async function getUsername(id) {
+    // const response = await
+  }
 
   function getLanguage(str) {
     switch (str) {
@@ -35,6 +44,17 @@ function Solution({ selectedSolution, index, user }) {
       default:
         return str[0].toUpperCase() + str.slice(1);
     }
+  }
+
+  function displayComments() {
+    const commentList = comments.map((com, i) => (
+      <CommentContainer>
+        <h5>{com.user_id}</h5>
+        <p>{com.comment}</p>
+      </CommentContainer>
+    ));
+
+    return <>{commentList}</>;
   }
 
   return (
@@ -62,6 +82,7 @@ function Solution({ selectedSolution, index, user }) {
         <h5>Notes</h5>
         <p>{notes}</p>
       </NotesContainer>
+      {comments.length > 0 && displayComments()}
     </SolutionContainer>
   );
 }
