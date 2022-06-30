@@ -5,6 +5,6 @@ class Challenge < ApplicationRecord
   belongs_to :category
 
   validates :title, presence: true
-  validates :description, presence: true, length: { minimum: 100 }, uniqueness: true
+  validates :description, presence: true, length: { minimum: 50 }, uniqueness: true
   validates :category_id, presence: true
 end

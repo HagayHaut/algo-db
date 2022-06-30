@@ -6,7 +6,7 @@ class Solution < ApplicationRecord
 
   validates :user_id, presence: true
   validates :challenge_id, presence: true
-  validates :solution, length: { minimum: 20 }
+  validates :solution, length: { minimum: 15 }
   validates :time_complexity, length: { minimum: 1 }
   validates :space_complexity, length: { minimum: 1 }
   validates :notes, presence: true
