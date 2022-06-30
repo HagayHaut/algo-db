@@ -13,6 +13,17 @@ const UserPageContainer = styled.div`
   border: 1px solid black;
 `;
 
+const UserChallenge = styled.p`
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 3px;
+  padding-left: 4px;
+  cursor: pointer;
+`;
+
 function UserPage({ user }) {
   const initialSelectedSolution = {
     id: "",
@@ -46,9 +57,9 @@ function UserPage({ user }) {
   }
 
   const userSolutionItems = userSolutions.map((sol) => (
-    <p key={sol.id} onClick={() => updateSelected(sol.id)}>
+    <UserChallenge key={sol.id} onClick={() => updateSelected(sol.id)}>
       {sol.challenge.title}
-    </p>
+    </UserChallenge>
   ));
 
   return (
