@@ -134,17 +134,20 @@ challengeTitles = ['Two Sum', 'Valid Parentheses', 'Merge Two Sorted Lists', 'Be
                    'Valid Palindrome', 'Invert Binary Tree', 'Valid Anagram', 'Binary Search', 'Maximum Subarray',
                    'Linked List Cycle', 'First Bad Version', 'Climbing Stairs', 'Reverse Linked List', 'Single Number']
 
+puts 'Seeding users... 🌱'
 cinna = User.create!(username: 'cinna', password: 'toy')
 arlo = User.create!(username: 'arlo', password: 'toy')
 bacon = User.create!(username: 'bacon', password: 'toy')
 chango = User.create!(username: 'chango', password: 'toy')
 
+puts 'Seeding categories... 🌱'
 (0..13).each do |i|
   Category.create!(
     name: categories[i]
   )
 end
 
+puts 'Seeding challenges... 🌱'
 (0..13).each do |i|
   Challenge.create!(
     title: challengeTitles[i],
@@ -154,6 +157,7 @@ end
   )
 end
 
+puts 'Seeding solutions ...🌱'
 Solution.create!(
   user_id: 1,
   challenge_id: 1,
@@ -294,6 +298,7 @@ Solution.create!(
   language: 'javascript'
 )
 
+puts 'Seeding comments... 🌱'
 30.times do
   Comment.create!(
     solution_id: rand(1..14),
