@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import obsidian from "react-syntax-highlighter/dist/esm/styles/hljs/obsidian";
+import Comment from "./Comment";
 
 const SolutionContainer = styled.div`
   border: 1px solid black;
@@ -14,24 +15,24 @@ const NotesContainer = styled.div`
   border: 1px solid black;
 `;
 
-const CommentContainer = styled.div`
-  border: 1px solid black;
-`;
-
 function Solution({ selectedSolution, index, user }) {
+  const [solutionComments, setSolutionComments] = useState([]);
+
   const {
+    id,
     solution,
     time_complexity,
     space_complexity,
     notes,
     language,
-    comments,
     user_name,
   } = selectedSolution;
 
-  async function getUsername(id) {
-    // const response = await
-  }
+  useEffect(() => {
+    fetch(`/solutions/${id}/comments`)
+      .then((r) => r.json())
+      .then(setSolutionComments);
+  }, []);
 
   function getLanguage(str) {
     switch (str) {
@@ -46,16 +47,9 @@ function Solution({ selectedSolution, index, user }) {
     }
   }
 
-  function displayComments() {
-    const commentList = comments.map((com, i) => (
-      <CommentContainer>
-        <h5>{com.user_id}</h5>
-        <p>{com.comment}</p>
-      </CommentContainer>
-    ));
-
-    return <>{commentList}</>;
-  }
+  const commentList = solutionComments.map((comment, i) => (
+    <Comment comment={comment} key={i} />
+  ));
 
   return (
     <SolutionContainer>
@@ -82,7 +76,7 @@ function Solution({ selectedSolution, index, user }) {
         <h5>Notes</h5>
         <p>{notes}</p>
       </NotesContainer>
-      {comments.length > 0 && displayComments()}
+      {solutionComments.length && commentList}
     </SolutionContainer>
   );
 }
