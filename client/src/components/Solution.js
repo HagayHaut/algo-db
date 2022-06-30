@@ -66,6 +66,12 @@ function Solution({ selectedSolution, index, user }) {
       : "Show Comments";
   }
 
+  function formattedNotes() {
+    return notes.split("\n").map((line, i) => {
+      return line === "" ? <br></br> : <p>{line}</p>;
+    });
+  }
+
   function handleCommentSubmit(e) {
     e.preventDefault();
     const newComment = {
@@ -108,7 +114,7 @@ function Solution({ selectedSolution, index, user }) {
         <h5>Space Complexity</h5>
         <p>{space_complexity}</p>
         <h5>Notes</h5>
-        <p>{notes}</p>
+        <p>{formattedNotes()}</p>
       </NotesContainer>
       {showComments && (
         <form onSubmit={handleCommentSubmit}>
