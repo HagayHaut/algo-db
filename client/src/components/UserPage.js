@@ -24,6 +24,8 @@ const UserChallenge = styled.p`
   padding-top: 3px;
   padding-left: 4px;
   cursor: pointer;
+  width: 280px;
+  text-align: left;
 `;
 
 function UserPage({ user }) {

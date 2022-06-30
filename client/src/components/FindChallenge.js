@@ -22,8 +22,10 @@ const ChallengeStyle = styled.p`
 
 const ChallengeListContainer = styled.div`
   display: flex;
+  text-align: left;
   flex-direction: column;
   border: 1px solid black;
+  width: 280px;
 `;
 
 const Input = styled.input`
@@ -81,7 +83,11 @@ function FindChallenge({ user }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        {challengeItems}
+        {challengeItems.length > 0 ? (
+          challengeItems
+        ) : (
+          <p>No challenge found.</p>
+        )}
       </ChallengeListContainer>
       {selectedChallenge.description && (
         <Challenge
