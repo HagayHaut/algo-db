@@ -78,6 +78,9 @@ function UserPage({ user }) {
           selectedChallenge={selectedChallenge}
           user={user}
           forUser={forUser}
+          clearSelectedChallenge={() =>
+            setSelectedChallenge(initialSelectedChallenge)
+          }
         />
       )}
     </PageContainer>

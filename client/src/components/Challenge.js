@@ -12,7 +12,24 @@ const ChallengeContainer = styled.div`
   text-align: left;
 `;
 
-function Challenge({ selectedChallenge, user, forUser }) {
+const CloseButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+`;
+
+const CloseButton = styled.button`
+  margin-top: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+`;
+
+function Challenge({
+  selectedChallenge,
+  user,
+  forUser,
+  clearSelectedChallenge,
+}) {
   const { title, external_url, description, solutions } = selectedChallenge;
 
   let challengeDescLines;
@@ -46,6 +63,9 @@ function Challenge({ selectedChallenge, user, forUser }) {
   return (
     <ChallengeContainer>
       <ChallengeDesc>
+        <CloseButtonContainer>
+          <CloseButton onClick={clearSelectedChallenge}>X</CloseButton>
+        </CloseButtonContainer>
         <h4>{title}</h4>
         <h5>Challenge Description</h5>
         <p>{challengeDescLines}</p>
