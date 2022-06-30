@@ -1,6 +1,7 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :solution_id, :comment, :user_id
+  attributes :comment, :user_name
 
-  belongs_to :user
-  belongs_to :solution
+  def user_name
+    object.user.username
+  end
 end
