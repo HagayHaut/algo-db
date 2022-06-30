@@ -7,13 +7,10 @@ const SolutionContainer = styled.div`
   border: 1px solid black;
   width: 100%;
   text-align: left;
+  margin-top: 10px;
 `;
 
 const NotesContainer = styled.div`
-  border: 1px solid black;
-`;
-
-const ChallengeDesc = styled.div`
   border: 1px solid black;
 `;
 
