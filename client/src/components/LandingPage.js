@@ -11,6 +11,13 @@ const PageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  /* background-color: #800080; */
+`;
+
+const Logo = styled.p`
+  font-family: "Modak";
+  font-size: 3rem;
 `;
 
 const ToggleButton = styled.button`
@@ -22,10 +29,11 @@ function LandingPage({ onLogin }) {
 
   return (
     <PageContainer>
-      <h1>ALGO-rhythm</h1>
+      <Logo>ALGOrhythm!</Logo>
+      <br></br> <br></br>
       {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}
       <label style={{ marginTop: "20px" }}>
-        {showLogin ? "Not a user?" : "Have an account?"}
+        {showLogin ? "Not a user?" : "Already a user?"}
       </label>
       <ToggleButton onClick={() => setShowLogin(!showLogin)}>
         {showLogin ? "Sign Up" : "Login"}
