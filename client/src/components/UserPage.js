@@ -5,6 +5,8 @@ import styled from "styled-components";
 const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
+  text-align: center;
+  margin: auto;
 `;
 
 const UserPageContainer = styled.div`

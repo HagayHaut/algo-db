@@ -6,6 +6,7 @@ import obsidian from "react-syntax-highlighter/dist/esm/styles/hljs/obsidian";
 const SolutionContainer = styled.div`
   border: 1px solid black;
   width: 44%;
+  text-align: left;
 `;
 
 const NotesContainer = styled.div`
