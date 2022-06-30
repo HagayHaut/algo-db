@@ -15,8 +15,14 @@ const NotesContainer = styled.div`
   border: 1px solid black;
 `;
 
+const ShowHideButton = styled.p`
+  text-align: center;
+  cursor: pointer;
+`;
+
 function Solution({ selectedSolution, index, user }) {
   const [solutionComments, setSolutionComments] = useState([]);
+  const [showComments, setShowComments] = useState(false);
 
   const {
     id,
@@ -76,7 +82,10 @@ function Solution({ selectedSolution, index, user }) {
         <h5>Notes</h5>
         <p>{notes}</p>
       </NotesContainer>
-      {solutionComments.length && commentList}
+      {solutionComments.length && showComments && commentList}
+      <ShowHideButton onClick={() => setShowComments(!showComments)}>
+        {showComments ? "Hide comments" : "Show comments"}
+      </ShowHideButton>
     </SolutionContainer>
   );
 }

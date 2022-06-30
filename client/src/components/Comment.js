@@ -5,11 +5,22 @@ const CommentBox = styled.div`
   border: 1px solid black;
 `;
 
+const Author = styled.h5`
+  margin: 5px;
+  font-size: 1rem;
+`;
+
+const CommentContent = styled.p`
+  margin-left: 10px;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+`;
+
 function Comment({ comment }) {
   return (
     <CommentBox>
-      <h5>{comment.user_name}</h5>
-      <p>{comment.comment}</p>
+      <Author>{comment.user_name}</Author>
+      <CommentContent>{comment.comment}</CommentContent>
     </CommentBox>
   );
 }
