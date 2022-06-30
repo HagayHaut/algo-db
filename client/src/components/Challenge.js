@@ -29,7 +29,13 @@ function Challenge({ selectedChallenge, user, forUser }) {
     displaySolutions = solutions
       .filter((sol) => sol.user_id === user.id)
       .map((sol, i) => (
-        <Solution key={i} selectedSolution={sol} index={i} user={user} />
+        <Solution
+          key={i}
+          selectedSolution={sol}
+          index={i}
+          user={user}
+          forUser={forUser}
+        />
       ));
   } else {
     displaySolutions = solutions.map((sol, i) => (
