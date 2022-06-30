@@ -6,13 +6,14 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   border: 1px solid black;
+  height: 5vh; ;
 `;
 
 const H3 = styled.h3`
   cursor: pointer;
-  font-size: 2rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  font-size: 3.5vh;
+  margin-left: 1vh;
+  margin-right: 3vh;
 `;
 
 const linkStyle = {

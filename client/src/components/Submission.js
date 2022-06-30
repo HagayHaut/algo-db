@@ -6,7 +6,7 @@ import styled from "styled-components";
 const SubmissionPage = styled.div`
   text-align: center;
   background-color: lightgrey;
-  height: 100vh;
+  height: 94vh;
 `;
 
 function Submission({ user }) {
