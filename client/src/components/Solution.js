@@ -26,6 +26,19 @@ function Solution({ selectedSolution }) {
     language,
   } = selectedSolution;
 
+  function getLanguage(str) {
+    switch (str) {
+      case "csharp":
+        return "C#";
+      case "cpp":
+        return "C++";
+      case "php":
+        return "PHP";
+      default:
+        return str[0].toUpperCase() + str.slice(1);
+    }
+  }
+
   return (
     <SolutionContainer>
       <ChallengeDesc>
@@ -50,6 +63,8 @@ function Solution({ selectedSolution }) {
         {solution}
       </SyntaxHighlighter>
       <NotesContainer>
+        <h5>Language</h5>
+        <p>{getLanguage(language)}</p>
         <h5>Time Complexity</h5>
         <p>{time_complexity}</p>
         <h5>Space Complexity</h5>
