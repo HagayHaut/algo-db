@@ -26,6 +26,11 @@ const ChallengeListContainer = styled.div`
   border: 1px solid black;
 `;
 
+const Input = styled.input`
+  margin-top: 10px;
+  margin-bottom: 20px;
+`;
+
 function FindChallenge({ user }) {
   const initialSelectedChallenge = {
     id: "",
@@ -36,6 +41,7 @@ function FindChallenge({ user }) {
     solutions: [],
   };
 
+  const [search, setSearch] = useState("");
   const [allChallenges, setAllChallenges] = useState([]);
   const [selectedChallenge, setSelectedChallenge] = useState(
     initialSelectedChallenge
@@ -51,11 +57,13 @@ function FindChallenge({ user }) {
     setAllChallenges(data);
   }
 
-  const challengeItems = allChallenges.map((chal, i) => (
-    <ChallengeStyle key={i} onClick={() => updateSelected(chal.id)}>
-      {chal.title}
-    </ChallengeStyle>
-  ));
+  const challengeItems = allChallenges
+    .filter((c) => c.title.toLowerCase().includes(search.toLowerCase()))
+    .map((chal, i) => (
+      <ChallengeStyle key={i} onClick={() => updateSelected(chal.id)}>
+        {chal.title}
+      </ChallengeStyle>
+    ));
 
   function updateSelected(id) {
     const challenge = allChallenges.find((challenge) => challenge.id === id);
@@ -68,6 +76,11 @@ function FindChallenge({ user }) {
     <PageContainer>
       <ChallengeListContainer>
         <h1>Find Challenges</h1>
+        <Input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         {challengeItems}
       </ChallengeListContainer>
       {selectedChallenge.description && (
