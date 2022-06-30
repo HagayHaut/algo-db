@@ -73,6 +73,16 @@ function Solution({ selectedSolution, index, user }) {
       solution_id: id,
       comment: commentInput,
     };
+    fetch("/comments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newComment),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        setSolutionComments([...solutionComments, data]);
+        setCommentInput("");
+      });
   }
 
   return (
