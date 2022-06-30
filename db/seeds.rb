@@ -312,7 +312,7 @@ Solution.create!(
   solution: solutions[11],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: 'basically just Nth fibonacci',
   language: 'ruby'
 )
 

@@ -29,9 +29,29 @@ const ChallengeListContainer = styled.div`
 `;
 
 const Input = styled.input`
-  margin-top: 10px;
   margin-bottom: 20px;
 `;
+
+const P = styled.p`
+  margin-left: 20px;
+`;
+
+const CATEGORIES = [
+  "array",
+  "hashmap",
+  "linked-list",
+  "binary-tree",
+  "graph",
+  "two-pointer",
+  "sliding-window",
+  "set",
+  "stack-queue",
+  "sort",
+  "string",
+  "recursion",
+  "bit-manipulation",
+  "math",
+];
 
 function FindChallenge({ user }) {
   const initialSelectedChallenge = {
@@ -43,6 +63,7 @@ function FindChallenge({ user }) {
     solutions: [],
   };
 
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [allChallenges, setAllChallenges] = useState([]);
   const [selectedChallenge, setSelectedChallenge] = useState(
@@ -53,13 +74,26 @@ function FindChallenge({ user }) {
     getAllChallenges();
   }, []);
 
+  console.log(CATEGORIES.indexOf(selectedCategory));
+
   async function getAllChallenges() {
     const response = await fetch("/challenges");
     const data = await response.json();
     setAllChallenges(data);
   }
 
-  const challengeItems = allChallenges
+  function updateSelected(id) {
+    const challenge = allChallenges.find((challenge) => challenge.id === id);
+    setSelectedChallenge(challenge);
+  }
+
+  const displayChallenges = allChallenges
+
+    .filter(
+      (challenge) =>
+        selectedCategory === "All" ||
+        challenge.category_id === CATEGORIES.indexOf(selectedCategory) + 1
+    )
     .filter((c) => c.title.toLowerCase().includes(search.toLowerCase()))
     .map((chal, i) => (
       <ChallengeStyle key={i} onClick={() => updateSelected(chal.id)}>
@@ -67,9 +101,10 @@ function FindChallenge({ user }) {
       </ChallengeStyle>
     ));
 
-  function updateSelected(id) {
-    const challenge = allChallenges.find((challenge) => challenge.id === id);
-    setSelectedChallenge(challenge);
+  function handleCategoryChange(e) {
+    const cat = e.target.value;
+
+    setSelectedCategory(cat);
   }
 
   const forUser = false;
@@ -78,15 +113,34 @@ function FindChallenge({ user }) {
     <PageContainer>
       <ChallengeListContainer>
         <h1>Find Challenges</h1>
+        <label>Filter by category</label>
+        <select value={selectedCategory} onChange={handleCategoryChange}>
+          <option value="All"></option>
+          <option value="array">Array</option>
+          <option value="binary-tree">Binary Tree</option>
+          <option value="bit-manipulation">Bit Manipulation</option>
+          <option value="graph">Graph</option>
+          <option value="hashmap">Hash Map</option>
+          <option value="linked-list">Linked List</option>
+          <option value="math">Math</option>
+          <option value="recursion">String</option>
+          <option value="set">Set</option>
+          <option value="sliding-window">Sliding Window</option>
+          <option value="sort">Sort</option>
+          <option value="stack-queue">Stack/Queue</option>
+          <option value="string">Recursion</option>
+          <option value="two-pointer">Two Pointer</option>
+        </select>
+        <label>Search</label>
         <Input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        {challengeItems.length > 0 ? (
-          challengeItems
+        {displayChallenges.length > 0 ? (
+          displayChallenges
         ) : (
-          <p>No challenge found.</p>
+          <P>0 challenges found.</P>
         )}
       </ChallengeListContainer>
       {selectedChallenge.description && (

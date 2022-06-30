@@ -24,13 +24,19 @@ const ToggleButton = styled.button`
   margin: 20px;
 `;
 
+const Motto = styled.p`
+  font-size: 1.8rem;
+`;
+
 function LandingPage({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
     <PageContainer>
       <Logo>ALGOrhythm!</Logo>
-      <br></br> <br></br>
+      <br></br>
+      <Motto>Where solutions are born</Motto>
+      <br></br>
       {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}
       <label style={{ marginTop: "20px" }}>
         {showLogin ? "Not a user?" : "Already a user?"}
