@@ -5,10 +5,14 @@ import obsidian from "react-syntax-highlighter/dist/esm/styles/hljs/obsidian";
 
 const SolutionContainer = styled.div`
   border: 1px solid black;
-  width: 40%;
+  width: 44%;
 `;
 
 const NotesContainer = styled.div`
+  border: 1px solid black;
+`;
+
+const ChallengeDesc = styled.div`
   border: 1px solid black;
 `;
 
@@ -24,7 +28,17 @@ function Solution({ selectedSolution }) {
 
   return (
     <SolutionContainer>
-      <p>Solution for {challenge.title}</p>
+      <ChallengeDesc>
+        <h4>{challenge.title}</h4>
+        <h5>Challenge Description</h5>
+        <p>{challenge.description}</p>
+        {challenge.external_url && (
+          <a href={challenge.external_url} target="_blank">
+            Link To Challenge
+          </a>
+        )}
+      </ChallengeDesc>
+      <h4>My Solutions for {challenge.title}</h4>
       <SyntaxHighlighter
         language={language}
         style={obsidian}

@@ -44,13 +44,14 @@ solutions = [
 };", "var isPalindrome = function(s) {
   const str = s.replace(/[\W_]/g, '').toLowerCase()
   return str === str.split('').reverse().join('')
-};", "def invert_tree(root)
-if root
-    swap_nodes root
-    invert_tree root.left
-    invert_tree root.right
-end
-root
+};",
+  "def invert_tree(root)
+  if root
+      swap_nodes root
+      invert_tree root.left
+      invert_tree root.right
+  end
+  root
 end
 
 def swap_nodes root
@@ -58,7 +59,7 @@ def swap_nodes root
     root.right = root.left
     root.left = right
 end", "def is_anagram(s, t)
-s.split(//).sort == t.split(//).sort
+    s.split(//).sort == t.split(//).sort
 end", "var search = function(nums, target) {
   let low = 0;
   let high = nums.length - 1;
@@ -79,37 +80,37 @@ end", "var search = function(nums, target) {
   })
   return maxSum;
 };", "def hasCycle(head)
-return false if !head
-left = head
-right = head.next
-while right != left
-    return false if !right || !right.next
-    left = left.next
-    right = right.next.next
-end
-return true
-end", "def first_bad_version(n)
-result = n
-low = 1
-high = n
-while low <= high
-    mid = (low + high) / 2
-    if is_bad_version mid
-        result = mid
-        high = mid - 1
-    else
-        low = mid + 1
+    return false if !head
+    left = head
+    right = head.next
+    while right != left
+        return false if !right || !right.next
+        left = left.next
+        right = right.next.next
     end
-end
-result
+    return true
+end", "def first_bad_version(n)
+    result = n
+    low = 1
+    high = n
+    while low <= high
+        mid = (low + high) / 2
+        if is_bad_version mid
+            result = mid
+            high = mid - 1
+        else
+            low = mid + 1
+        end
+    end
+    result
 end", "def climb_stairs(n)
-f1 = 1
-f2 = 1
+    f1 = 1
+    f2 = 1
 
-(1..n - 1).each do |i|
-    temp = f1
-    f1 = f1 + f2
-    f2 = temp
+    (1..n - 1).each do |i|
+        temp = f1
+        f1 = f1 + f2
+        f2 = temp
 end
 
 f1
