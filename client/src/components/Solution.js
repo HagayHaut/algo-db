@@ -23,6 +23,7 @@ const ShowHideButton = styled.p`
 function Solution({ selectedSolution, index, user }) {
   const [solutionComments, setSolutionComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
+  const [commentInput, setCommentInput] = useState("");
 
   const {
     id,
@@ -57,6 +58,23 @@ function Solution({ selectedSolution, index, user }) {
     <Comment comment={comment} key={i} />
   ));
 
+  function showHideText() {
+    return solutionComments.length < 1
+      ? "No Comments :( Click To Add"
+      : showComments
+      ? "Hide Comments"
+      : "Show Comments";
+  }
+
+  function handleCommentSubmit(e) {
+    e.preventDefault();
+    const newComment = {
+      user_id: user.id,
+      solution_id: id,
+      comment: commentInput,
+    };
+  }
+
   return (
     <SolutionContainer>
       <h4>{index + 1}.</h4>
@@ -82,9 +100,18 @@ function Solution({ selectedSolution, index, user }) {
         <h5>Notes</h5>
         <p>{notes}</p>
       </NotesContainer>
-      {solutionComments.length && showComments && commentList}
+      {showComments && (
+        <form onSubmit={handleCommentSubmit}>
+          {commentList}
+          <input
+            value={commentInput}
+            onChange={(e) => setCommentInput(e.target.value)}
+          />
+        </form>
+      )}
+
       <ShowHideButton onClick={() => setShowComments(!showComments)}>
-        {showComments ? "Hide comments" : "Show comments"}
+        {showHideText()}
       </ShowHideButton>
     </SolutionContainer>
   );
