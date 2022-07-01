@@ -5,16 +5,32 @@ import styled from "styled-components";
 const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
-  text-align: center;
-  margin: auto;
+  height: calc(100vh - 60px);
 `;
 
 const UserPageContainer = styled.div`
   display: flex;
+  text-align: left;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  width: 300px;
+  position: relative;
+`;
+
+const ListItemContainer = styled.div`
+  position: relative;
+  margin-top: 30px;
+  overflow: auto;
+`;
+
+const ChallengeListItems = styled.div`
+  display: flex;
+  text-align: left;
   flex-direction: column;
   border: 1px solid black;
-  height: 95vh;
-  overflow: scroll;
+  width: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const UserChallenge = styled.p`
@@ -27,6 +43,16 @@ const UserChallenge = styled.p`
   cursor: pointer;
   width: 280px;
   text-align: left;
+`;
+
+const ControlsDiv = styled.div`
+  top: 30px;
+  position: sticky;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 300px;
 `;
 
 function UserPage({ user }) {
@@ -70,9 +96,14 @@ function UserPage({ user }) {
   return (
     <PageContainer>
       <UserPageContainer>
-        <h1>Hello, {user.username}!</h1>
-        <h3>My Solutions:</h3>
-        {userChallengeItems}
+        <ControlsDiv>
+          <h1>Hello, {user.username}!</h1>
+          <h3>My Solutions:</h3>
+        </ControlsDiv>
+
+        <ListItemContainer>
+          <ChallengeListItems>{userChallengeItems}</ChallengeListItems>
+        </ListItemContainer>
       </UserPageContainer>
       {selectedChallenge.description && (
         <Challenge

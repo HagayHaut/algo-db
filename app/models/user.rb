@@ -5,7 +5,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  validates :username, presence: true, uniqueness: true, length: { minimum: 4 }
+  validates :username, presence: true, length: { minimum: 4 },
+                       format: { without: /\s/, message: 'must contain no spaces' }
+  validates_uniqueness_of :username
 
   def uniq_challenges
     uniqs = {}

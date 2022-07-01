@@ -228,7 +228,7 @@ puts 'Seeding users... 🌱'
 cinna = User.create!(username: 'Cinna', password: 'toy')
 arlo = User.create!(username: 'Arlo', password: 'toy')
 bacon = User.create!(username: 'Bacon', password: 'toy')
-chango = User.create!(username: 'Chinggis Khan', password: 'toy')
+chango = User.create!(username: 'Chinggis-Khan', password: 'toy')
 
 puts 'Seeding categories... 🌱'
 (0..13).each do |i|
