@@ -5,9 +5,7 @@ import styled from "styled-components";
 const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
-  text-align: center;
-  margin: auto;
-  height: 100%;
+  height: calc(100vh - 60px);
 `;
 
 const ChallengeStyle = styled.p`
@@ -24,8 +22,15 @@ const ChallengeListContainer = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 300px;
+  position: relative;
+`;
+
+const ListItemContainer = styled.div`
+  position: relative;
+  margin-top: 30px;
+  overflow: auto;
 `;
 
 const ChallengeListItems = styled.div`
@@ -34,8 +39,8 @@ const ChallengeListItems = styled.div`
   flex-direction: column;
   border: 1px solid black;
   width: 280px;
-  height: 70vh;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const Input = styled.input`
@@ -44,6 +49,16 @@ const Input = styled.input`
 
 const P = styled.p`
   margin-left: 20px;
+`;
+
+const ControlsDiv = styled.div`
+  top: 30px;
+  position: sticky;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 300px;
 `;
 
 const CATEGORIES = [
@@ -120,38 +135,42 @@ function FindChallenge({ user }) {
   return (
     <PageContainer>
       <ChallengeListContainer>
-        <h1>Find Challenges</h1>
-        <label>Filter by category</label>
-        <select value={selectedCategory} onChange={handleCategoryChange}>
-          <option value="All">All</option>
-          <option value="array">Array</option>
-          <option value="binary-tree">Binary Tree</option>
-          <option value="bit-manipulation">Bit Manipulation</option>
-          <option value="graph">Graph</option>
-          <option value="hashmap">Hash Map</option>
-          <option value="linked-list">Linked List</option>
-          <option value="math">Math</option>
-          <option value="recursion">String</option>
-          <option value="set">Set</option>
-          <option value="sliding-window">Sliding Window</option>
-          <option value="sort">Sort</option>
-          <option value="stack-queue">Stack/Queue</option>
-          <option value="string">Recursion</option>
-          <option value="two-pointer">Two Pointer</option>
-        </select>
-        <label>Search</label>
-        <Input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <ChallengeListItems>
-          {displayChallenges.length > 0 ? (
-            displayChallenges
-          ) : (
-            <P>0 challenges found.</P>
-          )}
-        </ChallengeListItems>
+        <ControlsDiv>
+          <h1>Find Challenges</h1>
+          <label>Filter by category</label>
+          <select value={selectedCategory} onChange={handleCategoryChange}>
+            <option value="All">All</option>
+            <option value="array">Array</option>
+            <option value="binary-tree">Binary Tree</option>
+            <option value="bit-manipulation">Bit Manipulation</option>
+            <option value="graph">Graph</option>
+            <option value="hashmap">Hash Map</option>
+            <option value="linked-list">Linked List</option>
+            <option value="math">Math</option>
+            <option value="recursion">String</option>
+            <option value="set">Set</option>
+            <option value="sliding-window">Sliding Window</option>
+            <option value="sort">Sort</option>
+            <option value="stack-queue">Stack/Queue</option>
+            <option value="string">Recursion</option>
+            <option value="two-pointer">Two Pointer</option>
+          </select>
+          <label>Search</label>
+          <Input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </ControlsDiv>
+        <ListItemContainer>
+          <ChallengeListItems>
+            {displayChallenges.length > 0 ? (
+              displayChallenges
+            ) : (
+              <P>0 challenges found.</P>
+            )}
+          </ChallengeListItems>
+        </ListItemContainer>
       </ChallengeListContainer>
       {selectedChallenge.description && (
         <Challenge

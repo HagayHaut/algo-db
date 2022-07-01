@@ -10,3 +10,12 @@
     color: red;
   }
 
+  body {
+    overflow: hidden;
+  }
+
+  body, html {
+    height: 100vh;
+  }
+
+

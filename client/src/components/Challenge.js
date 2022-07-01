@@ -27,11 +27,14 @@ const ChallengeContainer = styled.div`
   border-top: 1px solid black;
   width: 100%;
   text-align: left;
+  position: relative;
+  top: 30px;
 `;
 
 const SolutionListContainer = styled.div`
-  height: 50vh;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 280px);
 `;
 
 const CloseButtonContainer = styled.div`

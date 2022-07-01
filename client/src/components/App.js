@@ -10,6 +10,13 @@ import Submission from "./Submission";
 
 const StyledApp = styled.div``;
 
+const Header = styled.header`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+`;
+
 function App() {
   const [user, setUser] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -35,12 +42,15 @@ function App() {
 
   return (
     <StyledApp className="App">
-      <NavBar
-        onLogout={handleLogout}
-        user={user}
-        onDarkModeClick={() => setIsDarkMode((pre) => !pre)}
-        isDarkMode={isDarkMode}
-      />
+      <Header>
+        <NavBar
+          onLogout={handleLogout}
+          user={user}
+          onDarkModeClick={() => setIsDarkMode((pre) => !pre)}
+          isDarkMode={isDarkMode}
+        />
+      </Header>
+
       <Routes>
         <Route path="/" element={<UserPage user={user} />} />
         <Route path="/challenges" element={<FindChallenge user={user} />} />
