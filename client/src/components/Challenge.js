@@ -31,6 +31,7 @@ const ChallengeContainer = styled.div`
   text-align: left;
   position: relative;
   top: 30px;
+  overflow-y: scroll;
 `;
 
 const SolutionListContainer = styled.div`
@@ -91,8 +92,8 @@ function Challenge({
       <ChallengeDesc>
         <CloseButtonContainer>
           <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
+          <ChallengeTitle>{title}</ChallengeTitle>
         </CloseButtonContainer>
-        <ChallengeTitle>{title}</ChallengeTitle>
         <ReactMarkdown>{description}</ReactMarkdown>
         <h5>Category</h5>
         <p>{CATEGORIES[category_id - 1]}</p>
