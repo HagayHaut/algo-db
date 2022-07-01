@@ -10,6 +10,7 @@ const SolutionContainer = styled.div`
   width: 100%;
   text-align: center;
   margin-top: 10px;
+  background-color: white;
 `;
 
 const NotesContainer = styled.div`

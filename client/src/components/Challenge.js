@@ -38,7 +38,7 @@ const SolutionListContainer = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   height: calc(100vh - 280px);
-  background-color: white;
+  background-color: #c4a484;
 `;
 
 const CloseButtonContainer = styled.div`
@@ -48,8 +48,10 @@ const CloseButtonContainer = styled.div`
 `;
 
 const CloseButton = styled.button`
-  margin-top: 5px;
-  margin-right: 5px;
+  float: right;
+  position: relative;
+  top: 5px;
+  right: 5px;
   cursor: pointer;
 `;
 
@@ -58,13 +60,22 @@ const ChallengeTitle = styled.h3`
   text-align: center;
 `;
 
+const ExternalUrl = styled.a`
+  float: left;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  color: blue;
+`;
+
 function Challenge({
   selectedChallenge,
   user,
   forUser,
   clearSelectedChallenge,
 }) {
-  const { title, external_url, description, solutions, category_id } =
+  const { title, description, solutions, category_id, external_url } =
     selectedChallenge;
 
   let displaySolutions;
@@ -90,18 +101,18 @@ function Challenge({
   return (
     <ChallengeContainer>
       <ChallengeDesc>
-        <CloseButtonContainer>
-          <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
-          <ChallengeTitle>{title}</ChallengeTitle>
-        </CloseButtonContainer>
+        {external_url && (
+          <ExternalUrl>
+            <a href={external_url} target="_blank">
+              Source
+            </a>
+          </ExternalUrl>
+        )}
+        <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
+        <ChallengeTitle>{title}</ChallengeTitle>
         <ReactMarkdown>{description}</ReactMarkdown>
         <h5>Category</h5>
         <p>{CATEGORIES[category_id - 1]}</p>
-        {selectedChallenge.external_url && (
-          <a href={external_url} target="_blank">
-            Link To Challenge
-          </a>
-        )}
         <h4>
           {forUser ? `${user.username}'s` : "All"} Solutions for {title}
         </h4>
