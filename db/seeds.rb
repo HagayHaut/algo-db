@@ -13,7 +13,8 @@ complexities = %w(O(n) O(1) O(n^2) O(log-n) O(n-log-n) O(n!))
 categories = %w[array hashmap linked-list binary-tree graph two-pointer sliding-window set stack-queue sort string
                 recursion bit-manipulation math]
 
-languages = %w[c csharp cpp go java javascript php python ruby rust typescript]
+languages = %w[c csharp cpp go java javascript php python ruby rust typescript ada coffeescript haskell fortran julia
+               kotlin lisp lua perl scala sql]
 
 solutions = [
   "var twoSum = function(nums, target) {
@@ -164,13 +165,64 @@ mod tests {
       assert_eq!(gcd(&[10]), 10);
       assert_eq!(gcd(&[21, 110]), 1);
   }
-}"
+}", "def rotate(nums, k)
+  k.times do
+    nums.unshift nums.pop
+  end
+end", "def move_zeroes(nums)
+  # two pointers, fast and slow start at 1
+  # right increments by one every time, when it hits a non-zero, switch its value with val at left
+  # increment left
+  left = 0
+  (0..nums.size - 1).each do |right|
+      if nums[right] != 0
+          temp = nums[right]
+          nums[right] = nums[left]
+          nums[left] = temp
+          left += 1
+      end
+  end
+end", "def roman_to_int(s)
+  integers = {
+      'I' => 1,
+      'V'=> 5,
+      'X'=> 10,
+      'L'=> 50,
+      'C' => 100,
+      'D' => 500,
+      'M' => 1000
+  }
+  sum = 0
+  (0..s.length - 2).each do |i|
+      val = integers[s[i]]
+      if i == s.length - 1
+          sum += val
+          next
+      end
+      val < integers[s[i+1]] ? sum += val : sum -= val
+  end
+end", "def generate(num_rows)
+  rows = [[1],[1,1]]
+  return rows if num_rows == 2
+  return rows[...1] if num_rows == 1
+  (num_rows - 2).times do
+      prev_row = rows[-1]
+      cur_row = [1]
+      prev_row.each_with_index do |n, i|
+          break if i == prev_row.length - 1
+          cur_row << (prev_row[i] + prev_row[i + 1])
+      end
+      cur_row << 1
+      rows << cur_row
+  end
+  rows
+end"
 ]
 
 challengeTitles = ['Two Sum', 'Valid Parentheses', 'Merge Two Sorted Lists', 'Best Time To Buy And Sell Stock',
                    'Valid Palindrome', 'Invert Binary Tree', 'Valid Anagram', 'Binary Search', 'Maximum Subarray',
                    'Linked List Cycle', 'First Bad Version', 'Climbing Stairs', 'Reverse Linked List', 'Single Number',
-                   'Say Hello', 'Depth First Search', 'Greatest Common Denominator']
+                   'Say Hello', 'Depth First Search', 'Greatest Common Denominator', 'Rotate Array', 'Move Zeros', 'Roman To Integer', "Pascal's Triangle"]
 
 puts 'Seeding users... 🌱'
 cinna = User.create!(username: 'Cinna', password: 'toy')
@@ -186,7 +238,7 @@ puts 'Seeding categories... 🌱'
 end
 
 puts 'Seeding challenges... 🌱'
-(0..16).each do |i|
+(0..20).each do |i|
   Challenge.create!(
     title: challengeTitles[i],
     description: Faker::Lorem.paragraph(sentence_count: 8),
@@ -194,6 +246,50 @@ puts 'Seeding challenges... 🌱'
     external_url: Faker::Internet.url
   )
 end
+
+puts 'Seeding solutions ...🌱'
+Solution.create!(
+  user_id: rand(1..4),
+  challenge_id: 18,
+  solution: solutions[17],
+  time_complexity: complexities[rand(0..5)],
+  space_complexity: complexities[rand(0..5)],
+  notes: Faker::Lorem.paragraph,
+  language: 'javascript'
+)
+
+puts 'Seeding solutions ...🌱'
+Solution.create!(
+  user_id: rand(1..4),
+  challenge_id: 20,
+  solution: solutions[19],
+  time_complexity: complexities[rand(0..5)],
+  space_complexity: complexities[rand(0..5)],
+  notes: Faker::Lorem.paragraph,
+  language: 'javascript'
+)
+
+puts 'Seeding solutions ...🌱'
+Solution.create!(
+  user_id: rand(1..4),
+  challenge_id: 19,
+  solution: solutions[18],
+  time_complexity: complexities[rand(0..5)],
+  space_complexity: complexities[rand(0..5)],
+  notes: Faker::Lorem.paragraph,
+  language: 'javascript'
+)
+
+puts 'Seeding solutions ...🌱'
+Solution.create!(
+  user_id: rand(1..4),
+  challenge_id: 21,
+  solution: solutions[20],
+  time_complexity: complexities[rand(0..5)],
+  space_complexity: complexities[rand(0..5)],
+  notes: Faker::Lorem.paragraph,
+  language: 'javascript'
+)
 
 puts 'Seeding solutions ...🌱'
 Solution.create!(
@@ -369,7 +465,7 @@ Solution.create!(
 puts 'Seeding comments... 🌱'
 50.times do
   Comment.create!(
-    solution_id: rand(1..17),
+    solution_id: rand(1..20),
     user_id: rand(1..4),
     comment: Faker::Lorem.sentence
   )

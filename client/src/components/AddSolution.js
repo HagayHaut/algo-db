@@ -124,16 +124,27 @@ function AddSolution({ user }) {
             onChange={handleFormChange}
           >
             <option value=""></option>
+            <option value="ada">Ada</option>
             <option value="c">C</option>
+            <option value="coffeescript">CoffeeScript</option>
             <option value="csharp">C#</option>
             <option value="cpp">C++</option>
+            <option value="fortran">Fortran</option>
             <option value="go">Go</option>
+            <option value="haskell">Haskell</option>
             <option value="java">Java</option>
             <option value="javascript">JavaScript</option>
+            <option value="julia">Julia</option>
+            <option value="kotlin">Kotlin</option>
+            <option value="lisp">Lisp</option>
+            <option value="lua">Lua</option>
+            <option value="perl">Perl</option>
             <option value="php">PHP</option>
             <option value="python">Python</option>
             <option value="ruby">Ruby</option>
             <option value="rust">Rust</option>
+            <option value="scala">Scala</option>
+            <option value="sql">SQL</option>
             <option value="typescript">TypeScript</option>
           </Select>
         </InputContainer>

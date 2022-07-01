@@ -27,6 +27,16 @@ const ChallengeListContainer = styled.div`
   width: 280px;
 `;
 
+const ChallengeListItems = styled.div`
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 280px;
+  height: 70vh;
+  overflow: scroll;
+`;
+
 const Input = styled.input`
   margin-bottom: 20px;
 `;
@@ -134,11 +144,13 @@ function FindChallenge({ user }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        {displayChallenges.length > 0 ? (
-          displayChallenges
-        ) : (
-          <P>0 challenges found.</P>
-        )}
+        <ChallengeListItems>
+          {displayChallenges.length > 0 ? (
+            displayChallenges
+          ) : (
+            <P>0 challenges found.</P>
+          )}
+        </ChallengeListItems>
       </ChallengeListContainer>
       {selectedChallenge.description && (
         <Challenge

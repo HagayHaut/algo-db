@@ -5,7 +5,8 @@ const FormContainer = styled.div`
   border: 1px solid black;
   padding: 20px;
   width: 50%;
-  /* background-color: #ff5733; */
+  background-color: black;
+  color: #fefefe;
 `;
 
 const StyledForm = styled.form`
@@ -25,6 +26,8 @@ const InputContainer = styled.div`
 
 const SignupButton = styled.button`
   margin-top: 20px;
+  cursor: pointer;
+  background-color: #fdee30;
 `;
 
 function Signup({ onLogin }) {

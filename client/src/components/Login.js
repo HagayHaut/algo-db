@@ -5,6 +5,8 @@ const FormContainer = styled.div`
   border: 1px solid black;
   padding: 20px;
   width: 50%;
+  color: #fefefe;
+  background-color: black;
 `;
 
 const StyledForm = styled.form`
@@ -24,6 +26,8 @@ const InputContainer = styled.div`
 
 const LoginButton = styled.button`
   margin-top: 20px;
+  cursor: pointer;
+  background-color: #fdee30;
 `;
 
 function Login({ onLogin }) {

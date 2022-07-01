@@ -6,7 +6,7 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   border: 1px solid black;
-  height: 5vh;
+  height: 30px;
   width: 40%;
   justify-content: space-around;
 `;
@@ -21,12 +21,12 @@ const HeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   border: 1px solid black;
-  height: 5vh; ;
+  height: 30px;
 `;
 
 const H3 = styled.h3`
   cursor: pointer;
-  font-size: 3.5vh;
+  font-size: 20px;
   border: 1px solid black;
   border-radius: 15%;
   padding-right: 4px;
@@ -41,7 +41,7 @@ const Logo = styled.p`
   padding-right: 4px;
   padding-left: 4px;
   font-family: "Modak";
-  font-size: 3.5vh;
+  font-size: 20px;
 `;
 
 const linkStyle = {

@@ -12,16 +12,24 @@ const PageContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background-color: #800080; */
+  background-color: rgb(200, 200, 200);
 `;
 
 const Logo = styled.p`
   font-family: "Modak";
   font-size: 3rem;
+  color: #fdee30;
+  background-color: #000000;
+  border-radius: 5%;
+  padding-top: 40px;
+  padding-bottom: 0;
+  padding-left: 40px;
+  padding-right: 17px;
 `;
 
 const ToggleButton = styled.button`
   margin: 20px;
+  cursor: pointer;
 `;
 
 const Motto = styled.p`
