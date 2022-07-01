@@ -179,9 +179,9 @@ bacon = User.create!(username: 'bacon', password: 'toy')
 chango = User.create!(username: 'chango', password: 'toy')
 
 puts 'Seeding categories... 🌱'
-17.times do
+(0..13).each do |i|
   Category.create!(
-    name: categories[rand(0..13)]
+    name: categories[i]
   )
 end
 
@@ -190,7 +190,7 @@ puts 'Seeding challenges... 🌱'
   Challenge.create!(
     title: challengeTitles[i],
     description: Faker::Lorem.paragraph(sentence_count: 8),
-    category_id: rand(1..12),
+    category_id: rand(1..14),
     external_url: Faker::Internet.url
   )
 end

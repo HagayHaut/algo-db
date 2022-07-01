@@ -2,6 +2,23 @@ import React from "react";
 import Solution from "./Solution";
 import styled from "styled-components";
 
+const CATEGORIES = [
+  "Array",
+  "Hash Map",
+  "Linked List",
+  "Binary Tree",
+  "Graph",
+  "Two Pointer",
+  "Sliding Window",
+  "Set",
+  "Stack/Queue",
+  "Sort",
+  "String",
+  "Recursion",
+  "Bit Manipulation",
+  "Math",
+];
+
 const ChallengeDesc = styled.div`
   border: 1px solid black;
 `;
@@ -35,7 +52,8 @@ function Challenge({
   forUser,
   clearSelectedChallenge,
 }) {
-  const { title, external_url, description, solutions } = selectedChallenge;
+  const { title, external_url, description, solutions, category_id } =
+    selectedChallenge;
 
   let challengeDescLines;
 
@@ -72,8 +90,10 @@ function Challenge({
           <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
         </CloseButtonContainer>
         <ChallengeTitle>{title}</ChallengeTitle>
-        <h5>Challenge Description</h5>
+        <h5>Description</h5>
         <p>{challengeDescLines}</p>
+        <h5>Category</h5>
+        <p>{CATEGORIES[category_id - 1]}</p>
         {selectedChallenge.external_url && (
           <a href={external_url} target="_blank">
             Link To Challenge
