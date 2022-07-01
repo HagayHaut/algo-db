@@ -14,6 +14,7 @@ const CommentContent = styled.p`
   margin-left: 10px;
   margin-bottom: 5px;
   font-size: 0.9rem;
+  text-align: center;
 `;
 
 function Comment({ comment }) {

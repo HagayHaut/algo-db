@@ -367,7 +367,7 @@ Solution.create!(
 )
 
 puts 'Seeding comments... 🌱'
-30.times do
+50.times do
   Comment.create!(
     solution_id: rand(1..17),
     user_id: rand(1..4),

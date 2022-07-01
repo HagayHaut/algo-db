@@ -58,7 +58,7 @@ function Solution({ selectedSolution, index, user }) {
     fetch(`/solutions/${id}/comments`)
       .then((r) => r.json())
       .then(setSolutionComments);
-  }, []);
+  }, [selectedSolution]);
 
   function getLanguage(str) {
     switch (str) {
@@ -110,6 +110,11 @@ function Solution({ selectedSolution, index, user }) {
       });
   }
 
+  function handleCommentToggle() {
+    setShowComments(!showComments);
+    console.log("click");
+  }
+
   return (
     <SolutionContainer>
       <CodeContainer>
@@ -150,7 +155,7 @@ function Solution({ selectedSolution, index, user }) {
         </form>
       )}
 
-      <ShowHideButton onClick={() => setShowComments(!showComments)}>
+      <ShowHideButton onClick={handleCommentToggle}>
         {showHideText()}
       </ShowHideButton>
     </SolutionContainer>
