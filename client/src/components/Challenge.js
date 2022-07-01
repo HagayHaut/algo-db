@@ -27,7 +27,7 @@ const ChallengeDesc = styled.div`
 
 const ChallengeContainer = styled.div`
   border-top: 1px solid black;
-  width: 100%;
+  width: 66vw;
   text-align: left;
   position: relative;
   top: 30px;
@@ -93,7 +93,6 @@ function Challenge({
           <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
         </CloseButtonContainer>
         <ChallengeTitle>{title}</ChallengeTitle>
-        <h5>Description</h5>
         <ReactMarkdown>{description}</ReactMarkdown>
         <h5>Category</h5>
         <p>{CATEGORIES[category_id - 1]}</p>

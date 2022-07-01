@@ -108,7 +108,7 @@ function AddChallenge() {
           ></Input>
         </InputContainer>
         <InputContainer>
-          <label>Challenge Description</label>
+          <label>Challenge Description (Markdown Syntax Supported)</label>
           <TextareaInput
             onTextChange={(e) =>
               setFormState({ ...formState, description: e.target.value })

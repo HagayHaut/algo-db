@@ -148,7 +148,7 @@ function AddSolution({ user }) {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label>Your Solution:</label>
+          <label>Your Solution</label>
           <TextareaInput
             onTextChange={(e) =>
               setFormState({ ...formState, solution: e.target.value })
@@ -181,7 +181,7 @@ function AddSolution({ user }) {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label>Solution Notes:</label>
+          <label>Notes (Markdown Syntax Supported)</label>
           <TextareaInput
             onTextChange={(e) =>
               setFormState({ ...formState, notes: e.target.value })
