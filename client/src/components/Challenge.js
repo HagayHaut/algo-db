@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Solution from "./Solution";
 import styled from "styled-components";
 

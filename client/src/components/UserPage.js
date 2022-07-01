@@ -50,7 +50,6 @@ function UserPage({ user }) {
   async function getUserChallenges() {
     const response = await fetch(`/users/${user.id}/challenges`);
     const data = await response.json();
-    const uniques = [];
     setUserChallenges(data);
   }
 
@@ -70,9 +69,8 @@ function UserPage({ user }) {
   return (
     <PageContainer>
       <UserPageContainer>
-        <h1>User Page</h1>
-        <h2>Hello, {user.username}!</h2>
-        <h3>My Challenges:</h3>
+        <h1>Hello, {user.username}!</h1>
+        <h3>My Solutions:</h3>
         {userChallengeItems}
       </UserPageContainer>
       {selectedChallenge.description && (

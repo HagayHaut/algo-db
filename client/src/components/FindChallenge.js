@@ -74,8 +74,6 @@ function FindChallenge({ user }) {
     getAllChallenges();
   }, []);
 
-  console.log(CATEGORIES.indexOf(selectedCategory));
-
   async function getAllChallenges() {
     const response = await fetch("/challenges");
     const data = await response.json();
