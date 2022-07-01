@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import obsidian from "react-syntax-highlighter/dist/esm/styles/hljs/obsidian";
 import Comment from "./Comment";
@@ -13,6 +14,7 @@ const SolutionContainer = styled.div`
 
 const NotesContainer = styled.div`
   border-bottom: 1px solid black;
+  text-align: center;
 `;
 
 const ShowHideButton = styled.p`
@@ -23,10 +25,15 @@ const ShowHideButton = styled.p`
 const SolutionInfo = styled.p`
   font-size: 1.1rem;
   margin-bottom: 7px;
+  text-align: center;
 `;
 
 const CategoryTitle = styled.h5`
   font-size: 0.9rem;
+`;
+
+const MDContainer = styled.div`
+  text-align: left;
 `;
 
 const CodeContainer = styled.div`
@@ -85,11 +92,11 @@ function Solution({ selectedSolution, index, user }) {
       : "Show Comments";
   }
 
-  function formattedNotes() {
-    return notes.split("\n").map((line, i) => {
-      return line === "" ? <br></br> : <p>{line}</p>;
-    });
-  }
+  // function formattedNotes() {
+  //   return notes.split("\n").map((line, i) => {
+  //     return line === "" ? <br></br> : <p>{line}</p>;
+  //   });
+  // }
 
   function handleCommentSubmit(e) {
     e.preventDefault();
@@ -142,8 +149,10 @@ function Solution({ selectedSolution, index, user }) {
         <SolutionInfo>{time_complexity}</SolutionInfo>
         <CategoryTitle>Space Complexity</CategoryTitle>
         <SolutionInfo>{space_complexity}</SolutionInfo>
-        <CategoryTitle>Notes</CategoryTitle>
-        <SolutionInfo>{formattedNotes()}</SolutionInfo>
+        <MDContainer>
+          <CategoryTitle>Notes</CategoryTitle>
+          <ReactMarkdown>{notes}</ReactMarkdown>
+        </MDContainer>
       </NotesContainer>
       {showComments && (
         <form onSubmit={handleCommentSubmit}>

@@ -1,5 +1,6 @@
 import React from "react";
 import Solution from "./Solution";
+import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 
 const CATEGORIES = [
@@ -65,14 +66,6 @@ function Challenge({
   const { title, external_url, description, solutions, category_id } =
     selectedChallenge;
 
-  let challengeDescLines;
-
-  if (description) {
-    challengeDescLines = description.split("\n").map((line, i) => {
-      return line === "" ? <br></br> : <p key={i}>{line}</p>;
-    });
-  }
-
   let displaySolutions;
 
   if (forUser) {
@@ -101,7 +94,7 @@ function Challenge({
         </CloseButtonContainer>
         <ChallengeTitle>{title}</ChallengeTitle>
         <h5>Description</h5>
-        <p>{challengeDescLines}</p>
+        <ReactMarkdown>{description}</ReactMarkdown>
         <h5>Category</h5>
         <p>{CATEGORIES[category_id - 1]}</p>
         {selectedChallenge.external_url && (
