@@ -24,6 +24,11 @@ const CloseButton = styled.button`
   cursor: pointer;
 `;
 
+const ChallengeTitle = styled.h3`
+  margin-bottom: 15px;
+  text-align: center;
+`;
+
 function Challenge({
   selectedChallenge,
   user,
@@ -64,9 +69,9 @@ function Challenge({
     <ChallengeContainer>
       <ChallengeDesc>
         <CloseButtonContainer>
-          <CloseButton onClick={clearSelectedChallenge}>X</CloseButton>
+          <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
         </CloseButtonContainer>
-        <h4>{title}</h4>
+        <ChallengeTitle>{title}</ChallengeTitle>
         <h5>Challenge Description</h5>
         <p>{challengeDescLines}</p>
         {selectedChallenge.external_url && (

@@ -6,7 +6,9 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   border: 1px solid black;
-  height: 5vh; ;
+  height: 5vh;
+  width: 40%;
+  justify-content: space-around;
 `;
 
 const HeaderContainer = styled.div`
@@ -20,8 +22,6 @@ const HeaderContainer = styled.div`
 const H3 = styled.h3`
   cursor: pointer;
   font-size: 3.5vh;
-  margin-left: 1vh;
-  margin-right: 3vh;
   border: 1px solid black;
   border-radius: 15%;
   padding-right: 4px;

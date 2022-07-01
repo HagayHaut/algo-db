@@ -20,6 +20,15 @@ const ShowHideButton = styled.p`
   cursor: pointer;
 `;
 
+const SolutionInfo = styled.p`
+  font-size: 1.1rem;
+  margin-bottom: 7px;
+`;
+
+const CategoryTitle = styled.h5`
+  font-size: 0.9rem;
+`;
+
 function Solution({ selectedSolution, index, user }) {
   const [solutionComments, setSolutionComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
@@ -106,16 +115,16 @@ function Solution({ selectedSolution, index, user }) {
         {solution}
       </SyntaxHighlighter>
       <NotesContainer>
-        <h5>Author</h5>
-        <p>{user_name}</p>
-        <h5>Language</h5>
-        <p>{getLanguage(language)}</p>
-        <h5>Time Complexity</h5>
-        <p>{time_complexity}</p>
-        <h5>Space Complexity</h5>
-        <p>{space_complexity}</p>
-        <h5>Notes</h5>
-        <p>{formattedNotes()}</p>
+        <CategoryTitle>Author</CategoryTitle>
+        <SolutionInfo>{user_name}</SolutionInfo>
+        <CategoryTitle>Language</CategoryTitle>
+        <SolutionInfo>{getLanguage(language)}</SolutionInfo>
+        <CategoryTitle>Time Complexity</CategoryTitle>
+        <SolutionInfo>{time_complexity}</SolutionInfo>
+        <CategoryTitle>Space Complexity</CategoryTitle>
+        <SolutionInfo>{space_complexity}</SolutionInfo>
+        <CategoryTitle>Notes</CategoryTitle>
+        <SolutionInfo>{formattedNotes()}</SolutionInfo>
       </NotesContainer>
       {showComments && (
         <form onSubmit={handleCommentSubmit}>
