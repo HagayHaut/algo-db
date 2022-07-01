@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const CommentBox = styled.div`
   border: 1px solid black;
+  text-align: left;
 `;
 
 const Author = styled.h5`
@@ -14,7 +15,6 @@ const CommentContent = styled.p`
   margin-left: 10px;
   margin-bottom: 5px;
   font-size: 0.9rem;
-  text-align: center;
 `;
 
 function Comment({ comment }) {

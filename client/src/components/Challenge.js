@@ -21,6 +21,7 @@ const CATEGORIES = [
 
 const ChallengeDesc = styled.div`
   border: 1px solid black;
+  background-color: #c4a484;
 `;
 
 const ChallengeContainer = styled.div`
@@ -35,6 +36,7 @@ const SolutionListContainer = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   height: calc(100vh - 280px);
+  background-color: white;
 `;
 
 const CloseButtonContainer = styled.div`

@@ -8,7 +8,11 @@ import UserPage from "./UserPage";
 import FindChallenge from "./FindChallenge";
 import Submission from "./Submission";
 
-const StyledApp = styled.div``;
+const StyledApp = styled.div`
+  background-image: url(https://img.freepik.com/free-photo/bronze-pattern-background_53876-71407.jpg?w=2000);
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+`;
 
 const Header = styled.header`
   width: 100%;

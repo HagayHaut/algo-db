@@ -31,12 +31,23 @@ const H3 = styled.h3`
   padding: 4px;
 `;
 
+const DarkModeBtn = styled.button`
+  cursor: pointer;
+  border: 1px solid #fefefe;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background-color: #c4a484;
+  padding: 2px;
+  border-radius: 20%;
+`;
+
 const Logo = styled.p`
   margin-bottom: 4px;
   margin-left: 15px;
   margin-right: 15px;
   font-family: "Modak";
   font-size: 23px;
+  color: #fdee30;
 `;
 
 const linkStyle = {
@@ -49,9 +60,9 @@ function NavBar({ onLogout, user, onDarkModeClick, isDarkMode }) {
     <HeaderContainer>
       <LeftHeader>
         <Logo>algoDB!</Logo>
-        <button onClick={onDarkModeClick}>
+        <DarkModeBtn onClick={onDarkModeClick}>
           {isDarkMode ? "Light" : "Dark"} Mode
-        </button>
+        </DarkModeBtn>
       </LeftHeader>
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>

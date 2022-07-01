@@ -3,7 +3,6 @@ import TextareaInput from "./TextareaInput";
 import styled from "styled-components";
 
 const FormContainer = styled.div`
-  border: 1px solid black;
   padding: 20px;
   width: 50%;
   text-align: center;

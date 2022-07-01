@@ -3,6 +3,7 @@ import Challenge from "./Challenge";
 import styled from "styled-components";
 
 const PageContainer = styled.div`
+  border: 1px solid black;
   display: flex;
   flex-direction: row;
   height: calc(100vh - 60px);
@@ -13,9 +14,15 @@ const ChallengeStyle = styled.p`
   border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 2px;
   padding-top: 3px;
   padding-left: 4px;
   cursor: pointer;
+  background-color: rgb(57, 57, 57);
+  color: #fefefe;
+  &:hover {
+    background-color: rgb(72, 72, 72);
+  }
 `;
 
 const ChallengeListContainer = styled.div`
@@ -23,8 +30,9 @@ const ChallengeListContainer = styled.div`
   text-align: left;
   flex-direction: column;
   /* border: 1px solid black; */
-  width: 300px;
+  width: 330px;
   position: relative;
+  background-color: #c4a484;
 `;
 
 const ListItemContainer = styled.div`
@@ -38,13 +46,21 @@ const ChallengeListItems = styled.div`
   text-align: left;
   flex-direction: column;
   border: 1px solid black;
-  width: 280px;
+  width: 300px;
   overflow-y: auto;
   overflow-x: hidden;
 `;
 
 const Input = styled.input`
-  margin-bottom: 20px;
+  margin-bottom: 4px;
+  background-color: rgb(57, 57, 57);
+  color: #fefefe;
+`;
+
+const Select = styled.select`
+  margin-bottom: 14px;
+  background-color: rgb(57, 57, 57);
+  color: #fefefe;
 `;
 
 const P = styled.p`
@@ -59,6 +75,10 @@ const ControlsDiv = styled.div`
   flex-direction: column;
   border: 1px solid black;
   width: 300px;
+`;
+
+const Label = styled.label`
+  margin-top: 4px;
 `;
 
 const CATEGORIES = [
@@ -137,8 +157,14 @@ function FindChallenge({ user }) {
       <ChallengeListContainer>
         <ControlsDiv>
           <h1>Find Challenges</h1>
-          <label>Filter by category</label>
-          <select value={selectedCategory} onChange={handleCategoryChange}>
+          <Label>Search</Label>
+          <Input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Label>Filter by category</Label>
+          <Select value={selectedCategory} onChange={handleCategoryChange}>
             <option value="All">All</option>
             <option value="array">Array</option>
             <option value="binary-tree">Binary Tree</option>
@@ -154,13 +180,7 @@ function FindChallenge({ user }) {
             <option value="stack-queue">Stack/Queue</option>
             <option value="string">Recursion</option>
             <option value="two-pointer">Two Pointer</option>
-          </select>
-          <label>Search</label>
-          <Input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+          </Select>
         </ControlsDiv>
         <ListItemContainer>
           <ChallengeListItems>
