@@ -5,10 +5,11 @@ class ApplicationController < ActionController::API
 
   before_action :authorize
 
-  # def hello_world
-  #   session[:count] = (session[:count] || 0) + 1
-  #   render json: { count: session[:count] }
-  # end
+  def count
+    solution_count = Solution.count
+    challenge_count = Challenge.count
+    render json: { solution_count: solution_count, challenge_count: challenge_count }, status: :ok
+  end
 
   private
 
