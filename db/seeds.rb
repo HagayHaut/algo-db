@@ -173,10 +173,10 @@ challengeTitles = ['Two Sum', 'Valid Parentheses', 'Merge Two Sorted Lists', 'Be
                    'Say Hello', 'Depth First Search', 'Greatest Common Denominator']
 
 puts 'Seeding users... 🌱'
-cinna = User.create!(username: 'cinna', password: 'toy')
-arlo = User.create!(username: 'arlo', password: 'toy')
-bacon = User.create!(username: 'bacon', password: 'toy')
-chango = User.create!(username: 'chango', password: 'toy')
+cinna = User.create!(username: 'Cinna', password: 'toy')
+arlo = User.create!(username: 'Arlo', password: 'toy')
+bacon = User.create!(username: 'Bacon', password: 'toy')
+chango = User.create!(username: 'Chinggis Khan', password: 'toy')
 
 puts 'Seeding categories... 🌱'
 (0..13).each do |i|
@@ -197,7 +197,7 @@ end
 
 puts 'Seeding solutions ...🌱'
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 1,
   solution: solutions[0],
   time_complexity: complexities[rand(0..5)],
@@ -207,7 +207,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 2,
   solution: solutions[1],
   time_complexity: complexities[rand(0..5)],
@@ -217,7 +217,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 3,
   solution: solutions[2],
   time_complexity: complexities[rand(0..5)],
@@ -227,7 +227,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 4,
   solution: solutions[3],
   time_complexity: complexities[rand(0..5)],
@@ -237,7 +237,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 5,
   solution: solutions[4],
   time_complexity: complexities[rand(0..5)],
@@ -247,7 +247,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 6,
   solution: solutions[5],
   time_complexity: complexities[rand(0..5)],
@@ -257,7 +257,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 7,
   solution: solutions[6],
   time_complexity: complexities[rand(0..5)],
@@ -267,7 +267,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 8,
   solution: solutions[7],
   time_complexity: complexities[rand(0..5)],
@@ -277,7 +277,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 9,
   solution: solutions[8],
   time_complexity: complexities[rand(0..5)],
@@ -287,7 +287,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 10,
   solution: solutions[9],
   time_complexity: complexities[rand(0..5)],
@@ -297,7 +297,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 11,
   solution: solutions[10],
   time_complexity: complexities[rand(0..5)],
@@ -307,7 +307,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 12,
   solution: solutions[11],
   time_complexity: complexities[rand(0..5)],
@@ -317,7 +317,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 13,
   solution: solutions[12],
   time_complexity: complexities[rand(0..5)],
@@ -327,7 +327,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 14,
   solution: solutions[13],
   time_complexity: complexities[rand(0..5)],
@@ -337,7 +337,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 15,
   solution: solutions[14],
   time_complexity: complexities[rand(0..5)],
@@ -347,7 +347,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 16,
   solution: solutions[15],
   time_complexity: complexities[rand(0..5)],
@@ -357,7 +357,7 @@ Solution.create!(
 )
 
 Solution.create!(
-  user_id: 1,
+  user_id: rand(1..4),
   challenge_id: 17,
   solution: solutions[16],
   time_complexity: complexities[rand(0..5)],
