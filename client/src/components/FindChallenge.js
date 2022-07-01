@@ -10,8 +10,7 @@ const PageContainer = styled.div`
 `;
 
 const ChallengeStyle = styled.p`
-  border-top: 1px solid black;
-  border-left: 1px solid black;
+  border: 1px solid black;
   border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;

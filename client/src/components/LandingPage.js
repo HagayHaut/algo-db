@@ -33,9 +33,9 @@ function LandingPage({ onLogin }) {
 
   return (
     <PageContainer>
-      <Logo>ALGOrhythm!</Logo>
+      <Logo>ALGOrhythmDB!</Logo>
       <br></br>
-      <Motto>Where solutions are born</Motto>
+      <Motto>Where solutions are safe.</Motto>
       <br></br>
       {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}
       <label style={{ marginTop: "20px" }}>

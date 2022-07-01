@@ -13,11 +13,12 @@ const UserPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  height: 95vh;
+  overflow: scroll;
 `;
 
 const UserChallenge = styled.p`
-  border-top: 1px solid black;
-  border-left: 1px solid black;
+  border: 1px solid black;
   border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;

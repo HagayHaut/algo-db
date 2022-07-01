@@ -7,12 +7,12 @@ import Comment from "./Comment";
 const SolutionContainer = styled.div`
   border: 1px solid black;
   width: 100%;
-  text-align: left;
+  text-align: center;
   margin-top: 10px;
 `;
 
 const NotesContainer = styled.div`
-  border: 1px solid black;
+  border-bottom: 1px solid black;
 `;
 
 const ShowHideButton = styled.p`
@@ -27,6 +27,16 @@ const SolutionInfo = styled.p`
 
 const CategoryTitle = styled.h5`
   font-size: 0.9rem;
+`;
+
+const CodeContainer = styled.div`
+  width: 66%;
+  border: 1px solid black;
+  margin: auto;
+`;
+
+const Code = styled.div`
+  text-align: left;
 `;
 
 function Solution({ selectedSolution, index, user }) {
@@ -102,18 +112,22 @@ function Solution({ selectedSolution, index, user }) {
 
   return (
     <SolutionContainer>
-      <h4>{index + 1}.</h4>
-      <SyntaxHighlighter
-        language={language}
-        style={obsidian}
-        showLineNumbers={true}
-        wrapLines={true}
-        lineProps={{
-          style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
-        }}
-      >
-        {solution}
-      </SyntaxHighlighter>
+      <CodeContainer>
+        <h4>{index + 1}.</h4>
+        <Code>
+          <SyntaxHighlighter
+            language={language}
+            style={obsidian}
+            showLineNumbers={true}
+            wrapLines={true}
+            lineProps={{
+              style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
+            }}
+          >
+            {solution}
+          </SyntaxHighlighter>
+        </Code>
+      </CodeContainer>
       <NotesContainer>
         <CategoryTitle>Author</CategoryTitle>
         <SolutionInfo>{user_name}</SolutionInfo>

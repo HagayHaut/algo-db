@@ -5,3 +5,8 @@
     caret-color: green;
 }
 
+.required:after {
+    content:" *";
+    color: red;
+  }
+

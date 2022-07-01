@@ -24,9 +24,11 @@ const ChallengeDesc = styled.div`
 `;
 
 const ChallengeContainer = styled.div`
-  border: 1px solid black;
-  width: 44%;
+  border-top: 1px solid black;
+  width: 66%;
   text-align: left;
+  height: 95vh;
+  overflow: scroll;
 `;
 
 const CloseButtonContainer = styled.div`

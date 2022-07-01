@@ -47,7 +47,7 @@ const linkStyle = {
 function NavBar({ onLogout, user }) {
   return (
     <HeaderContainer>
-      <Logo>ALGOrhythm!</Logo>
+      <Logo>ALGOrhythmDB!</Logo>
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>
         <Link to="/new" style={linkStyle}>
