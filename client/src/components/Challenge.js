@@ -25,9 +25,12 @@ const ChallengeDesc = styled.div`
 
 const ChallengeContainer = styled.div`
   border-top: 1px solid black;
-  width: 66%;
+  width: 100%;
   text-align: left;
-  height: 95vh;
+`;
+
+const SolutionListContainer = styled.div`
+  height: 50vh;
   overflow: scroll;
 `;
 
@@ -104,7 +107,7 @@ function Challenge({
         <h4>
           {forUser ? `${user.username}'s` : "All"} Solutions for {title}
         </h4>
-        {displaySolutions}
+        <SolutionListContainer>{displaySolutions}</SolutionListContainer>
       </ChallengeDesc>
     </ChallengeContainer>
   );

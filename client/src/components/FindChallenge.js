@@ -7,6 +7,7 @@ const PageContainer = styled.div`
   flex-direction: row;
   text-align: center;
   margin: auto;
+  height: 100%;
 `;
 
 const ChallengeStyle = styled.p`
@@ -24,7 +25,7 @@ const ChallengeListContainer = styled.div`
   text-align: left;
   flex-direction: column;
   border: 1px solid black;
-  width: 280px;
+  width: 300px;
 `;
 
 const ChallengeListItems = styled.div`
