@@ -11,6 +11,11 @@ const NavContainer = styled.div`
   justify-content: space-around;
 `;
 
+const LeftHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -44,10 +49,15 @@ const linkStyle = {
   color: "inherit",
 };
 
-function NavBar({ onLogout, user }) {
+function NavBar({ onLogout, user, onDarkModeClick, isDarkMode }) {
   return (
     <HeaderContainer>
-      <Logo>ALGOrhythmDB!</Logo>
+      <LeftHeader>
+        <Logo>algoDB!</Logo>
+        <button onClick={onDarkModeClick}>
+          {isDarkMode ? "Light" : "Dark"} Mode
+        </button>
+      </LeftHeader>
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>
         <Link to="/new" style={linkStyle}>

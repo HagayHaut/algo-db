@@ -33,7 +33,7 @@ function LandingPage({ onLogin }) {
 
   return (
     <PageContainer>
-      <Logo>ALGOrhythmDB!</Logo>
+      <Logo>algoDB!</Logo>
       <br></br>
       <Motto>Where solutions are safe.</Motto>
       <br></br>
