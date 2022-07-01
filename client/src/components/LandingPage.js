@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 const PageContainer = styled.div`
   text-align: center;
-  border: 1px solid black;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -19,12 +18,12 @@ const Logo = styled.p`
   font-family: "Modak";
   font-size: 3rem;
   color: #fdee30;
-  background-color: #000000;
+  background-color: #151515;
   border-radius: 5%;
-  padding-top: 40px;
+  padding-top: 42px;
   padding-bottom: 0;
-  padding-left: 40px;
-  padding-right: 17px;
+  padding-left: 42px;
+  padding-right: 18px;
 `;
 
 const ToggleButton = styled.button`

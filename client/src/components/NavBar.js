@@ -5,7 +5,6 @@ import styled from "styled-components";
 const NavContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  border: 1px solid black;
   height: 30px;
   width: 40%;
   justify-content: space-around;
@@ -22,26 +21,22 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   border: 1px solid black;
   height: 30px;
+  color: #fefefe;
+  background-color: #131313;
 `;
 
 const H3 = styled.h3`
   cursor: pointer;
-  font-size: 20px;
-  border: 1px solid black;
-  border-radius: 15%;
-  padding-right: 4px;
-  padding-left: 4px;
+  font-size: 17px;
+  padding: 4px;
 `;
 
 const Logo = styled.p`
-  margin-left: 1vh;
-  margin-right: 3vh;
-  border: 1px solid black;
-  border-radius: 15%;
-  padding-right: 4px;
-  padding-left: 4px;
+  margin-bottom: 4px;
+  margin-left: 15px;
+  margin-right: 15px;
   font-family: "Modak";
-  font-size: 20px;
+  font-size: 23px;
 `;
 
 const linkStyle = {

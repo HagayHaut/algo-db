@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const FormContainer = styled.div`
-  border: 1px solid black;
   padding: 20px;
-  width: 50%;
-  background-color: black;
+  width: 33%;
+  background-color: #151515;
   color: #fefefe;
 `;
 
