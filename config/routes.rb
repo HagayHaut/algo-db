@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # resources :resource_categories
+  resources :resources, only: %i[index create]
   # resources :categories
   resources :comments, only: [:create]
   resources :solutions, only: %i[index show create] do

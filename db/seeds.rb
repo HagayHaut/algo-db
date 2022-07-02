@@ -13,6 +13,8 @@ complexities = %w(O(n) O(1) O(n^2) O(log-n) O(n-log-n) O(n!))
 categories = %w[array hashmap linked-list binary-tree graph two-pointer sliding-window set stack-queue sort string
                 recursion bit-manipulation math search]
 
+resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]
+
 languages = %w[c csharp cpp go java javascript php python ruby rust typescript ada coffeescript haskell fortran julia
                kotlin lisp lua perl scala sql]
 
@@ -219,6 +221,8 @@ end", "def generate(num_rows)
 end"
 ]
 
+booleans = [true, false]
+
 challengeTitles = ['Two Sum', 'Valid Parentheses', 'Merge Two Sorted Lists', 'Best Time To Buy And Sell Stock',
                    'Valid Palindrome', 'Invert Binary Tree', 'Valid Anagram', 'Binary Search', 'Maximum Subarray',
                    'Linked List Cycle', 'First Bad Version', 'Climbing Stairs', 'Reverse Linked List', 'Single Number',
@@ -237,11 +241,27 @@ puts 'Seeding categories... 🌱'
   )
 end
 
+puts 'Seeding resource categories... 🌱'
+(0..6).each do |i|
+  ResourceCategory.create!(name: resource_categories[i])
+end
+
+puts 'Seeding resources... 🌱'
+20.times do
+  Resource.create!(
+    resource_category_id: rand(1..7),
+    title: Faker::Lorem.sentence,
+    description: Faker::Markdown.sandwich,
+    external_url: Faker::Internet.url,
+    is_free: booleans[rand(0..1)]
+  )
+end
+
 puts 'Seeding challenges... 🌱'
 (0..20).each do |i|
   Challenge.create!(
     title: challengeTitles[i],
-    description: Faker::Lorem.paragraph(sentence_count: 8),
+    description: Faker::Markdown.sandwich(sentences: 5),
     category_id: rand(1..15),
     external_url: Faker::Internet.url
   )
@@ -254,7 +274,7 @@ Solution.create!(
   solution: solutions[17],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -265,7 +285,7 @@ Solution.create!(
   solution: solutions[19],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -276,7 +296,7 @@ Solution.create!(
   solution: solutions[18],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -287,7 +307,7 @@ Solution.create!(
   solution: solutions[20],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -298,7 +318,7 @@ Solution.create!(
   solution: solutions[0],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -308,7 +328,7 @@ Solution.create!(
   solution: solutions[1],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -318,7 +338,7 @@ Solution.create!(
   solution: solutions[2],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -328,7 +348,7 @@ Solution.create!(
   solution: solutions[3],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -338,7 +358,7 @@ Solution.create!(
   solution: solutions[4],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'ruby'
 )
 
@@ -348,7 +368,7 @@ Solution.create!(
   solution: solutions[5],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'ruby'
 )
 
@@ -358,7 +378,7 @@ Solution.create!(
   solution: solutions[6],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -368,7 +388,7 @@ Solution.create!(
   solution: solutions[7],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -378,7 +398,7 @@ Solution.create!(
   solution: solutions[8],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'ruby'
 )
 
@@ -388,7 +408,7 @@ Solution.create!(
   solution: solutions[9],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'ruby'
 )
 
@@ -398,7 +418,7 @@ Solution.create!(
   solution: solutions[10],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'ruby'
 )
 
@@ -418,7 +438,7 @@ Solution.create!(
   solution: solutions[12],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -428,7 +448,7 @@ Solution.create!(
   solution: solutions[13],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'javascript'
 )
 
@@ -438,7 +458,7 @@ Solution.create!(
   solution: solutions[14],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'go'
 )
 
@@ -448,7 +468,7 @@ Solution.create!(
   solution: solutions[15],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'java'
 )
 
@@ -458,7 +478,7 @@ Solution.create!(
   solution: solutions[16],
   time_complexity: complexities[rand(0..5)],
   space_complexity: complexities[rand(0..5)],
-  notes: Faker::Lorem.paragraph,
+  notes: Faker::Markdown.sandwich,
   language: 'rust'
 )
 
