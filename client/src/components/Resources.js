@@ -12,8 +12,7 @@ const ResourcesContainer = styled.div`
   height: calc(100vh - 30px);
 `;
 
-const PageTitle = styled.p`
-  font-family: "Modak";
+const PageTitle = styled.h2`
   text-align: center;
   font-size: 2rem;
 `;
@@ -135,7 +134,7 @@ function Resources() {
 
   return (
     <ResourcesContainer>
-      <PageTitle>Resources!</PageTitle>
+      <PageTitle>Resources</PageTitle>
       <Input
         type="text"
         placeholder="Search resources..."

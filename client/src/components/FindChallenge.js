@@ -63,8 +63,7 @@ const ChallengeStyle = styled.p`
   }
 `;
 
-const PageTitle = styled.p`
-  font-family: "Modak";
+const PageTitle = styled.h2`
   text-align: center;
   font-size: 2rem;
 `;
@@ -164,7 +163,7 @@ function FindChallenge({ user }) {
     <PageContainer>
       <ChallengeListContainer>
         <ControlsDiv>
-          <PageTitle>Challenges!</PageTitle>
+          <PageTitle>Challenges</PageTitle>
           <Input
             type="text"
             placeholder="Search all challenges..."

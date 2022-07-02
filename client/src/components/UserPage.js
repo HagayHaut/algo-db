@@ -10,8 +10,7 @@ const PageContainer = styled.div`
   height: calc(100vh - 30px);
 `;
 
-const PageTitle = styled.p`
-  font-family: "Modak";
+const PageTitle = styled.h2`
   text-align: center;
   font-size: 2rem;
 `;
@@ -163,7 +162,7 @@ function UserPage({ user }) {
     <PageContainer>
       <UserPageContainer>
         <ControlsDiv>
-          <PageTitle>{user.username}!</PageTitle>
+          <PageTitle>{user.username}</PageTitle>
           <Input
             type="text"
             placeholder="Search my challenges..."
