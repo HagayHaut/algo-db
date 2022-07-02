@@ -6,6 +6,7 @@ const FormContainer = styled.div`
   width: 33%;
   background-color: #151515;
   color: #fefefe;
+  border-radius: 5%;
 `;
 
 const StyledForm = styled.form`
@@ -16,6 +17,7 @@ const Input = styled.input`
   display: block;
   height: 50%;
   width: 100%;
+  margin: 7px 0 7px 0;
   text-align: center;
 `;
 
@@ -27,6 +29,7 @@ const SignupButton = styled.button`
   margin-top: 20px;
   cursor: pointer;
   background-color: #fdee30;
+  padding: 4px;
 `;
 
 function Signup({ onLogin }) {
@@ -63,11 +66,11 @@ function Signup({ onLogin }) {
   return (
     <FormContainer>
       <StyledForm onSubmit={handleSubmit}>
-        <h1>Signup</h1>
+        <h1 style={{ marginBottom: "17px" }}>Signup</h1>
         <div>
-          <label htmlFor="username">Username</label>
           <Input
             type="text"
+            placeholder="Enter a username..."
             id="username"
             autoComplete="off"
             value={username}
@@ -75,9 +78,9 @@ function Signup({ onLogin }) {
           />
         </div>
         <InputContainer>
-          <label htmlFor="password">Password</label>
           <Input
             type="password"
+            placeholder="Enter a password..."
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -85,9 +88,9 @@ function Signup({ onLogin }) {
           />
         </InputContainer>
         <InputContainer>
-          <label htmlFor="password">Confirm Password</label>
           <Input
             type="password"
+            placeholder="Confirm password..."
             id="password_confirmation"
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}

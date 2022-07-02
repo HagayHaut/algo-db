@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const FormContainer = styled.div`
   padding: 20px;
+  border-radius: 5%;
   width: 33%;
   color: #fefefe;
   background-color: #151515;
@@ -17,6 +18,7 @@ const Input = styled.input`
   height: 50%;
   width: 100%;
   text-align: center;
+  margin: 7px 0 7px 0;
 `;
 
 const InputContainer = styled.div`
@@ -27,6 +29,13 @@ const LoginButton = styled.button`
   margin-top: 20px;
   cursor: pointer;
   background-color: #fdee30;
+  padding: 4px;
+`;
+
+const Errors = styled.div``;
+
+const Error = styled.div`
+  margin-top: 4px;
 `;
 
 function Login({ onLogin }) {
@@ -57,11 +66,11 @@ function Login({ onLogin }) {
   return (
     <FormContainer>
       <StyledForm onSubmit={handleSubmit}>
-        <h1>Login</h1>
+        <h1 style={{ marginBottom: "17px" }}>Login</h1>
         <div>
-          <label htmlFor="username">Username</label>
           <Input
             type="text"
+            placeholder="Enter your username..."
             id="username"
             autoComplete="off"
             value={username}
@@ -69,9 +78,9 @@ function Login({ onLogin }) {
           />
         </div>
         <InputContainer>
-          <label htmlFor="password">Password</label>
           <Input
             type="password"
+            placeholder="Enter your password..."
             id="password"
             autoComplete="current-password"
             value={password}
@@ -84,11 +93,11 @@ function Login({ onLogin }) {
           </LoginButton>
         </div>
         {errors.length > 0 && (
-          <div>
+          <Errors>
             {errors.map((err) => (
-              <div key={err}>{err}</div>
+              <Error key={err}>{err}</Error>
             ))}
-          </div>
+          </Errors>
         )}
       </StyledForm>
     </FormContainer>
