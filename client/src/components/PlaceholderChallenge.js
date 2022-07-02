@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const PlaceholderContainer = styled.div`
-  width: 100%;
+  width: 56%;
   background-color: rgb(57, 57, 57);
   position: relative;
   top: 30px;

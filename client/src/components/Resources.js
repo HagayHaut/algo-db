@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import ResourceCard from "./ResourceCard";
 import styled from "styled-components";
 
 const ResourcesContainer = styled.div`
-  width: 24vw;
+  width: 28vw;
   top: 30px;
   display: flex;
   flex-direction: column;
@@ -87,6 +88,11 @@ function Resources() {
     getResources();
   }, []);
 
+  useEffect(() => {
+    const firstResource = resources[0];
+    setSelectedResource(firstResource);
+  }, [resources]);
+
   async function getResources() {
     const response = await fetch("/resources");
     const data = await response.json();
@@ -152,6 +158,7 @@ function Resources() {
           )}
         </ListItemInnerContainer>
       </ListItemOuterContainer>
+      <ResourceCard resource={selectedResource} />
     </ResourcesContainer>
   );
 }
