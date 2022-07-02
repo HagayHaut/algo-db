@@ -5,7 +5,6 @@ import styled from "styled-components";
 import PlaceholderChallenge from "./PlaceholderChallenge";
 
 const PageContainer = styled.div`
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
   height: calc(100vh - 30px);
@@ -168,7 +167,7 @@ function FindChallenge({ user }) {
           <PageTitle>Challenges!</PageTitle>
           <Input
             type="text"
-            placeholder="Search challenges..."
+            placeholder="Search all challenges..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
