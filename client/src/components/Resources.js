@@ -89,6 +89,7 @@ function Resources() {
   }, []);
 
   useEffect(() => {
+    if (!resources.length) return;
     const firstResource = resources[0];
     setSelectedResource(firstResource);
   }, [resources]);
