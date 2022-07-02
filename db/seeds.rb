@@ -11,7 +11,7 @@ Category.destroy_all
 complexities = %w(O(n) O(1) O(n^2) O(log-n) O(n-log-n) O(n!))
 
 categories = %w[array hashmap linked-list binary-tree graph two-pointer sliding-window set stack-queue sort string
-                recursion bit-manipulation math]
+                recursion bit-manipulation math search]
 
 languages = %w[c csharp cpp go java javascript php python ruby rust typescript ada coffeescript haskell fortran julia
                kotlin lisp lua perl scala sql]
@@ -231,7 +231,7 @@ bacon = User.create!(username: 'Bacon', password: 'toy')
 chango = User.create!(username: 'Chinggis-Khan', password: 'toy')
 
 puts 'Seeding categories... 🌱'
-(0..13).each do |i|
+(0..14).each do |i|
   Category.create!(
     name: categories[i]
   )
@@ -242,7 +242,7 @@ puts 'Seeding challenges... 🌱'
   Challenge.create!(
     title: challengeTitles[i],
     description: Faker::Lorem.paragraph(sentence_count: 8),
-    category_id: rand(1..14),
+    category_id: rand(1..15),
     external_url: Faker::Internet.url
   )
 end

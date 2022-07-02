@@ -18,6 +18,7 @@ const CATEGORIES = [
   "Recursion",
   "Bit Manipulation",
   "Math",
+  "Search",
 ];
 
 const ChallengeContainer = styled.div`
@@ -111,6 +112,13 @@ function Challenge({
 
   const hint = CATEGORIES[category_id - 1];
 
+  function correctAorAnHint() {
+    const vowelRegex = /^[aeiou]/i;
+    return vowelRegex.test(hint)
+      ? `This is an ${hint} Challenge`
+      : `This is a ${hint} Challenge`;
+  }
+
   if (forUser) {
     displaySolutions = solutions
       .filter((sol) => sol.user_id === user.id)
@@ -145,7 +153,7 @@ function Challenge({
           <ChallengeDescription>
             <ReactMarkdown>{description}</ReactMarkdown>
             <Hint onClick={() => setShowHint(!showHint)}>
-              {showHint ? `This is a ${hint} Challenge` : "Hint"}
+              {showHint ? correctAorAnHint() : "Hint"}
             </Hint>
           </ChallengeDescription>
         </ChallengeDescContainer>

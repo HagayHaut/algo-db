@@ -111,6 +111,7 @@ const CATEGORIES = [
   "recursion",
   "bit-manipulation",
   "math",
+  "search",
 ];
 
 function FindChallenge({ user }) {
@@ -198,6 +199,7 @@ function FindChallenge({ user }) {
             <option value="linked-list">Linked List</option>
             <option value="math">Math</option>
             <option value="recursion">String</option>
+            <option value="search">Search</option>
             <option value="set">Set</option>
             <option value="sliding-window">Sliding Window</option>
             <option value="sort">Sort</option>
