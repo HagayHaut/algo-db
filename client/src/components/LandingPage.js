@@ -42,7 +42,7 @@ function LandingPage({ onLogin }) {
     <PageContainer>
       <Logo>algoDB!</Logo>
       <br></br>
-      <Motto>Store, Study, and Share Solutions.</Motto>
+      <Motto>Solve. Store. Share.</Motto>
       <br></br>
       {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}
       <label style={{ marginTop: "20px" }}>
