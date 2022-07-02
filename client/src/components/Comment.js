@@ -4,6 +4,7 @@ import styled from "styled-components";
 const CommentBox = styled.div`
   border: 1px solid black;
   text-align: left;
+  color: black;
 `;
 
 const Author = styled.h5`

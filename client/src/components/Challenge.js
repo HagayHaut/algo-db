@@ -20,11 +20,6 @@ const CATEGORIES = [
   "Math",
 ];
 
-const ChallengeDesc = styled.div`
-  border: 1px solid black;
-  background-color: #c4a484;
-`;
-
 const ChallengeContainer = styled.div`
   border-top: 1px solid black;
   width: 66vw;
@@ -32,6 +27,25 @@ const ChallengeContainer = styled.div`
   position: relative;
   top: 30px;
   overflow-y: scroll;
+  background-color: rgb(57, 57, 57);
+  color: #fefefe;
+`;
+
+const ChallengeDetails = styled.div`
+  border: 1px solid black;
+`;
+
+const ChallengeDescContainer = styled.div`
+  background-color: rgb(57, 57, 57);
+`;
+
+const ChallengeDescription = styled.div`
+  width: 67%;
+  margin: auto;
+  border-radius: 10%;
+  background-color: #fefefe;
+  color: black;
+  padding: 20px;
 `;
 
 const SolutionListContainer = styled.div`
@@ -39,12 +53,6 @@ const SolutionListContainer = styled.div`
   overflow-x: hidden;
   height: calc(100vh - 280px);
   background-color: #c4a484;
-`;
-
-const CloseButtonContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
 `;
 
 const CloseButton = styled.button`
@@ -55,9 +63,10 @@ const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-const ChallengeTitle = styled.h3`
-  margin-bottom: 15px;
+const ChallengeTitle = styled.p`
+  margin: 10px 0 10px 0;
   text-align: center;
+  font-size: 24px;
 `;
 
 const ExternalUrl = styled.a`
@@ -66,7 +75,19 @@ const ExternalUrl = styled.a`
   top: 5px;
   left: 5px;
   cursor: pointer;
-  color: blue;
+  text-decoration: none;
+`;
+
+const AllSolutionsTitle = styled.p`
+  margin: 10px 0 10px 0;
+  text-align: center;
+  font-size: 16;
+`;
+
+const Divider = styled.div`
+  background-color: #fefefe;
+  width: 100%;
+  height: 2px;
 `;
 
 function Challenge({
@@ -79,6 +100,8 @@ function Challenge({
     selectedChallenge;
 
   let displaySolutions;
+
+  function correctAorAn(str) {}
 
   if (forUser) {
     displaySolutions = solutions
@@ -100,7 +123,7 @@ function Challenge({
 
   return (
     <ChallengeContainer>
-      <ChallengeDesc>
+      <ChallengeDetails>
         {external_url && (
           <ExternalUrl>
             <a href={external_url} target="_blank">
@@ -110,14 +133,20 @@ function Challenge({
         )}
         <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
         <ChallengeTitle>{title}</ChallengeTitle>
-        <ReactMarkdown>{description}</ReactMarkdown>
-        <h5>Category</h5>
-        <p>{CATEGORIES[category_id - 1]}</p>
-        <h4>
-          {forUser ? `${user.username}'s` : "All"} Solutions for {title}
-        </h4>
+        <ChallengeDescContainer>
+          <ChallengeDescription>
+            <ReactMarkdown>{description}</ReactMarkdown>
+            <h5>Category</h5>
+            <p>{CATEGORIES[category_id - 1]}</p>
+          </ChallengeDescription>
+        </ChallengeDescContainer>
+
+        <AllSolutionsTitle>
+          {forUser ? `${user.username}'s` : "All"} Solutions
+        </AllSolutionsTitle>
+        <Divider />
         <SolutionListContainer>{displaySolutions}</SolutionListContainer>
-      </ChallengeDesc>
+      </ChallengeDetails>
     </ChallengeContainer>
   );
 }

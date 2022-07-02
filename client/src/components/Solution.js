@@ -15,14 +15,10 @@ const SolutionContainer = styled.div`
 `;
 
 const DetailsContainer = styled.div`
-  border-bottom: 1px solid black;
+  color: white;
+  background-color: rgb(57, 57, 57);
   text-align: center;
   width: 20%;
-`;
-
-const CodeAndDesc = styled.div`
-  display: flex;
-  flex-direction: row;
 `;
 
 const ShowHideButton = styled.p`
@@ -30,6 +26,7 @@ const ShowHideButton = styled.p`
   cursor: pointer;
   font-size: 1rem;
   font-weight: bolder;
+  color: black;
 `;
 
 const SolutionInfo = styled.p`
@@ -39,14 +36,15 @@ const SolutionInfo = styled.p`
 `;
 
 const CategoryTitle = styled.h5`
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   text-align: center;
 `;
 
 const NotesTitle = styled.p`
   font-size: 0.9rem;
   text-align: center;
-  margin-top: 10px;
+  margin: 8px 0 8px 0;
+  color: black;
 `;
 
 const NotesContainer = styled.div``;
@@ -64,13 +62,26 @@ const MDContainer = styled.div`
   text-align: left;
 `;
 
+const CodeAndDesc = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const CodeContainer = styled.div`
   width: 80%;
-  border: 1px solid black;
+  background-image: url(https://img.freepik.com/free-photo/bronze-pattern-background_53876-71407.jpg?w=2000);
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
 `;
 
 const Code = styled.div`
   text-align: left;
+`;
+
+const Input = styled.input`
+  margin-bottom: 4px;
+  background-color: rgb(57, 57, 57);
+  color: #fefefe;
 `;
 
 function Solution({ selectedSolution, index, user }) {
@@ -111,16 +122,6 @@ function Solution({ selectedSolution, index, user }) {
     <Comment comment={comment} key={i} />
   ));
 
-  function showHideText() {
-    return solutionComments.length < 1 ? "" : showComments ? "^" : "⌄";
-  }
-
-  // function formattedNotes() {
-  //   return notes.split("\n").map((line, i) => {
-  //     return line === "" ? <br></br> : <p>{line}</p>;
-  //   });
-  // }
-
   function handleCommentSubmit(e) {
     e.preventDefault();
     const newComment = {
@@ -143,9 +144,6 @@ function Solution({ selectedSolution, index, user }) {
   function handleCommentToggle() {
     setShowComments(!showComments);
   }
-
-  const up = "⌃",
-    down = "⌄";
 
   return (
     <SolutionContainer>
@@ -189,9 +187,10 @@ function Solution({ selectedSolution, index, user }) {
       {showComments && (
         <form onSubmit={handleCommentSubmit}>
           {commentList}
-          <input
+          <Input
             value={commentInput}
             onChange={(e) => setCommentInput(e.target.value)}
+            placeholder="Add a comment..."
           />
         </form>
       )}
