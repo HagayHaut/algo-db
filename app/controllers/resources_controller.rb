@@ -5,6 +5,11 @@ class ResourcesController < ApplicationController
     render json: Resource.all, status: :ok
   end
 
+  def count
+    count = Resource.count
+    render json: { resources_count: count }, status: :ok
+  end
+
   def create
     resource = Resource.create!(resource_params)
     render json: resource, status: :created

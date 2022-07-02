@@ -18,4 +18,5 @@ Rails.application.routes.draw do
 
   get '/count', to: 'application#count'
   get 'users/:id/count', to: 'users#count'
+  get 'resources/count', to: 'resources#count'
 end
