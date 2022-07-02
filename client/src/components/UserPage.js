@@ -8,6 +8,12 @@ const PageContainer = styled.div`
   height: calc(100vh - 60px);
 `;
 
+const PageTitle = styled.p`
+  font-family: "Modak";
+  text-align: center;
+  font-size: 2rem;
+`;
+
 const UserPageContainer = styled.div`
   display: flex;
   text-align: left;
@@ -106,7 +112,7 @@ function UserPage({ user }) {
     <PageContainer>
       <UserPageContainer>
         <ControlsDiv>
-          <h1>Hello, {user.username}!</h1>
+          <PageTitle>{user.username}!</PageTitle>
           <h3>My Solutions:</h3>
           {counts.solution_count && (
             <p>

@@ -64,6 +64,12 @@ const ChallengeListItems = styled.div`
   }
 `;
 
+const PageTitle = styled.p`
+  font-family: "Modak";
+  text-align: center;
+  font-size: 2rem;
+`;
+
 const Input = styled.input`
   margin-bottom: 4px;
   background-color: rgb(57, 57, 57);
@@ -174,7 +180,7 @@ function FindChallenge({ user }) {
     <PageContainer>
       <ChallengeListContainer>
         <ControlsDiv>
-          <h1>Find Challenges</h1>
+          <PageTitle>Challenges!</PageTitle>
           <Label>Search</Label>
           <Input
             type="text"
