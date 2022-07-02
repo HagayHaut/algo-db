@@ -63,10 +63,6 @@ const Select = styled.select`
   color: #fefefe;
 `;
 
-const P = styled.p`
-  margin-left: 20px;
-`;
-
 const ControlsDiv = styled.div`
   top: 30px;
   position: sticky;
@@ -199,10 +195,12 @@ function FindChallenge({ user }) {
         </ControlsDiv>
         <ListItemContainer>
           <ChallengeListItems>
-            {displayChallenges.length > 0 ? (
+            {!allChallenges.length ? (
+              <ChallengeStyle>Loading...</ChallengeStyle>
+            ) : displayChallenges.length ? (
               displayChallenges
             ) : (
-              <P>0 challenges found.</P>
+              <ChallengeStyle>0 challenges found.</ChallengeStyle>
             )}
           </ChallengeListItems>
         </ListItemContainer>
