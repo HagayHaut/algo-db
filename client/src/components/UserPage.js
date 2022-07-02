@@ -56,6 +56,7 @@ const ControlsDiv = styled.div`
 `;
 
 function UserPage({ user }) {
+  const initialCounts = { solution_count: 0, challenge_count: 0 };
   const initialSelectedChallenge = {
     id: "",
     title: "",
@@ -65,6 +66,7 @@ function UserPage({ user }) {
     solutions: [],
   };
 
+  const [counts, setCounts] = useState(initialCounts);
   const [userChallenges, setUserChallenges] = useState([]);
   const [selectedChallenge, setSelectedChallenge] = useState(
     initialSelectedChallenge
@@ -72,12 +74,19 @@ function UserPage({ user }) {
 
   useEffect(() => {
     getUserChallenges();
+    getCounts();
   }, []);
 
   async function getUserChallenges() {
     const response = await fetch(`/users/${user.id}/challenges`);
     const data = await response.json();
     setUserChallenges(data);
+  }
+
+  async function getCounts() {
+    const response = await fetch(`/users/${user.id}/count`);
+    const data = await response.json();
+    setCounts(data);
   }
 
   function updateSelected(id) {
@@ -99,6 +108,12 @@ function UserPage({ user }) {
         <ControlsDiv>
           <h1>Hello, {user.username}!</h1>
           <h3>My Solutions:</h3>
+          {counts.solution_count && (
+            <p>
+              {counts.solution_count} Solutions for {counts.challenge_count}{" "}
+              Challenges
+            </p>
+          )}
         </ControlsDiv>
 
         <ListItemContainer>

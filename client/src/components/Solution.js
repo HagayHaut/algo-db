@@ -126,7 +126,6 @@ function Solution({ selectedSolution, index, user }) {
 
   function handleCommentToggle() {
     setShowComments(!showComments);
-    console.log("click");
   }
 
   return (

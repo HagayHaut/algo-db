@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/count', to: 'application#count'
+  get 'users/:id/count', to: 'users#count'
 end

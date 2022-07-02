@@ -99,6 +99,7 @@ const CATEGORIES = [
 ];
 
 function FindChallenge({ user }) {
+  const initialCounts = { solution_count: 0, challenge_count: 0 };
   const initialSelectedChallenge = {
     id: "",
     title: "",
@@ -108,6 +109,7 @@ function FindChallenge({ user }) {
     solutions: [],
   };
 
+  const [counts, setCounts] = useState(initialCounts);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [allChallenges, setAllChallenges] = useState([]);
@@ -117,12 +119,19 @@ function FindChallenge({ user }) {
 
   useEffect(() => {
     getAllChallenges();
+    getCounts();
   }, []);
 
   async function getAllChallenges() {
     const response = await fetch("/challenges");
     const data = await response.json();
     setAllChallenges(data);
+  }
+
+  async function getCounts() {
+    const response = await fetch("/count");
+    const data = await response.json();
+    setCounts(data);
   }
 
   function updateSelected(id) {
@@ -181,6 +190,12 @@ function FindChallenge({ user }) {
             <option value="string">Recursion</option>
             <option value="two-pointer">Two Pointer</option>
           </Select>
+          {counts.solution_count && (
+            <p>
+              {counts.solution_count} Solutions for {counts.challenge_count}{" "}
+              Challenges
+            </p>
+          )}
         </ControlsDiv>
         <ListItemContainer>
           <ChallengeListItems>

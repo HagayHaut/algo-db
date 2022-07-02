@@ -3,13 +3,7 @@ class UsersController < ApplicationController
 
   skip_before_action :authorize, only: :create
 
-  # POST '/signup'
-  def create
-    user = User.create!(user_params)
-    session[:user_id] = user.id
-    render json: user, status: :created
-  end
-
+  # GET '/users/:id
   def show
     user = find_user
     render json: user, status: :ok
@@ -18,6 +12,21 @@ class UsersController < ApplicationController
   # GET '/me'
   def me
     render json: @current_user, status: :ok
+  end
+
+  # GET '/user_count'
+  def count
+    user = find_user
+    solution_count = user.solutions.count
+    challenge_count = user.challenges.count
+    render json: { solution_count: solution_count, challenge_count: challenge_count }, status: :ok
+  end
+
+  # POST '/signup'
+  def create
+    user = User.create!(user_params)
+    session[:user_id] = user.id
+    render json: user, status: :created
   end
 
   private
