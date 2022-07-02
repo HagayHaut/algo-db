@@ -4,9 +4,10 @@ import styled from "styled-components";
 const FormContainer = styled.div`
   padding: 20px;
   border-radius: 5%;
-  width: 33%;
+  width: 400px;
   color: #fefefe;
   background-color: #151515;
+  margin: 10px;
 `;
 
 const StyledForm = styled.form`
@@ -17,8 +18,8 @@ const Input = styled.input`
   display: block;
   height: 50%;
   width: 100%;
-  text-align: center;
   margin: 7px 0 7px 0;
+  text-align: center;
 `;
 
 const InputContainer = styled.div`
@@ -28,8 +29,15 @@ const InputContainer = styled.div`
 const LoginButton = styled.button`
   margin-top: 20px;
   cursor: pointer;
-  background-color: #fdee30;
-  padding: 4px;
+  background-color: #05d5fa;
+  padding: 5px;
+  font-weight: bold;
+  color: black;
+`;
+
+const LoginTitle = styled.h1`
+  color: white;
+  margin-bottom: 17px;
 `;
 
 const Errors = styled.div``;
@@ -66,7 +74,7 @@ function Login({ onLogin }) {
   return (
     <FormContainer>
       <StyledForm onSubmit={handleSubmit}>
-        <h1 style={{ marginBottom: "17px" }}>Login</h1>
+        <LoginTitle>Login</LoginTitle>
         <div>
           <Input
             type="text"

@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 const FormContainer = styled.div`
   padding: 20px;
-  width: 33%;
+  width: 400px;
   background-color: #151515;
   color: #fefefe;
   border-radius: 5%;
+  margin: 10px;
 `;
 
 const StyledForm = styled.form`
@@ -26,9 +27,9 @@ const InputContainer = styled.div`
 `;
 
 const SignupButton = styled.button`
-  margin-top: 20px;
+  margin-top: 7px;
   cursor: pointer;
-  background-color: #fdee30;
+  background-color: #05d5fa;
   padding: 4px;
 `;
 

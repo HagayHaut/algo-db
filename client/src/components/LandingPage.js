@@ -11,14 +11,28 @@ const PageContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(200, 200, 200);
+  background-color: #242424;
+  color: white;
+  font-family: "Nanum Gothic";
+  position: relative;
+  overflow: auto;
+`;
+
+const LogoMottoContainer = styled.div`
+  margin: 5px;
+`;
+
+const TopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 657px;
 `;
 
 const Logo = styled.p`
   font-family: "Modak";
   font-size: 3rem;
-  color: #fdee30;
-  background-color: #151515;
+  color: #05d5fa;
+  background-color: #000;
   border-radius: 5%;
   padding-top: 42px;
   padding-bottom: 0;
@@ -26,13 +40,21 @@ const Logo = styled.p`
   padding-right: 18px;
 `;
 
+const ToggleLabel = styled.label`
+  margin-top: 6px;
+`;
+
 const ToggleButton = styled.button`
   margin: 20px;
   cursor: pointer;
+  background: #fdee30;
+  padding: 5px;
+  font-weight: bold;
 `;
 
 const Motto = styled.p`
-  font-size: 1.8rem;
+  margin-top: 4px;
+  font-size: 1.6rem;
 `;
 
 function LandingPage({ onLogin }) {
@@ -40,17 +62,19 @@ function LandingPage({ onLogin }) {
 
   return (
     <PageContainer>
-      <Logo>algoDB!</Logo>
-      <br></br>
-      <Motto>Solve. Store. Share.</Motto>
-      <br></br>
-      {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}
-      <label style={{ marginTop: "20px" }}>
-        {showLogin ? "Not a user? Sign up for free!" : "Already a user?"}
-      </label>
-      <ToggleButton onClick={() => setShowLogin(!showLogin)}>
-        {showLogin ? "Go To Sign Up" : "Go To Login"}
-      </ToggleButton>
+      <TopContainer>
+        <LogoMottoContainer>
+          <Logo>algoDB!</Logo>
+          <Motto>Solve. Store. Share.</Motto>{" "}
+          <ToggleLabel style={{ marginTop: "20px" }}>
+            {showLogin ? "Not a user? Sign up for free." : "Already a user?"}
+          </ToggleLabel>
+          <ToggleButton onClick={() => setShowLogin(!showLogin)}>
+            {showLogin ? "Go To Sign Up" : "Go To Login"}
+          </ToggleButton>
+        </LogoMottoContainer>
+        {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}
+      </TopContainer>
     </PageContainer>
   );
 }
