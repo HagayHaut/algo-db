@@ -34,7 +34,8 @@ const ControlsDiv = styled.div`
 const ListItemContainer = styled.div`
   position: relative;
   margin-top: 30px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const ChallengeListItems = styled.div`
@@ -43,8 +44,7 @@ const ChallengeListItems = styled.div`
   flex-direction: column;
   border: 1px solid black;
   width: 20vw;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 `;
 
 const ChallengeStyle = styled.p`

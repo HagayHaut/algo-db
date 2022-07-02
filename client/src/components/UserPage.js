@@ -7,7 +7,7 @@ import styled from "styled-components";
 const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 30px);
 `;
 
 const PageTitle = styled.p`
@@ -22,7 +22,8 @@ const UserPageContainer = styled.div`
   flex-direction: column;
   width: 22vw;
   position: relative;
-  height: 100vh;
+  height: calc(100vh + 30px);
+  background-color: #c4a484;
 `;
 
 const ControlsDiv = styled.div`
@@ -32,7 +33,7 @@ const ControlsDiv = styled.div`
   text-align: left;
   flex-direction: column;
   border: 1px solid black;
-  width: 300px;
+  width: 20vw;
 `;
 
 const Input = styled.input`
@@ -54,7 +55,8 @@ const Label = styled.label`
 const ListItemContainer = styled.div`
   position: relative;
   margin-top: 30px;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: auto;
 `;
 
 const ChallengeListItems = styled.div`
@@ -62,7 +64,7 @@ const ChallengeListItems = styled.div`
   text-align: left;
   flex-direction: column;
   border: 1px solid black;
-  width: 280px;
+  width: 20vw;
   overflow-y: auto;
   overflow-x: hidden;
 `;
@@ -211,7 +213,7 @@ function UserPage({ user }) {
           </ChallengeListItems>
         </ListItemContainer>
       </UserPageContainer>
-      {selectedChallenge.description && (
+      {selectedChallenge.description ? (
         <Challenge
           selectedChallenge={selectedChallenge}
           user={user}
@@ -220,7 +222,10 @@ function UserPage({ user }) {
             setSelectedChallenge(initialSelectedChallenge)
           }
         />
+      ) : (
+        <PlaceholderChallenge />
       )}
+      <Resources />
     </PageContainer>
   );
 }
