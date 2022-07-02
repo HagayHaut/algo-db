@@ -159,12 +159,6 @@ function FindChallenge({ user }) {
       </ChallengeStyle>
     ));
 
-  function handleCategoryChange(e) {
-    const cat = e.target.value;
-
-    setSelectedCategory(cat);
-  }
-
   const forUser = false;
 
   return (
@@ -172,14 +166,17 @@ function FindChallenge({ user }) {
       <ChallengeListContainer>
         <ControlsDiv>
           <PageTitle>Challenges!</PageTitle>
-          <Label>Search</Label>
           <Input
             type="text"
+            placeholder="Search challenges..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
           <Label>Filter by category</Label>
-          <Select value={selectedCategory} onChange={handleCategoryChange}>
+          <Select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
             <option value="All">All</option>
             <option value="array">Array</option>
             <option value="binary-tree">Binary Tree</option>
