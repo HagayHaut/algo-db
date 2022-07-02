@@ -55,7 +55,7 @@ const NotesCanvas = styled.div`
   width: 67%;
   margin: auto;
   padding: 20px;
-  border-radius: 10%;
+  border-radius: 5%;
 `;
 
 const MDContainer = styled.div`

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Solution from "./Solution";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
@@ -42,7 +42,7 @@ const ChallengeDescContainer = styled.div`
 const ChallengeDescription = styled.div`
   width: 67%;
   margin: auto;
-  border-radius: 10%;
+  border-radius: 3%;
   background-color: #fefefe;
   color: black;
   padding: 20px;
@@ -90,18 +90,26 @@ const Divider = styled.div`
   height: 2px;
 `;
 
+const Hint = styled.p`
+  margin-top: 15px;
+  display: inline-block;
+  cursor: pointer;
+`;
+
 function Challenge({
   selectedChallenge,
   user,
   forUser,
   clearSelectedChallenge,
 }) {
+  const [showHint, setShowHint] = useState(false);
+
   const { title, description, solutions, category_id, external_url } =
     selectedChallenge;
 
   let displaySolutions;
 
-  function correctAorAn(str) {}
+  const hint = CATEGORIES[category_id - 1];
 
   if (forUser) {
     displaySolutions = solutions
@@ -136,8 +144,9 @@ function Challenge({
         <ChallengeDescContainer>
           <ChallengeDescription>
             <ReactMarkdown>{description}</ReactMarkdown>
-            <h5>Category</h5>
-            <p>{CATEGORIES[category_id - 1]}</p>
+            <Hint onClick={() => setShowHint(!showHint)}>
+              {showHint ? `This is a ${hint} Challenge` : "Hint"}
+            </Hint>
           </ChallengeDescription>
         </ChallengeDescContainer>
 
