@@ -16,7 +16,7 @@ const ChallengeListContainer = styled.div`
   text-align: left;
   flex-direction: column;
   /* border: 1px solid black; */
-  width: 280x;
+  width: 22vw;
   position: relative;
   background-color: #c4a484;
   height: 100vh;
@@ -29,7 +29,7 @@ const ControlsDiv = styled.div`
   text-align: left;
   flex-direction: column;
   border: 1px solid black;
-  width: 270px;
+  width: 20vw;
 `;
 
 const ListItemContainer = styled.div`
@@ -43,7 +43,7 @@ const ChallengeListItems = styled.div`
   text-align: left;
   flex-direction: column;
   border: 1px solid black;
-  width: 270px;
+  width: 20vw;
   overflow-y: auto;
   overflow-x: hidden;
 `;
@@ -116,7 +116,6 @@ function FindChallenge({ user }) {
   };
 
   const [counts, setCounts] = useState(initialCounts);
-  const [wasClosed, setWasClosed] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [allChallenges, setAllChallenges] = useState([]);
@@ -128,11 +127,6 @@ function FindChallenge({ user }) {
     getAllChallenges();
     getCounts();
   }, []);
-
-  // if (allChallenges.length && !selectedChallenge.description && wasClosed) {
-  //   const newSelected = allChallenges[0];
-  //   setSelectedChallenge(newSelected);
-  // }
 
   async function getAllChallenges() {
     const response = await fetch("/challenges");
@@ -227,10 +221,9 @@ function FindChallenge({ user }) {
           selectedChallenge={selectedChallenge}
           user={user}
           forUser={forUser}
-          clearSelectedChallenge={() => {
-            setWasClosed(true);
-            setSelectedChallenge(initialSelectedChallenge);
-          }}
+          clearSelectedChallenge={() =>
+            setSelectedChallenge(initialSelectedChallenge)
+          }
         />
       ) : (
         <PlaceholderChallenge />

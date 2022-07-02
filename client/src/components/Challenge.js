@@ -23,7 +23,7 @@ const CATEGORIES = [
 
 const ChallengeContainer = styled.div`
   border-top: 1px solid black;
-  width: 100%;
+  width: 67%;
   text-align: left;
   position: relative;
   top: 30px;
