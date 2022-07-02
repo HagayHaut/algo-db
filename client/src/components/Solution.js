@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import obsidian from "react-syntax-highlighter/dist/esm/styles/hljs/obsidian";
 import Comment from "./Comment";
+import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 const SolutionContainer = styled.div`
   border: 1px solid black;
@@ -27,6 +28,8 @@ const CodeAndDesc = styled.div`
 const ShowHideButton = styled.p`
   text-align: center;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: bolder;
 `;
 
 const SolutionInfo = styled.p`
@@ -38,6 +41,12 @@ const SolutionInfo = styled.p`
 const CategoryTitle = styled.h5`
   font-size: 0.9rem;
   text-align: center;
+`;
+
+const NotesTitle = styled.p`
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
 `;
 
 const NotesContainer = styled.div``;
@@ -103,11 +112,7 @@ function Solution({ selectedSolution, index, user }) {
   ));
 
   function showHideText() {
-    return solutionComments.length < 1
-      ? "No Comments :( Click To Add"
-      : showComments
-      ? "Hide Comments"
-      : "Show Comments";
+    return solutionComments.length < 1 ? "" : showComments ? "^" : "⌄";
   }
 
   // function formattedNotes() {
@@ -138,6 +143,9 @@ function Solution({ selectedSolution, index, user }) {
   function handleCommentToggle() {
     setShowComments(!showComments);
   }
+
+  const up = "⌃",
+    down = "⌄";
 
   return (
     <SolutionContainer>
@@ -171,7 +179,7 @@ function Solution({ selectedSolution, index, user }) {
         </DetailsContainer>
       </CodeAndDesc>
       <MDContainer>
-        <CategoryTitle>Notes</CategoryTitle>
+        <NotesTitle>Notes</NotesTitle>
         <NotesContainer>
           <NotesCanvas>
             <ReactMarkdown>{notes}</ReactMarkdown>
@@ -189,7 +197,7 @@ function Solution({ selectedSolution, index, user }) {
       )}
 
       <ShowHideButton onClick={handleCommentToggle}>
-        {showHideText()}
+        {showComments ? <AiFillCaretUp /> : <AiFillCaretDown />}
       </ShowHideButton>
     </SolutionContainer>
   );
