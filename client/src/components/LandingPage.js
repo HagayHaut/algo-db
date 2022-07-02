@@ -46,7 +46,7 @@ function LandingPage({ onLogin }) {
       <br></br>
       {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}
       <label style={{ marginTop: "20px" }}>
-        {showLogin ? "Not a user?" : "Already a user?"}
+        {showLogin ? "Not a user? Sign up for free!" : "Already a user?"}
       </label>
       <ToggleButton onClick={() => setShowLogin(!showLogin)}>
         {showLogin ? "Sign Up" : "Login"}
