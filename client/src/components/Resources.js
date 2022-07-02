@@ -24,13 +24,30 @@ const Input = styled.input`
 `;
 
 const Select = styled.select`
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
 `;
 
 const Label = styled.label`
   margin-top: 4px;
+`;
+
+const ListItemOuterContainer = styled.div`
+  position: relative;
+  overflow: auto;
+`;
+
+const ListItemInnerContainer = styled.div`
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 20vw;
+  height: 30vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 5px 0 5px 0;
 `;
 
 const ResourceItem = styled.p`
@@ -50,9 +67,21 @@ const ResourceItem = styled.p`
 `;
 
 function Resources() {
+  const initialSelectedResource = {
+    id: null,
+    title: "",
+    description: "",
+    resource_category: "",
+    external_url: "",
+    is_free: null,
+  };
+
   const [search, setSearch] = useState("");
   const [resources, setResources] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedResource, setSelectedResource] = useState(
+    initialSelectedResource
+  );
 
   useEffect(() => {
     getResources();
@@ -64,7 +93,12 @@ function Resources() {
     setResources(data);
   }
 
-  function updateSelected(id) {}
+  function updateSelected(id) {
+    const newSelectedResource = resources.find(
+      (resource) => resource.id === id
+    );
+    setSelectedResource(newSelectedResource);
+  }
 
   const displayResources = resources
     .filter(
@@ -107,7 +141,17 @@ function Resources() {
         <option value="Tutorial">Tutorial</option>
         <option value="Video">Video</option>
       </Select>
-      {displayResources}
+      <ListItemOuterContainer>
+        <ListItemInnerContainer>
+          {!resources.length ? (
+            <ResourceItem>Loading...</ResourceItem>
+          ) : displayResources.length ? (
+            displayResources
+          ) : (
+            <ResourceItem>0 challenges found.</ResourceItem>
+          )}
+        </ListItemInnerContainer>
+      </ListItemOuterContainer>
     </ResourcesContainer>
   );
 }
