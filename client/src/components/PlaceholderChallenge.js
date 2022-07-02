@@ -37,7 +37,7 @@ function PlaceholderChallenge() {
     <PlaceholderContainer>
       <MessageContainer>
         <Logo>algoDB!</Logo>
-        <PlaceholderMessage>Select challenge for details</PlaceholderMessage>
+        <PlaceholderMessage>Select challenge for solutions</PlaceholderMessage>
       </MessageContainer>
     </PlaceholderContainer>
   );
