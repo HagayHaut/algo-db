@@ -78,6 +78,7 @@ function Resources() {
   };
 
   const [search, setSearch] = useState("");
+  const [resourceCount, setResourceCount] = useState(0);
   const [resources, setResources] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedResource, setSelectedResource] = useState(
@@ -86,6 +87,7 @@ function Resources() {
 
   useEffect(() => {
     getResources();
+    getCount();
   }, []);
 
   useEffect(() => {
@@ -98,6 +100,12 @@ function Resources() {
     const response = await fetch("/resources");
     const data = await response.json();
     setResources(data);
+  }
+
+  async function getCount() {
+    const response = await fetch("/resources/count");
+    const data = await response.json();
+    setResourceCount(data.resources_count);
   }
 
   function updateSelected(id) {
@@ -148,6 +156,7 @@ function Resources() {
         <option value="Tutorial">Tutorial</option>
         <option value="Video">Video</option>
       </Select>
+      {resourceCount && <p>{resourceCount} Resources</p>}
       <ListItemOuterContainer>
         <ListItemInnerContainer>
           {!resources.length ? (
