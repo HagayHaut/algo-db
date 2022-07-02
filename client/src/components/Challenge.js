@@ -23,17 +23,13 @@ const CATEGORIES = [
 
 const ChallengeContainer = styled.div`
   border-top: 1px solid black;
-  width: 66vw;
+  width: 100%;
   text-align: left;
   position: relative;
   top: 30px;
   overflow-y: scroll;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
-`;
-
-const ChallengeDetails = styled.div`
-  border: 1px solid black;
 `;
 
 const ChallengeDescContainer = styled.div`
@@ -139,31 +135,29 @@ function Challenge({
 
   return (
     <ChallengeContainer>
-      <ChallengeDetails>
-        {external_url && (
-          <ExternalUrl>
-            <a href={external_url} target="_blank">
-              Source
-            </a>
-          </ExternalUrl>
-        )}
-        <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
-        <ChallengeTitle>{title}</ChallengeTitle>
-        <ChallengeDescContainer>
-          <ChallengeDescription>
-            <ReactMarkdown>{description}</ReactMarkdown>
-            <Hint onClick={() => setShowHint(!showHint)}>
-              {showHint ? correctAorAnHint() : "Hint"}
-            </Hint>
-          </ChallengeDescription>
-        </ChallengeDescContainer>
+      {external_url && (
+        <ExternalUrl>
+          <a href={external_url} target="_blank">
+            Source
+          </a>
+        </ExternalUrl>
+      )}
+      <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
+      <ChallengeTitle>{title}</ChallengeTitle>
+      <ChallengeDescContainer>
+        <ChallengeDescription>
+          <ReactMarkdown>{description}</ReactMarkdown>
+          <Hint onClick={() => setShowHint(!showHint)}>
+            {showHint ? correctAorAnHint() : "Hint"}
+          </Hint>
+        </ChallengeDescription>
+      </ChallengeDescContainer>
 
-        <AllSolutionsTitle>
-          {forUser ? `${user.username}'s` : "All"} Solutions
-        </AllSolutionsTitle>
-        <Divider />
-        <SolutionListContainer>{displaySolutions}</SolutionListContainer>
-      </ChallengeDetails>
+      <AllSolutionsTitle>
+        {forUser ? `${user.username}'s` : "All"} Solutions
+      </AllSolutionsTitle>
+      <Divider />
+      <SolutionListContainer>{displaySolutions}</SolutionListContainer>
     </ChallengeContainer>
   );
 }

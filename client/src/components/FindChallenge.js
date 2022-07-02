@@ -1,12 +1,51 @@
 import { useState, useEffect } from "react";
 import Challenge from "./Challenge";
+import Resources from "./Resources";
 import styled from "styled-components";
+import PlaceholderChallenge from "./PlaceholderChallenge";
 
 const PageContainer = styled.div`
   border: 1px solid black;
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 30px);
+`;
+
+const ChallengeListContainer = styled.div`
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  width: 280x;
+  position: relative;
+  background-color: #c4a484;
+  height: 100vh;
+`;
+
+const ControlsDiv = styled.div`
+  top: 30px;
+  position: sticky;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 270px;
+`;
+
+const ListItemContainer = styled.div`
+  position: relative;
+  margin-top: 30px;
+  overflow: auto;
+`;
+
+const ChallengeListItems = styled.div`
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 270px;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const ChallengeStyle = styled.p`
@@ -22,45 +61,6 @@ const ChallengeStyle = styled.p`
   color: #fefefe;
   &:hover {
     background-color: rgb(72, 72, 72);
-  }
-`;
-
-const ChallengeListContainer = styled.div`
-  display: flex;
-  text-align: left;
-  flex-direction: column;
-  /* border: 1px solid black; */
-  width: 330px;
-  position: relative;
-  background-color: #c4a484;
-`;
-
-const ListItemContainer = styled.div`
-  position: relative;
-  margin-top: 30px;
-  overflow: auto;
-`;
-
-const ChallengeListItems = styled.div`
-  display: flex;
-  text-align: left;
-  flex-direction: column;
-  border: 1px solid black;
-  width: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  &::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 4px;
-    background: red;
-  }
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(104, 140, 240, 0.3);
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: #fce5bb;
-    outline: 1px solid black;
   }
 `;
 
@@ -80,16 +80,6 @@ const Select = styled.select`
   margin-bottom: 14px;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
-`;
-
-const ControlsDiv = styled.div`
-  top: 30px;
-  position: sticky;
-  display: flex;
-  text-align: left;
-  flex-direction: column;
-  border: 1px solid black;
-  width: 300px;
 `;
 
 const Label = styled.label`
@@ -126,6 +116,7 @@ function FindChallenge({ user }) {
   };
 
   const [counts, setCounts] = useState(initialCounts);
+  const [wasClosed, setWasClosed] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [allChallenges, setAllChallenges] = useState([]);
@@ -137,6 +128,11 @@ function FindChallenge({ user }) {
     getAllChallenges();
     getCounts();
   }, []);
+
+  // if (allChallenges.length && !selectedChallenge.description && wasClosed) {
+  //   const newSelected = allChallenges[0];
+  //   setSelectedChallenge(newSelected);
+  // }
 
   async function getAllChallenges() {
     const response = await fetch("/challenges");
@@ -226,16 +222,20 @@ function FindChallenge({ user }) {
           </ChallengeListItems>
         </ListItemContainer>
       </ChallengeListContainer>
-      {selectedChallenge.description && (
+      {selectedChallenge.description ? (
         <Challenge
           selectedChallenge={selectedChallenge}
           user={user}
           forUser={forUser}
-          clearSelectedChallenge={() =>
-            setSelectedChallenge(initialSelectedChallenge)
-          }
+          clearSelectedChallenge={() => {
+            setWasClosed(true);
+            setSelectedChallenge(initialSelectedChallenge);
+          }}
         />
+      ) : (
+        <PlaceholderChallenge />
       )}
+      <Resources />
     </PageContainer>
   );
 }
