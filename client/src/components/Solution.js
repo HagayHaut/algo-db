@@ -13,7 +13,7 @@ const SolutionContainer = styled.div`
   background-color: white;
 `;
 
-const NotesContainer = styled.div`
+const DetailsContainer = styled.div`
   border-bottom: 1px solid black;
   text-align: center;
   width: 20%;
@@ -38,6 +38,17 @@ const SolutionInfo = styled.p`
 const CategoryTitle = styled.h5`
   font-size: 0.9rem;
   text-align: center;
+`;
+
+const NotesContainer = styled.div``;
+
+const NotesCanvas = styled.div`
+  background-color: rgb(57, 57, 57);
+  color: white;
+  width: 67%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10%;
 `;
 
 const MDContainer = styled.div`
@@ -148,7 +159,7 @@ function Solution({ selectedSolution, index, user }) {
             </SyntaxHighlighter>
           </Code>
         </CodeContainer>
-        <NotesContainer>
+        <DetailsContainer>
           <CategoryTitle>Author</CategoryTitle>
           <SolutionInfo>{user_name}</SolutionInfo>
           <CategoryTitle>Language</CategoryTitle>
@@ -157,11 +168,15 @@ function Solution({ selectedSolution, index, user }) {
           <SolutionInfo>{time_complexity}</SolutionInfo>
           <CategoryTitle>Space Complexity</CategoryTitle>
           <SolutionInfo>{space_complexity}</SolutionInfo>
-        </NotesContainer>
+        </DetailsContainer>
       </CodeAndDesc>
       <MDContainer>
         <CategoryTitle>Notes</CategoryTitle>
-        <ReactMarkdown>{notes}</ReactMarkdown>
+        <NotesContainer>
+          <NotesCanvas>
+            <ReactMarkdown>{notes}</ReactMarkdown>
+          </NotesCanvas>
+        </NotesContainer>
       </MDContainer>
       {showComments && (
         <form onSubmit={handleCommentSubmit}>

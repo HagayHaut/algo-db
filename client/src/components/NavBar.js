@@ -29,6 +29,10 @@ const H3 = styled.h3`
   cursor: pointer;
   font-size: 17px;
   padding: 4px;
+  color: #c4a484;
+  &:hover {
+    color: #d7bd8f;
+  }
 `;
 
 const DarkModeBtn = styled.button`

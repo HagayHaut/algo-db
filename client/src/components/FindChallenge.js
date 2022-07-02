@@ -49,6 +49,19 @@ const ChallengeListItems = styled.div`
   width: 300px;
   overflow-y: auto;
   overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+    background: red;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(104, 140, 240, 0.3);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #fce5bb;
+    outline: 1px solid black;
+  }
 `;
 
 const Input = styled.input`
