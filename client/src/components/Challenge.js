@@ -40,9 +40,8 @@ const ChallengeDescContainer = styled.div`
 const ChallengeDescription = styled.div`
   width: 67%;
   margin: auto;
-  border-radius: 3%;
-  background-color: #fefefe;
-  color: black;
+  background-color: #222;
+  color: #bbb;
   padding: 20px;
 `;
 
@@ -140,7 +139,7 @@ function Challenge({
     <ChallengeContainer>
       {external_url && (
         <ExternalUrl href={external_url} target="_blank">
-          Source <HiOutlineExternalLink />
+          <HiOutlineExternalLink />
         </ExternalUrl>
       )}
       <CloseButton onClick={clearSelectedChallenge}>
