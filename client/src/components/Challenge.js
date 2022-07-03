@@ -43,6 +43,7 @@ const ChallengeDescription = styled.div`
   background-color: #222;
   color: #bbb;
   padding: 20px;
+  font-size: 0.8rem;
 `;
 
 const SolutionListContainer = styled.div`
@@ -83,7 +84,7 @@ const AllSolutionsTitle = styled.p`
 `;
 
 const Divider = styled.div`
-  background-color: #fefefe;
+  background-color: #444;
   width: 100%;
   height: 2px;
 `;

@@ -11,7 +11,7 @@ const SolutionContainer = styled.div`
   width: 100%;
   text-align: center;
   margin-top: 10px;
-  background-color: white;
+  background-color: rgb(100, 100, 100);
 `;
 
 const DetailsContainer = styled.div`
@@ -69,6 +69,7 @@ const CodeAndDesc = styled.div`
 
 const CodeContainer = styled.div`
   width: 80%;
+  text-align: left;
 `;
 
 const Code = styled.div`
@@ -79,6 +80,14 @@ const Input = styled.input`
   margin-bottom: 4px;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
+`;
+
+const Number = styled.p`
+  background-color: rgb(80, 80, 80);
+  color: rgb(40, 40, 40);
+  display: inline-block;
+  padding: 1px 3px 1px 3px;
+  border-radius: 20%;
 `;
 
 function Solution({ selectedSolution, index, user }) {
@@ -146,8 +155,7 @@ function Solution({ selectedSolution, index, user }) {
     <SolutionContainer>
       <CodeAndDesc>
         <CodeContainer>
-          <h4>{index + 1}.</h4>
-
+          <Number>{index + 1}</Number>
           <Code>
             <SyntaxHighlighter
               language={language}
