@@ -154,7 +154,6 @@ function Challenge({
           selectedSolution={sol}
           index={i}
           user={user}
-          forUser={forUser}
           codeStyle={codeStyle}
         />
       ));
