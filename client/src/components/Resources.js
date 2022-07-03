@@ -60,21 +60,20 @@ const ListItemInnerContainer = styled.div`
   height: 30vh;
   overflow-y: auto;
   overflow-x: hidden;
+  background: #151515;
   padding: 5px 0 5px 0;
 `;
 
 const ResourceItem = styled.p`
   border-radius: 3px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 2px;
-  padding-top: 3px;
-  padding-left: 4px;
+  font-size: 13px;
+  margin: 2px 10px 2px 10px;
+  padding: 4px;
   cursor: pointer;
-  background-color: rgb(57, 57, 57);
-  color: #fefefe;
+  background-color: #151515;
+  color: #ddd;
   &:hover {
-    background-color: rgb(72, 72, 72);
+    background-color: rgb(57, 57, 57);
   }
 `;
 
@@ -126,6 +125,10 @@ function Resources() {
     setSelectedResource(newSelectedResource);
   }
 
+  function limitChars(str) {
+    return str.length > 28 ? str.slice(0, 25) + "..." : str;
+  }
+
   const displayResources = resources
     .filter(
       (resource) =>
@@ -140,7 +143,7 @@ function Resources() {
     )
     .map((resource, i) => (
       <ResourceItem key={i} onClick={() => updateSelected(resource.id)}>
-        {resource.title}
+        {limitChars(resource.title)}
       </ResourceItem>
     ));
 
