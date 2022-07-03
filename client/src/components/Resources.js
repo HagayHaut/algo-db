@@ -50,7 +50,7 @@ const ResourceLink = styled.p`
 
 const ListItemOuterContainer = styled.div`
   position: relative;
-  overflow: auto;
+  overflow: hidden;
 `;
 
 const ListItemInnerContainer = styled.div`
@@ -60,7 +60,6 @@ const ListItemInnerContainer = styled.div`
   width: 18vw;
   height: 25vh;
   overflow-y: auto;
-  overflow-x: hidden;
   background: #151515;
   padding: 5px 0 5px 0;
 `;
@@ -81,8 +80,15 @@ const ResourceItem = styled.p`
 const PageTitle = styled.h2`
   text-align: left;
   color: #ddd;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   margin: 10px 0 0 12px;
+`;
+
+const Divider = styled.div`
+  border-top: 1px solid #444;
+  height: 1px;
+  position: relative;
+  margin: 8px 12px 0 12px;
 `;
 
 const Input = styled.input`
@@ -188,6 +194,7 @@ function Resources() {
       <TopContainer>
         <TopLeftContainer>
           <PageTitle>Resources</PageTitle>
+          <Divider />
           <Label>Filter by category</Label>
           <Select
             value={selectedCategory}

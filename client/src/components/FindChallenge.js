@@ -64,8 +64,15 @@ const ChallengeStyle = styled.p`
 const PageTitle = styled.h2`
   text-align: left;
   color: #ddd;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   margin: 10px 0 0 12px;
+`;
+
+const Divider = styled.div`
+  border-top: 1px solid #444;
+  height: 1px;
+  position: relative;
+  margin: 8px 12px 0 12px;
 `;
 
 const Input = styled.input`
@@ -179,6 +186,7 @@ function FindChallenge({ user }) {
       <ChallengeListContainer>
         <ControlsDiv>
           <PageTitle>Challenges</PageTitle>
+          <Divider />
           <Label>Filter by category</Label>
           <Select
             value={selectedCategory}
