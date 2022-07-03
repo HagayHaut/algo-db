@@ -36,12 +36,16 @@ const TopLeftContainer = styled.div`
 
 const TopRightContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-around;
+  padding: 3px 8px 3px 8px;
   position: relative;
   top: 30px;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 12px;
-  font-size: 10px;
+`;
+
+const ResourceLink = styled.p`
+  font-size: 8px;
 `;
 
 const ListItemOuterContainer = styled.div`
@@ -217,14 +221,29 @@ function Resources() {
             </ListItemInnerContainer>
           </ListItemOuterContainer>
         </TopLeftContainer>
+
         <TopRightContainer>
-          <SiFreecodecamp />
-          <SiKhanacademy />
-          <SiLeetcode />
-          <SiUdemy />
-          <SiHackerrank />
-          <SiEdx />
-          <SiStackoverflow />
+          <ResourceLink>
+            <SiFreecodecamp /> FreeCodeCamp
+          </ResourceLink>
+          <ResourceLink>
+            <SiKhanacademy /> Khan Academy
+          </ResourceLink>
+          <ResourceLink>
+            <SiLeetcode /> Leetcode
+          </ResourceLink>
+          <ResourceLink>
+            <SiUdemy /> Udemy
+          </ResourceLink>
+          <ResourceLink>
+            <SiHackerrank /> HackerRank
+          </ResourceLink>
+          <ResourceLink>
+            <SiEdx /> edX
+          </ResourceLink>
+          <ResourceLink>
+            <SiStackoverflow /> Stack Overflow
+          </ResourceLink>
         </TopRightContainer>
       </TopContainer>
 
