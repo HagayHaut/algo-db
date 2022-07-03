@@ -7,7 +7,6 @@ import Comment from "./Comment";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 const SolutionContainer = styled.div`
-  border: 1px solid black;
   width: 100%;
   text-align: center;
   margin-top: 10px;
@@ -15,10 +14,16 @@ const SolutionContainer = styled.div`
 `;
 
 const DetailsContainer = styled.div`
-  color: white;
   background-color: rgb(57, 57, 57);
   text-align: center;
   width: 20%;
+`;
+
+const Divider = styled.div`
+  border-top: 1px solid #555;
+  height: 1px;
+  position: relative;
+  margin: 4px 12px 4px 12px;
 `;
 
 const ShowHideButton = styled.p`
@@ -26,36 +31,37 @@ const ShowHideButton = styled.p`
   cursor: pointer;
   font-size: 1rem;
   font-weight: bolder;
-  color: black;
+  color: #222;
 `;
 
 const SolutionInfo = styled.p`
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   margin-bottom: 7px;
   text-align: center;
 `;
 
-const CategoryTitle = styled.h5`
-  font-size: 0.7rem;
+const CategoryTitle = styled.p`
+  font-size: 0.6rem;
   text-align: center;
+  color: #999;
 `;
 
 const NotesTitle = styled.p`
   font-size: 0.9rem;
+  color: #222;
+  margin-bottom: 4px;
   text-align: center;
-  margin: 8px 0 8px 0;
-  color: black;
 `;
 
 const NotesContainer = styled.div``;
 
 const NotesCanvas = styled.div`
   background-color: rgb(57, 57, 57);
-  color: white;
+  font-size: 0.7rem;
+  color: #ddd;
   width: 67%;
   margin: auto;
   padding: 20px;
-  border-radius: 5%;
 `;
 
 const MDContainer = styled.div`
@@ -87,7 +93,6 @@ const Number = styled.p`
   color: rgb(40, 40, 40);
   display: inline-block;
   padding: 1px 3px 1px 3px;
-  border-radius: 20%;
 `;
 
 function Solution({ selectedSolution, index, user }) {
@@ -171,12 +176,16 @@ function Solution({ selectedSolution, index, user }) {
           </Code>
         </CodeContainer>
         <DetailsContainer>
+          <Divider />
           <CategoryTitle>Author</CategoryTitle>
           <SolutionInfo>{user_name}</SolutionInfo>
+          <Divider />
           <CategoryTitle>Language</CategoryTitle>
           <SolutionInfo>{getLanguage(language)}</SolutionInfo>
+          <Divider />
           <CategoryTitle>Time Complexity</CategoryTitle>
           <SolutionInfo>{time_complexity}</SolutionInfo>
+          <Divider />
           <CategoryTitle>Space Complexity</CategoryTitle>
           <SolutionInfo>{space_complexity}</SolutionInfo>
         </DetailsContainer>
