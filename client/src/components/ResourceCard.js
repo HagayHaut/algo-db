@@ -23,7 +23,7 @@ const Divider = styled.div`
   border-top: 1px solid #444;
   height: 1px;
   position: relative;
-  margin: 0 12px 12px 12px;
+  margin: 0 0 12px 0;
 `;
 
 const IsFree = styled.p`
