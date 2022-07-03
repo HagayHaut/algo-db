@@ -42,6 +42,7 @@ const TopRightContainer = styled.div`
   justify-content: space-around;
   padding: 3px 8px 3px 8px;
   position: relative;
+  width: 100%;
   top: 30px;
 `;
 
@@ -98,6 +99,7 @@ const Divider = styled.div`
   border-top: 1px solid #444;
   height: 1px;
   position: relative;
+  width: 90%;
 `;
 
 const BigDivider = styled.div`
