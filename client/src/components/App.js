@@ -9,8 +9,6 @@ import FindChallenge from "./FindChallenge";
 import Submission from "./Submission";
 
 const StyledApp = styled.div`
-  background-color: rgba(255, 255, 255, 0.6);
-  background-blend-mode: lighten;
   font-family: "Nanum Gothic";
 `;
 
