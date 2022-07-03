@@ -60,7 +60,6 @@ const CloseButton = styled.button`
   right: 5px;
   cursor: pointer;
   background-color: rgb(57, 57, 57);
-  color: white;
 `;
 
 const ChallengeTitle = styled.p`
