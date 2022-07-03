@@ -18,5 +18,9 @@
     height: 100vh;
   }
 
+  select {
+    cursor: pointer;
+  }
+
 
 

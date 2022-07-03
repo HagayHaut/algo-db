@@ -133,6 +133,7 @@ function UserPage({ user }) {
   };
 
   const [counts, setCounts] = useState(initialCounts);
+  const [hasNoChallenges, setHasNoChallenges] = useState(false);
   const [userChallenges, setUserChallenges] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
@@ -148,6 +149,7 @@ function UserPage({ user }) {
   async function getUserChallenges() {
     const response = await fetch(`/users/${user.id}/challenges`);
     const data = await response.json();
+    if (!data.length) setHasNoChallenges(true);
     setUserChallenges(data);
   }
 
@@ -211,7 +213,7 @@ function UserPage({ user }) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          {counts.solution_count && (
+          {counts.solution_count > 0 && (
             <Count>
               {counts.solution_count} Solutions for {counts.challenge_count}{" "}
               Challenges
@@ -221,7 +223,7 @@ function UserPage({ user }) {
 
         <ListItemContainer>
           <ChallengeListItems>
-            {!userChallenges.length ? (
+            {!userChallenges.length && !hasNoChallenges ? (
               <ChallengeStyle>Loading...</ChallengeStyle>
             ) : displayChallenges.length ? (
               displayChallenges

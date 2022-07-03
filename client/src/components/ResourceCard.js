@@ -38,7 +38,6 @@ const Anchor = styled.a`
 function ResourceCard({ resource }) {
   const { title, description, external_url, is_free, resource_category } =
     resource;
-  console.log(resource);
 
   return (
     <ResourceCardContainer>

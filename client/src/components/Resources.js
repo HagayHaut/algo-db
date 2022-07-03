@@ -4,6 +4,7 @@ import {
   SiUdemy,
   SiFreecodecamp,
   SiKhanacademy,
+  SiYoutube,
   SiLeetcode,
   SiHackerrank,
   SiEdx,
@@ -237,7 +238,10 @@ function Resources() {
             <SiKhanacademy /> Khan Academy
           </ResourceLink>
           <ResourceLink>
-            <SiLeetcode /> Leetcode
+            <SiLeetcode /> LeetCode
+          </ResourceLink>
+          <ResourceLink>
+            <SiYoutube /> NeetCode
           </ResourceLink>
           <ResourceLink>
             <SiUdemy /> Udemy
