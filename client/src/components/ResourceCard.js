@@ -3,13 +3,13 @@ import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 
 const ResourceCardContainer = styled.div`
-  height: 100%;
   width: 95%;
   position: relative;
   margin: 35px 5px 5px 5px;
-  background-color: #fefefe;
+  background-color: rgb(140, 140, 140);
   padding: 7px;
   overflow-y: scroll;
+  color: #000;
 `;
 
 const Title = styled.p`
@@ -38,6 +38,7 @@ const Anchor = styled.a`
 function ResourceCard({ resource }) {
   const { title, description, external_url, is_free, resource_category } =
     resource;
+  console.log(resource);
 
   return (
     <ResourceCardContainer>
