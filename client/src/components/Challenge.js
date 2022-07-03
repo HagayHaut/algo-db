@@ -48,6 +48,7 @@ const ChallengeDescription = styled.div`
 
 const SolutionListContainer = styled.div`
   overflow-y: auto;
+  background-color: #222;
   overflow-x: hidden;
   height: calc(100vh - 70px);
 `;
