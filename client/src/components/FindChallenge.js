@@ -16,7 +16,6 @@ const ChallengeListContainer = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  /* border: 1px solid black; */
   width: 22vw;
   position: relative;
   height: 100vh;
@@ -66,7 +65,7 @@ const PageTitle = styled.h2`
   text-align: left;
   color: #ddd;
   font-size: 1.5rem;
-  margin: 10px 0 0 5px; ;
+  margin: 10px 0 0 12px;
 `;
 
 const Input = styled.input`
@@ -74,7 +73,7 @@ const Input = styled.input`
   color: #eee;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
-  width: 67%;
+  width: 80%;
   margin-left: 10px;
 `;
 
@@ -86,14 +85,14 @@ const Select = styled.select`
 `;
 
 const Label = styled.label`
-  margin: 10px 0 4px 4px;
-  font-size: 12px;
+  margin: 10px 0 4px 12px;
+  font-size: 10px;
   color: #999;
 `;
 
 const Count = styled.p`
   font-size: 10px;
-  margin: 0 0 8px 4px;
+  margin: 0 0 8px 12px;
   color: #999;
 `;
 

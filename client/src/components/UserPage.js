@@ -8,11 +8,15 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: calc(100vh - 30px);
+  background-color: #222;
+  color: #fefefe;
 `;
 
 const PageTitle = styled.h2`
-  text-align: center;
-  font-size: 2rem;
+  text-align: left;
+  color: #ddd;
+  font-size: 1.5rem;
+  margin: 10px 0 0 12px;
 `;
 
 const UserPageContainer = styled.div`
@@ -21,8 +25,8 @@ const UserPageContainer = styled.div`
   flex-direction: column;
   width: 22vw;
   position: relative;
-  height: calc(100vh + 30px);
-  background-color: #c4a484;
+  height: 100vh;
+  background-color: #222;
 `;
 
 const ControlsDiv = styled.div`
@@ -31,56 +35,64 @@ const ControlsDiv = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  border: 1px solid black;
   width: 20vw;
 `;
 
 const Input = styled.input`
-  margin-bottom: 4px;
+  margin: 4px 0 8px 0;
+  color: #eee;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
+  width: 80%;
+  margin-left: 10px;
 `;
 
 const Select = styled.select`
-  margin-bottom: 14px;
   background-color: rgb(57, 57, 57);
-  color: #fefefe;
+  color: #ddd;
+  margin: 4px 0 4px 12px;
+  width: 50%;
 `;
 
 const Label = styled.label`
-  margin-top: 4px;
+  margin: 10px 0 4px 12px;
+  font-size: 10px;
+  color: #999;
+`;
+
+const Count = styled.p`
+  font-size: 10px;
+  margin: 0 0 8px 12px;
+  color: #999;
 `;
 
 const ListItemContainer = styled.div`
   position: relative;
   margin-top: 30px;
   overflow-y: scroll;
-  overflow-x: auto;
+  overflow-x: hidden;
 `;
 
 const ChallengeListItems = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  border: 1px solid black;
   width: 20vw;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
+  background: #151515;
+  padding: 8px 0 8px 0;
 `;
 
 const ChallengeStyle = styled.p`
-  border: 1px solid black;
   border-radius: 3px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 2px;
-  padding-top: 3px;
-  padding-left: 4px;
+  font-size: 13px;
+  margin: 2px 10px 2px 10px;
+  padding: 4px;
   cursor: pointer;
-  background-color: rgb(57, 57, 57);
-  color: #fefefe;
+  background-color: #151515;
+  color: #ddd;
   &:hover {
-    background-color: rgb(72, 72, 72);
+    background-color: rgb(57, 57, 57);
   }
 `;
 
@@ -163,12 +175,6 @@ function UserPage({ user }) {
       <UserPageContainer>
         <ControlsDiv>
           <PageTitle>{user.username}</PageTitle>
-          <Input
-            type="text"
-            placeholder="Search my challenges..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
           <Label>Filter by category</Label>
           <Select
             value={selectedCategory}
@@ -191,12 +197,17 @@ function UserPage({ user }) {
             <option value="string">Recursion</option>
             <option value="two-pointer">Two Pointer</option>
           </Select>
-          <h3>My Solutions:</h3>
+          <Input
+            type="text"
+            placeholder="Search my challenges..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
           {counts.solution_count && (
-            <p>
+            <Count>
               {counts.solution_count} Solutions for {counts.challenge_count}{" "}
               Challenges
-            </p>
+            </Count>
           )}
         </ControlsDiv>
 
