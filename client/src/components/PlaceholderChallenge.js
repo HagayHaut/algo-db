@@ -1,15 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import { GiPencilRuler } from "react-icons/gi";
 
 const PlaceholderContainer = styled.div`
   width: 56%;
   background-color: rgb(57, 57, 57);
   position: relative;
   top: 30px;
-  color: #fefefe;
 `;
 
 const MessageContainer = styled.div``;
+
+const IconContainer = styled.div`
+  color: #bbb;
+  font-size: 3rem;
+  margin: 40px 0 0 0;
+  text-align: center;
+`;
 
 const Logo = styled.p`
   height: auto;
@@ -28,8 +35,9 @@ const Logo = styled.p`
 
 const PlaceholderMessage = styled.p`
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-top: 30px;
+  color: #bbb;
 `;
 
 function PlaceholderChallenge() {
@@ -37,6 +45,10 @@ function PlaceholderChallenge() {
     <PlaceholderContainer>
       <MessageContainer>
         <Logo>algoDB!</Logo>
+        <IconContainer>
+          <GiPencilRuler />
+        </IconContainer>
+
         <PlaceholderMessage>Select challenge for solutions</PlaceholderMessage>
       </MessageContainer>
     </PlaceholderContainer>
