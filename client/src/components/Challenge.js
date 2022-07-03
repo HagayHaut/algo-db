@@ -96,6 +96,24 @@ const Hint = styled.p`
   cursor: pointer;
 `;
 
+const StyleSelectContainer = styled.div`
+  position: relative;
+  float: right;
+  bottom: 25px;
+  right: 5px;
+`;
+
+const StyleSelect = styled.select`
+  background-color: #222;
+  width: 70px;
+  font-size: 10px;
+  color: #fefefe;
+`;
+
+const Label = styled.label`
+  font-size: 10px;
+`;
+
 function Challenge({
   selectedChallenge,
   user,
@@ -103,6 +121,7 @@ function Challenge({
   clearSelectedChallenge,
 }) {
   const [showHint, setShowHint] = useState(false);
+  const [codeStyle, setCodeStyle] = useState("xt256");
 
   const { title, description, solutions, category_id, external_url } =
     selectedChallenge;
@@ -132,7 +151,13 @@ function Challenge({
       ));
   } else {
     displaySolutions = solutions.map((sol, i) => (
-      <Solution key={i} selectedSolution={sol} index={i} user={user} />
+      <Solution
+        key={i}
+        selectedSolution={sol}
+        index={i}
+        user={user}
+        codeStyle={codeStyle}
+      />
     ));
   }
 
@@ -157,8 +182,30 @@ function Challenge({
       </ChallengeDescContainer>
 
       <AllSolutionsTitle>
-        {forUser ? `${user.username}'s` : "All"} Solutions
+        {forUser ? `${user.username}'s` : "All"} Solutions{" "}
       </AllSolutionsTitle>
+      <StyleSelectContainer>
+        <Label>code styles</Label>{" "}
+        <StyleSelect
+          value={codeStyle}
+          onChange={(e) => setCodeStyle(e.target.value)}
+        >
+          <option value="xt256">xt256</option>
+          <option value="vs">vs</option>
+          <option value="obsidian">obsidian</option>
+          <option value="dracula">dracula</option>
+          <option value="xcode">xcode</option>
+          <option value="gml">gml</option>
+          <option value="far">far</option>
+          <option value="ascetic">ascetic</option>
+          <option value="hopsctoch">hopsctoch</option>
+          <option value="monokai">monokai</option>
+          <option value="agate">agate</option>
+          <option value="sunburst">sunburst</option>
+          <option value="nord">nord</option>
+        </StyleSelect>
+      </StyleSelectContainer>
+
       <Divider />
       <SolutionListContainer>{displaySolutions}</SolutionListContainer>
     </ChallengeContainer>

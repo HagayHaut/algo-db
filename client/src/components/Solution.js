@@ -2,7 +2,21 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
+// dark styles
 import obsidian from "react-syntax-highlighter/dist/esm/styles/hljs/obsidian";
+import dracula from "react-syntax-highlighter/dist/esm/styles/hljs/dracula";
+import gml from "react-syntax-highlighter/dist/esm/styles/hljs/gml";
+import far from "react-syntax-highlighter/dist/esm/styles/hljs/far";
+import hopscotch from "react-syntax-highlighter/dist/esm/styles/hljs/hopscotch";
+import monokai from "react-syntax-highlighter/dist/esm/styles/hljs/monokai";
+import agate from "react-syntax-highlighter/dist/esm/styles/hljs/agate";
+import xt256 from "react-syntax-highlighter/dist/esm/styles/hljs/xt256";
+import sunburst from "react-syntax-highlighter/dist/esm/styles/hljs/sunburst";
+import nord from "react-syntax-highlighter/dist/esm/styles/hljs/nord";
+// light styles
+import vs from "react-syntax-highlighter/dist/esm/styles/hljs/vs";
+import xcode from "react-syntax-highlighter/dist/esm/styles/hljs/xcode";
+import ascetic from "react-syntax-highlighter/dist/esm/styles/hljs/ascetic";
 import Comment from "./Comment";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
@@ -95,7 +109,7 @@ const Number = styled.p`
   padding: 1px 3px 1px 3px;
 `;
 
-function Solution({ selectedSolution, index, user }) {
+function Solution({ selectedSolution, index, user, codeStyle }) {
   const [solutionComments, setSolutionComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
   const [commentInput, setCommentInput] = useState("");
@@ -115,6 +129,37 @@ function Solution({ selectedSolution, index, user }) {
       .then((r) => r.json())
       .then(setSolutionComments);
   }, [selectedSolution]);
+
+  function getCodeStyle(str) {
+    switch (str) {
+      case "obsidian":
+        return obsidian;
+      case "dracula":
+        return dracula;
+      case "gml":
+        return gml;
+      case "far":
+        return far;
+      case "hopscotch":
+        return hopscotch;
+      case "monokai":
+        return monokai;
+      case "agate":
+        return agate;
+      case "sunburst":
+        return sunburst;
+      case "nord":
+        return nord;
+      case "vs":
+        return vs;
+      case "xcode":
+        return xcode;
+      case "ascetic":
+        return ascetic;
+      default:
+        return xt256;
+    }
+  }
 
   function getLanguage(str) {
     switch (str) {
@@ -164,7 +209,7 @@ function Solution({ selectedSolution, index, user }) {
           <Code>
             <SyntaxHighlighter
               language={language}
-              style={obsidian}
+              style={getCodeStyle(codeStyle)}
               showLineNumbers={true}
               wrapLines={true}
               lineProps={{
