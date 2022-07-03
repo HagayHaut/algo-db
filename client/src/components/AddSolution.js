@@ -38,7 +38,6 @@ function AddSolution({ user }) {
 
   const [allChallenges, setAllChallenges] = useState([]);
   const [formState, setFormState] = useState(initialFormState);
-  const [newSolution, setNewSolution] = useState({});
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -89,11 +88,8 @@ function AddSolution({ user }) {
       body: JSON.stringify(body),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((data) => {
-          setNewSolution(data);
-          setErrors([]);
-          setFormState(initialFormState);
-        });
+        setErrors([]);
+        setFormState(initialFormState);
       } else {
         r.json().then((e) => setErrors(e.errors));
       }
