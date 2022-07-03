@@ -89,8 +89,8 @@ const Input = styled.input`
 `;
 
 const Number = styled.p`
-  background-color: rgb(80, 80, 80);
-  color: rgb(40, 40, 40);
+  background-color: rgb(170, 170, 170);
+  color: black;
   display: inline-block;
   padding: 1px 3px 1px 3px;
 `;
