@@ -3,10 +3,10 @@ import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 
 const ResourceCardContainer = styled.div`
-  height: auto;
+  height: 100%;
   width: 95%;
   position: relative;
-  margin: 5px 5px 5px 5px;
+  margin: 35px 5px 5px 5px;
   background-color: #fefefe;
   padding: 7px;
   overflow-y: scroll;

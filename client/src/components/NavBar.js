@@ -35,15 +35,15 @@ const H3 = styled.h3`
   }
 `;
 
-const DarkModeBtn = styled.button`
-  cursor: pointer;
-  border: 1px solid #fefefe;
-  margin: 4px 0 4px 95px;
-  background-color: #c4a484;
-  padding: 2px;
-  border-radius: 20%;
-  font-size: 0.5rem;
-`;
+// const DarkModeBtn = styled.button`
+//   cursor: pointer;
+//   border: 1px solid #fefefe;
+//   margin: 4px 0 4px 95px;
+//   background-color: #c4a484;
+//   padding: 2px;
+//   border-radius: 20%;
+//   font-size: 0.5rem;
+// `;
 
 const Logo = styled.p`
   margin-bottom: 4px;
@@ -64,9 +64,9 @@ function NavBar({ onLogout, user, onDarkModeClick, isDarkMode }) {
     <HeaderContainer>
       <LeftHeader>
         <Logo>algoDB!</Logo>
-        <DarkModeBtn onClick={onDarkModeClick}>
+        {/* <DarkModeBtn onClick={onDarkModeClick}>
           {isDarkMode ? "Light" : "Dark"} Mode
-        </DarkModeBtn>
+        </DarkModeBtn> */}
       </LeftHeader>
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>

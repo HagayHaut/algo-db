@@ -1,15 +1,77 @@
 import React, { useState, useEffect } from "react";
 import ResourceCard from "./ResourceCard";
+import {
+  SiUdemy,
+  SiFreecodecamp,
+  SiKhanacademy,
+  SiLeetcode,
+  SiHackerrank,
+  SiEdx,
+  SiStackoverflow,
+} from "react-icons/si";
+
 import styled from "styled-components";
 
 const ResourcesContainer = styled.div`
   width: 28vw;
+  height: calc(100vh);
+  background-color: #222;
+`;
+
+const TopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: #222;
+`;
+
+const TopLeftContainer = styled.div`
+  border-right: 1px solid #444;
   top: 30px;
+  width: 18vw;
   display: flex;
   flex-direction: column;
   position: relative;
   background-color: #222;
-  height: calc(100vh - 30px);
+`;
+
+const TopRightContainer = styled.div`
+  display: flex;
+  position: relative;
+  top: 30px;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 12px;
+  font-size: 10px;
+`;
+
+const ListItemOuterContainer = styled.div`
+  position: relative;
+  overflow: auto;
+`;
+
+const ListItemInnerContainer = styled.div`
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  width: 18vw;
+  height: 25vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #151515;
+  padding: 5px 0 5px 0;
+`;
+
+const ResourceItem = styled.p`
+  border-radius: 3px;
+  font-size: 12px;
+  margin: 2px 10px 2px 10px;
+  padding: 4px;
+  cursor: pointer;
+  background-color: #151515;
+  color: #ddd;
+  &:hover {
+    background-color: rgb(57, 57, 57);
+  }
 `;
 
 const PageTitle = styled.h2`
@@ -24,7 +86,7 @@ const Input = styled.input`
   color: #eee;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
-  width: 80%;
+  width: 60%;
   margin-left: 10px;
 `;
 
@@ -45,36 +107,6 @@ const Count = styled.p`
   font-size: 10px;
   margin: 0 0 8px 12px;
   color: #999;
-`;
-
-const ListItemOuterContainer = styled.div`
-  position: relative;
-  overflow: auto;
-`;
-
-const ListItemInnerContainer = styled.div`
-  display: flex;
-  text-align: left;
-  flex-direction: column;
-  width: 20vw;
-  height: 30vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background: #151515;
-  padding: 5px 0 5px 0;
-`;
-
-const ResourceItem = styled.p`
-  border-radius: 3px;
-  font-size: 13px;
-  margin: 2px 10px 2px 10px;
-  padding: 4px;
-  cursor: pointer;
-  background-color: #151515;
-  color: #ddd;
-  &:hover {
-    background-color: rgb(57, 57, 57);
-  }
 `;
 
 function Resources() {
@@ -126,7 +158,7 @@ function Resources() {
   }
 
   function limitChars(str) {
-    return str.length > 28 ? str.slice(0, 25) + "..." : str;
+    return str.length > 24 ? str.slice(0, 22) + "..." : str;
   }
 
   const displayResources = resources
@@ -149,39 +181,53 @@ function Resources() {
 
   return (
     <ResourcesContainer>
-      <PageTitle>Resources</PageTitle>
-      <Label>Filter by category</Label>
-      <Select
-        value={selectedCategory}
-        onChange={(e) => setSelectedCategory(e.target.value)}
-      >
-        <option value="All">All</option>
-        <option value="Blog">Blog</option>
-        <option value="Book/PDF">Book/PDF</option>
-        <option value="Challenges">Challenges</option>
-        <option value="Course">Course</option>
-        <option value="GitHub">GitHub</option>
-        <option value="Tutorial">Tutorial</option>
-        <option value="Video">Video</option>
-      </Select>
-      <Input
-        type="text"
-        placeholder="Search resources..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      {resourceCount && <Count>{resourceCount} Resources</Count>}
-      <ListItemOuterContainer>
-        <ListItemInnerContainer>
-          {!resources.length ? (
-            <ResourceItem>Loading...</ResourceItem>
-          ) : displayResources.length ? (
-            displayResources
-          ) : (
-            <ResourceItem>0 challenges found.</ResourceItem>
-          )}
-        </ListItemInnerContainer>
-      </ListItemOuterContainer>
+      <TopContainer>
+        <TopLeftContainer>
+          <PageTitle>Resources</PageTitle>
+          <Label>Filter by category</Label>
+          <Select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="Blog">Blog</option>
+            <option value="Book/PDF">Book/PDF</option>
+            <option value="Challenges">Challenges</option>
+            <option value="Course">Course</option>
+            <option value="GitHub">GitHub</option>
+            <option value="Tutorial">Tutorial</option>
+            <option value="Video">Video</option>
+          </Select>
+          <Input
+            type="text"
+            placeholder="Search resources..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          {resourceCount && <Count>{resourceCount} Resources</Count>}
+          <ListItemOuterContainer>
+            <ListItemInnerContainer>
+              {!resources.length ? (
+                <ResourceItem>Loading...</ResourceItem>
+              ) : displayResources.length ? (
+                displayResources
+              ) : (
+                <ResourceItem>0 challenges found.</ResourceItem>
+              )}
+            </ListItemInnerContainer>
+          </ListItemOuterContainer>
+        </TopLeftContainer>
+        <TopRightContainer>
+          <SiFreecodecamp />
+          <SiKhanacademy />
+          <SiLeetcode />
+          <SiUdemy />
+          <SiHackerrank />
+          <SiEdx />
+          <SiStackoverflow />
+        </TopRightContainer>
+      </TopContainer>
+
       <ResourceCard resource={selectedResource} />
     </ResourcesContainer>
   );
