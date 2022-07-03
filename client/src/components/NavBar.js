@@ -6,7 +6,7 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   height: 30px;
-  width: 40%;
+  width: 33%;
   justify-content: space-around;
 `;
 
@@ -27,22 +27,22 @@ const HeaderContainer = styled.div`
 
 const H3 = styled.h3`
   cursor: pointer;
-  font-size: 17px;
-  padding: 4px;
-  color: #c4a484;
+  font-size: 15px;
+  padding: 5px 0 4px 0;
+  color: #d4d4d4;
   &:hover {
-    color: #d7bd8f;
+    color: #fefefe;
   }
 `;
 
 const DarkModeBtn = styled.button`
   cursor: pointer;
   border: 1px solid #fefefe;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  margin: 4px 0 4px 95px;
   background-color: #c4a484;
   padding: 2px;
   border-radius: 20%;
+  font-size: 0.5rem;
 `;
 
 const Logo = styled.p`
@@ -51,7 +51,7 @@ const Logo = styled.p`
   margin-right: 15px;
   font-family: "Modak";
   font-size: 23px;
-  color: #fdee30;
+  color: #05d5fa;
 `;
 
 const linkStyle = {

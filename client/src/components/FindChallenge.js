@@ -8,6 +8,8 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: calc(100vh - 30px);
+  background-color: #222;
+  color: #fefefe;
 `;
 
 const ChallengeListContainer = styled.div`
@@ -17,8 +19,8 @@ const ChallengeListContainer = styled.div`
   /* border: 1px solid black; */
   width: 22vw;
   position: relative;
-  background-color: #c4a484;
   height: 100vh;
+  background-color: #222;
 `;
 
 const ControlsDiv = styled.div`
@@ -27,14 +29,13 @@ const ControlsDiv = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  border: 1px solid black;
   width: 20vw;
 `;
 
 const ListItemContainer = styled.div`
   position: relative;
   margin-top: 30px;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
 `;
 
@@ -42,46 +43,58 @@ const ChallengeListItems = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  border: 1px solid black;
   width: 20vw;
   overflow: hidden;
+  background: #151515;
+  padding: 8px 0 8px 0;
 `;
 
 const ChallengeStyle = styled.p`
-  border: 1px solid black;
   border-radius: 3px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 2px;
-  padding-top: 3px;
-  padding-left: 4px;
+  font-size: 13px;
+  margin: 2px 10px 2px 10px;
+  padding: 4px;
   cursor: pointer;
-  background-color: rgb(57, 57, 57);
-  color: #fefefe;
+  background-color: #151515;
+  color: #ddd;
   &:hover {
-    background-color: rgb(72, 72, 72);
+    background-color: rgb(57, 57, 57);
   }
 `;
 
 const PageTitle = styled.h2`
-  text-align: center;
-  font-size: 2rem;
+  text-align: left;
+  color: #ddd;
+  font-size: 1.5rem;
+  margin: 10px 0 0 5px; ;
 `;
 
 const Input = styled.input`
-  margin-bottom: 4px;
+  margin: 4px 0 8px 0;
+  color: #eee;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
+  width: 67%;
+  margin-left: 10px;
 `;
 
 const Select = styled.select`
-  margin-bottom: 14px;
   background-color: rgb(57, 57, 57);
-  color: #fefefe;
+  color: #ddd;
+  margin: 4px 0 4px 12px;
+  width: 50%;
 `;
 
 const Label = styled.label`
-  margin-top: 4px;
+  margin: 10px 0 4px 4px;
+  font-size: 12px;
+  color: #999;
+`;
+
+const Count = styled.p`
+  font-size: 10px;
+  margin: 0 0 8px 4px;
+  color: #999;
 `;
 
 const CATEGORIES = [
@@ -164,12 +177,6 @@ function FindChallenge({ user }) {
       <ChallengeListContainer>
         <ControlsDiv>
           <PageTitle>Challenges</PageTitle>
-          <Input
-            type="text"
-            placeholder="Search all challenges..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
           <Label>Filter by category</Label>
           <Select
             value={selectedCategory}
@@ -192,11 +199,17 @@ function FindChallenge({ user }) {
             <option value="string">Recursion</option>
             <option value="two-pointer">Two Pointer</option>
           </Select>
+          <Input
+            type="text"
+            placeholder="Search all challenges..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
           {counts.solution_count && (
-            <p>
+            <Count>
               {counts.solution_count} Solutions for {counts.challenge_count}{" "}
               Challenges
-            </p>
+            </Count>
           )}
         </ControlsDiv>
         <ListItemContainer>

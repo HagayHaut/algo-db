@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    caret-color: green;
+    caret-color: #fefefe;
 }
 
 .required:after {

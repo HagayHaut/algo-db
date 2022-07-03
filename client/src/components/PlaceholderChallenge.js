@@ -17,7 +17,7 @@ const Logo = styled.p`
   margin: 100px auto auto auto;
   font-family: "Modak";
   font-size: 2.5rem;
-  color: #fdee30;
+  color: #05d5fa;
   background-color: #151515;
   position: relative;
   border-radius: 5%;
