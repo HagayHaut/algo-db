@@ -100,7 +100,7 @@ function AddChallenge() {
       <h2>Add a New Challenge</h2>
       <form onSubmit={handleSubmit}>
         <InputContainer>
-          <label>Challenge Title</label>
+          <label className="required">Challenge Title</label>
           <Input
             type="text"
             name="title"
@@ -109,7 +109,9 @@ function AddChallenge() {
           ></Input>
         </InputContainer>
         <InputContainer>
-          <label>Challenge Description (Markdown Syntax Supported)</label>
+          <label className="required">
+            Challenge Description (Markdown Syntax Supported)
+          </label>
           <TextareaInput
             onTextChange={(e) =>
               setFormState({ ...formState, description: e.target.value })
@@ -120,7 +122,7 @@ function AddChallenge() {
           />
         </InputContainer>
         <InputContainer>
-          <label>External URL (optional)</label>
+          <label>External URL</label>
           <Input
             type="text"
             name="external_url"
@@ -129,7 +131,7 @@ function AddChallenge() {
           ></Input>
         </InputContainer>
         <InputContainer>
-          <label>Challenge Category</label>
+          <label className="required">Challenge Category</label>
           <Select
             value={formState.category}
             name="category"

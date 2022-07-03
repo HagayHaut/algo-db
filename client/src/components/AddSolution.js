@@ -105,7 +105,7 @@ function AddSolution({ user }) {
       <h2>Add a New Solution</h2>
       <form onSubmit={handleSubmit}>
         <InputContainer>
-          <label>Pick Challenge</label>
+          <label className="required">Pick Challenge</label>
           <Select
             value={formState.challenge_id}
             name="challenge_id"
@@ -116,7 +116,7 @@ function AddSolution({ user }) {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label>Pick Language</label>
+          <label className="required">Pick Language</label>
           <Select
             value={formState.language}
             name="language"
@@ -148,7 +148,7 @@ function AddSolution({ user }) {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label>Your Solution</label>
+          <label className="required">Your Solution</label>
           <TextareaInput
             onTextChange={(e) =>
               setFormState({ ...formState, solution: e.target.value })
@@ -159,7 +159,7 @@ function AddSolution({ user }) {
           />
         </InputContainer>
         <InputContainer>
-          <label>Time Complexity</label>
+          <label className="required">Time Complexity</label>
           <Select
             value={formState.time_complexity}
             name="time_complexity"
@@ -170,7 +170,7 @@ function AddSolution({ user }) {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label>Space Complexity</label>
+          <label className="required">Space Complexity</label>
           <Select
             value={formState.space_complexity}
             name="space_complexity"
