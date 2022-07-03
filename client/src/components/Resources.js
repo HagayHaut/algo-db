@@ -216,7 +216,7 @@ function Resources() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          {resourceCount && <Count>{resourceCount} Resources</Count>}
+          {resourceCount > 0 && <Count>{resourceCount} Resources</Count>}
           <ListItemOuterContainer>
             <ListItemInnerContainer>
               {!resources.length ? (
