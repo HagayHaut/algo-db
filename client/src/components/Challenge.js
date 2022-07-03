@@ -50,7 +50,7 @@ const SolutionListContainer = styled.div`
   overflow-y: auto;
   background-color: #222;
   overflow-x: hidden;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 60px);
 `;
 
 const CloseButton = styled.button`
@@ -79,9 +79,10 @@ const ExternalUrl = styled.a`
 `;
 
 const AllSolutionsTitle = styled.p`
-  margin: 10px 0 10px 0;
   text-align: center;
   font-size: 16;
+  display: inline;
+  margin: 10px 10px 5px 12px;
 `;
 
 const Divider = styled.div`
@@ -98,9 +99,10 @@ const Hint = styled.p`
 
 const StyleSelectContainer = styled.div`
   position: relative;
-  float: right;
-  bottom: 25px;
-  right: 5px;
+  bottom: 5px;
+  display: inline-block;
+  left: 5px;
+  margin: 10px 12px 0 0;
 `;
 
 const StyleSelect = styled.select`
@@ -108,6 +110,12 @@ const StyleSelect = styled.select`
   width: 70px;
   font-size: 10px;
   color: #fefefe;
+`;
+
+const TitleSelectSticky = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const Label = styled.label`
@@ -180,43 +188,44 @@ function Challenge({
           </Hint>
         </ChallengeDescription>
       </ChallengeDescContainer>
-
-      <AllSolutionsTitle>
-        {forUser ? `${user.username}'s` : "All"} Solutions{" "}
-      </AllSolutionsTitle>
-      <StyleSelectContainer>
-        <Label>code styles</Label>{" "}
-        <StyleSelect
-          value={codeStyle}
-          onChange={(e) => setCodeStyle(e.target.value)}
-        >
-          <option value="xt256">xt256</option>
-          <option value="agate">agate</option>
-          <option value="arta">arta</option>
-          <option value="ascetic">ascetic</option>
-          <option value="dracula">dracula</option>
-          <option value="gml">gml</option>
-          <option value="far">far</option>
-          <option value="hopsctoch">hopsctoch</option>
-          <option value="lioshi">lioshi</option>
-          <option value="magula">magula</option>
-          <option value="monokai">monokai</option>
-          <option value="nnfx">nnfx</option>
-          <option value="nord">nord</option>
-          <option value="obsidian">obsidian</option>
-          <option value="ocean">ocean</option>
-          <option value="pojoaque">pojoaque</option>
-          <option value="purebasic">purebasic</option>
-          <option value="railscasts">railscasts</option>
-          <option value="routeros">routeros</option>
-          <option value="srcery">srcery</option>
-          <option value="tomorrow">tomorrow</option>
-          <option value="vs">vs</option>
-          <option value="vs2015">vs2015</option>
-          <option value="sunburst">sunburst</option>
-          <option value="xcode">xcode</option>
-        </StyleSelect>
-      </StyleSelectContainer>
+      <TitleSelectSticky>
+        <AllSolutionsTitle>
+          {forUser ? `${user.username}'s` : "All"} Solutions{" "}
+        </AllSolutionsTitle>
+        <StyleSelectContainer>
+          <Label>code styles</Label>{" "}
+          <StyleSelect
+            value={codeStyle}
+            onChange={(e) => setCodeStyle(e.target.value)}
+          >
+            <option value="xt256">xt256</option>
+            <option value="agate">agate</option>
+            <option value="arta">arta</option>
+            <option value="ascetic">ascetic</option>
+            <option value="dracula">dracula</option>
+            <option value="gml">gml</option>
+            <option value="far">far</option>
+            <option value="hopsctoch">hopsctoch</option>
+            <option value="lioshi">lioshi</option>
+            <option value="magula">magula</option>
+            <option value="monokai">monokai</option>
+            <option value="nnfx">nnfx</option>
+            <option value="nord">nord</option>
+            <option value="obsidian">obsidian</option>
+            <option value="ocean">ocean</option>
+            <option value="pojoaque">pojoaque</option>
+            <option value="purebasic">purebasic</option>
+            <option value="railscasts">railscasts</option>
+            <option value="routeros">routeros</option>
+            <option value="srcery">srcery</option>
+            <option value="tomorrow">tomorrow</option>
+            <option value="vs">vs</option>
+            <option value="vs2015">vs2015</option>
+            <option value="sunburst">sunburst</option>
+            <option value="xcode">xcode</option>
+          </StyleSelect>
+        </StyleSelectContainer>
+      </TitleSelectSticky>
 
       <Divider />
       <SolutionListContainer>{displaySolutions}</SolutionListContainer>

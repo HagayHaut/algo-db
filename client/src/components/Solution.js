@@ -36,7 +36,7 @@ const SolutionContainer = styled.div`
   width: 100%;
   text-align: center;
   background-color: rgb(100, 100, 100);
-  margin: 10px 30px 10px 10px;
+  margin: 10px;
 `;
 
 const DetailsContainer = styled.div`
