@@ -205,7 +205,7 @@ function Challenge({
             <option value="dracula">dracula</option>
             <option value="gml">gml</option>
             <option value="far">far</option>
-            <option value="hopsctoch">hopsctoch</option>
+            <option value="hopscotch">hopscotch</option>
             <option value="lioshi">lioshi</option>
             <option value="magula">magula</option>
             <option value="monokai">monokai</option>
