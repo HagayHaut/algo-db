@@ -191,18 +191,30 @@ function Challenge({
           onChange={(e) => setCodeStyle(e.target.value)}
         >
           <option value="xt256">xt256</option>
-          <option value="vs">vs</option>
-          <option value="obsidian">obsidian</option>
+          <option value="agate">agate</option>
+          <option value="arta">arta</option>
+          <option value="ascetic">ascetic</option>
           <option value="dracula">dracula</option>
-          <option value="xcode">xcode</option>
           <option value="gml">gml</option>
           <option value="far">far</option>
-          <option value="ascetic">ascetic</option>
           <option value="hopsctoch">hopsctoch</option>
+          <option value="lioshi">lioshi</option>
+          <option value="magula">magula</option>
           <option value="monokai">monokai</option>
-          <option value="agate">agate</option>
-          <option value="sunburst">sunburst</option>
+          <option value="nnfx">nnfx</option>
           <option value="nord">nord</option>
+          <option value="obsidian">obsidian</option>
+          <option value="ocean">ocean</option>
+          <option value="pojoaque">pojoaque</option>
+          <option value="purebasic">purebasic</option>
+          <option value="railscasts">railscasts</option>
+          <option value="routeros">routeros</option>
+          <option value="srcery">srcery</option>
+          <option value="tomorrow">tomorrow</option>
+          <option value="vs">vs</option>
+          <option value="vs2015">vs2015</option>
+          <option value="sunburst">sunburst</option>
+          <option value="xcode">xcode</option>
         </StyleSelect>
       </StyleSelectContainer>
 

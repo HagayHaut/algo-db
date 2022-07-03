@@ -3,17 +3,29 @@ import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
 // dark styles
+import arta from "react-syntax-highlighter/dist/esm/styles/hljs/arta";
 import obsidian from "react-syntax-highlighter/dist/esm/styles/hljs/obsidian";
 import dracula from "react-syntax-highlighter/dist/esm/styles/hljs/dracula";
 import gml from "react-syntax-highlighter/dist/esm/styles/hljs/gml";
 import far from "react-syntax-highlighter/dist/esm/styles/hljs/far";
 import hopscotch from "react-syntax-highlighter/dist/esm/styles/hljs/hopscotch";
 import monokai from "react-syntax-highlighter/dist/esm/styles/hljs/monokai";
+import pojoaque from "react-syntax-highlighter/dist/esm/styles/hljs/pojoaque";
+import purebasic from "react-syntax-highlighter/dist/esm/styles/hljs/purebasic";
 import agate from "react-syntax-highlighter/dist/esm/styles/hljs/agate";
 import xt256 from "react-syntax-highlighter/dist/esm/styles/hljs/xt256";
 import sunburst from "react-syntax-highlighter/dist/esm/styles/hljs/sunburst";
+import railscasts from "react-syntax-highlighter/dist/esm/styles/hljs/railscasts";
+import srcery from "react-syntax-highlighter/dist/esm/styles/hljs/srcery";
 import nord from "react-syntax-highlighter/dist/esm/styles/hljs/nord";
+import ocean from "react-syntax-highlighter/dist/esm/styles/hljs/ocean";
+import vs2015 from "react-syntax-highlighter/dist/esm/styles/hljs/vs2015";
+import lioshi from "react-syntax-highlighter/dist/esm/styles/hljs/lioshi";
 // light styles
+import magula from "react-syntax-highlighter/dist/esm/styles/hljs/magula";
+import nnfx from "react-syntax-highlighter/dist/esm/styles/hljs/nnfx";
+import routeros from "react-syntax-highlighter/dist/esm/styles/hljs/routeros";
+import tomorrow from "react-syntax-highlighter/dist/esm/styles/hljs/tomorrow";
 import vs from "react-syntax-highlighter/dist/esm/styles/hljs/vs";
 import xcode from "react-syntax-highlighter/dist/esm/styles/hljs/xcode";
 import ascetic from "react-syntax-highlighter/dist/esm/styles/hljs/ascetic";
@@ -132,22 +144,46 @@ function Solution({ selectedSolution, index, user, codeStyle }) {
 
   function getCodeStyle(str) {
     switch (str) {
+      case "arta":
+        return arta;
+      case "ocean":
+        return ocean;
       case "obsidian":
         return obsidian;
       case "dracula":
         return dracula;
       case "gml":
         return gml;
+      case "lioshi":
+        return lioshi;
+      case "pojoaque":
+        return pojoaque;
+      case "purebasic":
+        return purebasic;
       case "far":
         return far;
       case "hopscotch":
         return hopscotch;
       case "monokai":
         return monokai;
+      case "nnfx":
+        return nnfx;
       case "agate":
         return agate;
       case "sunburst":
         return sunburst;
+      case "vs2015":
+        return vs2015;
+      case "magula":
+        return magula;
+      case "railscasts":
+        return railscasts;
+      case "routeros":
+        return routeros;
+      case "srcery":
+        return srcery;
+      case "tomorrow":
+        return tomorrow;
       case "nord":
         return nord;
       case "vs":
