@@ -3,6 +3,7 @@ import Solution from "./Solution";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import { GrClose } from "react-icons/gr";
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 const CATEGORIES = [
   "Array",
@@ -138,10 +139,8 @@ function Challenge({
   return (
     <ChallengeContainer>
       {external_url && (
-        <ExternalUrl>
-          <a href={external_url} target="_blank">
-            Source
-          </a>
+        <ExternalUrl href={external_url} target="_blank">
+          Source <HiOutlineExternalLink />
         </ExternalUrl>
       )}
       <CloseButton onClick={clearSelectedChallenge}>

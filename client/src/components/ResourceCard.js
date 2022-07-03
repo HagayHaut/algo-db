@@ -65,8 +65,7 @@ function ResourceCard({ resource }) {
       <Category>{resource_category}</Category>
       <Anchor href={external_url} target="_blank">
         <Title>
-          {title}
-          <HiOutlineExternalLink />
+          {title} <HiOutlineExternalLink />
         </Title>
       </Anchor>
       <MarkdownContainer>
