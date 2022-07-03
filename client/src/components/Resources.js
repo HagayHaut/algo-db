@@ -8,29 +8,43 @@ const ResourcesContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: #c4a484;
+  background-color: #222;
   height: calc(100vh - 30px);
 `;
 
 const PageTitle = styled.h2`
-  text-align: center;
-  font-size: 2rem;
+  text-align: left;
+  color: #ddd;
+  font-size: 1.5rem;
+  margin: 10px 0 0 12px;
 `;
 
 const Input = styled.input`
-  margin-bottom: 4px;
+  margin: 4px 0 8px 0;
+  color: #eee;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
+  width: 80%;
+  margin-left: 10px;
 `;
 
 const Select = styled.select`
-  margin-bottom: 10px;
   background-color: rgb(57, 57, 57);
-  color: #fefefe;
+  color: #ddd;
+  margin: 4px 0 4px 12px;
+  width: 50%;
 `;
 
 const Label = styled.label`
-  margin-top: 4px;
+  margin: 10px 0 4px 12px;
+  font-size: 10px;
+  color: #999;
+`;
+
+const Count = styled.p`
+  font-size: 10px;
+  margin: 0 0 8px 12px;
+  color: #999;
 `;
 
 const ListItemOuterContainer = styled.div`
@@ -42,7 +56,6 @@ const ListItemInnerContainer = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  border: 1px solid black;
   width: 20vw;
   height: 30vh;
   overflow-y: auto;
@@ -51,7 +64,6 @@ const ListItemInnerContainer = styled.div`
 `;
 
 const ResourceItem = styled.p`
-  border: 1px solid black;
   border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;
@@ -135,12 +147,6 @@ function Resources() {
   return (
     <ResourcesContainer>
       <PageTitle>Resources</PageTitle>
-      <Input
-        type="text"
-        placeholder="Search resources..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
       <Label>Filter by category</Label>
       <Select
         value={selectedCategory}
@@ -155,7 +161,13 @@ function Resources() {
         <option value="Tutorial">Tutorial</option>
         <option value="Video">Video</option>
       </Select>
-      {resourceCount && <p>{resourceCount} Resources</p>}
+      <Input
+        type="text"
+        placeholder="Search resources..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      {resourceCount && <Count>{resourceCount} Resources</Count>}
       <ListItemOuterContainer>
         <ListItemInnerContainer>
           {!resources.length ? (
