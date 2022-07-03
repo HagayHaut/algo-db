@@ -9,7 +9,7 @@ const PageContainer = styled.div`
   flex-direction: row;
   height: calc(100vh - 30px);
   background-color: #222;
-  color: #fefefe;
+  color: #ddd;
 `;
 
 const ChallengeListContainer = styled.div`

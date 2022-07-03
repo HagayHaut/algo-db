@@ -29,7 +29,7 @@ const ChallengeContainer = styled.div`
   top: 30px;
   overflow-y: scroll;
   background-color: rgb(57, 57, 57);
-  color: #fefefe;
+  color: #ddd;
 `;
 
 const ChallengeDescContainer = styled.div`

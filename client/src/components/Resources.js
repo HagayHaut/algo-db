@@ -96,7 +96,7 @@ const Input = styled.input`
   margin: 4px 0 8px 0;
   color: #eee;
   background-color: rgb(57, 57, 57);
-  color: #fefefe;
+  color: #ddd;
   width: 60%;
   margin-left: 10px;
 `;
