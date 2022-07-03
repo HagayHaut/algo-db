@@ -45,6 +45,13 @@ const TopRightContainer = styled.div`
   top: 30px;
 `;
 
+const QuickLinkTitle = styled.p`
+  margin-top: 3px;
+  font-size: 10px;
+  color: #bbb;
+  text-align: center;
+`;
+
 const ResourceLink = styled.a`
   font-size: 8px;
   color: #bbb;
@@ -239,6 +246,7 @@ function Resources() {
         </TopLeftContainer>
 
         <TopRightContainer>
+          <QuickLinkTitle>QUICK LINKS</QuickLinkTitle>
           <Divider />
           <ResourceLink href="https://www.freecodecamp.org/" target="_blank">
             <SiFreecodecamp /> FreeCodeCamp
