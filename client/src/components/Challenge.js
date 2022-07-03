@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Solution from "./Solution";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
+import { GrClose } from "react-icons/gr";
 
 const CATEGORIES = [
   "Array",
@@ -22,7 +23,6 @@ const CATEGORIES = [
 ];
 
 const ChallengeContainer = styled.div`
-  border-top: 1px solid black;
   width: 56%;
   text-align: left;
   position: relative;
@@ -53,11 +53,14 @@ const SolutionListContainer = styled.div`
 `;
 
 const CloseButton = styled.button`
+  border: 1px solid rgba(57, 57, 57);
   float: right;
   position: relative;
   top: 5px;
   right: 5px;
   cursor: pointer;
+  background-color: rgb(57, 57, 57);
+  color: white;
 `;
 
 const ChallengeTitle = styled.p`
@@ -142,7 +145,9 @@ function Challenge({
           </a>
         </ExternalUrl>
       )}
-      <CloseButton onClick={clearSelectedChallenge}>Close</CloseButton>
+      <CloseButton onClick={clearSelectedChallenge}>
+        <GrClose />
+      </CloseButton>
       <ChallengeTitle>{title}</ChallengeTitle>
       <ChallengeDescContainer>
         <ChallengeDescription>
