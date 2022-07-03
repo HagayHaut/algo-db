@@ -45,8 +45,10 @@ const TopRightContainer = styled.div`
   top: 30px;
 `;
 
-const ResourceLink = styled.p`
+const ResourceLink = styled.a`
   font-size: 8px;
+  color: #bbb;
+  text-decoration: none;
 `;
 
 const ListItemOuterContainer = styled.div`
@@ -86,6 +88,12 @@ const PageTitle = styled.h2`
 `;
 
 const Divider = styled.div`
+  border-top: 1px solid #444;
+  height: 1px;
+  position: relative;
+`;
+
+const BigDivider = styled.div`
   border-top: 1px solid #444;
   height: 1px;
   position: relative;
@@ -195,7 +203,7 @@ function Resources() {
       <TopContainer>
         <TopLeftContainer>
           <PageTitle>Resources</PageTitle>
-          <Divider />
+          <BigDivider />
           <Label>Filter by category</Label>
           <Select
             value={selectedCategory}
@@ -231,30 +239,45 @@ function Resources() {
         </TopLeftContainer>
 
         <TopRightContainer>
-          <ResourceLink>
+          <Divider />
+          <ResourceLink href="https://www.freecodecamp.org/" target="_blank">
             <SiFreecodecamp /> FreeCodeCamp
           </ResourceLink>
-          <ResourceLink>
+          <Divider />
+          <ResourceLink
+            href="https://www.khanacademy.org/computing/computer-science/algorithms"
+            target="_blank"
+          >
             <SiKhanacademy /> Khan Academy
-          </ResourceLink>
-          <ResourceLink>
+          </ResourceLink>{" "}
+          <Divider />
+          <ResourceLink
+            href="https://leetcode.com/explore/interview/"
+            target="_blank"
+          >
             <SiLeetcode /> LeetCode
-          </ResourceLink>
-          <ResourceLink>
+          </ResourceLink>{" "}
+          <Divider />
+          <ResourceLink href="https://neetcode.io/" target="_blank">
             <SiYoutube /> NeetCode
-          </ResourceLink>
-          <ResourceLink>
+          </ResourceLink>{" "}
+          <Divider />
+          <ResourceLink href="https://www.udemy.com/" target="_blank">
             <SiUdemy /> Udemy
-          </ResourceLink>
-          <ResourceLink>
+          </ResourceLink>{" "}
+          <Divider />
+          <ResourceLink href="https://www.hackerrank.com/" target="_blank">
             <SiHackerrank /> HackerRank
-          </ResourceLink>
-          <ResourceLink>
+          </ResourceLink>{" "}
+          <Divider />
+          <ResourceLink href="https://www.edx.org/" target="_blank">
             <SiEdx /> edX
-          </ResourceLink>
-          <ResourceLink>
+          </ResourceLink>{" "}
+          <Divider />
+          <ResourceLink href="https://stackoverflow.com/" target="_blank">
             <SiStackoverflow /> Stack Overflow
           </ResourceLink>
+          <Divider />
         </TopRightContainer>
       </TopContainer>
 
