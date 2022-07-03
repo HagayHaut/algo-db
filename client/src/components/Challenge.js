@@ -155,6 +155,7 @@ function Challenge({
           index={i}
           user={user}
           forUser={forUser}
+          codeStyle={codeStyle}
         />
       ));
   } else {
