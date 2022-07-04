@@ -52,6 +52,9 @@ const Input = styled.input`
   color: #fefefe;
   width: 80%;
   margin-left: 10px;
+  border: none;
+  border-radius: 5%;
+  padding: 2px;
 `;
 
 const Select = styled.select`
@@ -59,6 +62,7 @@ const Select = styled.select`
   color: #ddd;
   margin: 4px 0 4px 12px;
   width: 50%;
+  border: none;
 `;
 
 const Label = styled.label`
