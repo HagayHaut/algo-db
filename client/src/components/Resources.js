@@ -213,6 +213,7 @@ function Resources() {
         resource.title.toLowerCase().includes(search.toLowerCase()) ||
         resource.external_url.toLowerCase().includes(search.toLowerCase())
     )
+    .sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1))
     .map((resource, i) => (
       <ResourceItem key={i} onClick={() => updateSelected(resource.id)}>
         {limitChars(resource.title)}

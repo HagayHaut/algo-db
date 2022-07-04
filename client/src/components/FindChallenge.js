@@ -189,6 +189,7 @@ function FindChallenge({ user }) {
         challenge.category_id === CATEGORIES.indexOf(selectedCategory) + 1
     )
     .filter((c) => c.title.toLowerCase().includes(search.toLowerCase()))
+    .sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1))
     .map((chal, i) => (
       <ChallengeStyle key={i} onClick={() => updateSelected(chal.id)}>
         {limitChars(chal.title)}
