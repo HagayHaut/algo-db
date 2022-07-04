@@ -6,27 +6,61 @@ import styled from "styled-components";
 const SubmissionPage = styled.div`
   text-align: center;
   background-color: lightgrey;
-  height: 94vh;
+  position: relative;
+  top: 30px;
+  height: calc(100vh - 30px);
+  background-color: rgb(57, 57, 57);
+`;
+
+const SubmissionsTitle = styled.p`
+  font-size: 2rem;
+  color: #fefefe;
+`;
+
+const ToggleContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin: auto;
+  color: #fefefe;
+`;
+
+const ToggleButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const ToggleLabel = styled.p`
+  color: #fefefe;
 `;
 
 function Submission({ user }) {
-  const [showAddSolution, setShowAddSolution] = useState(true);
+  const [displayForm, setDisplayForm] = useState("solution");
 
-  const addNew = showAddSolution ? (
-    <AddSolution user={user} />
-  ) : (
-    <AddChallenge />
-  );
+  const addNew = () => {
+    switch (displayForm) {
+      case "solution":
+        return <AddSolution user={user} />;
+      case "challenge":
+        return <AddChallenge user={user} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <SubmissionPage>
-      <h1>Add {showAddSolution ? "Solution" : "Challenge"}</h1>
-      <button onClick={() => setShowAddSolution(!showAddSolution)}>
-        {showAddSolution
-          ? "Switch To Challenge Mode"
-          : "Switch To Solution Mode"}
-      </button>
-      {addNew}
+      <SubmissionsTitle>Submissions</SubmissionsTitle>
+      <ToggleContainer>
+        <ToggleLabel>Add a </ToggleLabel>
+        <ToggleButtons>
+          <p onClick={() => setDisplayForm("solution")}>Solution</p>
+          <p onClick={() => setDisplayForm("challenge")}>Challenge</p>
+          <p onClick={() => setDisplayForm("resource")}>Resource</p>
+        </ToggleButtons>
+      </ToggleContainer>
+
+      {addNew()}
     </SubmissionPage>
   );
 }

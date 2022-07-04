@@ -5,7 +5,9 @@ import styled from "styled-components";
 const FormContainer = styled.div`
   padding: 20px;
   width: 50%;
+  height: 80vh;
   text-align: center;
+  overflow: auto;
   margin: auto;
   background-color: white;
 `;

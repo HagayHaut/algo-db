@@ -6,6 +6,8 @@ const FormContainer = styled.div`
   border: 1px solid black;
   padding: 20px;
   width: 50%;
+  height: 80vh;
+  overflow: auto;
   text-align: center;
   margin: auto;
   background-color: white;
