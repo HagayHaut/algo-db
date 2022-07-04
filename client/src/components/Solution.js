@@ -62,7 +62,7 @@ const ShowHideButton = styled.p`
 
 const SolutionInfo = styled.p`
   font-size: 0.8rem;
-  margin-bottom: 7px;
+  margin: 7px 0 7px 0;
   text-align: center;
 `;
 
