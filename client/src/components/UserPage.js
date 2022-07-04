@@ -76,8 +76,19 @@ const Count = styled.p`
 const ListItemContainer = styled.div`
   position: relative;
   margin-top: 30px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+  }
 `;
 
 const ChallengeListItems = styled.div`
