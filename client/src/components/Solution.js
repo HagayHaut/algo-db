@@ -109,9 +109,13 @@ const Code = styled.div`
 `;
 
 const Input = styled.input`
-  margin-bottom: 4px;
+  margin: 8px 20px 4px 4px;
   background-color: rgb(57, 57, 57);
   color: #fefefe;
+  border: none;
+  border-radius: 5%;
+  width: 80%;
+  padding: 4px;
 `;
 
 const Number = styled.p`
