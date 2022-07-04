@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddChallenge from "./AddChallenge";
 import AddSolution from "./AddSolution";
+import AddResource from "./AddResource";
 import styled from "styled-components";
 
 const SubmissionPage = styled.div`
@@ -10,11 +11,6 @@ const SubmissionPage = styled.div`
   top: 30px;
   height: calc(100vh - 30px);
   background-color: rgb(57, 57, 57);
-`;
-
-const SubmissionsTitle = styled.p`
-  font-size: 2rem;
-  color: #fefefe;
 `;
 
 const ToggleContainer = styled.div`
@@ -42,15 +38,14 @@ function Submission({ user }) {
       case "solution":
         return <AddSolution user={user} />;
       case "challenge":
-        return <AddChallenge user={user} />;
+        return <AddChallenge />;
       default:
-        return null;
+        return <AddResource />;
     }
   };
 
   return (
     <SubmissionPage>
-      <SubmissionsTitle>Submissions</SubmissionsTitle>
       <ToggleContainer>
         <ToggleLabel>Add a </ToggleLabel>
         <ToggleButtons>

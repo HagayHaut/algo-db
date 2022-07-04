@@ -1,6 +1,4 @@
 class ResourcesController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found_response
-
   def index
     render json: Resource.all, status: :ok
   end
@@ -19,9 +17,5 @@ class ResourcesController < ApplicationController
 
   def resource_params
     params.permit(:resource_category_id, :title, :description, :external_url, :is_free)
-  end
-
-  def not_found_response
-    render json: { errors: ['Resource not found'] }, status: 404
   end
 end

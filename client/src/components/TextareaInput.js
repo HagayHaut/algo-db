@@ -1,12 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-
-const TextArea = styled.textarea`
-  width: 100%;
-  height: 200px;
-  color: white;
-  background-color: rgb(40, 40, 40);
-`;
 
 const TextareaInput = ({
   spaces = 4,

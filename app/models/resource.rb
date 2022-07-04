@@ -5,5 +5,4 @@ class Resource < ApplicationRecord
   validates :external_url, presence: true, uniqueness: true
   validates :description, presence: true
   validates :resource_category_id, presence: true
-  validates :is_free, presence: true
 end

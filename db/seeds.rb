@@ -221,8 +221,6 @@ end", "def generate(num_rows)
 end"
 ]
 
-booleans = [true, false]
-
 challengeTitles = ['Two Sum', 'Valid Parentheses', 'Merge Two Sorted Lists', 'Best Time To Buy And Sell Stock',
                    'Valid Palindrome', 'Invert Binary Tree', 'Valid Anagram', 'Binary Search', 'Maximum Subarray',
                    'Linked List Cycle', 'First Bad Version', 'Climbing Stairs', 'Reverse Linked List', 'Single Number',
@@ -251,9 +249,9 @@ puts 'Seeding resources... 🌱'
   Resource.create!(
     resource_category_id: rand(1..7),
     title: Faker::Lorem.sentence,
-    description: Faker::Markdown.sandwich,
+    description: Faker::Markdown.sandwich(sentences: 9),
     external_url: Faker::Internet.url,
-    is_free: booleans[rand(0..1)]
+    is_free: [true, false][rand(0..1)]
   )
 end
 
@@ -261,7 +259,7 @@ puts 'Seeding challenges... 🌱'
 (0..20).each do |i|
   Challenge.create!(
     title: challengeTitles[i],
-    description: Faker::Markdown.sandwich(sentences: 5),
+    description: Faker::Markdown.sandwich(sentences: 9),
     category_id: rand(1..15),
     external_url: Faker::Internet.url
   )

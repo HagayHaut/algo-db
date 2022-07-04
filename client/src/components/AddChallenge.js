@@ -64,7 +64,6 @@ function AddChallenge() {
   };
 
   const [formState, setFormState] = useState(initialFormState);
-  const [newChallenge, setNewChallenge] = useState({});
   const [errors, setErrors] = useState([]);
 
   function handleFormChange(e) {
@@ -86,8 +85,7 @@ function AddChallenge() {
       body: JSON.stringify(body),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((data) => {
-          setNewChallenge(data);
+        r.json().then(() => {
           setErrors([]);
           setFormState(initialFormState);
         });
