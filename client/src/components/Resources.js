@@ -73,6 +73,17 @@ const ListItemInnerContainer = styled.div`
   overflow-y: auto;
   background: #151515;
   padding: 5px 0 5px 0;
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+  }
 `;
 
 const ResourceItem = styled.p`

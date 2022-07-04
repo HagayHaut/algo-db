@@ -49,9 +49,20 @@ const MarkdownContainer = styled.div`
   height: 130px;
   margin-top: 10px;
   border: 1px solid #444;
-  overflow-y: scroll;
+  overflow-y: auto;
   color: #ddd;
   padding: 12px;
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+  }
 `;
 
 function ResourceCard({ resource }) {

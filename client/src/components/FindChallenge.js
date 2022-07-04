@@ -16,7 +16,7 @@ const ChallengeListContainer = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  width: 22vw;
+  width: 21vw;
   position: relative;
   height: 100vh;
   background-color: #222;
@@ -28,21 +28,33 @@ const ControlsDiv = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  width: 20vw;
+  width: 19vw;
 `;
 
 const ListItemContainer = styled.div`
   position: relative;
   margin-top: 30px;
-  overflow-y: scroll;
   overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+  }
 `;
 
 const ChallengeListItems = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  width: 20vw;
+  width: 19vw;
   overflow: hidden;
   background: #151515;
   padding: 8px 0 8px 0;

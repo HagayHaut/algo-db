@@ -31,6 +31,18 @@ const ChallengeContainer = styled.div`
   overflow-y: scroll;
   background-color: rgb(57, 57, 57);
   color: #ddd;
+
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+  }
 `;
 
 const ChallengeDescContainer = styled.div`
@@ -51,6 +63,17 @@ const SolutionListContainer = styled.div`
   background-color: #222;
   overflow-x: hidden;
   height: calc(100vh - 65px);
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+  }
 `;
 
 const CloseButton = styled.button`
