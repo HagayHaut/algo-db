@@ -14,8 +14,7 @@ const SubmissionPage = styled.div`
 `;
 
 const ToggleContainer = styled.div`
-  width: 100%;
-  margin: auto;
+  padding-top: 20px; ;
 `;
 
 const Toggle = styled.div`
