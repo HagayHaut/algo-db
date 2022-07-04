@@ -14,6 +14,11 @@ const SubmissionPage = styled.div`
 `;
 
 const ToggleContainer = styled.div`
+  width: 100%;
+  margin: auto;
+`;
+
+const Toggle = styled.div`
   display: flex;
   flex-direction: row;
   width: 50%;
@@ -21,13 +26,26 @@ const ToggleContainer = styled.div`
   color: #fefefe;
 `;
 
+const VertDivider = styled.div`
+  border-right: 1px solid #fefefe;
+  width: 1px;
+  height: 1.5rem;
+  margin: 2px;
+`;
+
 const ToggleButtons = styled.div`
   display: flex;
   flex-direction: row;
+  cursor: pointer;
+`;
+
+const ToggleButton = styled.p`
+  margin: 4px;
 `;
 
 const ToggleLabel = styled.p`
   color: #fefefe;
+  margin: 4px 4px 4px 0;
 `;
 
 function Submission({ user }) {
@@ -47,12 +65,23 @@ function Submission({ user }) {
   return (
     <SubmissionPage>
       <ToggleContainer>
-        <ToggleLabel>Add a </ToggleLabel>
-        <ToggleButtons>
-          <p onClick={() => setDisplayForm("solution")}>Solution</p>
-          <p onClick={() => setDisplayForm("challenge")}>Challenge</p>
-          <p onClick={() => setDisplayForm("resource")}>Resource</p>
-        </ToggleButtons>
+        <Toggle>
+          <ToggleButtons>
+            <VertDivider />
+            <ToggleButton onClick={() => setDisplayForm("solution")}>
+              Solution
+            </ToggleButton>
+            <VertDivider />
+            <ToggleButton onClick={() => setDisplayForm("challenge")}>
+              Challenge
+            </ToggleButton>
+            <VertDivider />
+            <ToggleButton onClick={() => setDisplayForm("resource")}>
+              Resource
+            </ToggleButton>
+            <VertDivider />
+          </ToggleButtons>
+        </Toggle>
       </ToggleContainer>
 
       {addNew()}
