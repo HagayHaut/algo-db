@@ -53,15 +53,19 @@ const MarkdownContainer = styled.div`
   color: #ddd;
   padding: 12px;
   &::-webkit-scrollbar {
-    width: 1em;
+    width: 0.7em;
   }
 
   &::-webkit-scrollbar-track {
     background: #222;
+    border-right: 1px solid rgb(57, 57, 57);
+    border-left: 1px solid rgb(57, 57, 57);
   }
 
   &::-webkit-scrollbar-thumb {
     background: rgb(57, 57, 57);
+    border-right: 1px solid rgb(21, 21, 21);
+    border-left: 1px solid rgb(21, 21, 21);
   }
 `;
 

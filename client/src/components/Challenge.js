@@ -33,15 +33,19 @@ const ChallengeContainer = styled.div`
   color: #ddd;
 
   &::-webkit-scrollbar {
-    width: 1em;
+    width: 0.7em;
   }
 
   &::-webkit-scrollbar-track {
     background: #222;
+    border-right: 1px solid rgb(57, 57, 57);
+    border-left: 1px solid rgb(57, 57, 57);
   }
 
   &::-webkit-scrollbar-thumb {
     background: rgb(57, 57, 57);
+    border-right: 1px solid rgb(21, 21, 21);
+    border-left: 1px solid rgb(21, 21, 21);
   }
 `;
 
@@ -64,15 +68,19 @@ const SolutionListContainer = styled.div`
   overflow-x: hidden;
   height: calc(100vh - 65px);
   &::-webkit-scrollbar {
-    width: 1em;
+    width: 0.7em;
   }
 
   &::-webkit-scrollbar-track {
     background: #222;
+    border-right: 1px solid rgb(57, 57, 57);
+    border-left: 1px solid rgb(57, 57, 57);
   }
 
   &::-webkit-scrollbar-thumb {
     background: rgb(57, 57, 57);
+    border-right: 1px solid rgb(21, 21, 21);
+    border-left: 1px solid rgb(21, 21, 21);
   }
 `;
 

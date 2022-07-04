@@ -79,11 +79,13 @@ const ListItemContainer = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   &::-webkit-scrollbar {
-    width: 1em;
+    width: 0.7em;
   }
 
   &::-webkit-scrollbar-track {
     background: #222;
+    border-right: 1px solid rgb(57, 57, 57);
+    border-left: 1px solid rgb(57, 57, 57);
   }
 
   &::-webkit-scrollbar-thumb {

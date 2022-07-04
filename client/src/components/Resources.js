@@ -74,7 +74,8 @@ const ListItemInnerContainer = styled.div`
   background: #151515;
   padding: 5px 0 5px 0;
   &::-webkit-scrollbar {
-    width: 1em;
+    width: 0.7em;
+    border: 1px solid #000;
   }
 
   &::-webkit-scrollbar-track {
