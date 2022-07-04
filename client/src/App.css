@@ -22,5 +22,13 @@
     cursor: pointer;
   }
 
+  .toggle-btn {
+    margin: 4px;
+  }
+
+  .toggle-btn.active {
+    background-color: rgb(80,80,80);
+  }
+
 
 

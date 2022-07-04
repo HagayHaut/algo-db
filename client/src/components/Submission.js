@@ -39,15 +39,6 @@ const ToggleButtons = styled.div`
   cursor: pointer;
 `;
 
-const ToggleButton = styled.p`
-  margin: 4px;
-`;
-
-const ToggleLabel = styled.p`
-  color: #fefefe;
-  margin: 4px 4px 4px 0;
-`;
-
 function Submission({ user }) {
   const [displayForm, setDisplayForm] = useState("solution");
 
@@ -62,23 +53,44 @@ function Submission({ user }) {
     }
   };
 
+  function handleClick(e) {
+    const btns = document.querySelectorAll(".toggle-btn");
+    btns.forEach((btn) => (btn.className = "toggle-btn"));
+    e.target.className += " active";
+    const text = e.target.textContent;
+    switch (text) {
+      case "Solution":
+        setDisplayForm("solution");
+        break;
+      case "Challenge":
+        setDisplayForm("challenge");
+        break;
+      default:
+        setDisplayForm("resource");
+    }
+  }
+
   return (
     <SubmissionPage>
       <ToggleContainer>
         <Toggle>
           <ToggleButtons>
             <VertDivider />
-            <ToggleButton onClick={() => setDisplayForm("solution")}>
+            <p
+              className="toggle-btn active"
+              name="solution"
+              onClick={handleClick}
+            >
               Solution
-            </ToggleButton>
+            </p>
             <VertDivider />
-            <ToggleButton onClick={() => setDisplayForm("challenge")}>
+            <p className="toggle-btn" name="challenge" onClick={handleClick}>
               Challenge
-            </ToggleButton>
+            </p>
             <VertDivider />
-            <ToggleButton onClick={() => setDisplayForm("resource")}>
+            <p className="toggle-btn" name="resource" onClick={handleClick}>
               Resource
-            </ToggleButton>
+            </p>
             <VertDivider />
           </ToggleButtons>
         </Toggle>
