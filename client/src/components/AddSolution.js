@@ -9,7 +9,33 @@ const FormContainer = styled.div`
   text-align: center;
   overflow: auto;
   margin: auto;
-  background-color: white;
+  background-color: #222;
+  border-radius: 0 7% 7% 7%;
+  &::-webkit-scrollbar {
+    width: 0.7em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+    border-right: 1px solid rgb(57, 57, 57);
+    border-left: 1px solid rgb(57, 57, 57);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+    border-right: 1px solid rgb(21, 21, 21);
+    border-left: 1px solid rgb(21, 21, 21);
+  }
+`;
+
+const FormTitle = styled.p`
+  color: #bbb;
+  font-size: 1.5rem;
+`;
+
+const Label = styled.label`
+  color: #bbb;
+  font-size: 0.8rem;
 `;
 
 const InputContainer = styled.div`
@@ -100,10 +126,10 @@ function AddSolution({ user }) {
 
   return (
     <FormContainer>
-      <h2>Add a New Solution</h2>
+      <FormTitle>New Solution</FormTitle>
       <form onSubmit={handleSubmit}>
         <InputContainer>
-          <label className="required">Pick Challenge</label>
+          <Label className="required">Pick Challenge</Label>
           <Select
             value={formState.challenge_id}
             name="challenge_id"
@@ -114,7 +140,7 @@ function AddSolution({ user }) {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label className="required">Pick Language</label>
+          <Label className="required">Pick Language</Label>
           <Select
             value={formState.language}
             name="language"
@@ -146,7 +172,7 @@ function AddSolution({ user }) {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label className="required">Your Solution</label>
+          <Label className="required">Your Solution</Label>
           <TextareaInput
             onTextChange={(e) =>
               setFormState({ ...formState, solution: e.target.value })
@@ -157,7 +183,7 @@ function AddSolution({ user }) {
           />
         </InputContainer>
         <InputContainer>
-          <label className="required">Time Complexity</label>
+          <Label className="required">Time Complexity</Label>
           <Select
             value={formState.time_complexity}
             name="time_complexity"
@@ -168,7 +194,7 @@ function AddSolution({ user }) {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label className="required">Space Complexity</label>
+          <Label className="required">Space Complexity</Label>
           <Select
             value={formState.space_complexity}
             name="space_complexity"
@@ -179,7 +205,7 @@ function AddSolution({ user }) {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label>Notes (Markdown Syntax Supported)</label>
+          <Label>Notes (Markdown Syntax Supported)</Label>
           <TextareaInput
             onTextChange={(e) =>
               setFormState({ ...formState, notes: e.target.value })

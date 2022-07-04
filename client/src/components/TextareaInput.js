@@ -11,7 +11,8 @@ const TextareaInput = ({
     width: "100%",
     height: "200px",
     color: "white",
-    backgroundColor: "rgb(40, 40, 40)",
+    backgroundColor: "rgb(57,57,57)",
+    spellcheck: "false",
   };
 
   const [text, setText] = useState({ value: "", caret: -1, target: null });

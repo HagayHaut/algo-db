@@ -13,14 +13,39 @@ const RESOURCE_CATEGORIES = [
 ];
 
 const FormContainer = styled.div`
-  border: 1px solid black;
   padding: 20px;
   width: 50%;
   height: 80vh;
   overflow: auto;
   text-align: center;
   margin: auto;
-  background-color: white;
+  background-color: #222;
+  border-radius: 7% 7% 7% 7%;
+  &::-webkit-scrollbar {
+    width: 0.7em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+    border-right: 1px solid rgb(57, 57, 57);
+    border-left: 1px solid rgb(57, 57, 57);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+    border-right: 1px solid rgb(21, 21, 21);
+    border-left: 1px solid rgb(21, 21, 21);
+  }
+`;
+
+const FormTitle = styled.p`
+  color: #bbb;
+  font-size: 1.5rem;
+`;
+
+const Label = styled.label`
+  font-size: 0.8rem;
+  color: #bbb;
 `;
 
 const Input = styled.input`
@@ -87,10 +112,10 @@ function AddResource() {
 
   return (
     <FormContainer>
-      <h2>Add a New Resource</h2>
+      <FormTitle>New Resource</FormTitle>
       <form onSubmit={handleSubmit}>
         <InputContainer>
-          <label className="required">Resource Title</label>
+          <Label className="required">Resource Title</Label>
           <Input
             type="text"
             name="title"
@@ -99,7 +124,7 @@ function AddResource() {
           ></Input>
         </InputContainer>
         <InputContainer>
-          <label className="required">Resource Category</label>
+          <Label className="required">Resource Category</Label>
           <Select
             name="resource_category_id"
             value={formState.resource_category_id}
@@ -116,7 +141,7 @@ function AddResource() {
           </Select>
         </InputContainer>
         <InputContainer>
-          <label className="required">Resource Link</label>
+          <Label className="required">Resource Link</Label>
           <Input
             type="text"
             name="external_url"
@@ -125,9 +150,9 @@ function AddResource() {
           ></Input>
         </InputContainer>
         <InputContainer>
-          <label className="required">
+          <Label className="required">
             Resource Description (Markdown Syntax Supported)
-          </label>
+          </Label>
           <TextareaInput
             parentState={formState.description}
             isNotes={true}
@@ -138,7 +163,7 @@ function AddResource() {
           />
         </InputContainer>
         <InputContainer>
-          <label className="required">Free Resource?</label>
+          <Label className="required">Free Resource?</Label>
           <Input
             type="checkbox"
             name="is_free"

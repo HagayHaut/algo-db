@@ -3,14 +3,29 @@ import TextareaInput from "./TextareaInput";
 import styled from "styled-components";
 
 const FormContainer = styled.div`
-  border: 1px solid black;
   padding: 20px;
   width: 50%;
   height: 80vh;
   overflow: auto;
   text-align: center;
   margin: auto;
-  background-color: white;
+  background-color: #222;
+  border-radius: 7% 7% 7% 7%;
+  &::-webkit-scrollbar {
+    width: 0.7em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+    border-right: 1px solid rgb(57, 57, 57);
+    border-left: 1px solid rgb(57, 57, 57);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+    border-right: 1px solid rgb(21, 21, 21);
+    border-left: 1px solid rgb(21, 21, 21);
+  }
 `;
 
 const categories = [
@@ -31,17 +46,27 @@ const categories = [
   "search",
 ];
 
+const FormTitle = styled.p`
+  color: #bbb;
+  font-size: 1.5rem;
+`;
+
+const Label = styled.label`
+  color: #bbb;
+  font-size: 0.8rem;
+`;
+
 const Input = styled.input`
   display: block;
   height: 50%;
   width: 100%;
   text-align: center;
-  color: white;
+  color: #bbb;
   background-color: rgb(57, 57, 57);
 `;
 
 const Select = styled.select`
-  color: white;
+  color: #bbb;
   background-color: rgb(57, 57, 57);
 `;
 
@@ -97,10 +122,10 @@ function AddChallenge() {
 
   return (
     <FormContainer>
-      <h2>Add a New Challenge</h2>
+      <FormTitle>New Challenge</FormTitle>
       <form onSubmit={handleSubmit}>
         <InputContainer>
-          <label className="required">Challenge Title</label>
+          <Label className="required">Challenge Title</Label>
           <Input
             type="text"
             name="title"
@@ -109,9 +134,9 @@ function AddChallenge() {
           ></Input>
         </InputContainer>
         <InputContainer>
-          <label className="required">
+          <Label className="required">
             Challenge Description (Markdown Syntax Supported)
-          </label>
+          </Label>
           <TextareaInput
             onTextChange={(e) =>
               setFormState({ ...formState, description: e.target.value })
@@ -122,7 +147,7 @@ function AddChallenge() {
           />
         </InputContainer>
         <InputContainer>
-          <label>External URL</label>
+          <Label>External URL</Label>
           <Input
             type="text"
             name="external_url"
@@ -131,7 +156,7 @@ function AddChallenge() {
           ></Input>
         </InputContainer>
         <InputContainer>
-          <label className="required">Challenge Category</label>
+          <Label className="required">Challenge Category</Label>
           <Select
             value={formState.category}
             name="category"

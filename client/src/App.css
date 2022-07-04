@@ -23,11 +23,12 @@
   }
 
   .toggle-btn {
-    margin: 4px;
+    color:#111;
   }
 
   .toggle-btn.active {
-    background-color: rgb(80,80,80);
+    background-color: #222;
+    color: #999;
   }
 
 

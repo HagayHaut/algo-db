@@ -26,7 +26,7 @@ const Toggle = styled.div`
 `;
 
 const VertDivider = styled.div`
-  border-right: 1px solid #fefefe;
+  border-right: 1px solid #111;
   width: 1px;
   height: 1.5rem;
   margin: 2px;
@@ -74,7 +74,6 @@ function Submission({ user }) {
       <ToggleContainer>
         <Toggle>
           <ToggleButtons>
-            <VertDivider />
             <p
               className="toggle-btn active"
               name="solution"
@@ -90,7 +89,6 @@ function Submission({ user }) {
             <p className="toggle-btn" name="resource" onClick={handleClick}>
               Resource
             </p>
-            <VertDivider />
           </ToggleButtons>
         </Toggle>
       </ToggleContainer>
