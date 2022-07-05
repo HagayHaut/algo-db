@@ -38,6 +38,17 @@ puts 'Seeding resource categories... 🌱'
   ResourceCategory.create!(name: resource_categories[i])
 end
 
+puts 'Seeding resources... 🌱'
+20.times do
+  Resource.create!(
+    resource_category_id: rand(1..7),
+    title: Faker::Lorem.sentence,
+    description: Faker::Markdown.sandwich(sentences: 9),
+    external_url: Faker::Internet.url,
+    is_free: [true, false][rand(0..1)]
+  )
+end
+
 puts 'Seeding challenges and solutions... 🌱'
 
 # TWO SUM
@@ -1122,6 +1133,46 @@ function swapWithNext(arr,idx) {
   time_complexity: 'O(n^2)',
   space_complexity: 'O(1)',
   notes: 'compares values with and "bubbles up" the largest value in each outer iteration',
+  language: 'javascript'
+)
+
+# SELECTION SORT
+
+Challenge.create!(
+  title: 'Selection Sort',
+  description: 'Given an unsorted array of numbers, sort them in place using selection sort.',
+  category_id: 10
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "const swapWithIndexes = (arr,idx1,idx2) => {
+    [[arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]]
+}
+
+const selectionSor = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        console.log('**********************')
+        let min = i;
+        for (let j = i+1; j < arr.length; j++) {
+            if (arr[min] > arr[j]) min = j;
+        }
+        if (min !== i) {
+            console.log('min:', arr[min])
+            console.log('   preswap:', arr)
+            swapWithIndexes(arr,i,min);
+            console.log('   postswap:', arr)
+        }
+        else {
+            console.log('   no swap')
+        }
+    }
+    return arr;
+}",
+  challenge_id: 26,
+  time_complexity: 'O(n^2)',
+  space_complexity: 'O(1)',
+  notes: 'iterates the array as many times as there are elements, putting min value at next min spot',
   language: 'javascript'
 )
 
