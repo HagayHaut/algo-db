@@ -1014,7 +1014,7 @@ Solution.create!(
 
 Challenge.create!(
   title: 'Radix Sort',
-  description: 'Given an unsorted array of POSITIVE INTEGERS, sort them with O(n * k) tim(O(n log n) in practice) using radix-sort.',
+  description: 'Given an unsorted array of POSITIVE INTEGERS, sort them with O(n * k) time (O(n log n) in practice) using radix-sort.',
   category_id: 10
 )
 
@@ -1057,6 +1057,71 @@ Solution.create!(
   time_complexity: 'O(n-log-n)',
   space_complexity: 'O(n)',
   notes: 'uses 9 buckets, digit counts, and log10 % operations. Only works with positive integers.',
+  language: 'javascript'
+)
+
+# INSERTION SORT
+
+Challenge.create!(
+  title: 'Insertion Sort',
+  description: 'Given an unsorted array of numbers, sort them in place using insertion sort.',
+  category_id: 10
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "function insertionSort(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        const curVal = arr[i];
+        let j = i - 1;
+        while (j >= 0 && arr[j] > curVal) {
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = curVal;
+    }
+    return arr;
+}",
+  challenge_id: 24,
+  time_complexity: 'O(n^2)',
+  space_complexity: 'O(1)',
+  notes: 'keeps a sorted "half" of the array into which it inserts values from unsorted half.',
+  language: 'javascript'
+)
+
+# BUBBLE SORT
+
+Challenge.create!(
+  title: 'Bubble Sort',
+  description: 'Given an unsorted array of numbers, sort them in place using bubble sort.',
+  category_id: 10
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "function bubbleSort(arr) {
+    for (let i = 0; i < arr.length-1; i++) {
+        let swapped;
+        for (let j = 0; j < arr.length-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                swapped = true
+                swapWithNext(arr,j);
+            }
+        }
+        if(!swapped) {
+            break;
+        }
+    }
+    return arr;
+}
+
+function swapWithNext(arr,idx) {
+    [arr[idx], arr[idx+1]] = [arr[idx+1], arr[idx]]
+}",
+  challenge_id: 25,
+  time_complexity: 'O(n^2)',
+  space_complexity: 'O(1)',
+  notes: 'compares values with and "bubbles up" the largest value in each outer iteration',
   language: 'javascript'
 )
 
