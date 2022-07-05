@@ -7,6 +7,8 @@ Solution.destroy_all
 Challenge.destroy_all
 Comment.destroy_all
 Category.destroy_all
+Resource.destroy_all
+ResourceCategory.destroy_all
 
 complexities = %w(O(n) O(1) O(n^2) O(log-n) O(n-log-n) O(n!))
 
@@ -30,22 +32,6 @@ puts 'Seeding categories... 🌱'
 (0..14).each do |i|
   Category.create!(
     name: categories[i]
-  )
-end
-
-puts 'Seeding resource categories... 🌱'
-(0..6).each do |i|
-  ResourceCategory.create!(name: resource_categories[i])
-end
-
-puts 'Seeding resources... 🌱'
-20.times do
-  Resource.create!(
-    resource_category_id: rand(1..7),
-    title: Faker::Lorem.sentence,
-    description: Faker::Markdown.sandwich(sentences: 9),
-    external_url: Faker::Internet.url,
-    is_free: [true, false][rand(0..1)]
   )
 end
 
@@ -1176,13 +1162,142 @@ const selectionSor = (arr) => {
   language: 'javascript'
 )
 
-puts 'Seeding comments... 🌱'
-# 50.times do
-#   Comment.create!(
-#     solution_id: rand(1..20),
-#     user_id: rand(1..4),
-#     comment: Faker::Lorem.sentence
-#   )
-# end
+resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]
 
-# puts 'Done Seeding! 🌱'
+puts 'Seeding resource categories... 🌱'
+(0..6).each do |i|
+  ResourceCategory.create!(name: resource_categories[i])
+end
+
+# REGEX 101
+
+Resource.create!(
+  resource_category_id: 1,
+  title: 'Regex 101',
+  description: 'Language agnostic sandbox for testing regex queries.',
+  external_url: 'https://regex101.com/',
+  is_free: true
+)
+
+# MARKDOWN CHEATSHEET
+
+Resource.create!(
+  resource_category_id: 6,
+  title: 'Markdown Cheat Sheet',
+  description: 'Quick syntax reference for Markdown',
+  external_url: 'https://www.markdownguide.org/cheat-sheet/',
+  is_free: true
+)
+
+# CRACKING THE CODING INTERVIEW
+
+Resource.create!(
+  resource_category_id: 4,
+  title: 'Cracking the Coding Interview',
+  description: 'GitHub-hosted PDF of the interview-prep book.',
+  external_url: 'https://github.com/Avinash987/Coding/blob/master/Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf',
+  is_free: true
+)
+
+# CODEWARS
+
+Resource.create!(
+  resource_category_id: 1,
+  title: 'Practice Challenges',
+  description: 'Another algorithm site.
+
+  Similar to LeetCode, but with 8 difficulty levels.',
+  external_url: 'https://www.codewars.com/dashboard',
+  is_free: true
+)
+
+# NEETCODE PLAYLIST
+
+Resource.create!(
+  resource_category_id: 5,
+  title: 'NeetCode Interview Prep',
+  description: 'Video playlist of interview prep material by algo YouTuber NeetCode.
+
+  Very easy to follow content.',
+  external_url: 'https://www.youtube.com/watch?v=aa2ijyWBBIc&list=PLot-Xpze53lcBX3BPCUoqlt4-KL-3XFHz',
+  is_free: true
+)
+
+# MY BLOG
+
+Resource.create!(
+  resource_category_id: 3,
+  title: 'scriptable',
+  description: 'Hagay Haut\'s tech blog',
+  external_url: 'https://scriptable.hashnode.dev/',
+  is_free: true
+)
+
+# TOP INTERVIEW QUESTIONS
+
+Resource.create!(
+  resource_category_id: 1,
+  title: 'LeetCode Top Interview Questions',
+  description: 'Ever changing list of the current "top" list of interview questions',
+  external_url: 'https://leetcode.com/explore/interview/card/top-interview-questions-easy/',
+  is_free: true
+)
+
+# BLIND 75
+
+Resource.create!(
+  resource_category_id: 1,
+  title: 'Grind 75',
+  description: 'A curated list of 75 LeetCode challenges based on the famous "Blind 75".
+
+  Option to customize list.
+
+  Designed to help study the core patterns in DSA.',
+  external_url: 'https://www.techinterviewhandbook.org/grind75',
+  is_free: true
+)
+
+# GROKKING ALGORITHMS
+
+Resource.create!(
+  resource_category_id: 4,
+  title: 'Grokking Algorithms',
+  description: 'PDF of popular DSA book. Free Download.',
+  external_url: 'https://www.dropbox.com/scl/fo/p06spafxoj8b0dfmkec00/h?dl=0&rlkey=no3xvsdh3l10343rg8eq8tcoo',
+  is_free: true
+)
+
+# FREECODECAMP
+
+Resource.create!(
+  resource_category_id: 2,
+  title: 'Responsive Web Design',
+  description: "Free course covering basic web design topics in HTML5 and CSS.
+
+  Great introduction to web development.",
+  external_url: 'https://www.freecodecamp.org/learn/2022/responsive-web-design/',
+  is_free: true
+)
+
+# UDEMY COLT STEELE COURSE
+
+Resource.create!(
+  resource_category_id: 2,
+  title: 'JavaScript Algorithms and Data Structures Masterclass',
+  description: "Udemy course created by Colt Steele that covers a large array (no pun intended) of DSA topics, taught in JS.
+
+  This is a paid course, but you can often find it going for 80% off.",
+  external_url: 'https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/',
+  is_free: false
+)
+
+puts 'Seeding comments... 🌱'
+60.times do
+  Comment.create!(
+    solution_id: rand(1..30),
+    user_id: rand(1..5),
+    comment: Faker::Lorem.sentence
+  )
+end
+
+puts 'Done Seeding! 🌱'
