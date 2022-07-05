@@ -61,6 +61,7 @@ const ChallengeDescription = styled.div`
   color: #bbb;
   padding: 20px;
   font-size: 0.8rem;
+  user-select: text;
 `;
 
 const SolutionListContainer = styled.div`

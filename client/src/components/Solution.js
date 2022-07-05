@@ -106,6 +106,7 @@ const CodeContainer = styled.div`
 
 const Code = styled.div`
   text-align: left;
+  user-select: text;
 `;
 
 const Input = styled.input`
