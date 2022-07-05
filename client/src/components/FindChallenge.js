@@ -183,10 +183,6 @@ function FindChallenge({ user }) {
     setSelectedChallenge(challenge);
   }
 
-  function limitChars(str) {
-    return str.length > 30 ? str.slice(0, 28) + "..." : str;
-  }
-
   const displayChallenges = allChallenges
     .filter(
       (challenge) =>
@@ -197,7 +193,7 @@ function FindChallenge({ user }) {
     .sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1))
     .map((chal, i) => (
       <ChallengeStyle key={i} onClick={() => updateSelected(chal.id)}>
-        {limitChars(chal.title)}
+        {chal.title}
       </ChallengeStyle>
     ));
 

@@ -201,10 +201,6 @@ function Resources() {
     setSelectedResource(newSelectedResource);
   }
 
-  function limitChars(str) {
-    return str.length > 24 ? str.slice(0, 22) + "..." : str;
-  }
-
   const displayResources = resources
     .filter(
       (resource) =>
@@ -220,7 +216,7 @@ function Resources() {
     .sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1))
     .map((resource, i) => (
       <ResourceItem key={i} onClick={() => updateSelected(resource.id)}>
-        {limitChars(resource.title)}
+        {resource.title}
       </ResourceItem>
     ));
 
