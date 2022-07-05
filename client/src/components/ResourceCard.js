@@ -52,6 +52,7 @@ const MarkdownContainer = styled.div`
   overflow-y: auto;
   color: #ddd;
   padding: 12px;
+  user-select: text;
   &::-webkit-scrollbar {
     width: 0.7em;
   }
