@@ -25,6 +25,11 @@ const Input = styled.input`
   padding: 2px;
 `;
 
+const SignupTitle = styled.h1`
+  color: #bbb;
+  margin-bottom: 17px;
+`;
+
 const InputContainer = styled.div`
   padding-top: 10px;
 `;
@@ -82,7 +87,7 @@ function Signup({ onLogin }) {
   return (
     <FormContainer>
       <StyledForm onSubmit={handleSubmit}>
-        <h1 style={{ marginBottom: "17px" }}>Signup</h1>
+        <SignupTitle>Signup</SignupTitle>
         <div>
           <Input
             type="text"

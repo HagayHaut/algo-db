@@ -40,7 +40,7 @@ const LoginButton = styled.button`
 `;
 
 const LoginTitle = styled.h1`
-  color: white;
+  color: #bbb;
   margin-bottom: 17px;
 `;
 
