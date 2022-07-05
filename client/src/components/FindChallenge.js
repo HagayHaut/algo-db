@@ -139,6 +139,7 @@ const CATEGORIES = [
   "bit-manipulation",
   "math",
   "search",
+  "dynamic-programming",
 ];
 
 function FindChallenge({ user }) {
@@ -217,6 +218,7 @@ function FindChallenge({ user }) {
             <option value="array">Array</option>
             <option value="binary-tree">Binary Tree</option>
             <option value="bit-manipulation">Bit Manipulation</option>
+            <option value="dynamic-programming">Dynamic Programming</option>
             <option value="graph">Graph</option>
             <option value="hashmap">Hash Map</option>
             <option value="linked-list">Linked List</option>

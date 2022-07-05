@@ -21,6 +21,7 @@ const CATEGORIES = [
   "Bit Manipulation",
   "Math",
   "Search",
+  "Dynamic Programming",
 ];
 
 const ChallengeContainer = styled.div`

@@ -13,7 +13,7 @@ ResourceCategory.destroy_all
 complexities = %w(O(n) O(1) O(n^2) O(log-n) O(n-log-n) O(n!))
 
 categories = %w[array hashmap linked-list binary-tree graph two-pointer sliding-window set stack-queue sort string
-                recursion bit-manipulation math search]
+                recursion bit-manipulation math search dynamic-programming]
 
 resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]
 
@@ -29,7 +29,7 @@ bacon = User.create!(username: 'Bacon', password: 'toy')
 chango = User.create!(username: 'Chinggis-Khan', password: 'toy')
 
 puts 'Seeding categories... 🌱'
-(0..14).each do |i|
+(0..15).each do |i|
   Category.create!(
     name: categories[i]
   )
@@ -414,14 +414,14 @@ Comment.create!(
   comment: 'shoulda known to use a binary search when I saw the O(log-n) time requirement!'
 )
 
-# CLIMB STAIRS
+# CLIMBING STAIRS
 
 Challenge.create!(
   title: 'Climbing Stairs',
   description: "You are climbing a staircase. It takes n steps to reach the top.
 
   Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
-  category_id: 14,
+  category_id: 16,
   external_url: 'https://leetcode.com/problems/climbing-stairs/'
 )
 
