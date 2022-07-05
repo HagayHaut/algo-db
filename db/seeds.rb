@@ -1010,6 +1010,56 @@ Solution.create!(
   language: 'javascript'
 )
 
+# RADIX SORT
+
+Challenge.create!(
+  title: 'Radix Sort',
+  description: 'Given an unsorted array of POSITIVE INTEGERS, sort them with O(n * k) tim(O(n log n) in practice) using radix-sort.',
+  category_id: 10
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "// Gets number at a given digit (0-indexed starting from right)
+  // getDigit(54321,1) => 2
+  const getDigit = (n, i) => Math.floor(Math.abs(n)/Math.pow(10,i)%10);
+
+  //Get number of digits in number
+  const digitCount = n => n === 0 ? 1 : Math.ceil(Math.log10(Math.abs(n)));
+
+  // Get max number of digits in arr
+  const mostDigits = arr => {
+      let most = digitCount(arr[0]);
+
+      for (let i = 1; i < arr.length; i++) {
+          most = Math.max(most,digitCount(arr[i]));
+      }
+      return most;
+  }
+
+  const radixSort = arr => {
+      const maxDigitCount = mostDigits(arr)
+      for (let k = 0; k < maxDigitCount; k++) {
+          // creates array of 10 empty arrays
+          const buckets = Array.from({length: 10}, () => []);
+          for (let i = 0; i < arr.length; i++) {
+              const bucketIdx = getDigit(arr[i],k);
+              buckets[bucketIdx].push(arr[i])
+          }
+          console.log('buckets:', buckets);
+          arr = [].concat(...buckets);
+          console.log('current arr:', arr);
+      }
+      console.log('** sorterd **', arr)
+      return arr;
+  }",
+  challenge_id: 23,
+  time_complexity: 'O(n-log-n)',
+  space_complexity: 'O(n)',
+  notes: 'uses 9 buckets, digit counts, and log10 % operations. Only works with positive integers.',
+  language: 'javascript'
+)
+
 puts 'Seeding comments... 🌱'
 # 50.times do
 #   Comment.create!(
