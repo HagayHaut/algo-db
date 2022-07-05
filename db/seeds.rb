@@ -177,7 +177,7 @@ Solution.create!(
   challenge_id: 2,
   time_complexity: 'O(n)',
   space_complexity: 'O(1)',
-  notes: 'Sliding window to keep track of minimum proce and aximum profit.',
+  notes: 'Sliding window to keep track of minimum price and maximum profit.',
   language: 'javascript'
 )
 
@@ -453,6 +453,353 @@ Comment.create!(
   solution_id: 10,
   user_id: 4,
   comment: 'wait how the hell does this work'
+)
+
+# REVERSE LINKED LIST
+
+Challenge.create!(
+  title: 'Reverse Linked List',
+  description: 'Given the head of a singly linked list, reverse the list, and return the reversed list.',
+  category_id: 3,
+  external_url: 'https://leetcode.com/problems/reverse-linked-list/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "var reverseList = function(head) {
+    let next = null;
+    let cur = head;
+    let prev = null;
+    while (cur) {
+        next = cur.next;
+        cur.next = prev;
+        prev = cur;
+        cur = next;
+    }
+    return prev;
+};",
+  challenge_id: 10,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'it\'s not just a meme',
+  language: 'javascript'
+)
+
+# SINGLE NUMBER
+
+Challenge.create!(
+  title: 'Single Number',
+  description: 'Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+  You must implement a solution with a linear runtime complexity and use only constant extra space.',
+  category_id: 13,
+  external_url: 'https://leetcode.com/problems/single-number/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "var singleNumber = function(nums) {
+    return nums.reduce((a, b) => a ^ b);
+};",
+  challenge_id: 11,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: '### relies on XOR (^) operation
+  ```
+    1 ^ 0 => 0
+    1 ^ 1 => 1
+    0 ^ 1 => 0
+    0 ^ 0 => 1
+    5 ^ 3 => 6
+  ```',
+  language: 'javascript'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "def single_number(nums)
+  nums.reduce(&:^)
+end",
+  challenge_id: 11,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: '### relies on XOR (^) operation
+  ```
+    1 ^ 0 => 0
+    1 ^ 1 => 1
+    0 ^ 1 => 0
+    0 ^ 0 => 1
+    5 ^ 3 => 6
+  ```',
+  language: 'ruby'
+)
+
+Comment.create!(
+  solution_id: 13,
+  user_id: 4,
+  comment: 'what the heck'
+)
+
+# GREATEST COMMON DENOMINATOR
+
+Challenge.create!(
+  title: 'Greatest Common Denominator',
+  description: 'The greatest common divisor (gcd) of two or more integers, when at least one of them is not zero, is the largest positive integer that divides the numbers without a remainder.
+
+  The GCD of more than two numbers can be calculated as
+
+  GCD(a,b,c) = GCD(GCD(a,b),c).',
+  category_id: 14
+)
+
+Solution.create!(
+  user: bacon,
+  solution: "pub fn gcd(nums: &[usize]) -> usize {
+    if nums.len() == 1 {
+        return nums[0];
+    }
+    let a = nums[0];
+    let b = gcd(&nums[1..]);
+    gcd_of_two_numbers(a, b)
+  }
+
+  fn gcd_of_two_numbers(a: usize, b: usize) -> usize {
+    if b == 0 {
+        return a;
+    }
+    gcd_of_two_numbers(b, a % b)
+  }
+
+  #[cfg(test)]
+  mod tests {
+    use super::*;
+    #[test]
+    fn it_works() {
+        assert_eq!(gcd(&[1, 2, 3, 4, 5]), 1);
+        assert_eq!(gcd(&[2, 4, 6, 8, 10]), 2);
+        assert_eq!(gcd(&[3, 6, 9, 12, 15]), 3);
+        assert_eq!(gcd(&[10]), 10);
+        assert_eq!(gcd(&[21, 110]), 1);
+    }
+  }
+  ",
+  challenge_id: 12,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'some recursion and other wild stuff in here',
+  language: 'rust'
+)
+
+Comment.create!(
+  solution_id: 14,
+  user_id: 1,
+  comment: 'bacon can you explain what\'s going on here?'
+)
+
+Comment.create!(
+  solution_id: 14,
+  user: bacon,
+  comment: 'nah i copied this from stack overflow lol'
+)
+
+# MOVE ZEROS
+
+Challenge.create!(
+  title: 'Move Zeros',
+  description: 'Given an integer array nums, move all 0\'s to the end of it while maintaining the relative order of the non-zero elements.
+
+  Note that you must do this in-place without making a copy of the array.',
+  category_id: 6,
+  external_url: 'https://leetcode.com/problems/move-zeroes/'
+)
+
+Solution.create!(
+  user: bacon,
+  solution: "void moveZeroes(vector<int>& nums) {
+    int lastNonZeroFoundAt = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] != 0) {
+            nums[lastNonZeroFoundAt++] = nums[i];
+        }
+    }
+    for (int i = lastNonZeroFoundAt; i < nums.size(); i++) {
+        nums[i] = 0;
+    }
+}",
+  challenge_id: 13,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'optimal solution with two pointers',
+  language: 'cpp'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "def move_zeroes(nums)
+  # two pointers, fast and slow start at 1
+  # right increments by one every time, when it hits a non-zero, switch its value with val at left
+  # increment left
+  left = 0
+  (0..nums.size - 1).each do |right|
+      if nums[right] != 0
+          temp = nums[right]
+          nums[right] = nums[left]
+          nums[left] = temp
+          left += 1
+      end
+  end
+end",
+  challenge_id: 13,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'optimal solution with two pointers',
+  language: 'ruby'
+)
+
+# ROMAN TO INTEGER
+
+Challenge.create!(
+  title: 'Roman To Integer',
+  description: 'Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+  For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+
+Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+
+I can be placed before V (5) and X (10) to make 4 and 9.
+X can be placed before L (50) and C (100) to make 40 and 90.
+C can be placed before D (500) and M (1000) to make 400 and 900.
+Given a roman numeral, convert it to an integer.',
+  category_id: 2,
+  external_url: 'https://leetcode.com/problems/roman-to-integer/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "def roman_to_int(s)
+  integers = {
+      'I' => 1,
+      'V'=> 5,
+      'X'=> 10,
+      'L'=> 50,
+      'C' => 100,
+      'D' => 500,
+      'M' => 1000
+  }
+  sum = 0
+  (0..s.length - 2).each do |i|
+      val = integers[s[i]]
+      if i == s.length - 1
+          sum += val
+          next
+      end
+      val < integers[s[i+1]] ? sum += val : sum -= val
+  end
+end",
+  challenge_id: 14,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'store conversion values in hash table',
+  language: 'ruby'
+)
+
+# INTEGER TO ROMAN
+
+Challenge.create!(
+  title: 'Integer To Roman',
+  description: 'Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+  For example, 2 is written as II in Roman numeral, just two one\'s added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+
+Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+
+I can be placed before V (5) and X (10) to make 4 and 9.
+X can be placed before L (50) and C (100) to make 40 and 90.
+C can be placed before D (500) and M (1000) to make 400 and 900.
+Given an integer, convert it to a roman numeral.',
+  category_id: 2,
+  external_url: 'https://leetcode.com/problems/integer-to-roman/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "def int_to_roman(num)
+  numerals = {
+      1 => 'I',
+      4 => 'IV',
+      5 => 'V',
+      9 => 'IX',
+      10 => 'X',
+      40 => 'XL',
+      50 => 'L',
+      90 => 'XC',
+      100 => 'C',
+      400 => 'CD',
+      500 => 'D',
+      900 => 'CM',
+      1000 => 'M'
+  }
+  roman = ''
+  numerals.keys.reverse.each do |dec|
+     while num >= dec
+         num -= dec
+         roman += numerals[dec]
+     end
+  end
+  roman
+end",
+  challenge_id: 15,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'store conversion values in hash table, very similar to Roman to Integer',
+  language: 'ruby'
+)
+
+# PASCAL'S TRIANGLE
+
+Challenge.create!(
+  title: 'Pascal\'s Triangle',
+  description: 'Given an integer numRows, return the first numRows of Pascal\'s triangle.
+
+  In Pascal\'s triangle, each number is the sum of the two numbers directly above it as shown:
+
+  .....1.....
+
+  ....1.1....
+
+  ...1.2.1...
+
+  ..1.3.3.1..
+
+  .1.4.6.4.1.
+  ',
+  category_id: 14,
+  external_url: 'https://leetcode.com/problems/pascals-triangle/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "def generate(num_rows)
+  rows = [[1],[1,1]]
+  return rows if num_rows == 2
+  return rows[...1] if num_rows == 1
+  (num_rows - 2).times do
+      prev_row = rows[-1]
+      cur_row = [1]
+      prev_row.each_with_index do |n, i|
+          break if i == prev_row.length - 1
+          cur_row << (prev_row[i] + prev_row[i + 1])
+      end
+      cur_row << 1
+      rows << cur_row
+  end
+  rows
+end",
+  challenge_id: 16,
+  time_complexity: 'O(n^2)',
+  space_complexity: 'O(n)',
+  notes: 'for each new row, iterate over previous row',
+  language: 'ruby'
 )
 
 puts 'Seeding comments... 🌱'
