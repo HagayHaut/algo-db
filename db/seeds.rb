@@ -695,6 +695,7 @@ Solution.create!(
       end
       val < integers[s[i+1]] ? sum += val : sum -= val
   end
+  sum
 end",
   challenge_id: 14,
   time_complexity: 'O(n)',
@@ -799,6 +800,117 @@ end",
   time_complexity: 'O(n^2)',
   space_complexity: 'O(n)',
   notes: 'for each new row, iterate over previous row',
+  language: 'ruby'
+)
+
+# ROTATE ARRAY
+
+Challenge.create!(
+  title: 'Rotate Array',
+  description: 'Given an array, rotate the array to the right by k steps, where k is non-negative.
+  Input: nums = [1,2,3,4,5,6,7], k = 3
+  Output: [5,6,7,1,2,3,4]
+  ',
+  category_id: 1,
+  external_url: 'https://leetcode.com/problems/rotate-array/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "def rotate(nums, k)
+  k.times do
+     nums.unshift nums.pop
+  end
+end",
+  challenge_id: 17,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'move last element to beginning k times',
+  language: 'ruby'
+)
+
+# CONTAINS DUPLICATE
+
+Challenge.create!(
+  title: 'Contains Duplicate',
+  description: 'Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.',
+  category_id: 8,
+  external_url: 'https://leetcode.com/problems/rotate-array/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "const containsDuplicate = function(nums) {
+    return nums.length !== [...new Set(nums)].length;
+};",
+  challenge_id: 18,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n)',
+  notes: 'use a set to remove duplicates, check if lengths match',
+  language: 'javascript'
+)
+
+# PLUS ONE
+
+Challenge.create!(
+  title: 'Plus One',
+  description: 'You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0\'s.
+
+  Increment the large integer by one and return the resulting array of digits.',
+  category_id: 11,
+  external_url: 'https://leetcode.com/problems/plus-one/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "def plus_one(digits)
+  (digits.map(&:to_s).join.to_i + 1).to_s.split(//).map(&:to_i)
+end",
+  challenge_id: 19,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n)',
+  notes: 'a bunch of chained O(n) methods',
+  language: 'ruby'
+)
+
+Challenge.create!(
+  title: 'Rotate Image',
+  description: 'You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
+
+  You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+
+    Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+
+    Output: [[7,4,1],[8,5,2],[9,6,3]]',
+  category_id: 5,
+  external_url: 'https://leetcode.com/problems/rotate-image/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "var rotate = function(matrix) {
+    for(let r = 0; r < matrix.length; r++) {
+        for(let c = r; c < matrix[0].length; c++) {
+          [matrix[r][c], matrix[c][r]] = [matrix[c][r], matrix[r][c]]
+        }
+    }
+    matrix.forEach(row => row.reverse())
+};",
+  challenge_id: 20,
+  time_complexity: 'O(n^2)',
+  space_complexity: 'O(1)',
+  notes: 'transpose diagonally, then reverse each row.',
+  language: 'javascript'
+)
+Solution.create!(
+  user: hagay,
+  solution: "def rotate(matrix)
+  matrix.replace(matrix.reverse.transpose)
+end",
+  challenge_id: 20,
+  time_complexity: 'O(n^2)',
+  space_complexity: 'O(1)',
+  notes: 'does the same as first solution, but uses a ruby cheat',
   language: 'ruby'
 )
 
