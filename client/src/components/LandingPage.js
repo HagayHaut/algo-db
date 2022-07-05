@@ -87,17 +87,18 @@ function LandingPage({ onLogin }) {
       {showLogin ? (
         <>
           <ToggleLabel>
-            Not a user?
+            Not a user?&nbsp;
             <Toggle onClick={() => setShowLogin(!showLogin)}>
               {" "}
-              &nbsp; Sign up for free
+              Sign up for free!
             </Toggle>
           </ToggleLabel>
         </>
       ) : (
-        <Toggle onClick={() => setShowLogin(!showLogin)}>
-          Already a user?
-        </Toggle>
+        <ToggleLabel>
+          Already a user? &nbsp;
+          <Toggle onClick={() => setShowLogin(!showLogin)}>Go to Login.</Toggle>
+        </ToggleLabel>
       )}
     </PageContainer>
   );
