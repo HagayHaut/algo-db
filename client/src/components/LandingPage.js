@@ -10,22 +10,31 @@ const PageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #242424;
+  height: 100vh;
+  background-color: rgb(57, 57, 57);
   color: white;
   font-family: "Nanum Gothic";
   position: relative;
   overflow: auto;
+  &::-webkit-scrollbar {
+    width: 0.7em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+    border-right: 1px solid rgb(57, 57, 57);
+    border-left: 1px solid rgb(57, 57, 57);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+    border-right: 1px solid rgb(21, 21, 21);
+    border-left: 1px solid rgb(21, 21, 21);
+  }
 `;
 
 const LogoMottoContainer = styled.div`
   margin: 5px;
-`;
-
-const TopContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 657px;
 `;
 
 const Logo = styled.p`
@@ -42,19 +51,27 @@ const Logo = styled.p`
 
 const ToggleLabel = styled.label`
   margin-top: 6px;
+  color: #bbb;
+  display: inline-block;
 `;
 
-const ToggleButton = styled.button`
-  margin: 20px;
+const Toggle = styled.p`
+  margin-top: 6px;
+  color: #0021f3;
+  display: inline-block;
   cursor: pointer;
-  background: #fdee30;
-  padding: 5px;
-  font-weight: bold;
 `;
+
+// const ToggleLabel2 = styled.label`
+//   margin-top: 6px;
+//   color: #bbb;
+//   display: inline-block;
+// `;
 
 const Motto = styled.p`
-  margin-top: 4px;
-  font-size: 1.6rem;
+  margin-top: 10px;
+  font-size: 1.3rem;
+  color: #999;
 `;
 
 function LandingPage({ onLogin }) {
@@ -62,19 +79,26 @@ function LandingPage({ onLogin }) {
 
   return (
     <PageContainer>
-      <TopContainer>
-        <LogoMottoContainer>
-          <Logo>algoDB!</Logo>
-          <Motto>Solve. Store. Share.</Motto>{" "}
-          <ToggleLabel style={{ marginTop: "20px" }}>
-            {showLogin ? "Not a user? Sign up for free." : "Already a user?"}
+      <LogoMottoContainer>
+        <Logo>algoDB!</Logo>
+        <Motto>Solve. Store. Share.</Motto>{" "}
+      </LogoMottoContainer>
+      {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}
+      {showLogin ? (
+        <>
+          <ToggleLabel>
+            Not a user?
+            <Toggle onClick={() => setShowLogin(!showLogin)}>
+              {" "}
+              &nbsp; Sign up for free
+            </Toggle>
           </ToggleLabel>
-          <ToggleButton onClick={() => setShowLogin(!showLogin)}>
-            {showLogin ? "Go To Sign Up" : "Go To Login"}
-          </ToggleButton>
-        </LogoMottoContainer>
-        {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}
-      </TopContainer>
+        </>
+      ) : (
+        <Toggle onClick={() => setShowLogin(!showLogin)}>
+          Already a user?
+        </Toggle>
+      )}
     </PageContainer>
   );
 }

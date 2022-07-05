@@ -3,11 +3,10 @@ import styled from "styled-components";
 
 const FormContainer = styled.div`
   padding: 20px;
-  border-radius: 5%;
   width: 400px;
-  color: #fefefe;
-  background-color: #151515;
+  background-color: #222;
   margin: 10px;
+  color: #bbb;
 `;
 
 const StyledForm = styled.form`
@@ -18,8 +17,12 @@ const Input = styled.input`
   display: block;
   height: 50%;
   width: 100%;
-  margin: 7px 0 7px 0;
   text-align: center;
+  color: #bbb;
+  background-color: rgb(57, 57, 57);
+  border: none;
+  border-radius: 5%;
+  padding: 2px;
 `;
 
 const InputContainer = styled.div`
@@ -28,8 +31,9 @@ const InputContainer = styled.div`
 
 const LoginButton = styled.button`
   margin-top: 20px;
+  border: none;
   cursor: pointer;
-  background-color: #05d5fa;
+  background-color: #fdee30;
   padding: 5px;
   font-weight: bold;
   color: black;
@@ -40,10 +44,13 @@ const LoginTitle = styled.h1`
   margin-bottom: 17px;
 `;
 
-const Errors = styled.div``;
+const Errors = styled.div`
+  padding-top: 8px;
+`;
 
 const Error = styled.div`
   margin-top: 4px;
+  font-size: 13px;
 `;
 
 function Login({ onLogin }) {

@@ -63,6 +63,9 @@ const Input = styled.input`
   text-align: center;
   color: #bbb;
   background-color: rgb(57, 57, 57);
+  border: none;
+  border-radius: 5%;
+  padding: 2px;
 `;
 
 const Select = styled.select`
