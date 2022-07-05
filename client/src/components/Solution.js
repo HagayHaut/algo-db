@@ -74,7 +74,7 @@ const CategoryTitle = styled.p`
 
 const NotesTitle = styled.p`
   font-size: 0.9rem;
-  color: #222;
+  color: #fefefe;
   margin-bottom: 4px;
   text-align: center;
 `;
@@ -86,7 +86,7 @@ const NotesCanvas = styled.div`
   font-size: 0.7rem;
   color: #ddd;
   width: 67%;
-  margin: auto;
+  margin: 0 auto 10px auto;
   padding: 20px;
 `;
 

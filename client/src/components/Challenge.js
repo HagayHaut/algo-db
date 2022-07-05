@@ -223,7 +223,7 @@ function Challenge({
       </ChallengeDescContainer>
       <TitleSelectSticky>
         <AllSolutionsTitle>
-          {forUser ? `${user.username}'s` : "All"} Solutions{" "}
+          {forUser ? `${user.username}'s` : "All"} Solutions for {title}
         </AllSolutionsTitle>
         <StyleSelectContainer>
           <Label>code styles</Label>{" "}
