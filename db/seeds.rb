@@ -417,6 +417,44 @@ Comment.create!(
   comment: 'shoulda known to use a binary search when I saw the O(log-n) time requirement!'
 )
 
+# CLIMB STAIRS
+
+Challenge.create!(
+  title: 'Climbing Stairs',
+  description: "You are climbing a staircase. It takes n steps to reach the top.
+
+  Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+  category_id: 14,
+  external_url: 'https://leetcode.com/problems/climbing-stairs/'
+)
+
+Solution.create!(
+  user: chango,
+  solution: "def climb_stairs(n)
+  f1 = 1
+  f2 = 1
+
+  (1..n - 1).each do |i|
+      temp = f1
+      f1 = f1 + f2
+      f2 = temp
+  end
+
+  f1
+end",
+  challenge_id: 9,
+  time_complexity: 'O(log-n)',
+  space_complexity: 'O(1)',
+  notes: 'use dynamic programming and this is just Nth Fibonacci',
+  language: 'ruby'
+)
+
+Comment.create!(
+  solution_id: 10,
+  user_id: 4,
+  comment: 'wait how the hell does this work'
+)
+
 puts 'Seeding comments... 🌱'
 # 50.times do
 #   Comment.create!(
