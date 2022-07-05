@@ -62,7 +62,7 @@ def swap_nodes root
     root.right = root.left
     root.left = right
 end", "def is_anagram(s, t)
-    s.split(//).sort == t.split(//).sort
+    s.split('').sort == t.split('').sort
 end", "var search = function(nums, target) {
   let low = 0;
   let high = nums.length - 1;

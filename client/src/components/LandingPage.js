@@ -57,7 +57,7 @@ const ToggleLabel = styled.label`
 
 const Toggle = styled.p`
   margin-top: 6px;
-  color: #0021f3;
+  color: #05d5fa;
   display: inline-block;
   cursor: pointer;
 `;

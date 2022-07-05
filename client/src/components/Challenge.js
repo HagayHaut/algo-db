@@ -107,6 +107,7 @@ const ExternalUrl = styled.a`
   left: 5px;
   cursor: pointer;
   text-decoration: none;
+  color: #05d5fa;
 `;
 
 const AllSolutionsTitle = styled.p`

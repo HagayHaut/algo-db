@@ -42,7 +42,7 @@ const Category = styled.p`
 
 const Anchor = styled.a`
   text-decoration: none;
-  color: #0021f3;
+  color: #05d5fa;
 `;
 
 const MarkdownContainer = styled.div`
