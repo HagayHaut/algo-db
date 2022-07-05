@@ -10,11 +10,6 @@ const NavContainer = styled.div`
   justify-content: space-around;
 `;
 
-const LeftHeader = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -46,11 +41,10 @@ const H3 = styled.h3`
 // `;
 
 const Logo = styled.p`
-  margin-bottom: 4px;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 4px;
+  padding-bottom: 4px;
   font-family: "Modak";
-  font-size: 23px;
+  font-size: 20px;
   color: #05d5fa;
 `;
 
@@ -62,12 +56,7 @@ const linkStyle = {
 function NavBar({ onLogout, user, onDarkModeClick, isDarkMode }) {
   return (
     <HeaderContainer>
-      <LeftHeader>
-        <Logo>algoDB!</Logo>
-        {/* <DarkModeBtn onClick={onDarkModeClick}>
-          {isDarkMode ? "Light" : "Dark"} Mode
-        </DarkModeBtn> */}
-      </LeftHeader>
+      <Logo>algoDB!</Logo>
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>
         <Link to="/new" style={linkStyle}>
