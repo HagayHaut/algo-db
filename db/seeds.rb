@@ -18,215 +18,9 @@ resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]
 languages = %w[c csharp cpp go java javascript php python ruby rust typescript ada coffeescript haskell fortran julia
                kotlin lisp lua perl scala sql]
 
-solutions = [
-  "var twoSum = function(nums, target) {
-    let obj = {};
-    for(let i = 0; i < nums.length; i++) {
-       const needed = target - nums[i]
-       if(needed in obj) return [obj[needed],i]
-       obj[nums[i]] = i;
-    }
-};", "var twoSum = function(nums, target) {
-  let obj = {};
-  for(let i = 0; i < nums.length; i++) {
-     const needed = target - nums[i]
-     if(needed in obj) return [obj[needed],i]
-     obj[nums[i]] = i;
-  }
-};", "var mergeTwoLists = function(list1, list2) {
-  return [...list1,...list2].sort((a,b) => a -b)
-};", "var maxProfit = function(prices) {
-  let maxProfit = 0;
-  let minPrice = prices[0];
-  prices.forEach(price => {
-      const profit = price - minPrice;
-      if (maxProfit < profit) maxProfit = profit;
-      if (minPrice > price) minPrice = price;
-  })
-  return maxProfit;
-};", "var isPalindrome = function(s) {
-  const str = s.replace(/[\W_]/g, '').toLowerCase()
-  return str === str.split('').reverse().join('')
-};",
-  "def invert_tree(root)
-  if root
-      swap_nodes root
-      invert_tree root.left
-      invert_tree root.right
-  end
-  root
-end
-
-def swap_nodes root
-    right = root.right
-    root.right = root.left
-    root.left = right
-end", "def is_anagram(s, t)
-    s.split('').sort == t.split('').sort
-end", "var search = function(nums, target) {
-  let low = 0;
-  let high = nums.length - 1;
-  while (low <= high) {
-      const mid = Math.floor((low + high) / 2);
-      if (nums[mid] === target) return mid;
-      nums[mid] < target ? low = mid + 1 : high = mid - 1;
-  }
-  return -1;
-};", "const maxSubArray = function(nums) {
-  let maxSum = nums[0];
-  let curSum = 0;
-
-  nums.forEach(n => {
-      if (curSum < 0) curSum = 0;
-      curSum += n;
-      if (maxSum < curSum) maxSum = curSum;
-  })
-  return maxSum;
-};", "def hasCycle(head)
-    return false if !head
-    left = head
-    right = head.next
-    while right != left
-        return false if !right || !right.next
-        left = left.next
-        right = right.next.next
-    end
-    return true
-end", "def first_bad_version(n)
-    result = n
-    low = 1
-    high = n
-    while low <= high
-        mid = (low + high) / 2
-        if is_bad_version mid
-            result = mid
-            high = mid - 1
-        else
-            low = mid + 1
-        end
-    end
-    result
-end", "def climb_stairs(n)
-    f1 = 1
-    f2 = 1
-
-    (1..n - 1).each do |i|
-        temp = f1
-        f1 = f1 + f2
-        f2 = temp
-end
-
-f1
-end", "var reverseList = function(head) {
-  let next = null;
-  let cur = head;
-  let prev = null;
-  while (cur) {
-      next = cur.next;
-      cur.next = prev;
-      prev = cur;
-      cur = next;
-  }
-  return prev;
-};", "var singleNumber = function(nums) {
-  return nums.reduce((a, b) => a ^ b);
-};", 'import "fmt"
-
-func main() {
-	fmt.Println("Hello, 世界")
-}', "public void traverseInOrder(Node node) {
-  if (node != null) {
-      traverseInOrder(node.left);
-      visit(node.value);
-      traverseInOrder(node.right);
-  }
-}", "pub fn gcd(nums: &[usize]) -> usize {
-  if nums.len() == 1 {
-      return nums[0];
-  }
-  let a = nums[0];
-  let b = gcd(&nums[1..]);
-  gcd_of_two_numbers(a, b)
-}
-
-fn gcd_of_two_numbers(a: usize, b: usize) -> usize {
-  if b == 0 {
-      return a;
-  }
-  gcd_of_two_numbers(b, a % b)
-}
-
-#[cfg(test)]
-mod tests {
-  use super::*;
-  #[test]
-  fn it_works() {
-      assert_eq!(gcd(&[1, 2, 3, 4, 5]), 1);
-      assert_eq!(gcd(&[2, 4, 6, 8, 10]), 2);
-      assert_eq!(gcd(&[3, 6, 9, 12, 15]), 3);
-      assert_eq!(gcd(&[10]), 10);
-      assert_eq!(gcd(&[21, 110]), 1);
-  }
-}", "def rotate(nums, k)
-  k.times do
-    nums.unshift nums.pop
-  end
-end", "def move_zeroes(nums)
-  # two pointers, fast and slow start at 1
-  # right increments by one every time, when it hits a non-zero, switch its value with val at left
-  # increment left
-  left = 0
-  (0..nums.size - 1).each do |right|
-      if nums[right] != 0
-          temp = nums[right]
-          nums[right] = nums[left]
-          nums[left] = temp
-          left += 1
-      end
-  end
-end", "def roman_to_int(s)
-  integers = {
-      'I' => 1,
-      'V'=> 5,
-      'X'=> 10,
-      'L'=> 50,
-      'C' => 100,
-      'D' => 500,
-      'M' => 1000
-  }
-  sum = 0
-  (0..s.length - 2).each do |i|
-      val = integers[s[i]]
-      if i == s.length - 1
-          sum += val
-          next
-      end
-      val < integers[s[i+1]] ? sum += val : sum -= val
-  end
-end", "def generate(num_rows)
-  rows = [[1],[1,1]]
-  return rows if num_rows == 2
-  return rows[...1] if num_rows == 1
-  (num_rows - 2).times do
-      prev_row = rows[-1]
-      cur_row = [1]
-      prev_row.each_with_index do |n, i|
-          break if i == prev_row.length - 1
-          cur_row << (prev_row[i] + prev_row[i + 1])
-      end
-      cur_row << 1
-      rows << cur_row
-  end
-  rows
-end"
-]
-
-challengeTitles = ['Two Sum', 'Valid Parentheses', 'Merge Two Sorted Lists', 'Best Time To Buy And Sell Stock',
-                   'Valid Palindrome', 'Invert Binary Tree', 'Valid Anagram', 'Binary Search', 'Maximum Subarray',
-                   'Linked List Cycle', 'First Bad Version', 'Climbing Stairs', 'Reverse Linked List', 'Single Number',
-                   'Say Hello', 'Depth First Search', 'Greatest Common Denominator', 'Rotate Array', 'Move Zeros', 'Roman To Integer', "Pascal's Triangle"]
-
 puts 'Seeding users... 🌱'
+
+hagay = User.create!(username: 'Hagay', password: 'toy')
 cinna = User.create!(username: 'Cinna', password: 'toy')
 arlo = User.create!(username: 'Arlo', password: 'toy')
 bacon = User.create!(username: 'Bacon', password: 'toy')
@@ -244,249 +38,392 @@ puts 'Seeding resource categories... 🌱'
   ResourceCategory.create!(name: resource_categories[i])
 end
 
-puts 'Seeding resources... 🌱'
-20.times do
-  Resource.create!(
-    resource_category_id: rand(1..7),
-    title: Faker::Lorem.sentence,
-    description: Faker::Markdown.sandwich(sentences: 9),
-    external_url: Faker::Internet.url,
-    is_free: [true, false][rand(0..1)]
-  )
-end
+puts 'Seeding challenges and solutions... 🌱'
 
-puts 'Seeding challenges... 🌱'
-(0..20).each do |i|
-  Challenge.create!(
-    title: challengeTitles[i],
-    description: Faker::Markdown.sandwich(sentences: 9),
-    category_id: rand(1..15),
-    external_url: Faker::Internet.url
-  )
-end
+# TWO SUM
 
-puts 'Seeding solutions ...🌱'
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 18,
-  solution: solutions[17],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
+Challenge.create!(
+  title: 'Two Sum',
+  description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+  You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+  You can return the answer in any order.
+
+
+
+  Example 1:
+
+  Input: nums = [2,7,11,15], target = 9
+  Output: [0,1]
+  Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+  Example 2:
+
+  Input: nums = [3,2,4], target = 6
+  Output: [1,2]
+  Example 3:
+
+  Input: nums = [3,3], target = 6
+  Output: [0,1]
+
+
+  Constraints:
+
+  2 <= nums.length <= 104
+  -109 <= nums[i] <= 109
+  -109 <= target <= 109
+  Only one valid answer exists.",
+  category_id: 2,
+  external_url: 'https://leetcode.com/problems/two-sum/'
 )
 
-puts 'Seeding solutions ...🌱'
 Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 20,
-  solution: solutions[19],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
-)
-
-puts 'Seeding solutions ...🌱'
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 19,
-  solution: solutions[18],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
-)
-
-puts 'Seeding solutions ...🌱'
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 21,
-  solution: solutions[20],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
-)
-
-puts 'Seeding solutions ...🌱'
-Solution.create!(
-  user_id: rand(1..4),
+  user: hagay,
+  solution: "var twoSum = function(nums, target) {
+    let obj = {};
+    for(let i = 0; i < nums.length; i++) {
+       const needed = target - nums[i]
+       if(needed in obj) return [obj[needed],i]
+       obj[nums[i]] = i;
+    }
+};",
   challenge_id: 1,
-  solution: solutions[0],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n)',
+  notes: 'Relies on a hashmap to only iterate over the input once.',
   language: 'javascript'
 )
 
 Solution.create!(
-  user_id: rand(1..4),
+  user: cinna,
+  solution: "def two_sum(nums, target)
+  hash = {}
+  nums.each_with_index do |n, i|
+      needed = target - n
+      return [hash[needed], i] if hash[needed]
+      hash[n] = i
+  end
+end",
+  challenge_id: 1,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n)',
+  notes: 'Relies on a hashmap to only iterate over the input once.',
+  language: 'ruby'
+)
+
+Comment.create!(
+  solution_id: 1,
+  user_id: 2,
+  comment: 'cool solution!'
+)
+
+Comment.create!(
+  solution_id: 1,
+  user_id: 3,
+  comment: 'agreed!'
+)
+
+Comment.create!(
+  solution_id: 1,
+  user_id: 2,
+  comment: 'does this work without a map?'
+)
+
+# BEST TIME TO BUY AND SELL STOCK
+
+Challenge.create!(
+  title: 'Best Time To Buy And Sell Stock',
+  description: "You are given an array prices where `prices[i]` is the price of a given stock on the ith day.
+
+  You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+  Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+
+
+  Example 1:
+
+  Input: prices = [7,1,5,3,6,4]
+  Output: 5
+  Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+  Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+  Example 2:
+
+  Input: prices = [7,6,4,3,1]
+  Output: 0
+  Explanation: In this case, no transactions are done and the max profit = 0.
+
+
+  Constraints:
+
+  1 <= prices.length <= 105
+  0 <= prices[i] <= 104",
+  category_id: 7,
+  external_url: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/'
+)
+
+Solution.create!(
+  user: cinna,
+  solution: "var maxProfit = function(prices) {
+    let maxProfit = 0;
+    let minPrice = prices[0];
+    prices.forEach((price) => {
+        const profit = price - minPrice;
+        if (maxProfit < profit) maxProfit = profit;
+        if (minPrice > price) minPrice = price;
+    })
+    return maxProfit;
+};",
   challenge_id: 2,
-  solution: solutions[1],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'Sliding window to keep track of minimum proce and aximum profit.',
   language: 'javascript'
 )
 
+Comment.create!(
+  solution_id: 2,
+  user_id: 4,
+  comment: 'sliding window FTW!'
+)
+
+Comment.create!(
+  solution_id: 2,
+  user_id: 5,
+  comment: 'can someone explain how this works?'
+)
+
+# INVERT BINARY TREE
+
+Challenge.create!(
+  title: 'Invert Binary Tree',
+  description: 'Given the root of a binary tree, invert the tree, and return its root.',
+  category_id: 4,
+  external_url: 'https://leetcode.com/problems/invert-binary-tree/'
+)
+
 Solution.create!(
-  user_id: rand(1..4),
+  user: cinna,
+  solution: "def invert_tree(root)
+  if root
+      swap_nodes root
+      invert_tree root.left
+      invert_tree root.right
+  end
+  root
+end
+
+def swap_nodes root
+    right = root.right
+    root.right = root.left
+    root.left = right
+end",
   challenge_id: 3,
-  solution: solutions[2],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'Recursion is necessary for a clean solution here.',
+  language: 'ruby'
+)
+
+Comment.create!(
+  solution_id: 4,
+  user_id: 5,
+  comment: 'ah it\'s so much simpler than I expected!'
+)
+
+# VALID ANAGRAM
+
+Challenge.create!(
+  title: 'Valid Anagram',
+  description: 'Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+  An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.',
+  category_id: 11,
+  external_url: 'https://leetcode.com/problems/valid-anagram/'
 )
 
 Solution.create!(
-  user_id: rand(1..4),
+  user: bacon,
+  solution: "def is_anagram(s, t)
+  s.split('').sort == t.split('').sort
+end",
   challenge_id: 4,
-  solution: solutions[3],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
+  time_complexity: 'O(n-log-n)',
+  space_complexity: 'O(n)',
+  notes: 'sort without a code block will sort alphabetically',
+  language: 'ruby'
+)
+
+Comment.create!(
+  solution_id: 5,
+  user_id: 1,
+  comment: 'of course! why didn\'t I think to sort!!'
+)
+
+Comment.create!(
+  solution_id: 5,
+  user_id: 4,
+  comment: 'yeah this id dope...'
+)
+
+# BINARY SEARCH
+
+Challenge.create!(
+  title: 'Binary Search',
+  description: 'Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+
+  You must write an algorithm with O(log n) runtime complexity.',
+  category_id: 15,
+  external_url: 'https://leetcode.com/problems/binary-search/'
 )
 
 Solution.create!(
-  user_id: rand(1..4),
+  user: chango,
+  solution: "def search(nums, target)
+  low = 0;
+  high = nums.length - 1
+  mid = nil
+  while low <= high
+      mid = (low + high) / 2
+      return mid if nums[mid] == target
+      nums[mid] < target ? low = mid + 1 : high = mid - 1
+  end
+  -1
+end",
   challenge_id: 5,
-  solution: solutions[4],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
+  time_complexity: 'O(log-n)',
+  space_complexity: 'O(1)',
+  notes: 'with every check, dismiss half the remaining input',
   language: 'ruby'
 )
 
+Comment.create!(
+  solution_id: 6,
+  user_id: 1,
+  comment: 'an absolute classic!'
+)
+
+# MAXIMUM SUBARRAY
+
+Challenge.create!(
+  title: 'Maximum Subarray',
+  description: "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+
+  A subarray is a contiguous part of an array.",
+  category_id: 7,
+  external_url: 'https://leetcode.com/problems/maximum-subarray/'
+)
+
 Solution.create!(
-  user_id: rand(1..4),
+  user: arlo,
+  solution: "const maxSubArray = function(nums) {
+    let maxSum = nums[0];
+    let curSum = 0;
+
+    nums.forEach(n => {
+        if (curSum < 0) curSum = 0;
+        curSum += n;
+        if (maxSum < curSum) maxSum = curSum;
+    })
+    return maxSum;
+};
+",
   challenge_id: 6,
-  solution: solutions[5],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'ruby'
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'use sliding window pointers to track current and maximum sums',
+  language: 'javascript'
+)
+
+# LINKED LIST CYCLE
+
+Challenge.create!(
+  title: 'Linked List Cycle',
+  description: "Given head, the head of a linked list, determine if the linked list has a cycle in it.
+
+  There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+
+  Return true if there is a cycle in the linked list. Otherwise, return false.",
+  category_id: 3,
+  external_url: 'https://leetcode.com/problems/linked-list-cycle/'
 )
 
 Solution.create!(
-  user_id: rand(1..4),
+  user: hagay,
+  solution: "def hasCycle(head)
+  return false if !head
+  left = head
+  right = head.next
+  while right != left
+      return false if !right || !right.next
+      left = left.next
+      right = right.next.next
+  end
+  return true
+end",
   challenge_id: 7,
-  solution: solutions[6],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: 'use fast and slow pointers, which will evetually overlap if there is a cycle',
+  language: 'ruby'
+)
+
+Comment.create!(
+  solution_id: 8,
+  user_id: 3,
+  comment: 'now this is cool'
+)
+
+# FIRST BAD VERSION
+
+Challenge.create!(
+  title: 'First Bad Version',
+  description: "You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.
+
+  Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.
+
+  You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.",
+  category_id: 15,
+  external_url: 'https://leetcode.com/problems/first-bad-version/'
 )
 
 Solution.create!(
-  user_id: rand(1..4),
+  user: chango,
+  solution: "def first_bad_version(n)
+  result = n
+  low = 1
+  high = n
+  while low <= high
+      mid = (low + high) / 2
+      if is_bad_version mid
+          result = mid
+          high = mid - 1
+      else
+          low = mid + 1
+      end
+  end
+  result
+end",
   challenge_id: 8,
-  solution: solutions[7],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
-)
-
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 9,
-  solution: solutions[8],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
+  time_complexity: 'O(log-n)',
+  space_complexity: 'O(1)',
+  notes: 'basically just a binary search with one extra pointer',
   language: 'ruby'
 )
 
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 10,
-  solution: solutions[9],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'ruby'
-)
-
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 11,
-  solution: solutions[10],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'ruby'
-)
-
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 12,
-  solution: solutions[11],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: 'basically just Nth fibonacci',
-  language: 'ruby'
-)
-
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 13,
-  solution: solutions[12],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
-)
-
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 14,
-  solution: solutions[13],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'javascript'
-)
-
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 15,
-  solution: solutions[14],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'go'
-)
-
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 16,
-  solution: solutions[15],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'java'
-)
-
-Solution.create!(
-  user_id: rand(1..4),
-  challenge_id: 17,
-  solution: solutions[16],
-  time_complexity: complexities[rand(0..5)],
-  space_complexity: complexities[rand(0..5)],
-  notes: Faker::Markdown.sandwich,
-  language: 'rust'
+Comment.create!(
+  solution_id: 9,
+  user_id: 1,
+  comment: 'shoulda known to use a binary search when I saw the O(log-n) time requirement!'
 )
 
 puts 'Seeding comments... 🌱'
-50.times do
-  Comment.create!(
-    solution_id: rand(1..20),
-    user_id: rand(1..4),
-    comment: Faker::Lorem.sentence
-  )
-end
+# 50.times do
+#   Comment.create!(
+#     solution_id: rand(1..20),
+#     user_id: rand(1..4),
+#     comment: Faker::Lorem.sentence
+#   )
+# end
 
-puts 'Done Seeding! 🌱'
+# puts 'Done Seeding! 🌱'
