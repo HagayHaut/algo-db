@@ -873,6 +873,8 @@ end",
   language: 'ruby'
 )
 
+# ROTATE IMAGE
+
 Challenge.create!(
   title: 'Rotate Image',
   description: 'You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
@@ -912,6 +914,100 @@ end",
   space_complexity: 'O(1)',
   notes: 'does the same as first solution, but uses a ruby cheat',
   language: 'ruby'
+)
+
+# MERGE SORT
+
+Challenge.create!(
+  title: 'Merge Sort',
+  description: 'Given an unsorted array of integers, sort them with O(n log-n) time using merge sort.',
+  category_id: 10
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "function merge(arr1, arr2) {
+    const merged = [];
+    let i = 0;
+    let j = 0;
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] < arr2[j]) {
+            merged.push(arr1[i]);
+            i++;
+        }
+        else {
+            merged.push(arr2[j]);
+            j++;
+        }
+    }
+    while (i < arr1.length) {
+        merged.push(arr1[i]);
+        i++;
+    }
+    while (j < arr2.length) {
+        merged.push(arr2[j]);
+        j++;
+    }
+    return merged;
+}
+
+function mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+    const mid = Math.floor(arr.length / 2);
+    const left = mergeSort(arr.slice(0,mid));
+    const right = mergeSort(arr.slice(mid));
+    return merge(left, right);
+}",
+  challenge_id: 21,
+  time_complexity: 'O(n-log-n)',
+  space_complexity: 'O(n)',
+  notes: 'classic implimintation using recursion and a merge() helper method',
+  language: 'javascript'
+)
+
+# QUICK SORT
+
+Challenge.create!(
+  title: 'Quick Sort',
+  description: 'Given an unsorted array of integers, sort them with O(n log-n) time using quick-sort.',
+  category_id: 10
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "const swap = (arr,idx1,idx2) => [arr[idx2],arr[idx1]] = [arr[idx1],arr[idx2]]
+
+  const pivot = (arr, low = 0, high = arr.length-1) => {
+      // by choosing arr[low], it makes it O(n^2) for sorted arrays
+      let pivot = arr[low];
+      let swapIdx = low;
+
+      for (i = low + 1; i < arr.length; i++) {
+          if (pivot > arr[i]) {
+              swapIdx++;
+              swap(arr,swapIdx,i);
+          }
+      }
+      swap(arr,swapIdx,low);
+      return swapIdx;
+  }
+
+  const quickSort = (arr, left = 0, right = arr.length-1) => {
+      console.log(arr.slice(left,right+1))
+      if (left < right) {
+         const pivotIdx = pivot(arr, left, right);
+          quickSort(arr,left,pivotIdx-1);
+          quickSort(arr,pivotIdx+1,right);
+      } else {
+          console.log('sorted!', arr)
+          return arr;
+      }
+  }",
+  challenge_id: 22,
+  time_complexity: 'O(n-log-n)',
+  space_complexity: 'O(n)',
+  notes: 'classic implimintation using recursion, and pivot() and swap() helper methods',
+  language: 'javascript'
 )
 
 puts 'Seeding comments... 🌱'
