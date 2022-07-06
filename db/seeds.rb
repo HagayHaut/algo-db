@@ -130,30 +130,58 @@ Comment.create!(
 
 Challenge.create!(
   title: 'Best Time To Buy And Sell Stock',
-  description: "You are given an array prices where `prices[i]` is the price of a given stock on the ith day.
-
-  You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
-
-  Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+  description: "You are given an array prices where `prices[i]` is the price of a given stock on the ith day.\
 
 
 
-  Example 1:
+  You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.\
 
+
+
+  Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.\
+
+
+
+  Example 1:\
+
+  ```
   Input: prices = [7,1,5,3,6,4]
+
+
   Output: 5
-  Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-  Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
-  Example 2:
 
+
+  Explanation:\ Buy on day 2 (price = 1)\
+
+
+  and sell on day 5 (price = 6), profit = 6-1 = 5.
+
+
+  Note that buying on day 2 and selling on day 1 is\
+
+
+  not allowed because you must buy before you sell.
+  ```
+
+  Example 2:\
+
+  ```
   Input: prices = [7,6,4,3,1]
+
+
   Output: 0
-  Explanation: In this case, no transactions are done and the max profit = 0.
 
 
-  Constraints:
+  Explanation:\ In this case, no transactions\
 
-  1 <= prices.length <= 105
+
+    are done and the max profit = 0.
+  ```
+
+
+  Constraints:\
+
+  1 <= prices.length <= 105\
   0 <= prices[i] <= 104",
   category_id: 7,
   external_url: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/'
@@ -269,6 +297,8 @@ Challenge.create!(
   title: 'Binary Search',
   description: 'Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
 
+
+
   You must write an algorithm with O(log n) runtime complexity.',
   category_id: 15,
   external_url: 'https://leetcode.com/problems/binary-search/'
@@ -377,7 +407,14 @@ Challenge.create!(
   title: 'First Bad Version',
   description: "You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.
 
+  .
+
+
   Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.
+
+  .
+
+
 
   You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.",
   category_id: 15,
@@ -759,7 +796,11 @@ Challenge.create!(
   title: 'Pascal\'s Triangle',
   description: 'Given an integer numRows, return the first numRows of Pascal\'s triangle.
 
+
+
   In Pascal\'s triangle, each number is the sum of the two numbers directly above it as shown:
+
+
 
   .....1.....
 
@@ -1159,6 +1200,385 @@ const selectionSor = (arr) => {
   time_complexity: 'O(n^2)',
   space_complexity: 'O(1)',
   notes: 'iterates the array as many times as there are elements, putting min value at next min spot',
+  language: 'javascript'
+)
+
+# CREATE A SINGLY LINKED LIST
+
+Challenge.create!(
+  title: 'Create A Singly Linked List',
+  description: "Create a Singly Linked List class and a Node class.
+
+  Your singly linked list should have the following methods with the following time complexities:
+
+  ```
+
+
+  push(val) => O(1)
+
+  pop() => O(n)
+
+  shift() => O(1)
+
+  unshift(val) => O(n)
+
+  get(index) => O(n)
+
+  set(index, val) => O(n)
+
+  insert(index, val) => O(1)
+
+  remove(index) => O(n) || O(1)
+
+  reverse(index) => O(n)
+
+  ```",
+  category_id: 3
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class SinglyLinkedList {
+
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+
+    push(val) {
+        const newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.length++;
+        return this;
+    }
+
+    pop() {
+        if (!this.head) return;
+        let cur = this.head;
+        let prev = cur;
+        while (cur.next) {
+            prev = cur;
+            cur = cur.next;
+        }
+        this.tail = prev;
+        this.tail.next = null;
+        this.length--;
+        if (!this.length) {
+            this.head = null;
+            this.tail = null;
+        }
+        return cur;
+    }
+
+    shift() {
+        if (!this.head) return;
+        let cur = this.head;
+        this.head = cur.next;
+        this.length--;
+        if (!this.head) this.tail = null;
+        return cur;
+    }
+
+    unshift(val) {
+        const newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
+
+    // gets node at given \"index\"
+    get(index) {
+        if (index < 0 || index >= this.length) {
+            return null;
+        }
+        let cur = this.head;
+        let i = 0;
+        while (i < index) {
+            cur = cur.next;
+            i++;
+        }
+        return cur;
+    }
+
+    // set value of node at given index
+    set(index, val) {
+        const node = this.get(index);
+        if (!node) return false;
+        node.val = val;
+        return true;
+    }
+
+    // inserts a new node at given index
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        const newNode = new Node(val);
+        const prevNode = this.get(index - 1);
+        const temp = prevNode.next;
+        prevNode.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+
+    // removes the node at a given index
+    remove(index) {
+        if (index < 0 || index >= this.length) return;
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+
+        const prev = this.get(index - 1);
+        const removeNode = prev.next;
+        prev.next = removeNode.next;
+        this.length--;
+        return removeNode;
+    }
+
+    // reverse the linked in place
+    reverse() {
+        if (!this.head) return null;
+
+        let curr = this.head;
+        this.head = this.tail;
+        this.tail = curr;
+        let prev = null;
+        let next = null;
+        while (curr) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return this;
+    }
+
+   print() {
+       const arr = [];
+       let curr = this.head;
+       while(curr) {
+           arr.push(curr.val)
+           curr = curr.next;
+       }
+       console.log(arr);
+   }
+}",
+  challenge_id: 27,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n)',
+  notes: 'Let me know if you have any pointers!',
+  language: 'javascript'
+)
+
+# CREATE A DOUBLY LINKED LIST
+
+Challenge.create!(
+  title: 'Create A Doubly Linked List',
+  description: "Create a Doubly Linked List class and a Node class.
+
+  Your singly linked list should have the following methods with the following time complexities:
+
+  ```
+
+
+  push(val) => O(1)
+
+  pop() => O(1)
+
+  shift() => O(1)
+
+  unshift(val) => O(1)
+
+  get(index) => O(n)
+
+  set(index, val) => O(n)
+
+  insert(index, val) => O(1)
+
+  remove(index) => O(1)
+
+
+  ```",
+  category_id: 3
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DoublyLinkedList {
+    constructor() {
+        this.length = 0;
+        this.head = null;
+        this.tail = null;
+    }
+
+    // similat to SLL, just need to update .prev
+    push(val) {
+        const newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
+        }
+        this.length++;
+        return this;
+    }
+
+    // same as .push()
+    pop() {
+        if (!this.head) return;
+        const oldTail = this.tail;
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.tail = oldTail.prev;
+            oldTail.prev = null;
+            this.tail.next = null;
+        }
+        this.length--;
+        return oldTail;
+    }
+
+    shift() {
+        if (!this.head) return;
+        const oldHead = this.head;
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.head = oldHead.next;
+            this.head.prev = null;
+            oldHead.next = null;
+        }
+        this.length--;
+        return oldHead;
+    }
+
+    unshift(val) {
+        const newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
+
+    // get node at given index
+    // similar to SLL, but you can work from
+    // end if index is closer to list.length - 1;
+    // slightly more efficient than SLL on average (stil O(n))
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        if (index <= this.length / 2) {
+            let currNode = this.head;
+            let currIndex = 0;
+            while (currIndex < index) {
+                currNode = currNode.next;
+                currIndex++;
+            }
+            return currNode;
+        } else {
+            let currNode = this.tail;
+            let currIndex = this.length - 1;
+            while (currIndex > index) {
+                currNode = currNode.prev;
+                currIndex--;
+            }
+            return currNode;
+        }
+    }
+
+    // sets the value of node at given index
+    set(index, val) {
+        const node = this.get(index);
+        if (node) {
+            node.val = val;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // inserts new node at given index
+    // takes advantage of .get()
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === 0) return !!this.unshift(val);
+        if (index === this.length) return !!this.push(val);
+        const newNode = new Node(val);
+        const beforeNode = this.get(index - 1);
+        const afterNode = beforeNode.next;
+        newNode.next = afterNode, afterNode.prev = newNode;
+        newNode.prev = beforeNode, beforeNode.next = newNode;
+        this.length++;
+        return true;
+    }
+
+    // removes node at given index
+    remove(index) {
+        if (index < 0 || index >= this.length) return;
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+        const removeNode = this.get(index);
+        removeNode.prev.next = removeNode.next;
+        removeNode.next.prev = removeNode.prev;
+        removeNode.next = null, removeNode.prev = null;
+        this.length--;
+        return removeNode;
+    }
+
+    print() {
+        const arr = [];
+        let curr = this.head;
+        while (curr) {
+            arr.push(curr.val);
+            curr = curr.next;
+        }
+        console.log(arr);
+    }
+}
+",
+  challenge_id: 28,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n)',
+  notes: 'was a doozy',
   language: 'javascript'
 )
 
