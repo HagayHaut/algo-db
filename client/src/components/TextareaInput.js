@@ -58,6 +58,7 @@ const TextareaInput = ({
   return (
     <textarea
       style={textareaStyle}
+      spellCheck={false}
       onChange={handleChange}
       onKeyDown={handleTab}
       value={parentState ? text.value : parentState}
