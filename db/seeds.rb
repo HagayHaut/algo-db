@@ -1589,6 +1589,30 @@ puts 'Seeding resource categories... 🌱'
   ResourceCategory.create!(name: resource_categories[i])
 end
 
+# MATH.js
+
+Resource.create!(
+  resource_category_id: 7,
+  title: 'Math.js',
+  description: 'Extensive math library for JavaScript and Node.js. Powerful and easy to use.',
+  external_url: 'https://github.com/josdejong/mathjs',
+  is_free: true
+)
+
+# CS50
+
+Resource.create!(
+  resource_category_id: 2,
+  title: 'CS50',
+  description: 'Take Harvard University\'s *CS50 Introductino to Computer Science* for FREE on edX.
+
+
+
+  A fantastic resource.  ',
+  external_url: 'https://www.edx.org/course/introduction-computer-science-harvardx-cs50x',
+  is_free: true
+)
+
 # OVERREACTED
 
 Resource.create!(
