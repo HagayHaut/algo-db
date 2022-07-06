@@ -46,7 +46,7 @@ const Anchor = styled.a`
 `;
 
 const MarkdownContainer = styled.div`
-  height: 100%;
+  height: 15vh;
   margin-top: 10px;
   border: 1px solid #444;
   overflow-y: auto;

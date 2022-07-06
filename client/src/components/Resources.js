@@ -69,7 +69,7 @@ const ListItemInnerContainer = styled.div`
   text-align: left;
   flex-direction: column;
   width: 18vw;
-  height: 35vh;
+  height: 40vh;
   overflow-y: auto;
   background: #151515;
   padding: 5px 0 5px 0;

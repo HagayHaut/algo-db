@@ -1589,6 +1589,19 @@ puts 'Seeding resource categories... 🌱'
   ResourceCategory.create!(name: resource_categories[i])
 end
 
+# OVERREACTED
+
+Resource.create!(
+  resource_category_id: 3,
+  title: 'Overreacted',
+  description: 'Personal blog of Dan Abramov, Facebook engineer and creator of Redux and Create React App.
+
+
+  Some *great* content on React.js development.',
+  external_url: 'https://overreacted.io/',
+  is_free: true
+)
+
 # JS CHALLENGER
 
 Resource.create!(
