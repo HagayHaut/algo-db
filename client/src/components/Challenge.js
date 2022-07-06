@@ -163,7 +163,7 @@ function Challenge({
   clearSelectedChallenge,
 }) {
   const [showHint, setShowHint] = useState(false);
-  const [codeStyle, setCodeStyle] = useState("xt256");
+  const [codeStyle, setCodeStyle] = useState("vs2015");
 
   const { title, description, solutions, category_id, external_url } =
     selectedChallenge;
@@ -232,7 +232,7 @@ function Challenge({
             value={codeStyle}
             onChange={(e) => setCodeStyle(e.target.value)}
           >
-            <option value="xt256">xt256</option>
+            <option value="vs2015">vs2015</option>
             <option value="agate">agate</option>
             <option value="arta">arta</option>
             <option value="ascetic">ascetic</option>
@@ -254,7 +254,7 @@ function Challenge({
             <option value="srcery">srcery</option>
             <option value="tomorrow">tomorrow</option>
             <option value="vs">vs</option>
-            <option value="vs2015">vs2015</option>
+            <option value="xt256">xt256</option>
             <option value="sunburst">sunburst</option>
             <option value="xcode">xcode</option>
           </StyleSelect>

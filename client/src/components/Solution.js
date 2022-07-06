@@ -177,8 +177,8 @@ function Solution({ selectedSolution, index, user, codeStyle }) {
         return agate;
       case "sunburst":
         return sunburst;
-      case "vs2015":
-        return vs2015;
+      case "xt256":
+        return xt256;
       case "magula":
         return magula;
       case "railscasts":
@@ -198,7 +198,7 @@ function Solution({ selectedSolution, index, user, codeStyle }) {
       case "ascetic":
         return ascetic;
       default:
-        return xt256;
+        return vs2015;
     }
   }
 

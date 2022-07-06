@@ -1058,39 +1058,46 @@ Challenge.create!(
 
 Solution.create!(
   user: hagay,
-  solution: "// Gets number at a given digit (0-indexed starting from right)
-  // getDigit(54321,1) => 2
-  const getDigit = (n, i) => Math.floor(Math.abs(n)/Math.pow(10,i)%10);
+  solution: "// Gets number at a given digit
+// (0-indexed starting from right)
+// getDigit(54321,1) => 2
+const getDigit = (n, i) => {
+    return Math.floor(Math.abs(n)/Math.pow(10,i)%10);
 
-  //Get number of digits in number
-  const digitCount = n => n === 0 ? 1 : Math.ceil(Math.log10(Math.abs(n)));
+}
+//Get number of digits in number
+const digitCount = n => {
+    return n === 0
+        ? 1
+        : Math.ceil(Math.log10(Math.abs(n)));
+}
 
-  // Get max number of digits in arr
-  const mostDigits = arr => {
-      let most = digitCount(arr[0]);
+// Get max number of digits in arr
+const mostDigits = arr => {
+    let most = digitCount(arr[0]);
 
-      for (let i = 1; i < arr.length; i++) {
-          most = Math.max(most,digitCount(arr[i]));
-      }
-      return most;
-  }
+    for (let i = 1; i < arr.length; i++) {
+        most = Math.max(most,digitCount(arr[i]));
+    }
+    return most;
+}
 
-  const radixSort = arr => {
-      const maxDigitCount = mostDigits(arr)
-      for (let k = 0; k < maxDigitCount; k++) {
-          // creates array of 10 empty arrays
-          const buckets = Array.from({length: 10}, () => []);
-          for (let i = 0; i < arr.length; i++) {
-              const bucketIdx = getDigit(arr[i],k);
-              buckets[bucketIdx].push(arr[i])
-          }
-          console.log('buckets:', buckets);
-          arr = [].concat(...buckets);
-          console.log('current arr:', arr);
-      }
-      console.log('** sorterd **', arr)
-      return arr;
-  }",
+const radixSort = arr => {
+    const maxDigitCount = mostDigits(arr)
+    for (let k = 0; k < maxDigitCount; k++) {
+        // creates array of 10 empty arrays
+        const buckets = Array.from({length: 10}, () => []);
+        for (let i = 0; i < arr.length; i++) {
+            const bucketIdx = getDigit(arr[i],k);
+            buckets[bucketIdx].push(arr[i])
+        }
+        console.log('buckets:', buckets);
+        arr = [].concat(...buckets);
+        console.log('current arr:', arr);
+    }
+    console.log('** sorterd **', arr)
+    return arr;
+}",
   challenge_id: 23,
   time_complexity: 'O(n-log-n)',
   space_complexity: 'O(n)',
