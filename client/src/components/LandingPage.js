@@ -43,10 +43,10 @@ const Logo = styled.p`
   color: #05d5fa;
   background-color: #000;
   border-radius: 5%;
-  padding-top: 42px;
+  padding-top: 65px;
   padding-bottom: 0;
-  padding-left: 42px;
-  padding-right: 18px;
+  padding-left: 65px;
+  padding-right: 22px;
 `;
 
 const ToggleLabel = styled.label`
