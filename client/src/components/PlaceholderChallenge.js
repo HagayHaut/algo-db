@@ -25,12 +25,12 @@ const Logo = styled.p`
   font-family: "Modak";
   font-size: 2.5rem;
   color: #05d5fa;
-  background-color: #151515;
+  background-color: black;
   position: relative;
   border-radius: 5%;
-  padding-top: 42px;
+  padding-top: 60px;
   padding-bottom: 0;
-  padding-left: 50px;
+  padding-left: 55px;
 `;
 
 const PlaceholderMessage = styled.p`

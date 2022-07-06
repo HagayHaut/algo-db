@@ -61,7 +61,7 @@ const Input = styled.input`
   display: block;
   height: 50%;
   width: 100%;
-  text-align: center;
+  text-align: left;
   color: #bbb;
   background-color: rgb(57, 57, 57);
   border: none;
