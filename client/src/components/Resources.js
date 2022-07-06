@@ -9,6 +9,7 @@ import {
   SiHackerrank,
   SiEdx,
   SiStackoverflow,
+  SiHackerearth,
 } from "react-icons/si";
 
 import styled from "styled-components";
@@ -283,6 +284,10 @@ function Resources() {
           <Divider />
           <ResourceLink href="https://neetcode.io/" target="_blank">
             <SiYoutube /> NeetCode
+          </ResourceLink>{" "}
+          <Divider />
+          <ResourceLink href="https://www.hackerearth.com/" target="_blank">
+            <SiHackerearth /> HackerEarth
           </ResourceLink>{" "}
           <Divider />
           <ResourceLink href="https://www.udemy.com/" target="_blank">
