@@ -80,7 +80,7 @@ function LandingPage({ onLogin }) {
   return (
     <PageContainer>
       <LogoMottoContainer>
-        <Logo>algoDB!</Logo>
+        <Logo>algoDB</Logo>
         <Motto>Solve. Save. Share.</Motto>{" "}
       </LogoMottoContainer>
       {showLogin ? <Login onLogin={onLogin} /> : <Signup onLogin={onLogin} />}

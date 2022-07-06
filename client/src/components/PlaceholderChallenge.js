@@ -30,7 +30,7 @@ const Logo = styled.p`
   border-radius: 5%;
   padding-top: 42px;
   padding-bottom: 0;
-  padding-left: 42px;
+  padding-left: 50px;
 `;
 
 const PlaceholderMessage = styled.p`
@@ -44,7 +44,7 @@ function PlaceholderChallenge() {
   return (
     <PlaceholderContainer>
       <MessageContainer>
-        <Logo>algoDB!</Logo>
+        <Logo>algoDB</Logo>
         <IconContainer>
           <GiPencilRuler />
         </IconContainer>

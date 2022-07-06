@@ -38,7 +38,7 @@ const Logo = styled.p`
 function NavBar({ onLogout, user }) {
   return (
     <HeaderContainer>
-      <Logo>algoDB!</Logo>
+      <Logo>algoDB</Logo>
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>
         <NavLink to="/new" className="link">
