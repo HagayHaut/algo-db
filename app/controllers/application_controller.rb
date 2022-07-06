@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
 
   before_action :authorize
 
+  # GET /count
   def count
     solution_count = Solution.count
     challenge_count = Challenge.count
