@@ -38,29 +38,20 @@ const Logo = styled.p`
   color: #05d5fa;
 `;
 
-const linkStyle = {
-  textDecoration: "none",
-  color: "inherit",
-};
-
 function NavBar({ onLogout, user }) {
   return (
     <HeaderContainer>
       <Logo>algoDB!</Logo>
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>
-        <NavLink to="/new" style={linkStyle} activeStyle={{ color: "red" }}>
-          <H3>New</H3>
+        <NavLink to="/new" className="link">
+          <h3>New</h3>
         </NavLink>
-        <NavLink
-          to="/challenges"
-          style={linkStyle}
-          activeStyle={{ color: "red" }}
-        >
-          <H3>Explore</H3>
+        <NavLink to="/challenges" className="link">
+          <h3>Explore</h3>
         </NavLink>
-        <NavLink to="/" style={linkStyle} activeStyle={{ color: "red" }}>
-          <H3>{user.username}</H3>
+        <NavLink to="/" className="link">
+          <h3>{user.username}</h3>
         </NavLink>
       </NavContainer>
     </HeaderContainer>

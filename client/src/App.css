@@ -23,8 +23,18 @@
     cursor: pointer;
   }
 
-  .active {
-    color: red;
+  .link {
+    cursor: pointer;
+    font-size: 13px;
+    padding: 5px 0 4px 0;
+    color:  #fefefe;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .link.active {
+    color: #05d5fa;
+    text-decoration: none;
   }
 
   .toggle-btn {
