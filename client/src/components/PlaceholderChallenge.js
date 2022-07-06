@@ -49,7 +49,7 @@ function PlaceholderChallenge() {
           <GiPencilRuler />
         </IconContainer>
 
-        <PlaceholderMessage>Select challenge for solutions</PlaceholderMessage>
+        <PlaceholderMessage>Select a challenge for more</PlaceholderMessage>
       </MessageContainer>
     </PlaceholderContainer>
   );
