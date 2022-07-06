@@ -210,6 +210,14 @@ function Solution({ selectedSolution, index, user, codeStyle }) {
         return "C++";
       case "php":
         return "PHP";
+      case "javascript":
+        return "JavaScript";
+      case "typescript":
+        return "TypeScript";
+      case "coffeescript":
+        return "CoffeeScirpt";
+      case "sql":
+        return "SQL";
       default:
         return str[0].toUpperCase() + str.slice(1);
     }
