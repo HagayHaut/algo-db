@@ -57,6 +57,10 @@ const Input = styled.input`
   background-color: rgb(57, 57, 57);
 `;
 
+const Checkbox = styled.input`
+  margin: 8px;
+`;
+
 const Select = styled.select`
   color: white;
   background-color: rgb(57, 57, 57);
@@ -68,8 +72,22 @@ const InputContainer = styled.div`
   flex-direction: column;
 `;
 
+const IsFreeContainer = styled.div`
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  display: block;
+  margin: auto;
+`;
+
 const SubmitButton = styled.button`
   margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #fdee30;
+  padding: 5px;
+  font-weight: bold;
+  color: black;
 `;
 
 function AddResource() {
@@ -162,9 +180,8 @@ function AddResource() {
             }
           />
         </InputContainer>
-        <InputContainer>
-          <Label className="required">Free Resource?</Label>
-          <Input
+        <IsFreeContainer>
+          <Checkbox
             type="checkbox"
             name="is_free"
             checked={formState.is_free}
@@ -172,7 +189,8 @@ function AddResource() {
               setFormState({ ...formState, is_free: !formState.is_free })
             }
           />
-        </InputContainer>
+          <Label className="required">Free Resource?</Label>
+        </IsFreeContainer>
         {errors.length > 0 && (
           <div>
             {errors.map((e, i) => (

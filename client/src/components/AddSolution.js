@@ -51,6 +51,12 @@ const Select = styled.select`
 
 const SubmitButton = styled.button`
   margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #fdee30;
+  padding: 5px;
+  font-weight: bold;
+  color: black;
 `;
 
 function AddSolution({ user }) {
