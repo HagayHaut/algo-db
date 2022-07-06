@@ -1622,7 +1622,7 @@ Resource.create!(
 Resource.create!(
   resource_category_id: 2,
   title: 'CS50',
-  description: 'Take Harvard University\'s *CS50 Introductino to Computer Science* for FREE on edX.
+  description: 'Take Harvard University\'s *CS50 Introduction to Computer Science* for FREE on edX.
 
 
 
