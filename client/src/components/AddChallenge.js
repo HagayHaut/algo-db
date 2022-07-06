@@ -10,7 +10,7 @@ const FormContainer = styled.div`
   text-align: center;
   margin: auto;
   background-color: #222;
-  border-radius: 7% 7% 7% 7%;
+  border-top: 10px solid #222;
   &::-webkit-scrollbar {
     width: 0.7em;
   }

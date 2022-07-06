@@ -25,12 +25,14 @@ const Toggle = styled.div`
   color: #fefefe;
 `;
 
-const VertDivider = styled.div`
-  border-right: 1px solid #111;
-  width: 1px;
-  height: 1.5rem;
-  margin: 2px;
-`;
+// const VertDivider = styled.div`
+//   border-right: 1px solid #111;
+//   width: 1px;
+//   height: 1.5rem;
+//   margin: 2px;
+// `;
+
+const ToggleText = styled.p``;
 
 const ToggleButtons = styled.div`
   display: flex;
@@ -74,21 +76,29 @@ function Submission({ user }) {
       <ToggleContainer>
         <Toggle>
           <ToggleButtons>
-            <p
+            <ToggleText
               className="toggle-btn active"
               name="solution"
               onClick={handleClick}
             >
               Solution
-            </p>
-            <VertDivider />
-            <p className="toggle-btn" name="challenge" onClick={handleClick}>
+            </ToggleText>
+            {/* <VertDivider /> */}
+            <ToggleText
+              className="toggle-btn"
+              name="challenge"
+              onClick={handleClick}
+            >
               Challenge
-            </p>
-            <VertDivider />
-            <p className="toggle-btn" name="resource" onClick={handleClick}>
+            </ToggleText>
+            {/* <VertDivider /> */}
+            <ToggleText
+              className="toggle-btn"
+              name="resource"
+              onClick={handleClick}
+            >
               Resource
-            </p>
+            </ToggleText>
           </ToggleButtons>
         </Toggle>
       </ToggleContainer>

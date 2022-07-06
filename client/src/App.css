@@ -39,6 +39,8 @@
 
   .toggle-btn {
     color:#111;
+    padding: 4px;
+    border-radius: 15% 15% 0 0;
   }
 
   .toggle-btn.active {
