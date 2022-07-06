@@ -1589,6 +1589,16 @@ puts 'Seeding resource categories... 🌱'
   ResourceCategory.create!(name: resource_categories[i])
 end
 
+# JS CHALLENGER
+
+Resource.create!(
+  resource_category_id: 1,
+  title: 'JSChallenger',
+  description: 'Nice beginner challenges in JavaScript.',
+  external_url: 'https://www.jschallenger.com/',
+  is_free: true
+)
+
 # REGEX 101
 
 Resource.create!(
