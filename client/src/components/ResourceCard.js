@@ -9,7 +9,7 @@ const ResourceCardContainer = styled.div`
   margin: 35px 5px 5px 5px;
   background-color: #222;
   padding: 7px;
-  color: #fefefe;
+  color: #999;
 `;
 
 const Title = styled.p`
@@ -30,14 +30,14 @@ const IsFree = styled.p`
   float: left;
   position: relative;
   font-size: 0.75rem;
-  color: #555;
+  color: #777;
 `;
 
 const Category = styled.p`
   float: right;
   position: relative;
   font-size: 0.75rem;
-  color: #555;
+  color: #777;
 `;
 
 const Anchor = styled.a`
@@ -50,7 +50,7 @@ const MarkdownContainer = styled.div`
   margin-top: 10px;
   border: 1px solid #444;
   overflow-y: auto;
-  color: #ddd;
+  color: #999;
   padding: 12px;
   user-select: text;
   &::-webkit-scrollbar {
@@ -79,11 +79,14 @@ function ResourceCard({ resource }) {
       <Divider />
       <IsFree>{is_free ? "Free" : "Not Free"}</IsFree>
       <Category>{resource_category}</Category>
-      <Anchor href={external_url} target="_blank">
-        <Title>
-          {title} <HiOutlineExternalLink />
-        </Title>
-      </Anchor>
+
+      <Title>
+        {title}{" "}
+        <Anchor href={external_url} target="_blank">
+          <HiOutlineExternalLink />{" "}
+        </Anchor>
+      </Title>
+
       <MarkdownContainer>
         <ReactMarkdown>{description}</ReactMarkdown>
       </MarkdownContainer>
