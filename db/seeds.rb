@@ -1743,6 +1743,110 @@ end",
   language: 'ruby'
 )
 
+# CREATE A QUEUE
+
+Challenge.create!(
+  title: 'Create A Queue',
+  description: "Create a Queue class and a Node class.
+
+  Your stack linked list should have the following methods with the following time complexities:
+
+  ```
+
+
+  enqueue(value) => O(1)
+
+  dequeue() => O(1)
+
+
+
+
+  ```
+
+  ",
+  category_id: 9
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Queue {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+
+    // adds a new node to queue
+    // similar SLL push(), O(1) time
+    enqueue(value) {
+        const newNode = new Node(value);
+        if (!this.first) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            this.last.next = newNode;
+            this.last = newNode;
+        }
+        return ++this.size;
+    }
+
+    // removes node from queue
+    // similar to SLL shift(), O(1) time
+    dequeue() {
+        if (!this.first) return null;
+        const removeNode = this.first;
+        if (this.size === 1) {
+            this.last = null;
+        }
+        this.first = removeNode.next;
+        this.size--;
+        return removeNode.value;
+    }
+
+    print() {
+        const arr = [];
+        let curr = this.first;
+        while (curr) {
+            arr.push(curr.value);
+            curr = curr.next;
+        }
+        console.log(arr);
+    }
+}",
+  challenge_id: 31,
+  time_complexity: 'O(1)',
+  space_complexity: 'O(n)',
+  notes: 'First In, First Out.
+
+
+  ```
+
+  Used for:
+
+
+    Background tasks
+
+
+    Print / task management
+
+
+    First in line gets the goods
+
+
+  You can use an array as a queue (limit to push() and
+
+  shift()) but making your own class is more efficient.
+  ```',
+  language: 'javascript'
+)
+
 resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]
 
 puts 'Seeding resource categories... 🌱'
