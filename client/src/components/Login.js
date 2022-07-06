@@ -16,13 +16,14 @@ const StyledForm = styled.form`
 const Input = styled.input`
   display: block;
   height: 50%;
-  width: 100%;
+  width: 90%;
   text-align: center;
   color: #bbb;
   background-color: rgb(57, 57, 57);
   border: none;
   border-radius: 5%;
   padding: 2px;
+  margin: auto;
 `;
 
 const InputContainer = styled.div`
