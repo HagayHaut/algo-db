@@ -1767,11 +1767,11 @@ Resource.create!(
 )
 
 puts 'Seeding comments... 🌱'
-60.times do
+80.times do
   Comment.create!(
-    solution_id: rand(1..30),
+    solution_id: rand(1..32),
     user_id: rand(1..5),
-    comment: Faker::Lorem.sentence
+    comment: Faker::Hacker.say_something_smart
   )
 end
 
