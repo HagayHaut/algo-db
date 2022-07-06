@@ -1510,7 +1510,8 @@ class DoublyLinkedList {
     // get node at given index
     // similar to SLL, but you can work from
     // end if index is closer to list.length - 1;
-    // slightly more efficient than SLL on average (stil O(n))
+    // slightly more efficient than SLL on average
+    // (stil O(n))
     get(index) {
         if (index < 0 || index >= this.length) return null;
         if (index <= this.length / 2) {

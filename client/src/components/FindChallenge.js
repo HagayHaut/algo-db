@@ -219,13 +219,13 @@ function FindChallenge({ user }) {
             <option value="hashmap">Hash Map</option>
             <option value="linked-list">Linked List</option>
             <option value="math">Math</option>
-            <option value="recursion">String</option>
+            <option value="recursion">Recursion</option>
             <option value="search">Search</option>
             <option value="set">Set</option>
             <option value="sliding-window">Sliding Window</option>
             <option value="sort">Sort</option>
             <option value="stack-queue">Stack/Queue</option>
-            <option value="string">Recursion</option>
+            <option value="string">String</option>
             <option value="two-pointer">Two Pointer</option>
           </Select>
           <Input
