@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "../App.css";
 import styled from "styled-components";
 import LandingPage from "./LandingPage";
@@ -22,6 +22,8 @@ const Header = styled.header`
 function App() {
   const [user, setUser] = useState(null);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -35,6 +37,7 @@ function App() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
+        navigate("/");
       }
     });
   }
