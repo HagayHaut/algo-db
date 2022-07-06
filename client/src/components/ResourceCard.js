@@ -41,6 +41,8 @@ const Category = styled.p`
 `;
 
 const Anchor = styled.a`
+  float: right;
+  position: relative;
   text-decoration: none;
   color: #05d5fa;
 `;
@@ -82,14 +84,12 @@ function ResourceCard({ resource }) {
       <IsFree>{is_free ? "Free" : "Not Free"}</IsFree>
       <Category>{resource_category}</Category>
 
-      <Title>
-        {title}{" "}
+      <Title>{title} </Title>
+
+      <MarkdownContainer>
         <Anchor href={external_url} target="_blank">
           <HiOutlineExternalLink />{" "}
         </Anchor>
-      </Title>
-
-      <MarkdownContainer>
         <ReactMarkdown>{description}</ReactMarkdown>
       </MarkdownContainer>
     </ResourceCardContainer>
