@@ -21,7 +21,6 @@ const Header = styled.header`
 
 function App() {
   const [user, setUser] = useState(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     // auto-login
@@ -45,12 +44,7 @@ function App() {
   return (
     <StyledApp className="App">
       <Header>
-        <NavBar
-          onLogout={handleLogout}
-          user={user}
-          onDarkModeClick={() => setIsDarkMode((pre) => !pre)}
-          isDarkMode={isDarkMode}
-        />
+        <NavBar onLogout={handleLogout} user={user} />
       </Header>
 
       <Routes>

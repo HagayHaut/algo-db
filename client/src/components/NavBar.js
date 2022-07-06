@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const NavContainer = styled.div`
@@ -30,16 +30,6 @@ const H3 = styled.h3`
   }
 `;
 
-// const DarkModeBtn = styled.button`
-//   cursor: pointer;
-//   border: 1px solid #fefefe;
-//   margin: 4px 0 4px 95px;
-//   background-color: #c4a484;
-//   padding: 2px;
-//   border-radius: 20%;
-//   font-size: 0.5rem;
-// `;
-
 const Logo = styled.p`
   margin-left: 4px;
   padding-bottom: 4px;
@@ -53,21 +43,25 @@ const linkStyle = {
   color: "inherit",
 };
 
-function NavBar({ onLogout, user, onDarkModeClick, isDarkMode }) {
+function NavBar({ onLogout, user }) {
   return (
     <HeaderContainer>
       <Logo>algoDB!</Logo>
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>
-        <Link to="/new" style={linkStyle}>
+        <NavLink to="/new" style={linkStyle} activeStyle={{ color: "red" }}>
           <H3>New</H3>
-        </Link>
-        <Link to="/challenges" style={linkStyle}>
+        </NavLink>
+        <NavLink
+          to="/challenges"
+          style={linkStyle}
+          activeStyle={{ color: "red" }}
+        >
           <H3>Explore</H3>
-        </Link>
-        <Link to="/" style={linkStyle}>
+        </NavLink>
+        <NavLink to="/" style={linkStyle} activeStyle={{ color: "red" }}>
           <H3>{user.username}</H3>
-        </Link>
+        </NavLink>
       </NavContainer>
     </HeaderContainer>
   );

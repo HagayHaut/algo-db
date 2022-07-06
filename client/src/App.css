@@ -23,6 +23,10 @@
     cursor: pointer;
   }
 
+  .active {
+    color: red;
+  }
+
   .toggle-btn {
     color:#111;
   }
