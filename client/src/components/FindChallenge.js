@@ -107,7 +107,7 @@ const Select = styled.select`
   background-color: rgb(57, 57, 57);
   color: #ddd;
   margin: 4px 0 4px 12px;
-  width: 50%;
+  width: 79%;
   border: none;
 `;
 
