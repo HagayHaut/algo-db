@@ -1101,7 +1101,7 @@ const radixSort = arr => {
   challenge_id: 23,
   time_complexity: 'O(n-log-n)',
   space_complexity: 'O(n)',
-  notes: 'uses 9 buckets, digit counts, and log10 % operations. Only works with positive integers.',
+  notes: 'uses 10 buckets, digitCount(), getDigit(), mostDigits(), and log10 % operations. Only works with positive integers. More efficient, but more limited than comparison sorts.',
   language: 'javascript'
 )
 
@@ -1604,6 +1604,16 @@ Resource.create!(
   title: 'Math.js',
   description: 'Extensive math library for JavaScript and Node.js. Powerful and easy to use.',
   external_url: 'https://github.com/josdejong/mathjs',
+  is_free: true
+)
+
+# THE CODING TRAIN
+
+Resource.create!(
+  resource_category_id: 5,
+  title: 'The Coding Train',
+  description: 'Learn Java, JavaScript, Proccessing, p5.js, and more coding concepts from an infectiously positive YouTuber.',
+  external_url: 'https://www.youtube.com/c/TheCodingTrain/featured',
   is_free: true
 )
 
