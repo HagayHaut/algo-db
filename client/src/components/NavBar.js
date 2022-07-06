@@ -24,10 +24,7 @@ const H3 = styled.h3`
   cursor: pointer;
   font-size: 15px;
   padding: 5px 0 4px 0;
-  color: #d4d4d4;
-  &:hover {
-    color: #fefefe;
-  }
+  color: #fefefe;
 `;
 
 const Logo = styled.p`

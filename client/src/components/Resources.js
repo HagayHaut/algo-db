@@ -15,7 +15,7 @@ import styled from "styled-components";
 
 const ResourcesContainer = styled.div`
   width: 28vw;
-  height: calc(100vh);
+  height: 100vh;
   background-color: #222;
 `;
 
@@ -69,7 +69,7 @@ const ListItemInnerContainer = styled.div`
   text-align: left;
   flex-direction: column;
   width: 18vw;
-  height: 25vh;
+  height: 35vh;
   overflow-y: auto;
   background: #151515;
   padding: 5px 0 5px 0;

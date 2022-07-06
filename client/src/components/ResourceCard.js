@@ -46,10 +46,11 @@ const Anchor = styled.a`
 `;
 
 const MarkdownContainer = styled.div`
-  height: 130px;
+  height: 100%;
   margin-top: 10px;
   border: 1px solid #444;
   overflow-y: auto;
+  overflow-x: hidden;
   color: #999;
   font-size: 12px;
   padding: 12px;
