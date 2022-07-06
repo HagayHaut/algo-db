@@ -1404,7 +1404,7 @@ Challenge.create!(
   title: 'Create A Doubly Linked List',
   description: "Create a Doubly Linked List class and a Node class.
 
-  Your singly linked list should have the following methods with the following time complexities:
+  Your doubly linked list should have the following methods with the following time complexities:
 
   ```
 
@@ -1588,6 +1588,159 @@ class DoublyLinkedList {
   space_complexity: 'O(n)',
   notes: 'was a doozy',
   language: 'javascript'
+)
+
+# CREATE A STACK
+
+Challenge.create!(
+  title: 'Create A Stack',
+  description: "Create a Stack class and a Node class.
+
+  Your stack linked list should have the following methods with the following time complexities:
+
+  ```
+
+
+  push(value) => O(1)
+
+  pop() => O(1)
+
+
+
+
+  ```
+
+  ",
+  category_id: 9
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Stack {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+
+    // push onto beginning
+    // more similat to SLL unshift()
+    // O(1)
+    push(value) {
+        const newNode = new Node(value);
+        if (!this.first) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            newNode.next = this.first;
+            this.first = newNode;
+        }
+        return this.size++;
+    }
+
+    // removes node from beginning
+    // more similar to SLL shift()
+    // O(1)
+    pop() {
+        if (!this.first) return null;
+        const removeNode = this.first;
+        if (this.size === 1) {
+            this.last = null;
+        }
+        this.first = this.first.next;
+        this.size--;
+        return removeNode.value;
+    }
+
+    print() {
+        const arr = [];
+        let curr = this.first;
+        while (curr) {
+            arr.push(curr.value);
+            curr = curr.next;
+        }
+        console.log(arr)
+    }
+}",
+  challenge_id: 29,
+  time_complexity: 'O(1)',
+  space_complexity: 'O(n)',
+  notes: 'Last In, First Out.
+
+
+  ```
+
+  Used for:
+
+
+    Managing function calls
+
+
+    Undo/redo functionality
+
+
+    Routing history tracking
+
+
+    Many other algorithms
+
+
+  You can use an array as a stack (limit to push()
+
+  and pop()) but making your own class is more efficient.
+  ```',
+  language: 'javascript'
+)
+
+# VALID PARENTHESES
+
+Challenge.create!(
+  title: 'Valid Parentheses',
+  description: "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+
+  An input string is valid if:
+
+  ````
+  Open brackets must be closed by the same type of brackets.
+
+
+
+  Open brackets must be closed in the correct order.
+
+
+  ```",
+  category_id: 9,
+  external_url: 'https://leetcode.com/problems/valid-parentheses/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: "def is_valid(s)
+  brackets = '{}()[]'
+  stack = []
+  s.each_char do |bracket|
+      bracket_idx = brackets.index bracket
+      if bracket_idx % 2 == 0
+          stack << bracket_idx + 1
+      else
+          return false if stack.pop != bracket_idx
+      end
+  end
+  stack.size == 0
+end",
+  challenge_id: 30,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n)',
+  notes: 'Relies on a stack, and the `brackets` variable to determine opening and closing brackets.',
+  language: 'ruby'
 )
 
 resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]
