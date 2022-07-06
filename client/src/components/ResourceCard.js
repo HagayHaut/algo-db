@@ -14,7 +14,7 @@ const ResourceCardContainer = styled.div`
 
 const Title = styled.p`
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.7rem;
   text-align: center;
   margin: 0 8px 0 8px;
 `;
@@ -29,14 +29,14 @@ const Divider = styled.div`
 const IsFree = styled.p`
   float: left;
   position: relative;
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   color: #777;
 `;
 
 const Category = styled.p`
   float: right;
   position: relative;
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   color: #777;
 `;
 
@@ -51,6 +51,7 @@ const MarkdownContainer = styled.div`
   border: 1px solid #444;
   overflow-y: auto;
   color: #999;
+  font-size: 12px;
   padding: 12px;
   user-select: text;
   &::-webkit-scrollbar {
