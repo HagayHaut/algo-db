@@ -9,7 +9,7 @@ const CATEGORIES = [
   "Array",
   "Hash Map",
   "Linked List",
-  "Binary Tree",
+  "Tree",
   "Graph",
   "Two Pointer",
   "Sliding Window",

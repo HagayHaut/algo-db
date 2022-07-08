@@ -12,7 +12,7 @@ ResourceCategory.destroy_all
 
 complexities = %w(O(n) O(1) O(n^2) O(log-n) O(n-log-n) O(n!))
 
-categories = %w[array hashmap linked-list binary-tree graph two-pointer sliding-window set stack-queue sort string
+categories = %w[array hashmap linked-list tree graph two-pointer sliding-window set stack-queue sort string
                 recursion bit-manipulation math search dynamic-programming]
 
 resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]

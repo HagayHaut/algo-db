@@ -32,7 +32,7 @@ const categories = [
   "array",
   "hashmap",
   "linked-list",
-  "binary-tree",
+  "tree",
   "graph",
   "two-pointer",
   "sliding-window",
@@ -174,7 +174,7 @@ function AddChallenge() {
           >
             <option val=""></option>
             <option value="array">Array</option>
-            <option value="binary-tree">Binary Tree</option>
+            <option value="tree">Tree</option>
             <option value="bit-manipulation">Bit Manipulation</option>
             <option value="dynamic-programming">Dynamic Programming</option>
             <option value="graph">Graph</option>
