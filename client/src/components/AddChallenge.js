@@ -174,7 +174,6 @@ function AddChallenge() {
           >
             <option val=""></option>
             <option value="array">Array</option>
-            <option value="tree">Tree</option>
             <option value="bit-manipulation">Bit Manipulation</option>
             <option value="dynamic-programming">Dynamic Programming</option>
             <option value="graph">Graph</option>
@@ -188,6 +187,7 @@ function AddChallenge() {
             <option value="sort">Sort</option>
             <option value="stack-queue">Stack/Queue</option>
             <option value="string">String</option>
+            <option value="tree">Tree</option>
             <option value="two-pinter">Two Pointer</option>
           </Select>
         </InputContainer>

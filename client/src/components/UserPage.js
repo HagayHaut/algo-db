@@ -211,7 +211,6 @@ function UserPage({ user }) {
           >
             <option value="All">All</option>
             <option value="array">Array</option>
-            <option value="tree">Tree</option>
             <option value="bit-manipulation">Bit Manipulation</option>
             <option value="dynamic-programming">Dynamic Programming</option>
             <option value="graph">Graph</option>
@@ -225,6 +224,7 @@ function UserPage({ user }) {
             <option value="sort">Sort</option>
             <option value="stack-queue">Stack/Queue</option>
             <option value="string">string</option>
+            <option value="tree">Tree</option>
             <option value="two-pointer">Two Pointer</option>
           </Select>
           <Input
