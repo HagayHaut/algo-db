@@ -2092,6 +2092,285 @@ tree.insert(20);
   language: 'javascript'
 )
 
+# PRINT RECURSIVELY
+
+Challenge.create!(
+  title: 'Collect Strings',
+  description: "Write a recursive function that takes an object as an input, and returns an array of all the string values in that object. The object may contain nested arrays and objects.
+
+  ```
+
+    Input: {
+      key1: [null, 5, {}, []],
+      key2: 'hello',
+      key3: {
+        key4: 'world',
+        key5: {
+          key6: {
+            key7: {
+              key8: '!'
+            }
+          }
+        }
+      }
+    }
+
+    Output: ['hello', 'world', '!']
+
+  ```
+
+  ",
+  category_id: 12
+)
+
+Solution.create!(
+  user: hagay,
+  solution: 'function collectString(obj) {
+    const result = [];
+
+    function recurHelper(o) {
+        for (const key in o) {
+            if (typeof o[key] === "string") {
+                result.push(o[key]);
+            }
+            else if (typeof o[key] === "object") {
+                return recurHelper(o[key])
+            }
+        }
+    }
+    recurHelper(obj)
+    return result;
+}',
+  challenge_id: 33,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: '
+  # Recursion
+  ## Recursion
+  ### Recursion
+  #### Recursion
+  ##### Recursion
+  ###### Recursion
+',
+  language: 'javascript'
+)
+
+# RECURSIVE VALID PALINDROME
+
+Challenge.create!(
+  title: 'Recursive Valid Palindrome',
+  description: "Write a recursive function that takes a string and returns true if that string is a palidrome, and otherwise returns false.
+
+  ```
+
+    Input: 'racecar'
+    Output: true
+
+    Input: 'banana'
+    Output: false
+
+  ```
+
+  ",
+  category_id: 12
+)
+
+Solution.create!(
+  user: hagay,
+  solution: 'function palindrome(s) {
+    if (s.length < 2) return true;
+    return s[0] === s[s.length-1]
+      && palindrome(s.slice(1,s.length-1));
+}',
+  challenge_id: 34,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n^2)',
+  notes: '
+  # Recursion
+  ## Recursion
+  ### Recursion
+  #### Recursion
+  ##### Recursion
+  ###### Recursion
+
+  ```
+
+
+  ```
+  Not advised to do this with recursion, because of all the extra memory.
+
+
+',
+  language: 'javascript'
+)
+
+# DEEP ITERATE
+
+Challenge.create!(
+  title: 'Deep Iterate',
+  description: "Write a recursive function that flattens a deeply nested array.
+
+  ```
+
+    Input: [5, [6, [7], 8], [9, [10, [11, [12]]]]]
+    Output: [5, 6, 7, 8, 9, 10 ,11, 12]
+
+  ```
+
+  ",
+  category_id: 12
+)
+
+Solution.create!(
+  user: hagay,
+  solution: 'function stringifyNumbers(obj) {
+    const result = {};
+    for (const key in obj) {
+        if (typeof obj[key] === "number") {
+            result[key] = `${obj[key]}`;
+        }
+        else if ((typeof obj[key] === "object")
+                 && (!Array.isArray(obj[key]))) {
+            result[key] = stringifyNumbers(obj[key]);
+        }
+        else {
+            result[key] = obj[key];
+        }
+    }
+    return result;
+}',
+  challenge_id: 35,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n)',
+  notes: '
+  # Recursion
+  ## Recursion
+  ### Recursion
+  #### Recursion
+  ##### Recursion
+  ###### Recursion
+
+  ```
+
+
+  ```
+  Pretty cool solution. Trick is to make sure the object is not an array.
+
+
+',
+  language: 'javascript'
+)
+
+# RECURSIVE EXPONENT
+
+Challenge.create!(
+  title: 'Recursive Exponent',
+  description: "Write a recursive that takes a base and a power, and calculates the base^power.
+
+  ```
+
+    Input: base = 2, power = 4
+    Output: 16
+
+    Input: base = 20, power = 2
+    Output: 400
+
+    Input: base = 1000, power = 0
+    Output: 1
+
+  ```
+
+  ",
+  category_id: 12
+)
+
+Solution.create!(
+  user: hagay,
+  solution: 'function recursiveExponent (base, power) {
+    if(power == 0)  return 1
+    else { return base * recursiveExponent(base,power-1) }
+}',
+  challenge_id: 36,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(1)',
+  notes: '
+  # Recursion
+  ## Recursion
+  ### Recursion
+  #### Recursion
+  ##### Recursion
+  ###### Recursion
+
+
+
+',
+  language: 'javascript'
+)
+
+# RGB TO HEXADECIMAL
+
+Challenge.create!(
+  title: 'RGB to Hexadecimal',
+  description: "Write a function that converts RGB color values to hexadcimal values
+
+
+  ```
+
+    Input: r = 35, g = 200, blue = 234
+    Output: '23C8EA'
+
+    Input: r = 255, g = 255, blue = 255
+    Output: 'FFFFFF'
+
+  ````
+  ",
+  category_id: 11
+)
+
+Solution.create!(
+  user: hagay,
+  solution: 'function rgb(r, g, b){
+    return toHex(r) + toHex(g) + toHex(b);
+
+}
+
+function toHex(n) {
+    if (n < 0) return "00"
+    else if (n > 255) return "00"
+    else {
+        let hex = n.toString(16)
+        return hex.length < 2 ? (0 + hex).toUpperCase() : hex.toUpperCase()
+    }
+}',
+  challenge_id: 37,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(N)',
+  notes: '
+ Relies on string conversion.
+
+',
+  language: 'javascript'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: 'function rgb(r, g, b){
+    return [r,g,b].map((x) => {
+      return ("0" + Math.max(0, Math.min(255, x))
+        .toString(16))
+        .slice(-2);
+    }).join('').toUpperCase();
+}',
+  challenge_id: 37,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(N)',
+  notes: '
+ Relies on string conversion and `math magic`
+
+',
+  language: 'javascript'
+)
+
 resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]
 
 puts 'Seeding resource categories... 🌱'
@@ -2281,7 +2560,7 @@ Resource.create!(
 puts 'Seeding comments... 🌱'
 90.times do
   Comment.create!(
-    solution_id: rand(1..36),
+    solution_id: rand(1..42),
     user_id: rand(1..5),
     comment: Faker::Hacker.say_something_smart
   )
