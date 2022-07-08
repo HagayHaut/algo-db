@@ -223,7 +223,7 @@ function UserPage({ user }) {
             <option value="sliding-window">Sliding Window</option>
             <option value="sort">Sort</option>
             <option value="stack-queue">Stack/Queue</option>
-            <option value="string">string</option>
+            <option value="string">String</option>
             <option value="tree">Tree</option>
             <option value="two-pointer">Two Pointer</option>
           </Select>
