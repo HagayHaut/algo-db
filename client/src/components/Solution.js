@@ -145,7 +145,7 @@ function Solution({ selectedSolution, index, user, codeStyle }) {
     fetch(`/solutions/${id}/comments`)
       .then((r) => r.json())
       .then(setSolutionComments);
-  }, [selectedSolution]);
+  }, [selectedSolution, id]);
 
   function getCodeStyle(str) {
     switch (str) {
@@ -215,7 +215,7 @@ function Solution({ selectedSolution, index, user, codeStyle }) {
       case "typescript":
         return "TypeScript";
       case "coffeescript":
-        return "CoffeeScirpt";
+        return "CoffeeScript";
       case "sql":
         return "SQL";
       default:

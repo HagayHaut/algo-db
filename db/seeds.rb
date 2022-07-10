@@ -873,7 +873,7 @@ Challenge.create!(
   title: 'Contains Duplicate',
   description: 'Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.',
   category_id: 8,
-  external_url: 'https://leetcode.com/problems/rotate-array/'
+  external_url: 'https://leetcode.com/problems/contains-duplicate/'
 )
 
 Solution.create!(
