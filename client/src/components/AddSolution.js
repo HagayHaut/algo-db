@@ -93,11 +93,13 @@ function AddSolution({ user }) {
     "O(n!)",
   ];
 
-  const challengeOptions = allChallenges.map((challenge) => (
-    <option key={challenge.id} value={challenge.id}>
-      {challenge.title}
-    </option>
-  ));
+  const challengeOptions = allChallenges
+    .sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1))
+    .map((challenge) => (
+      <option key={challenge.id} value={challenge.id}>
+        {challenge.title}
+      </option>
+    ));
 
   const complexityOptions = complexities.map((complexity) => (
     <option key={complexity} value={complexity}>
