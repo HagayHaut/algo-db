@@ -2654,6 +2654,46 @@ Solution.create!(
   language: 'javascript'
 )
 
+# LENGTH OF LAST WORD
+
+Challenge.create!(
+  title: 'Length of Last Word',
+  description: "Given a string s consisting of words and spaces, return the length of the last word in the string. A word is a maximal substring consisting of non-space characters only.
+
+  ```
+
+
+  Input: 'Hello World'
+  Output: 5
+
+
+  Input: '   fly me   to      the moon     '
+  Output: 4
+
+
+  ```
+
+  ",
+  category_id: 11,
+  external_url: 'https://leetcode.com/problems/length-of-last-word/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: 'const lengthOfLastWord = function(s) {
+    const words = s.match(/[^ ]+/gi)
+    return words[words.length-1].length
+};',
+  challenge_id: 40,
+  time_complexity: 'O(n)',
+  space_complexity: 'O(n)',
+  notes: '
+  Good ol\' regex
+
+',
+  language: 'javascript'
+)
+
 resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]
 
 puts 'Seeding resource categories... 🌱'
@@ -2841,9 +2881,9 @@ Resource.create!(
 )
 
 puts 'Seeding comments... 🌱'
-90.times do
+100.times do
   Comment.create!(
-    solution_id: rand(1..42),
+    solution_id: rand(1..45),
     user_id: rand(1..5),
     comment: Faker::Hacker.say_something_smart
   )
