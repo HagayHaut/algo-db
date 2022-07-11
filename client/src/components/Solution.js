@@ -42,7 +42,8 @@ const SolutionContainer = styled.div`
 const DetailsContainer = styled.div`
   background-color: rgb(57, 57, 57);
   text-align: center;
-  width: 20%;
+  width: 19%;
+  margin-right: 10px;
 `;
 
 const Divider = styled.div`
