@@ -32,7 +32,7 @@ const ChallengeContainer = styled.div`
   overflow-y: scroll;
   background-color: rgb(57, 57, 57);
   color: #ddd;
-
+  border-left: 1px solid rgb(57, 57, 57);
   &::-webkit-scrollbar {
     width: 0.7em;
   }
@@ -68,7 +68,7 @@ const SolutionListContainer = styled.div`
   overflow-y: auto;
   background-color: #222;
   overflow-x: hidden;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 68px);
   &::-webkit-scrollbar {
     width: 0.7em;
   }
@@ -117,12 +117,6 @@ const AllSolutionsTitle = styled.p`
   font-size: 16;
   display: inline;
   margin: 10px 10px 10px 12px;
-`;
-
-const Divider = styled.div`
-  background-color: #444;
-  width: 100%;
-  height: 2px;
 `;
 
 const Hint = styled.p`
@@ -260,8 +254,6 @@ function Challenge({
           </StyleSelect>
         </StyleSelectContainer>
       </TitleSelectSticky>
-
-      <Divider />
       <SolutionListContainer>{displaySolutions}</SolutionListContainer>
     </ChallengeContainer>
   );
