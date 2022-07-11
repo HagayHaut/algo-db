@@ -130,7 +130,7 @@ const StyleSelectContainer = styled.div`
   bottom: 5px;
   display: inline-block;
   left: 5px;
-  margin: 10px 12px 0 0;
+  margin: 14px 12px 0 0;
 `;
 
 const StyleSelect = styled.select`
