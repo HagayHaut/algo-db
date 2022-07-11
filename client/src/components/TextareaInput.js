@@ -21,7 +21,7 @@ const TextareaInput = ({
     if (text.caret >= 0) {
       text.target.setSelectionRange(text.caret + spaces, text.caret + spaces);
     }
-  }, [text]);
+  }, [text, spaces]);
 
   const handleTab = (e) => {
     let content = e.target.value;
