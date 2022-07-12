@@ -2694,6 +2694,69 @@ Solution.create!(
   language: 'javascript'
 )
 
+# LONGEST PALINDROMIC SUBSTRING
+
+Challenge.create!(
+  title: 'Longest Palindromic Substring',
+  description: "Given a string s, return the longest palindromic substring in s.
+
+  ```
+
+
+  Input:  s = 'babad'
+  Output: 'bab' => ('aba' is also valid)
+
+
+  Input: 'cbbd'
+  Output: 'bb
+
+
+  ```
+
+  ",
+  category_id: 6,
+  external_url: 'https://leetcode.com/problems/longest-palindromic-substring/'
+)
+
+Solution.create!(
+  user: hagay,
+  solution: 'const longestPalindrome = function(s) {
+    result = '';
+    resultLen = 0;
+    for (let i = 0; i < s.length; i++) {
+        // odd length
+        let l = i, r = i;
+        while (l >= 0 && r < s.length && s[r] === s[l]) {
+            if ((r - l + 1) > resultLen) {
+                result = s.slice(l,r+1);
+                resultLen = r - l + 1;
+            }
+            l--;
+            r++;
+        }
+        // even length
+        l = i, r = i + 1;
+        while (l >= 0 && r < s.length && s[r] === s[l]) {
+             if ((r - l + 1) > resultLen) {
+                result = s.slice(l,r+1);
+                resultLen = r - l + 1;
+            }
+            l--;
+            r++;
+        }
+    }
+    return result;
+};',
+  challenge_id: 41,
+  time_complexity: 'O(n^2)',
+  space_complexity: 'O(n^2)',
+  notes: '
+  If we use brute-force and check whether for every start and end position a substring is a palindrome we have O(n^2) start - end pairs and O(n) palindromic checks. Can we reduce the time for palindromic checks to O(1) by reusing some previous computation.
+
+',
+  language: 'javascript'
+)
+
 resource_categories = %w[Challenges Course Blog Book/PDF Video Tutorial GitHub]
 
 puts 'Seeding resource categories... 🌱'
