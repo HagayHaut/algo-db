@@ -41,7 +41,7 @@ const ToggleButtons = styled.div`
 `;
 
 function Submission({ user }) {
-  const [displayForm, setDisplayForm] = useState("solution");
+  const [displayForm, setDisplayForm] = useState("resource");
 
   const addNew = () => {
     switch (displayForm) {
@@ -77,7 +77,7 @@ function Submission({ user }) {
         <Toggle>
           <ToggleButtons>
             <ToggleText
-              className="toggle-btn active"
+              className="toggle-btn"
               name="solution"
               onClick={handleClick}
             >
@@ -93,7 +93,7 @@ function Submission({ user }) {
             </ToggleText>
             {/* <VertDivider /> */}
             <ToggleText
-              className="toggle-btn"
+              className="toggle-btn active"
               name="resource"
               onClick={handleClick}
             >
