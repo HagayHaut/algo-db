@@ -52,7 +52,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<UserPage user={user} />} />
-        <Route path="/challenges" element={<FindChallenge user={user} />} />
+        <Route path="/explore" element={<FindChallenge user={user} />} />
         <Route path="/new" element={<Submission user={user} />} />
       </Routes>
     </StyledApp>
