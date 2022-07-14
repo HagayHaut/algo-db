@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   get '/count', to: 'application#count'
   get 'users/:id/count', to: 'users#count'
   get 'resources/count', to: 'resources#count'
+
+  get '*path',
+      to: 'fallback#index',
+      constraints: ->(req) { !req.xhr? && req.format.html? }
 end
