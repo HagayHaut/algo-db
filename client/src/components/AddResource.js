@@ -52,6 +52,7 @@ const Input = styled.input`
   display: block;
   height: 50%;
   width: 100%;
+  border: none;
   text-align: left;
   color: white;
   background-color: rgb(57, 57, 57);
