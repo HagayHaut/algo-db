@@ -226,7 +226,9 @@ function AddSolution({ user }) {
         {errors.length > 0 && (
           <div>
             {errors.map((e, i) => (
-              <p key={i}>{e}</p>
+              <p style={{ color: `bbb` }} key={i}>
+                {e}
+              </p>
             ))}
           </div>
         )}
