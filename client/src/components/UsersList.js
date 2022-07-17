@@ -18,8 +18,23 @@ const PageTitle = styled.p`
 
 const UserListContainer = styled.div`
   width: 600px;
-  margin: 20px auto 20px auto;
+  margin: 20px auto 80px auto;
   background-color: #222;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0.7em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #222;
+    border-right: 1px solid rgb(57, 57, 57);
+    border-left: 1px solid rgb(57, 57, 57);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(57, 57, 57);
+  }
 `;
 
 function UsersList({ user }) {
