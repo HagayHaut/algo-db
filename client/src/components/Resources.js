@@ -265,45 +265,53 @@ function Resources() {
           <QuickLinkTitle>QUICK LINKS</QuickLinkTitle>
           <Divider />
           <ResourceLink href="https://www.freecodecamp.org/" target="_blank">
-            <SiFreecodecamp /> FreeCodeCamp
+            <SiFreecodecamp />
+            &nbsp; FreeCodeCamp
           </ResourceLink>
           <Divider />
           <ResourceLink
             href="https://www.khanacademy.org/computing/computer-science/algorithms"
             target="_blank"
           >
-            <SiKhanacademy /> Khan Academy
+            <SiKhanacademy />
+            &nbsp; Khan Academy
           </ResourceLink>{" "}
           <Divider />
           <ResourceLink
             href="https://leetcode.com/explore/interview/"
             target="_blank"
           >
-            <SiLeetcode /> LeetCode
+            <SiLeetcode /> &nbsp;LeetCode
           </ResourceLink>{" "}
           <Divider />
           <ResourceLink href="https://neetcode.io/" target="_blank">
-            <SiYoutube /> NeetCode
+            <SiYoutube />
+            &nbsp; NeetCode
           </ResourceLink>{" "}
           <Divider />
           <ResourceLink href="https://www.hackerearth.com/" target="_blank">
-            <SiHackerearth /> HackerEarth
+            <SiHackerearth />
+            &nbsp; HackerEarth
           </ResourceLink>{" "}
           <Divider />
           <ResourceLink href="https://www.udemy.com/" target="_blank">
-            <SiUdemy /> Udemy
+            <SiUdemy />
+            &nbsp; Udemy
           </ResourceLink>{" "}
           <Divider />
           <ResourceLink href="https://www.hackerrank.com/" target="_blank">
-            <SiHackerrank /> HackerRank
+            <SiHackerrank />
+            &nbsp; HackerRank
           </ResourceLink>{" "}
           <Divider />
           <ResourceLink href="https://www.edx.org/" target="_blank">
-            <SiEdx /> edX
+            <SiEdx />
+            &nbsp; edX
           </ResourceLink>{" "}
           <Divider />
           <ResourceLink href="https://stackoverflow.com/" target="_blank">
-            <SiStackoverflow /> Stack Overflow
+            <SiStackoverflow />
+            &nbsp; Stack Overflow
           </ResourceLink>
           <Divider />
         </TopRightContainer>
