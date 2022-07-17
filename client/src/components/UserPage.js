@@ -234,7 +234,10 @@ function UserPage({ user }) {
             onChange={(e) => setSearch(e.target.value)}
           />
           {counts.solution_count > 0 && (
-            <Count>{counts.challenge_count} Challenges</Count>
+            <Count>
+              {counts.solution_count} Solutions for {counts.challenge_count}{" "}
+              Challenges
+            </Count>
           )}
         </ControlsDiv>
 

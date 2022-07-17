@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:index]
   end
   resources :challenges, only: %i[index show create]
-  resources :users, only: %i[show create] do
+  resources :users, only: %i[index show create] do
     resources :challenges, only: [:index]
   end
 

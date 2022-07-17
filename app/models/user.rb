@@ -15,4 +15,12 @@ class User < ApplicationRecord
     end
     uniqs.values
   end
+
+  def counts
+    { solution_count: solutions.size, challenge_count: uniq_challenges.size }
+  end
+
+  def joined_on
+    created_at.strftime('%a, %b %-d %Y')
+  end
 end

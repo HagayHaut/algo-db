@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 
   skip_before_action :authorize, only: :create
 
+  def index
+    render json: User.all, each_serializer: UserListSerializer, status: 200
+  end
+
   # GET '/users/:id
   def show
     user = find_user
@@ -18,7 +22,7 @@ class UsersController < ApplicationController
   def count
     user = find_user
     solution_count = user.solutions.count
-    challenge_count = user.challenges.count
+    challenge_count = user.uniq_challenges.count
     render json: { solution_count: solution_count, challenge_count: challenge_count }, status: :ok
   end
 
