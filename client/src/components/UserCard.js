@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-  color: #bbb;
   padding: 4px;
   display: flex;
   border: 1px solid black;
+  color: #bbb;
 `;
 
 const Counts = styled.div`
@@ -23,10 +23,12 @@ const Joined = styled.div`
 function UserCard({ user, isMe }) {
   const { username, counts, joined_on } = user;
 
+  const color = isMe ? "#05d5fa" : "#bbb";
+
   const usernameStyle = {
     width: "25%",
     backgroundColor: "black",
-    color: isMe ? "05d5fa" : "bbb",
+    color,
   };
 
   return (
