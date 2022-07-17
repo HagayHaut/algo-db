@@ -44,14 +44,14 @@ function NavBar({ onLogout, user }) {
         <NavLink to="/" className="link">
           <h3>{user.username}</h3>
         </NavLink>
-        <NavLink to="/explore" className="link">
-          <h3>Explore</h3>
+        <NavLink to="/new" className="link">
+          <h3>Add</h3>
         </NavLink>
         <NavLink to="/users" className="link">
           <h3>Users</h3>
         </NavLink>
-        <NavLink to="/new" className="link">
-          <h3>Add</h3>
+        <NavLink to="/explore" className="link">
+          <h3>Explore</h3>
         </NavLink>
       </NavContainer>
     </HeaderContainer>
