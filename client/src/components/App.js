@@ -6,6 +6,7 @@ import LandingPage from "./LandingPage";
 import NavBar from "./NavBar";
 import UserPage from "./UserPage";
 import FindChallenge from "./FindChallenge";
+import UsersList from "./UsersList";
 import Submission from "./Submission";
 
 const StyledApp = styled.div`
@@ -54,6 +55,7 @@ function App() {
         <Route path="/" element={<UserPage user={user} />} />
         <Route path="/explore" element={<FindChallenge user={user} />} />
         <Route path="/new" element={<Submission user={user} />} />
+        <Route path="/users" element={<UsersList user={user} />} />
       </Routes>
     </StyledApp>
   );

@@ -6,7 +6,7 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   height: 30px;
-  width: 33%;
+  width: 40%;
   justify-content: space-around;
 `;
 
@@ -41,14 +41,17 @@ function NavBar({ onLogout, user }) {
       <Logo>algoDB</Logo>
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>
-        <NavLink to="/new" className="link">
-          <h3>New</h3>
+        <NavLink to="/" className="link">
+          <h3>{user.username}</h3>
         </NavLink>
         <NavLink to="/explore" className="link">
           <h3>Explore</h3>
         </NavLink>
-        <NavLink to="/" className="link">
-          <h3>{user.username}</h3>
+        <NavLink to="/users" className="link">
+          <h3>Users</h3>
+        </NavLink>
+        <NavLink to="/new" className="link">
+          <h3>Add</h3>
         </NavLink>
       </NavContainer>
     </HeaderContainer>
