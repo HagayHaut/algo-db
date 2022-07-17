@@ -20,10 +20,10 @@ const HeaderContainer = styled.div`
   background-color: #131313;
 `;
 
-const H3 = styled.h3`
+const H3 = styled.p`
   cursor: pointer;
-  font-size: 15px;
-  padding: 5px 0 4px 0;
+  font-size: 12px;
+  padding: 7px 0 4px 0;
   color: #fefefe;
 `;
 
@@ -42,16 +42,16 @@ function NavBar({ onLogout, user }) {
       <NavContainer>
         <H3 onClick={onLogout}>Logout</H3>
         <NavLink to="/" className="link">
-          <h3>{user.username}</h3>
+          <p style={{ fontSize: "12px" }}>{user.username}</p>
         </NavLink>
         <NavLink to="/new" className="link">
-          <h3>Add</h3>
+          <p style={{ fontSize: "12px" }}>Add</p>
         </NavLink>
         <NavLink to="/users" className="link">
-          <h3>Users</h3>
+          <p style={{ fontSize: "12px" }}>Users</p>
         </NavLink>
         <NavLink to="/explore" className="link">
-          <h3>Explore</h3>
+          <p style={{ fontSize: "12px" }}>Explore</p>
         </NavLink>
       </NavContainer>
     </HeaderContainer>
