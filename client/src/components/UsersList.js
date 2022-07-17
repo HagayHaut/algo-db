@@ -17,7 +17,7 @@ const PageTitle = styled.p`
 `;
 
 const UserListContainer = styled.div`
-  width: 70%;
+  width: 600px;
   margin: 20px auto 20px auto;
   background-color: #222;
 `;
