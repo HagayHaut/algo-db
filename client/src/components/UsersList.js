@@ -10,7 +10,7 @@ const PageContainer = styled.div`
 `;
 
 const PageTitle = styled.p`
-  padding: 12px;
+  padding-top: 12px;
   text-align: center;
   color: #bbb;
   font-size: 1.5rem;
@@ -18,6 +18,7 @@ const PageTitle = styled.p`
 
 const UserListContainer = styled.div`
   width: 600px;
+  height: 80%;
   margin: 20px auto 80px auto;
   background-color: #222;
   overflow-y: auto;
