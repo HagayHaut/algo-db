@@ -47,7 +47,7 @@ function NavBar({ onLogout, user }) {
         <NavLink to="/new" className="link">
           <p style={{ fontSize: "12px" }}>Add</p>
         </NavLink>
-        <NavLink to="/users" className="link">
+        <NavLink to="/user_list" className="link">
           <p style={{ fontSize: "12px" }}>Users</p>
         </NavLink>
         <NavLink to="/explore" className="link">
