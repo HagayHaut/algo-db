@@ -54,9 +54,26 @@ const Controls = styled.div`
   display: flex;
   color: #999;
   font-size: 12px;
+  padding: 4px;
 `;
 
-const SortContainer = styled.div``;
+const SortContainer = styled.div`
+  margin-left: 10px;
+`;
+
+const Radio = styled.input`
+  margin: 4px;
+`;
+
+const RadioLabel = styled.label`
+  margin-right: 30px;
+`;
+
+const SortBy = styled.p`
+  margin-right: 20px;
+  padding: 4px;
+  margin-left: 20px;
+`;
 
 function UsersList({ user }) {
   const [allUsers, setAllUsers] = useState([]);
@@ -99,20 +116,20 @@ function UsersList({ user }) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <p>Sort by:</p>
+          <SortBy>Sort by:</SortBy>
           <SortContainer>
-            <input
+            <Radio
               type="radio"
               checked={sortByDate}
               onChange={(e) => setSortByDate((prev) => !prev)}
             />
-            <label>Date joined</label>
-            <input
+            <RadioLabel>Date joined</RadioLabel>
+            <Radio
               type="radio"
               checked={!sortByDate}
               onChange={(e) => setSortByDate((prev) => !prev)}
             />
-            <label>Solution count</label>
+            <RadioLabel>Solution count</RadioLabel>
           </SortContainer>
         </Controls>
 
