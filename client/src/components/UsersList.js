@@ -50,9 +50,18 @@ const Input = styled.input`
   padding: 2px;
 `;
 
+const Controls = styled.div`
+  display: flex;
+  color: #999;
+  font-size: 12px;
+`;
+
+const SortContainer = styled.div``;
+
 function UsersList({ user }) {
   const [allUsers, setAllUsers] = useState([]);
   const [search, setSearch] = useState("");
+  const [sortByDate, setSortByDate] = useState(true);
 
   useEffect(() => {
     getAllUsers();
@@ -77,12 +86,30 @@ function UsersList({ user }) {
       <PageTitle>Users</PageTitle>
 
       <UserListContainer>
-        <Input
-          type="text"
-          placeholder="Find user..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <Controls>
+          <Input
+            type="text"
+            placeholder="Find user..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <p>Sort by:</p>
+          <SortContainer>
+            <input
+              type="radio"
+              checked={sortByDate}
+              onChange={(e) => setSortByDate((prev) => !prev)}
+            />
+            <label>Date joined</label>
+            <input
+              type="radio"
+              checked={!sortByDate}
+              onChange={(e) => setSortByDate((prev) => !prev)}
+            />
+            <label>Solution count</label>
+          </SortContainer>
+        </Controls>
+
         {userCards}
       </UserListContainer>
     </PageContainer>
