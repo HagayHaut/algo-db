@@ -73,13 +73,19 @@ function UsersList({ user }) {
     setAllUsers(users);
   }
 
-  const userCards = allUsers
-    .filter((userObj) =>
-      userObj.username.toLowerCase().includes(search.toLowerCase())
-    )
-    .map((userObj, i) => (
-      <UserCard key={i} user={userObj} isMe={userObj.id === user.id} />
-    ));
+  let userCards = allUsers.filter((userObj) =>
+    userObj.username.toLowerCase().includes(search.toLowerCase())
+  );
+
+  if (!sortByDate) {
+    userCards = userCards.sort(
+      (a, b) => b.counts.solution_count - a.counts.solution_count
+    );
+  }
+
+  userCards = userCards.map((userObj, i) => (
+    <UserCard key={i} user={userObj} isMe={userObj.id === user.id} />
+  ));
 
   return (
     <PageContainer>
