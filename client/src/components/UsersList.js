@@ -65,8 +65,8 @@ function UsersList({ user }) {
   }
 
   const userCards = allUsers
-    .filter((user) =>
-      user.username.toLowerCase().includes(search.toLowerCase())
+    .filter((userObj) =>
+      userObj.username.toLowerCase().includes(search.toLowerCase())
     )
     .map((userObj, i) => (
       <UserCard key={i} user={userObj} isMe={userObj.id === user.id} />
