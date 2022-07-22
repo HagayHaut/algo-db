@@ -188,7 +188,7 @@ function AddChallenge() {
             <option value="stack-queue">Stack/Queue</option>
             <option value="string">String</option>
             <option value="tree">Tree</option>
-            <option value="two-pinter">Two Pointer</option>
+            <option value="two-pointer">Two Pointer</option>
           </Select>
         </InputContainer>
         {errors.length > 0 && (
