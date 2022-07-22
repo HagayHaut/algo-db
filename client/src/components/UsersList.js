@@ -18,7 +18,7 @@ const PageTitle = styled.p`
 
 const UserListContainer = styled.div`
   width: 600px;
-  height: 80%;
+  max-height: 74vh;
   margin: 20px auto 80px auto;
   background-color: #222;
   overflow-y: auto;
@@ -41,7 +41,7 @@ const UserListContainer = styled.div`
 const Input = styled.input`
   margin: 4px 0 8px 0;
   color: #eee;
-  background-color: #222;
+  background-color: rgb(57, 57, 57);
   color: #fefefe;
   width: 200px;
   margin-left: 10px;
@@ -75,13 +75,16 @@ function UsersList({ user }) {
   return (
     <PageContainer>
       <PageTitle>Users</PageTitle>
-      <Input
-        type="text"
-        placeholder="Find user..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <UserListContainer>{userCards}</UserListContainer>
+
+      <UserListContainer>
+        <Input
+          type="text"
+          placeholder="Find user..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        {userCards}
+      </UserListContainer>
     </PageContainer>
   );
 }
