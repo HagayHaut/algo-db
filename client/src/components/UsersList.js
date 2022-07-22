@@ -38,8 +38,21 @@ const UserListContainer = styled.div`
   }
 `;
 
+const Input = styled.input`
+  margin: 4px 0 8px 0;
+  color: #eee;
+  background-color: #222;
+  color: #fefefe;
+  width: 200px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5%;
+  padding: 2px;
+`;
+
 function UsersList({ user }) {
   const [allUsers, setAllUsers] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     getAllUsers();
@@ -51,13 +64,23 @@ function UsersList({ user }) {
     setAllUsers(users);
   }
 
-  const userCards = allUsers.map((userObj, i) => (
-    <UserCard key={i} user={userObj} isMe={userObj.id === user.id} />
-  ));
+  const userCards = allUsers
+    .filter((user) =>
+      user.username.toLowerCase().includes(search.toLowerCase())
+    )
+    .map((userObj, i) => (
+      <UserCard key={i} user={userObj} isMe={userObj.id === user.id} />
+    ));
 
   return (
     <PageContainer>
       <PageTitle>Users</PageTitle>
+      <Input
+        type="text"
+        placeholder="Find user..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <UserListContainer>{userCards}</UserListContainer>
     </PageContainer>
   );
