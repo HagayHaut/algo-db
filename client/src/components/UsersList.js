@@ -50,11 +50,25 @@ const Input = styled.input`
   padding: 2px;
 `;
 
+const Divider = styled.div`
+  border-top: 1px solid #111;
+  width: 550px;
+  margin: 0 auto 0 auto;
+`;
+
 const Controls = styled.div`
   display: flex;
   color: #999;
   font-size: 12px;
   padding: 4px;
+`;
+
+const ControlsContainer = styled.div`
+  position: fixed;
+  z-index: 100;
+  background-color: #1a1a1a;
+  height: 35px;
+  width: 600px;
 `;
 
 const SortContainer = styled.div`
@@ -63,16 +77,22 @@ const SortContainer = styled.div`
 
 const Radio = styled.input`
   margin: 4px;
+  accent-color: #05d5fa;
 `;
 
 const RadioLabel = styled.label`
-  margin-right: 30px;
+  margin: 0 30px 0 8px;
 `;
 
 const SortBy = styled.p`
   margin-right: 20px;
   padding: 4px;
   margin-left: 20px;
+`;
+
+const UserCardContainer = styled.div`
+  position: relative;
+  top: 35px;
 `;
 
 function UsersList({ user }) {
@@ -109,31 +129,33 @@ function UsersList({ user }) {
       <PageTitle>Users</PageTitle>
 
       <UserListContainer>
-        <Controls>
-          <Input
-            type="text"
-            placeholder="Find user..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <SortBy>Sort by:</SortBy>
-          <SortContainer>
-            <Radio
-              type="radio"
-              checked={sortByDate}
-              onChange={(e) => setSortByDate((prev) => !prev)}
+        <ControlsContainer>
+          <Controls>
+            <Input
+              type="text"
+              placeholder="Find user..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
-            <RadioLabel>Date joined</RadioLabel>
-            <Radio
-              type="radio"
-              checked={!sortByDate}
-              onChange={(e) => setSortByDate((prev) => !prev)}
-            />
-            <RadioLabel>Solution count</RadioLabel>
-          </SortContainer>
-        </Controls>
-
-        {userCards}
+            <SortBy>Sort by:</SortBy>
+            <SortContainer>
+              <Radio
+                type="radio"
+                checked={sortByDate}
+                onChange={(e) => setSortByDate((prev) => !prev)}
+              />
+              <RadioLabel>Date joined</RadioLabel>
+              <Radio
+                type="radio"
+                checked={!sortByDate}
+                onChange={(e) => setSortByDate((prev) => !prev)}
+              />
+              <RadioLabel>Solution count</RadioLabel>
+            </SortContainer>
+          </Controls>
+          {/* <Divider /> */}
+        </ControlsContainer>
+        <UserCardContainer>{userCards}</UserCardContainer>
       </UserListContainer>
     </PageContainer>
   );
