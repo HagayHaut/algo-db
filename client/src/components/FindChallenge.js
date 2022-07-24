@@ -16,7 +16,7 @@ const ChallengeListContainer = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  width: 21vw;
+  width: 22vw;
   position: relative;
   height: 100vh;
   background-color: #222;
@@ -28,7 +28,7 @@ const ControlsDiv = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  width: 19vw;
+  width: 20vw;
 `;
 
 const ListItemContainer = styled.div`
@@ -58,7 +58,7 @@ const ChallengeListItems = styled.div`
   display: flex;
   text-align: left;
   flex-direction: column;
-  width: 19vw;
+  width: 20vw;
   overflow: hidden;
   background: #151515;
   padding: 8px 0 8px 0;
