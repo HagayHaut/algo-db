@@ -138,7 +138,7 @@ const Select = styled.select`
   background-color: rgb(57, 57, 57);
   color: #ddd;
   margin: 4px 0 4px 12px;
-  width: 50%;
+  width: 100%;
   border: none;
 `;
 
@@ -154,6 +154,10 @@ const Count = styled.p`
   color: #999;
 `;
 
+const Filter = styled.div`
+  display: flex;
+`;
+
 function Resources() {
   const initialSelectedResource = {
     id: null,
@@ -167,6 +171,7 @@ function Resources() {
   const [search, setSearch] = useState("");
   const [resourceCount, setResourceCount] = useState(0);
   const [resources, setResources] = useState([]);
+  const [freeOnly, setFreeOnly] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedResource, setSelectedResource] = useState(
     initialSelectedResource
@@ -214,6 +219,7 @@ function Resources() {
         resource.title.toLowerCase().includes(search.toLowerCase()) ||
         resource.external_url.toLowerCase().includes(search.toLowerCase())
     )
+    .filter((resource) => !freeOnly || resource.is_free)
     .sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1))
     .map((resource, i) => (
       <ResourceItem key={i} onClick={() => updateSelected(resource.id)}>
@@ -227,20 +233,33 @@ function Resources() {
         <TopLeftContainer>
           <PageTitle>Resources</PageTitle>
           <BigDivider />
-          <Label>Filter by category</Label>
-          <Select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            <option value="All">All</option>
-            <option value="Blog">Blog</option>
-            <option value="Book/PDF">Book/PDF</option>
-            <option value="Challenges">Challenges</option>
-            <option value="Course">Course</option>
-            <option value="GitHub">GitHub</option>
-            <option value="Tutorial">Tutorial</option>
-            <option value="Video">Video</option>
-          </Select>
+          <Filter>
+            <div style={{ width: "50%" }}>
+              <Label>Filter by category</Label>
+              <Select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                <option value="All">All</option>
+                <option value="Blog">Blog</option>
+                <option value="Book/PDF">Book/PDF</option>
+                <option value="Challenges">Challenges</option>
+                <option value="Course">Course</option>
+                <option value="GitHub">GitHub</option>
+                <option value="Tutorial">Tutorial</option>
+                <option value="Video">Video</option>
+              </Select>
+            </div>
+            <div>
+              <Label>Free only?</Label>
+              <input
+                type="checkbox"
+                checked={freeOnly}
+                onChange={() => setFreeOnly((prev) => !prev)}
+              />
+            </div>
+          </Filter>
+
           <Input
             type="text"
             placeholder="Search resources..."
