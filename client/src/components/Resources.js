@@ -148,6 +148,14 @@ const Label = styled.label`
   color: #999;
 `;
 
+const FreeLabel = styled.p`
+  margin: 4px;
+  margin-left: 20px;
+  font-size: 10px;
+  color: #999;
+  display: inline-block;
+`;
+
 const Count = styled.p`
   font-size: 10px;
   margin: 0 0 8px 12px;
@@ -155,6 +163,15 @@ const Count = styled.p`
 `;
 
 const Filter = styled.div`
+  display: flex;
+`;
+
+const CheckBox = styled.input`
+  cursor: pointer;
+  float: top;
+`;
+
+const FreeContainer = styled.div`
   display: flex;
 `;
 
@@ -250,14 +267,14 @@ function Resources() {
                 <option value="Video">Video</option>
               </Select>
             </div>
-            <div>
-              <Label>Free only?</Label>
-              <input
+            <FreeContainer>
+              <FreeLabel>Free only?</FreeLabel>
+              <CheckBox
                 type="checkbox"
                 checked={freeOnly}
                 onChange={() => setFreeOnly((prev) => !prev)}
               />
-            </div>
+            </FreeContainer>
           </Filter>
 
           <Input
