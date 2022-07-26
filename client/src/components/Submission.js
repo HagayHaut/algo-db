@@ -80,7 +80,7 @@ function Submission({ user }) {
         <Toggle>
           <ToggleButtons>
             <ToggleText
-              className="toggle-btn"
+              className="toggle-btn active"
               name="solution"
               onClick={handleClick}
             >
@@ -96,7 +96,7 @@ function Submission({ user }) {
             </ToggleText>
             {/* <VertDivider /> */}
             <ToggleText
-              className="toggle-btn active"
+              className="toggle-btn"
               name="resource"
               onClick={handleClick}
             >
