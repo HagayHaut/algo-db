@@ -41,16 +41,16 @@ const ToggleButtons = styled.div`
 `;
 
 function Submission({ user }) {
-  const [displayForm, setDisplayForm] = useState("resource");
+  const [displayForm, setDisplayForm] = useState("solution");
 
   const addNew = () => {
     switch (displayForm) {
-      case "solution":
-        return <AddSolution user={user} />;
+      case "resource":
+        return <AddResource />;
       case "challenge":
         return <AddChallenge />;
       default:
-        return <AddResource />;
+        return <AddSolution user={user} />;
     }
   };
 
@@ -66,8 +66,11 @@ function Submission({ user }) {
       case "Challenge":
         setDisplayForm("challenge");
         break;
-      default:
+      case "Resource":
         setDisplayForm("resource");
+        break;
+      default:
+        setDisplayForm("solution");
     }
   }
 
