@@ -265,7 +265,7 @@ function UserPage({ user }) {
       ) : (
         <PlaceholderChallenge />
       )}
-      <Resources />
+      <Resources user={user} />
     </PageContainer>
   );
 }

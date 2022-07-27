@@ -175,7 +175,7 @@ const FreeContainer = styled.div`
   display: flex;
 `;
 
-function Resources() {
+function Resources({ user }) {
   const initialSelectedResource = {
     id: null,
     title: "",
@@ -222,6 +222,14 @@ function Resources() {
       (resource) => resource.id === id
     );
     setSelectedResource(newSelectedResource);
+  }
+
+  function handleDelete(resourceId) {
+    fetch(`/resources/${resourceId}`, { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        console.log("deleted!");
+      }
+    });
   }
 
   const displayResources = resources
@@ -353,7 +361,11 @@ function Resources() {
         </TopRightContainer>
       </TopContainer>
 
-      <ResourceCard resource={selectedResource} />
+      <ResourceCard
+        resource={selectedResource}
+        onDelete={handleDelete}
+        user={user}
+      />
     </ResourcesContainer>
   );
 }

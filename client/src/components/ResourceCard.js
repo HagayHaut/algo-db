@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import styled from "styled-components";
+import UserPage from "./UserPage";
 
 const ResourceCardContainer = styled.div`
   width: 95%;
@@ -74,9 +75,21 @@ const MarkdownContainer = styled.div`
   }
 `;
 
-function ResourceCard({ resource }) {
-  const { title, description, external_url, is_free, resource_category } =
+const DeleteButton = styled.p`
+  margin-bottom: 10px;
+  cursor: pointer;
+`;
+
+function ResourceCard({ resource, user, onDelete }) {
+  const [deleted, setDeleted] = useState(false);
+
+  const { title, description, external_url, is_free, resource_category, id } =
     resource;
+
+  function handleClick() {
+    onDelete(id);
+    setDeleted(true);
+  }
 
   return (
     <ResourceCardContainer>
@@ -90,6 +103,11 @@ function ResourceCard({ resource }) {
         <Anchor href={external_url} target="_blank">
           <HiOutlineExternalLink />{" "}
         </Anchor>
+        {user.id !== 1 ? null : !deleted ? (
+          <DeleteButton onClick={handleClick}>Delete</DeleteButton>
+        ) : (
+          <DeleteButton>Deleted</DeleteButton>
+        )}
         <ReactMarkdown>{description}</ReactMarkdown>
       </MarkdownContainer>
     </ResourceCardContainer>

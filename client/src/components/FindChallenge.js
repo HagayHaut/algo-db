@@ -265,7 +265,7 @@ function FindChallenge({ user }) {
       ) : (
         <PlaceholderChallenge />
       )}
-      <Resources />
+      <Resources user={user} />
     </PageContainer>
   );
 }
