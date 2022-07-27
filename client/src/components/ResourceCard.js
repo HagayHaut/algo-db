@@ -81,14 +81,11 @@ const DeleteButton = styled.p`
 `;
 
 function ResourceCard({ resource, user, onDelete }) {
-  const [deleted, setDeleted] = useState(false);
-
   const { title, description, external_url, is_free, resource_category, id } =
     resource;
 
   function handleClick() {
     onDelete(id);
-    setDeleted(true);
   }
 
   return (
@@ -103,11 +100,9 @@ function ResourceCard({ resource, user, onDelete }) {
         <Anchor href={external_url} target="_blank">
           <HiOutlineExternalLink />{" "}
         </Anchor>
-        {user.id !== 1 ? null : !deleted ? (
+        {user.id === 1 ? (
           <DeleteButton onClick={handleClick}>Delete</DeleteButton>
-        ) : (
-          <DeleteButton>Deleted</DeleteButton>
-        )}
+        ) : null}
         <ReactMarkdown>{description}</ReactMarkdown>
       </MarkdownContainer>
     </ResourceCardContainer>

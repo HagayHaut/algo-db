@@ -168,7 +168,7 @@ const Filter = styled.div`
 
 const CheckBox = styled.input`
   cursor: pointer;
-  float: top;
+  accent-color: #05d5fa;
 `;
 
 const FreeContainer = styled.div`
@@ -227,7 +227,8 @@ function Resources({ user }) {
   function handleDelete(resourceId) {
     fetch(`/resources/${resourceId}`, { method: "DELETE" }).then((r) => {
       if (r.ok) {
-        console.log("deleted!");
+        const filteredResources = resources.filter((r) => r.id !== resourceId);
+        setResources(filteredResources);
       }
     });
   }
