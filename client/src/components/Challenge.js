@@ -157,7 +157,7 @@ function Challenge({
   clearSelectedChallenge,
 }) {
   const [showHint, setShowHint] = useState(false);
-  const [codeStyle, setCodeStyle] = useState("vs2015");
+  const [codeStyle, setCodeStyle] = useState("pojoaque");
 
   const { title, description, solutions, category_id, external_url } =
     selectedChallenge;
