@@ -235,8 +235,9 @@ function UserPage({ user }) {
           />
           {counts.solution_count > 0 && (
             <Count>
-              {counts.solution_count} Solutions for {counts.challenge_count}{" "}
-              Challenges
+              {search.length
+                ? `${displayChallenges.length} Results`
+                : `${counts.solution_count} Solutions for ${counts.challenge_count} Challenges`}
             </Count>
           )}
         </ControlsDiv>
