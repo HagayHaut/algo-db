@@ -188,7 +188,7 @@ function Resources({ user }) {
   const [search, setSearch] = useState("");
   const [resourceCount, setResourceCount] = useState(0);
   const [resources, setResources] = useState([]);
-  const [freeOnly, setFreeOnly] = useState(true);
+  const [freeOnly, setFreeOnly] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedResource, setSelectedResource] = useState(
     initialSelectedResource
