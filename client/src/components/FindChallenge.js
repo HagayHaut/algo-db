@@ -234,12 +234,13 @@ function FindChallenge({ user }) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          {counts.solution_count && (
+          {counts.solution_count ? (
             <Count>
-              {counts.solution_count} Solutions for {counts.challenge_count}{" "}
-              Challenges
+              {search.length
+                ? `${displayChallenges.length} Results`
+                : `${counts.solution_count} Solutions for ${counts.challenge_count} Challenges`}
             </Count>
-          )}
+          ) : null}
         </ControlsDiv>
         <ListItemContainer>
           <ChallengeListItems>
