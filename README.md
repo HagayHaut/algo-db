@@ -4,7 +4,7 @@ A safe place for algorithm solutions.
 
 ![logo](/assets/images/logo.png)
 
-Store your solutions, notes, and resources. Find how others solve the same challenges. Visit the site [here](http://algo-db.hagayhaut.com/)
+Store your solutions, notes, and resources. Find how others solve the same challenges. Visit the live site [here](http://algo-db.hagayhaut.com/)
 
 ## How To Use
 
