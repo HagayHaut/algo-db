@@ -4,7 +4,7 @@ A safe place for algorithm solutions.
 
 ![logo](/assets/images/logo.png)
 
-Store your solutions, notes, and resources. Find how others solve the same challenges. Visit the live site [here](http://algo-db.hagayhaut.com/)
+Store your solutions, notes, and resources. Find how others solve the same challenges. Visit the live site [here](http://algo-db.hagayhaut.com/).
 
 ## How To Use
 
@@ -41,3 +41,5 @@ Help other users by sharing your solutions and adding challenges and resources!
 Click the *Users* tab view your progress, and check up on the progress of other users.
 
 ![challenge](/assets/images/users.png)
+
+For more information, reach out to [Hagay Haut](https://github.com/HagayHaut).
