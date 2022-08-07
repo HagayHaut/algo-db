@@ -10,6 +10,16 @@ Store your solutions, notes, and resources. Find how others solve the same chall
 
 To use the application, sign-up with a new account or login to an existing accout. This app is secured by Ruby on Rails and BCrypt password salting and hashing. 
 
+## Built With
+1. [React.js](https://reactjs.org/)
+2. [Ruby on Rails](https://rubyonrails.org/)
+3. [BCrypt](https://github.com/bcrypt-ruby/bcrypt-ruby)
+4. [Styled Components](https://styled-components.com/)
+5. [React Syntax Highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter)
+6. [React Markdown](https://github.com/remarkjs/react-markdown)
+
+
+
 ### Discover Solutions 
 
 Visit the *Explore* page, where you can find all user solutions for each challenge on the site. Clicking on a challenge will open load the challenge and its solutions into the main window:
