@@ -36,7 +36,7 @@ Users can choose between 25 different ways to style their code, with syntax high
 
 ### Discover Resources
 
-Browse user-submitted resources, with the option to search by category and filter for free resources. 
+Browse user-submitted resources, with the option to search by category and filter for free resources.
 
 ![challenge](/assets/images/resources.png)
 
@@ -46,10 +46,10 @@ Help other users by sharing your solutions and adding challenges and resources!
 
 ![challenge](/assets/images/contribute.png)
 
-### Monitor Your Progress 
+### Monitor Your Progress
 
 Click the *Users* tab view your progress, and check up on the progress of other users.
 
 ![challenge](/assets/images/users.png)
 
-For more information, reach out to [Hagay Haut](https://github.com/HagayHaut).
+For more information, reach out to Hagay Haut on [GitHub](https://github.com/HagayHaut) or [LinkedIn](https://www.linkedin.com/in/hagay-haut/).
