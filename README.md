@@ -6,10 +6,35 @@ A safe place for algorithm solutions.
 
 Store your solutions, notes, and resources. Find how others solve the same challenges. Visit the live site [here](http://algo-db.hagayhaut.com/).
 
-## How To Use
+## As User
 
 To use the application, sign-up with a new account or login to an existing accout. This app is secured by Ruby on Rails and BCrypt password salting and hashing. 
 
+## Run Locally
+
+Fork and clone this repo and open with code editor. This app runs on Rails version `7.0.3` and React Router version `6.x`.
+
+To install rails dependencies, run
+
+```bash
+bundle install
+```
+ For React dependencies, from the root of the project run
+ ```bash
+ npm install --prefix client
+ ```
+ Migrate and seed the PostgreSQL database
+ ```
+rails db:migrate db:seed
+ ```
+ Start the backend server
+ ```
+rails s
+ ```
+Open the application in your browser
+```
+npm start --prefix client
+```
 ## Built With
 1. [React.js](https://reactjs.org/)
 2. [Ruby on Rails](https://rubyonrails.org/)
