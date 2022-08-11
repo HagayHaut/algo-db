@@ -17,11 +17,11 @@ Fork and clone this repo and open with code editor. This app runs on Rails versi
 To install rails dependencies, run
 
 ```bash
-bundle install
+bundle
 ```
  For React dependencies, from the root of the project run
  ```bash
- npm install --prefix client
+ npm i --prefix client
  ```
  Migrate and seed the PostgreSQL database
  ```
