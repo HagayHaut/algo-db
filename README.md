@@ -18,7 +18,7 @@ Fork and clone this repo and open with code editor. You must have the following 
 - Node `^16.14.0`
 - React `^18.2.0`
 
-To install rails dependencies, 
+To install rails dependencies
 ```bash
 bundle
 ```
