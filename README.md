@@ -4,15 +4,19 @@ A safe place for algorithm solutions.
 
 ![logo](/assets/images/logo.png)
 
-Store your solutions, notes, and resources. Find how others solve the same challenges. Visit the live site [here](http://algo-db.hagayhaut.com/).
+Store your solutions, notes, and resources. Find how others solve the same challenges. Visit the live site <del>[here](http://algo-db.hagayhaut.com/)</del>. (Heroku free tier is no more 😥)
 
 ## As User
 
-To use the application, sign-up with a new account or login to an existing accout. This app is secured by Ruby on Rails and BCrypt password salting and hashing. 
+To use the application, sign-up with a new account or login to an existing account. This app is secured by Ruby on Rails and BCrypt password salting and hashing. 
 
 ## Run Locally
 
-Fork and clone this repo and open with code editor. This app runs on Rails version `7.0.3` and React Router version `6.x`.
+Fork and clone this repo and open with code editor. You must have the following installed:
+- Ruby `^2.7.4`
+- Rails `^7.0.3`
+- Node `^16.14.0`
+- React `^18.2.0`
 
 To install rails dependencies, run
 
